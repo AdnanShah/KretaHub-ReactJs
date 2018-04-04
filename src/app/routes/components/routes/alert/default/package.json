@@ -1,0 +1,9 @@
+{
+  "name": "DefaultAlerts",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DefaultAlerts.js",
+  "dependencies": {
+    "reactstrap": "next"
+  }
+}

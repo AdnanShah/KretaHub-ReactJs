@@ -1,0 +1,10 @@
+{
+  "name": "Grid",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "dependencies": {
+    "react-dnd": "^2.5.4",
+    "react-dnd-html5-backend": "^2.5.4"
+  }
+}

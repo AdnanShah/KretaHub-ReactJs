@@ -1,0 +1,9 @@
+{
+  "name": "LinearDeterminate",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./LinearDeterminate.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

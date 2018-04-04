@@ -1,0 +1,9 @@
+{
+  "name": "differentSizes",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./IconButton.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

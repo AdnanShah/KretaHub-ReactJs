@@ -1,0 +1,9 @@
+{
+  "name": "ButtonGroups",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ButtonGroups.js",
+  "dependencies": {
+    "reactstrap": "v1.0.0-beta.35"
+  }
+}

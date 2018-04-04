@@ -1,0 +1,9 @@
+{
+  "name": "TitleCards",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TitleCards.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

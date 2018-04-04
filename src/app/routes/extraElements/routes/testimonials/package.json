@@ -1,0 +1,9 @@
+{
+  "name": "Testimonials",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "dependencies": {
+    "react-owl-carousel": "^2.2.0"
+  }
+}

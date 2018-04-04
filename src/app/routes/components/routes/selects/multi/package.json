@@ -1,0 +1,9 @@
+{
+  "name": "MultipleSelect",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./MultipleSelect.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

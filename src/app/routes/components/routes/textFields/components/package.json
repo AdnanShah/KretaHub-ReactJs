@@ -1,0 +1,9 @@
+{
+  "name": "ComposedTextField ",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ComposedTextField.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

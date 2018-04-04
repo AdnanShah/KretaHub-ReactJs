@@ -1,0 +1,9 @@
+{
+  "name": "DisabledCheckboxes",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DisabledCheckboxes.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

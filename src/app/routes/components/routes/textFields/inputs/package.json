@@ -1,0 +1,9 @@
+{
+  "name": "Inputs",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Inputs.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

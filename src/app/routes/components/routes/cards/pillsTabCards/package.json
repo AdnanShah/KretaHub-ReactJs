@@ -1,0 +1,9 @@
+{
+  "name": "PillsTabCards",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./PillsTabCards.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

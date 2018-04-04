@@ -1,0 +1,9 @@
+{
+  "name": "FormDialog",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./FormDialog.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

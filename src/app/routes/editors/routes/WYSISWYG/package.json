@@ -1,0 +1,9 @@
+{
+  "name": "WYSISWYG",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "dependencies": {
+    "react-draft-wysiwyg": "^1.10.12"
+  }
+}

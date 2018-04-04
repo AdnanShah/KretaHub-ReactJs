@@ -1,0 +1,9 @@
+{
+  "name": "socialMediaButtons",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SocialMediaButtons.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "CK",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "dependencies": {
+    "react-ckeditor-component": "^1.0.7"
+  }
+}

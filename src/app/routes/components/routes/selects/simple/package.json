@@ -1,0 +1,9 @@
+{
+  "name": "SimpleSelect",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SimpleSelect.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

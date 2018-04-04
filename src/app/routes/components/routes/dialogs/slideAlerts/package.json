@@ -1,0 +1,9 @@
+{
+  "name": "SideAlertDialog",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SideAlertDialog.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "SolidCards",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SolidCards.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

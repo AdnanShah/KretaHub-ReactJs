@@ -1,0 +1,9 @@
+{
+  "name": "ContentTypes",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ContentTypes.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

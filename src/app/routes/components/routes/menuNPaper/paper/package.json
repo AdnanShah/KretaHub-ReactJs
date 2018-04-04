@@ -1,0 +1,9 @@
+{
+  "name": "PaperSheet",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./PaperSheet.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

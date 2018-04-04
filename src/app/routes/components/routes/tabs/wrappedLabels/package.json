@@ -1,0 +1,9 @@
+{
+  "name": "BasicTabsWrappedLabel",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./BasicTabsWrappedLabel.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

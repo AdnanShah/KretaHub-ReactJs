@@ -1,0 +1,9 @@
+{
+  "name": "NestedButtonGroup",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./NestedButtonGroup.js",
+  "dependencies": {
+    "reactstrap": "v1.0.0-beta.35"
+  }
+}

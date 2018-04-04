@@ -1,0 +1,9 @@
+{
+  "name": "Checkboxes",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Checkboxes.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

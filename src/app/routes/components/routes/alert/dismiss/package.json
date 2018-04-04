@@ -1,0 +1,9 @@
+{
+  "name": "DismissingAlerts",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DismissingAlerts.js",
+  "dependencies": {
+    "reactstrap": "next"
+  }
+}

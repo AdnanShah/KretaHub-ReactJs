@@ -1,0 +1,9 @@
+{
+  "name": "SimpleMenu",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SimpleMenu.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

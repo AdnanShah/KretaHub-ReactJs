@@ -1,0 +1,9 @@
+{
+  "name": "TextFieldMargins",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TextFieldMargins.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

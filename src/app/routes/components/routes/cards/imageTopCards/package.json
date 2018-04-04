@@ -1,0 +1,9 @@
+{
+  "name": "imageTopCards",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./imageTopCards.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

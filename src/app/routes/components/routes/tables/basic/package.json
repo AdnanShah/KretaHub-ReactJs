@@ -1,0 +1,9 @@
+{
+  "name": "BasicTable",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./BasicTable.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

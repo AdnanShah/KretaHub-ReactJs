@@ -1,0 +1,9 @@
+{
+  "name": "RaisedButton",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./RaisedButton.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

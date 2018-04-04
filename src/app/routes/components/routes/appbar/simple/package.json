@@ -1,0 +1,9 @@
+{
+  "name": "SimpleAppBar",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SimpleAppBar.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

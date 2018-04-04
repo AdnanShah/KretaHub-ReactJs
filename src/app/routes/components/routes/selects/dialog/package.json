@@ -1,0 +1,9 @@
+{
+  "name": "DialogSelect",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DialogSelect.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "FlatButtons",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./FlatButtons.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

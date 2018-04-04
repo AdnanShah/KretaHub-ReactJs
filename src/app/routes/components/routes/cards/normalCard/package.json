@@ -1,0 +1,9 @@
+{
+  "name": "NormalCard",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./NormalCard.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

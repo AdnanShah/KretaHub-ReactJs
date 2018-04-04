@@ -1,0 +1,9 @@
+{
+  "name": "CircularDeterminate",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./CircularDeterminate.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

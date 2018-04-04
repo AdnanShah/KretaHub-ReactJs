@@ -1,0 +1,9 @@
+{
+  "name": "TabCards",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TabCards.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

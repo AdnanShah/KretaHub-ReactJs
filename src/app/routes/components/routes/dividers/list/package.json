@@ -1,0 +1,10 @@
+{
+  "name": "ListDividers",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ListDividers.js",
+  "dependencies": {
+    "material-ui": "next",
+    "material-ui-icons": "^1.0.0-beta.17"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Google Map",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "dependencies": {
+    "react-google-maps": "^7.3.0"
+  }
+}

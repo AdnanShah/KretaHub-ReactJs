@@ -1,0 +1,9 @@
+{
+  "name": "ComplexButtons",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ComplexButtons.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

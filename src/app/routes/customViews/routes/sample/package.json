@@ -1,0 +1,6 @@
+{
+  "name": "SimpleList",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SimpleList.js"
+}

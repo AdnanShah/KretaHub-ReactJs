@@ -1,0 +1,9 @@
+{
+  "name": "LetterAvatars",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./LetterAvatars.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

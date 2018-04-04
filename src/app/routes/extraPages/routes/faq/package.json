@@ -1,0 +1,9 @@
+{
+  "name": "FAQ",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./FAQ.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

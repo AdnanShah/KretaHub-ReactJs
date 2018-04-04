@@ -1,0 +1,9 @@
+{
+  "name": "AlertWithDetailed",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AlertWithDetailed.js",
+  "dependencies": {
+    "reactstrap": "next"
+  }
+}

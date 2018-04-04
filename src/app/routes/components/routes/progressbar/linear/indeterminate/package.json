@@ -1,0 +1,9 @@
+{
+  "name": "LinearIndeterminate",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./LinearIndeterminate.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

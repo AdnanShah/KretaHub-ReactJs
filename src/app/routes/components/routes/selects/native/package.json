@@ -1,0 +1,9 @@
+{
+  "name": "PaperSheet",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./NativeSelect.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

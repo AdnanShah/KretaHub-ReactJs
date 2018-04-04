@@ -1,0 +1,10 @@
+{
+  "name": "ScrollableTabsButtonAuto",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ScrollableTabsButtonAuto.js",
+  "dependencies": {
+    "material-ui": "next",
+    "material-ui-icons": "^1.0.0-beta.17"
+  }
+}

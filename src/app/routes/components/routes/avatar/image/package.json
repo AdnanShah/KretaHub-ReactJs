@@ -1,0 +1,9 @@
+{
+  "name": "ImageAvatars",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ImageAvatars.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

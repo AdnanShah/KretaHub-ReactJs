@@ -1,0 +1,9 @@
+{
+  "name": "HeaderFooterCards",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./HeaderFooterCards.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

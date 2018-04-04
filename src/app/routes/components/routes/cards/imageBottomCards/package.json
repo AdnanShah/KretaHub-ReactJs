@@ -1,0 +1,9 @@
+{
+  "name": "ImageBottomCards",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ImageBottomCards.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

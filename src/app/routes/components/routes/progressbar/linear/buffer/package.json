@@ -1,0 +1,9 @@
+{
+  "name": "LinearBuffer",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./LinearBuffer.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

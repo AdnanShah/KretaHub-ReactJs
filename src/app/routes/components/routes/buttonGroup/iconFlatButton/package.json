@@ -1,0 +1,9 @@
+{
+  "name": "IconFlatButtonGroup",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./IconFlatButtonGroup.js",
+  "dependencies": {
+    "reactstrap": "v1.0.0-beta.35"
+  }
+}

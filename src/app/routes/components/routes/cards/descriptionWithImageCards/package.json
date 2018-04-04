@@ -1,0 +1,9 @@
+{
+  "name": "DescriptionWithImageCards",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DescriptionWithImageCards.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

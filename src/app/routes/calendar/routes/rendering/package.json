@@ -1,0 +1,9 @@
+{
+  "name": "Rendering",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "dependencies": {
+    "react-big-calendar": "^0.17.0"
+  }
+}

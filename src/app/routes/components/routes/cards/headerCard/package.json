@@ -1,0 +1,9 @@
+{
+  "name": "HeaderCard",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./HeaderCard.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

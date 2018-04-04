@@ -1,0 +1,9 @@
+{
+  "name": "SimpleSnackbar",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SimpleSnackbar.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

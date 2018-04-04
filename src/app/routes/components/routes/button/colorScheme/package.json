@@ -1,0 +1,9 @@
+{
+  "name": "ColorScheme",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ColorScheme.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

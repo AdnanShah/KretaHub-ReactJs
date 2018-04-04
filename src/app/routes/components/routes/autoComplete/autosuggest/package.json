@@ -1,0 +1,9 @@
+{
+  "name": "IntegrationAutosuggest",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./IntegrationAutosuggest.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}

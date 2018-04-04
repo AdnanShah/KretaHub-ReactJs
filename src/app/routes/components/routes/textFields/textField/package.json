@@ -1,0 +1,9 @@
+{
+  "name": "TextFields",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TextFields.js",
+  "dependencies": {
+    "material-ui": "next"
+  }
+}
