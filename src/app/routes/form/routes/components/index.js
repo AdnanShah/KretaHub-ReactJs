@@ -31,11 +31,11 @@ import LinearBuffer from '../../../components/routes/progressbar/linear/buffer/L
 import LinearQuery from '../../../components/routes/progressbar/linear/query/LinearQuery';
 
 
-import DatePickers from '../../../components/routes/pickers/date/DatePickers';
-import DateAndTimePickers from '../../../components/routes/pickers/dateTime/DateAndTimePickers';
-import TimePickers from '../../../components/routes/pickers/time/TimePickers';
-import CustomDateTimePicker from '../../../components/routes/pickers/customDateTimePicker/CustomDateTimePicker';
-import WeekPicker from '../../../components/routes/pickers/weekPicker/WeekPicker';
+// import DatePickers from '../../../components/routes/pickers/date/DatePickers';
+// import DateAndTimePickers from '../../../components/routes/pickers/dateTime/DateAndTimePickers';
+// import TimePickers from '../../../components/routes/pickers/time/TimePickers';
+// import CustomDateTimePicker from '../../../components/routes/pickers/customDateTimePicker/CustomDateTimePicker';
+// import WeekPicker from '../../../components/routes/pickers/weekPicker/WeekPicker';
 
 
 import SimpleDialogDemo from '../../../components/routes/dialogs/simple/SimpleDialogDemo';
@@ -145,26 +145,6 @@ const Form = ({match}) => {
                 </CardBox>
             </div>
 
-
-            <div className="row">
-                <CardBox childrenStyle="d-flex justify-content-center" heading={<IntlMessages id="picker.date.date"/>}>
-                    <DatePickers/>
-                </CardBox>
-                <CardBox childrenStyle="d-flex justify-content-center" heading={<IntlMessages id="picker.date.time"/>}>
-                    <TimePickers/>
-                </CardBox>
-                <CardBox childrenStyle="d-flex justify-content-center"
-                         heading={<IntlMessages id="picker.date.dateNTime"/>}>
-                    <DateAndTimePickers/>
-                </CardBox>
-                <CardBox childrenStyle="d-flex justify-content-center"
-                         heading={<IntlMessages id="picker.date.customDate"/>}>
-                    <CustomDateTimePicker/>
-                </CardBox>
-                <CardBox childrenStyle="d-flex justify-content-center" heading={<IntlMessages id="picker.date.week"/>}>
-                    <WeekPicker/>
-                </CardBox>
-            </div>
 
 
             <div className="row">

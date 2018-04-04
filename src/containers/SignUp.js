@@ -40,16 +40,24 @@ import FormDialog from '../app/routes/components/routes/dialogs/formAlerts/FormD
 import Chip from '../app/routes/components/routes/chips/simpleChip/Chips';
 import ChipsArray from '../app/routes/components/routes/chips/chipArray/ChipsArray';
 import IntlMessages from '../util/IntlMessages';
-
+const divStyle={
+    overflowY: 'scroll',
+    border:'1px solid red',
+    width:'100%',
+    float: 'left',
+    height:'100%',
+    position:'relative'
+  };
+  
 const Form = ({match}) => {
     return (
 
-        <div className="animated slideInUpTiny animation-duration-3">
-            {/* <ContainerHeader title={<IntlMessages id="sidebar.forms.components"/>} match={match}/> */}
+        <div style={divStyle} className="animated slideInUpTiny animation-duration-3">
+            <ContainerHeader title="Shipper Signup" match={match}/>
 
             <div className="row">
                 <CardBox styleName="col-lg-12" childrenStyle="d-flex justify-content-center"
-                         heading={<IntlMessages id="component.textFields.textfield"/>}>
+                         heading="Shipper Information">
                     <TextFields/>
                 </CardBox>
                 <CardBox styleName="col-lg-12" childrenStyle="d-flex justify-content-center"
@@ -136,6 +144,7 @@ const Form = ({match}) => {
                     <CircularFab/>
                 </CardBox>
             </div>
+
 
 
             <div className="row">
