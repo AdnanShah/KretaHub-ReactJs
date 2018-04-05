@@ -6,6 +6,7 @@ import citys from './jsonDataSource/province-ID.json';
 import locality from './jsonDataSource/locality-ID.json';
 import countries from './jsonDataSource/countries.json';
 import Button from 'material-ui/Button';
+import Upload from 'material-ui-upload/Upload';
 
 const currencies = [
     {
@@ -51,6 +52,7 @@ class TextFields extends React.Component {
     handleChange = name => event => {
         this.setState({[name]: event.target.value});
     };
+    onFileLoad = (e, file) => console.log(e.target.result, file.name);
 
     render() {
 
@@ -338,185 +340,70 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth/>
                         </div>
-
-                        
                     </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="uncontrolled"
-                            label="Uncontrolled"
-                            defaultValue="foo"
-                            margin="normal"
-                            fullWidth/>
+                    <div className="row">
+                        <div className="col-md-3 col-12">
+                            <h3>Identity Type</h3>
+                        </div>
+                        <div className="col-md-3 col-12">
+                            <div className="form-check form-check-inline">
+                                <label className="form-check-label">
+                                    <input
+                                        className="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio1"
+                                        value="option1"/>
+                                    Citizen ID Card
+                                </label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <label className="form-check-label">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio2"
+                                        value="option2"/>
+                                    Driver's License
+                                </label>
+                            </div>
+                            <div className="form-check form-check-inline disabled">
+                                <label className="form-check-label">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio3"
+                                        value="option3"/>
+                                    Residency Permit
+                                </label>
+                            </div>
+                            <div className="form-check form-check-inline disabled">
+                                <label className="form-check-label">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio3"
+                                        value="option3"/>
+                                    Passport
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            required
-                            id="required"
-                            label="Required"
-                            defaultValue="Hello World"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            error
-                            id="error"
-                            label="Error"
-                            defaultValue="Hello World"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="password"
-                            label={< IntlMessages id = "appModule.password" />}
-                            type="password"
-                            autoComplete="current-password"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="number"
-                            label="Number"
-                            value={this.state.age}
-                            onChange={this.handleChange('age')}
-                            type="number"
-                            InputLabelProps={{
-                            shrink: true
-                        }}
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="multiline-flexible"
-                            label="Multiline"
-                            multiline
-                            rowsMax="4"
-                            value={this.state.multiline}
-                            onChange={this.handleChange('multiline')}
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="helperText"
-                            label="Helper text"
-                            defaultValue="Default Value"
-                            helperText="Some important text"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            label="With placeholder"
-                            placeholder="Placeholder"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            label="With placeholder multiline"
-                            placeholder="Placeholder"
-                            multiline
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="search"
-                            label="Search field"
-                            type="search"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="select-currency"
-                            select
-                            label="Select"
-                            value={this.state.currency}
-                            onChange={this.handleChange('currency')}
-                            SelectProps={{}}
-                            helperText="Please select your currency"
-                            margin="normal"
-                            fullWidth>
-                            {currencies.map(option => (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="select-currency-native"
-                            select
-                            label="Native select"
-                            value={this.state.currency}
-                            onChange={this.handleChange('currency')}
-                            SelectProps={{
-                            native: true
-                        }}
-                            helperText="Please select your currency"
-                            margin="normal"
-                            fullWidth>
-                            {currencies.map(option => (
-                                <option key={option.value} value={option.value}>
-                                    {option.label}
-                                </option>
-                            ))}
-                        </TextField>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="multiline-static"
-                            label="Multiline"
-                            multiline
-                            rows="4"
-                            defaultValue="Default Value"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-12">
-                        <TextField
-                            id="full-width"
-                            label="Label"
-                            InputLabelProps={{
-                            shrink: true
-                        }}
-                            placeholder="Placeholder"
-                            helperText="Full width!"
-                            fullWidth
-                            margin="normal"/>
-                    </div>
-                    <div className="col-12">
-                        <TextField
-                            id="full-width"
-                            label="Label"
-                            InputLabelProps={{
-                            shrink: true
-                        }}
-                            placeholder="Placeholder"
-                            helperText="Full width!"
-                            fullWidth
-                            margin="normal"/>
-                    </div>
-                    <div className="col-12">
-                        <TextField
-                            id="full-width"
-                            label="Label"
-                            InputLabelProps={{
-                            shrink: true
-                        }}
-                            placeholder="Placeholder"
-                            helperText="Full width!"
-                            fullWidth
-                            margin="normal"/>
-                    </div>
+                    
+                    <br/>
+                    <Button variant="raised" color="primary" size="small">
+                        Add another Officers
+                    </Button>
+                    <br/>
+                    <br/>
+                    <Button variant="raised" color="primary" size="small">
+                        Submit
+                    </Button>
+                    <br/>
+                    <br/>
                 </form>
             </div>
 
