@@ -2,6 +2,9 @@ import React from 'react';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
 import IntlMessages from 'util/IntlMessages';
+import citys from './jsonDataSource/province-ID.json';
+import locality from './jsonDataSource/locality-ID.json';
+import countries from './jsonDataSource/countries.json';
 
 const currencies = [
     {
@@ -21,10 +24,10 @@ const currencies = [
 
 const shipments = [
     {
-        value: '1-10/month',
+        value: '1',
         label: '1-10/month'
     }, {
-        value: '10 or more/month',
+        value: '2',
         label: '10 or more/month'
     }
 ];
@@ -38,7 +41,10 @@ class TextFields extends React.Component {
         age: '',
         multiline: 'Controlled',
         currency: 'EUR',
-        industry: 'Axact'
+        industry: 'Axact',
+        shipment: '1-10/month',
+        address: '',
+        city: ''
     };
 
     handleChange = name => event => {
@@ -80,9 +86,58 @@ class TextFields extends React.Component {
                                 ))}
                             </TextField>
                         </div>
+                        <div className="col-md-3 col-12">
+                            <TextField
+                                id="select-shipment"
+                                select
+                                label="Select Shipment"
+                                value={this.state.shipment}
+                                onChange={this.handleChange('shipment')}
+                                SelectProps={{}}
+                                helperText="Please select your shipment"
+                                margin="normal"
+                                fullWidth>
+                                {shipments.map(shipment => (
+                                    <MenuItem key={shipment.value} value={shipment.value}>
+                                        {shipment.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                        </div>
 
                     </div>
+                    <div className="row">
+                        <div className="col-md-3 col-12">
+                            <TextField
+                                id="address"
+                                label="Address"
+                                multiline
+                                rowsMax="4"
+                                value={this.state.address}
+                                onChange={this.handleChange('address')}
+                                margin="normal"
+                                fullWidth/>
+                        </div>
+                        <div className="col-md-3 col-12">
+                            <TextField
+                                id="city"
+                                select
+                                label="Select City"
+                                value={this.state.city}
+                                onChange={this.handleChange('city')}
+                                SelectProps={{}}
+                                helperText="Please select your city"
+                                margin="normal"
+                                fullWidth>
+                                {citys.map(city => (
+                                    <MenuItem key={city.id} value={city.name_id}>
+                                        {city.name_id}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                        </div>
 
+                    </div>
                     <div className="col-md-3 col-12">
                         <TextField
                             id="uncontrolled"
