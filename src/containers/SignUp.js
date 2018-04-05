@@ -136,183 +136,50 @@ class TextFields extends React.Component {
                                 ))}
                             </TextField>
                         </div>
-
+                        <div className="col-md-3 col-12">
+                            <TextField
+                                id="State"
+                                label="State"
+                                defaultValue="State"
+                                margin="normal"
+                                fullWidth/>
+                        </div>
                     </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="uncontrolled"
-                            label="Uncontrolled"
-                            defaultValue="foo"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            required
-                            id="required"
-                            label="Required"
-                            defaultValue="Hello World"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            error
-                            id="error"
-                            label="Error"
-                            defaultValue="Hello World"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="password"
-                            label={< IntlMessages id = "appModule.password" />}
-                            type="password"
-                            autoComplete="current-password"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="number"
-                            label="Number"
-                            value={this.state.age}
-                            onChange={this.handleChange('age')}
-                            type="number"
-                            InputLabelProps={{
-                            shrink: true
-                        }}
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="multiline-flexible"
-                            label="Multiline"
-                            multiline
-                            rowsMax="4"
-                            value={this.state.multiline}
-                            onChange={this.handleChange('multiline')}
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="helperText"
-                            label="Helper text"
-                            defaultValue="Default Value"
-                            helperText="Some important text"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            label="With placeholder"
-                            placeholder="Placeholder"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            label="With placeholder multiline"
-                            placeholder="Placeholder"
-                            multiline
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="search"
-                            label="Search field"
-                            type="search"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="select-currency"
-                            select
-                            label="Select"
-                            value={this.state.currency}
-                            onChange={this.handleChange('currency')}
-                            SelectProps={{}}
-                            helperText="Please select your currency"
-                            margin="normal"
-                            fullWidth>
-                            {currencies.map(option => (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="select-currency-native"
-                            select
-                            label="Native select"
-                            value={this.state.currency}
-                            onChange={this.handleChange('currency')}
-                            SelectProps={{
-                            native: true
-                        }}
-                            helperText="Please select your currency"
-                            margin="normal"
-                            fullWidth>
-                            {currencies.map(option => (
-                                <option key={option.value} value={option.value}>
-                                    {option.label}
-                                </option>
-                            ))}
-                        </TextField>
-                    </div>
-                    <div className="col-md-3 col-12">
-                        <TextField
-                            id="multiline-static"
-                            label="Multiline"
-                            multiline
-                            rows="4"
-                            defaultValue="Default Value"
-                            margin="normal"
-                            fullWidth/>
-                    </div>
-                    <div className="col-12">
-                        <TextField
-                            id="full-width"
-                            label="Label"
-                            InputLabelProps={{
-                            shrink: true
-                        }}
-                            placeholder="Placeholder"
-                            helperText="Full width!"
-                            fullWidth
-                            margin="normal"/>
-                    </div>
-                    <div className="col-12">
-                        <TextField
-                            id="full-width"
-                            label="Label"
-                            InputLabelProps={{
-                            shrink: true
-                        }}
-                            placeholder="Placeholder"
-                            helperText="Full width!"
-                            fullWidth
-                            margin="normal"/>
-                    </div>
-                    <div className="col-12">
-                        <TextField
-                            id="full-width"
-                            label="Label"
-                            InputLabelProps={{
-                            shrink: true
-                        }}
-                            placeholder="Placeholder"
-                            helperText="Full width!"
-                            fullWidth
-                            margin="normal"/>
+                    <div className="row">
+                        <div className="col-md-3 col-12">
+                            <TextField
+                                id="Zip-Code"
+                                label="Zip-Code"
+                                defaultValue="Zip-Code"
+                                margin="normal"
+                                fullWidth/>
+                        </div>
+                        <div className="col-md-3 col-12">
+                            <TextField
+                                id="city"
+                                select
+                                label="Select City"
+                                value={this.state.city}
+                                onChange={this.handleChange('city')}
+                                SelectProps={{}}
+                                helperText="Please select your city"
+                                margin="normal"
+                                fullWidth>
+                                {countries.map(countrie => (
+                                    <MenuItem key={countrie.id} value={countrie.name}>
+                                        {countrie.name}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                        </div>
+                        <div className="col-md-3 col-12">
+                            <TextField
+                                id="Phone"
+                                label="Phone"
+                                defaultValue="+62317482303"
+                                margin="normal"
+                                fullWidth/>
+                        </div>
                     </div>
                 </form>
             </div>
