@@ -6,7 +6,7 @@ import citys from './jsonDataSource/province-ID.json';
 import locality from './jsonDataSource/locality-ID.json';
 import countries from './jsonDataSource/countries.json';
 import Button from 'material-ui/Button';
- 
+
 const currencies = [
     {
         value: 'USD',
@@ -68,7 +68,7 @@ class TextFields extends React.Component {
                     Shipper Signup</h1>
                 <form noValidate autoComplete="off">
                     <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="name"
                                 label="Name"
@@ -77,7 +77,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="select-industry"
                                 select
@@ -95,7 +95,7 @@ class TextFields extends React.Component {
                                 ))}
                             </TextField>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="select-shipment"
                                 select
@@ -116,7 +116,7 @@ class TextFields extends React.Component {
 
                     </div>
                     <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="address"
                                 label="Address"
@@ -127,7 +127,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="city"
                                 select
@@ -145,7 +145,7 @@ class TextFields extends React.Component {
                                 ))}
                             </TextField>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="State"
                                 label="State"
@@ -155,7 +155,7 @@ class TextFields extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="Zip-Code"
                                 label="Zip-Code"
@@ -163,7 +163,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="city"
                                 select
@@ -181,7 +181,7 @@ class TextFields extends React.Component {
                                 ))}
                             </TextField>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="Phone"
                                 label="Phone"
@@ -191,19 +191,20 @@ class TextFields extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField id="fax" label="fax" margin="normal" fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField id="email" label="email" margin="normal" fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField id="NPWPNumber" label="NPWP Number" margin="normal" fullWidth/>
                         </div>
 
                     </div>
+                    <br/>
                     <div className="row">
-                        <div className="col-md-2 col-12">
+                        <div className="col-md-4 col-12">
                             <h3>NPWP Document</h3>
                         </div>
                         <div className="col-md-8 col-12">
@@ -215,12 +216,12 @@ class TextFields extends React.Component {
                             </label>
                         </div>
                     </div>
-
+                    <br/>
                     <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField id="SIUPNumber" label="SIUP Number" margin="normal" fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="SIUPExpirationDate"
                                 label="SIUP Expiration Date"
@@ -237,7 +238,7 @@ class TextFields extends React.Component {
                     }}>
                         Representatives</h1>
                     <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="name"
                                 label="Name"
@@ -246,7 +247,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="address"
                                 label="Address"
@@ -258,7 +259,7 @@ class TextFields extends React.Component {
                                 fullWidth/>
                         </div>
 
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="city"
                                 select
@@ -276,7 +277,9 @@ class TextFields extends React.Component {
                                 ))}
                             </TextField>
                         </div>
-                        <div className="col-md-3 col-12">
+                    </div>
+                    <div className="row">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="State"
                                 label="State"
@@ -284,9 +287,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth/>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="Zip-Code"
                                 label="Zip-Code"
@@ -294,7 +295,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="city"
                                 select
@@ -312,7 +313,7 @@ class TextFields extends React.Component {
                                 ))}
                             </TextField>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField
                                 id="Phone"
                                 label="Phone"
@@ -320,10 +321,10 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField id="fax" label="fax" margin="normal" fullWidth/>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <TextField id="mobile" label="Mobile" margin="normal" fullWidth/>
                         </div>
                     </div>
@@ -355,8 +356,9 @@ class TextFields extends React.Component {
                                 fullWidth/>
                         </div>
                     </div>
-                    <div className="row well">
-                        <div className="col-md-3 col-12">
+                    <br/>
+                    <div className="row">
+                        <div className="col-md-4 col-12">
                             <h3>Identity Type</h3>
                         </div>
                         <div className="col-md-8 col-12">
@@ -406,8 +408,9 @@ class TextFields extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <br/>
                     <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             <h3>Identity Document</h3>
                         </div>
                         <div className="col-md-8 col-12">
