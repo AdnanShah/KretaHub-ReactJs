@@ -46,6 +46,7 @@ class TextFields extends React.Component {
         shipment: '1-10/month',
         address: '',
         city: '',
+        imageUrl: '',
         Representatives: [
             {
                 name: ''
@@ -156,7 +157,29 @@ class TextFields extends React.Component {
                 .filter((s, sidx) => idx !== sidx)
         });
     }
+    _onChange = (e) => {
 
+        const file    = this.refs.uploadImg.files[0]
+        const reader  = new FileReader();
+    
+        reader.onloadend = () => {
+            this.setState({
+                imageUrl: reader.result
+            })
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+            this.setState({
+                imageUrl :reader.result
+            })
+        } 
+        else {
+            this.setState({
+                imageUrl: ""
+            })
+        }
+    }
+    
     render() {
 
         return (
@@ -164,15 +187,14 @@ class TextFields extends React.Component {
       <div style={divStyle} className="container">
                 <br/>
                 <h1
-                    className="text-center"
-                    style={{
+                   className="text-center"                   
+                   style={{
                     background: '#212121',
                     color: '#fff'
                 }}>
                     Shipper Signup</h1>
                     
                 <h2
-                    className="text-center"
                     style={{
                     background: '#212121',
                     color: '#fff'
@@ -339,16 +361,30 @@ class TextFields extends React.Component {
                     </div>
                     <br/>
                     <div className="row">
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField id="SIUPNumber" label="SIUP Number" margin="normal" fullWidth/>
                         </div>
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="SIUPExpirationDate"
                                 label="SIUP Expiration Date"
                                 margin="normal"
                                 fullWidth/>
                         </div>
+                    </div>      
+<br/>                         <div class="form-row text-center">
+                    <div class="col-12"> 
+                             <h1>  Upload Logo Here</h1>
+                        <input
+                            ref="uploadImg"
+                            type="file"
+                            name="selectedFile"
+                            onChange={this._onChange}
+                            />
+<br/>
+<br/>                        <img src={this.state.imageUrl}  className="rounded" width="304" height="36" alt="LOGO"/>
+                        <br/>           
+                    </div>
                     </div>
                     <div>
                         {this
@@ -357,8 +393,7 @@ class TextFields extends React.Component {
                             .map((Representative, idx) => (
                                 <div>
                                     <h1
-                                        className="text-center"
-                                        style={{
+                                                            style={{
                                         background: '#212121',
                                         color: '#fff'
                                     }}>
@@ -488,8 +523,7 @@ class TextFields extends React.Component {
                         .map((Officer, idx) => (
                             <div>
                                 <h1
-                                    className="text-center"
-                                    style={{
+                                                    style={{
                                     background: '#212121',
                                     color: '#fff'
                                 }}>
