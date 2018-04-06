@@ -160,7 +160,8 @@ class TextFields extends React.Component {
     render() {
 
         return (
-            <div style={divStyle} className="container">
+      
+      <div style={divStyle} className="container">
                 <br/>
                 <h1
                     className="text-center"
@@ -436,13 +437,23 @@ class TextFields extends React.Component {
                                             <TextField id="mobile" label="Mobile" margin="normal" fullWidth/>
                                         </div>
                                     </div>
+                                    <br/>
+                                    <div class="form-row text-center">
+    <div class="col-12">
+ 
                                     <Button
                                         variant="raised"
                                         color="primary"
                                         size="small"
                                         onClick={this.handleRemoveRepresentative(idx)}>-</Button>
                                 </div>
+                                </div>
+                                </div>
                             ))}
+                            <br/>                                    
+                            <div class="form-row text-center">
+    <div class="col-12">
+ 
                         <Button
                             variant="raised"
                             color="primary"
@@ -450,6 +461,8 @@ class TextFields extends React.Component {
                             onClick={this.handleAddRepresentative}>
                             Add another Representative
                         </Button>
+                    </div>
+                    </div>
                     </div>
                     <br/>
                     <br/> {this
@@ -534,7 +547,8 @@ class TextFields extends React.Component {
                                     <div className="col-md-4 col-12">
                                         <h3>Identity Document</h3>
                                     </div>
-                                    <div className="col-md-8 col-12">
+                                    <div class="form-row text-center">
+    <div class="col-12">
                                         <input accept="image/*" id="raised-button-file" multiple type="file"/>
                                         <label htmlFor="raised-button-file">
                                             <Button variant="raised" component="span">
@@ -542,14 +556,22 @@ class TextFields extends React.Component {
                                             </Button>
                                         </label>
                                     </div>                                   
+                                    </div>                                   
                                 </div>
+                                <div class="form-row text-center">
+    <div class="col-12">
+ 
                                 <Button type="button" onClick={this.handleRemoveOfficer(idx)} variant="raised"
                                 color="primary"
-                                size="small">-</Button>
-      
+                                size="small">-</Button>      
+                            </div>
+                            </div>
                             </div>
                         ))} 
                 <br/>
+                <div class="form-row text-center">
+    <div class="col-12">
+ 
                 <Button
                     onClick={this.handleAddOfficer}
                     variant="raised"
@@ -564,6 +586,8 @@ class TextFields extends React.Component {
                 </Button>
                 <br/>
                 <br/>
+ </div>
+ </div>
             </form>
         </div>
 
