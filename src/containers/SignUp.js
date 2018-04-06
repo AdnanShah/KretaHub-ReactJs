@@ -180,7 +180,7 @@ class TextFields extends React.Component {
         repFax: '',
         repMobile: '',
         shipment: '',
-        countries: '',
+        country: '',
 
         Representatives: [
             {}
@@ -219,7 +219,7 @@ class TextFields extends React.Component {
             industry:currencies[0].value,
             shipment:shipments[0].label,
             city:citys[0].name_id,
-            countries:countries[0].name,
+            country:countries[0].name,
 
             // industry:this.currencies.value,
 
@@ -363,15 +363,15 @@ class TextFields extends React.Component {
                             <TextField
                                 id="city"
                                 select
-                                label="Select City"
-                                value={this.state.city}
+                                label="Select Country"
+                                value={this.state.country}
                                 onChange={this.handleChange('city')}
                                 SelectProps={{}}
                                 helperText="Please select your city"
                                 margin="normal"
                                 fullWidth>
                                 {countries.map(countrie => (
-                                    <MenuItem key={countrie.id} value={countrie.name}>
+                                    <MenuItem key={countrie.id} value={this.state.country}>
                                         {countrie.name}
                                     </MenuItem>
                                 ))}
@@ -555,17 +555,17 @@ class TextFields extends React.Component {
                                         </div>
                                         <div className="col-md-4 col-12">
                                             <TextField
-                                                id="city"
+                                                id="country"
                                                 select
-                                                label="Select City"
-                                                value={this.state.city}
-                                                onChange={this.handleChange('city')}
+                                                label="Select country"
+                                                value={this.state.country}
+                                                onChange={this.handleChange('country')}
                                                 SelectProps={{}}
-                                                helperText="Please select your city"
+                                                helperText="Please select your country"
                                                 margin="normal"
                                                 fullWidth>
                                                 {countries.map(countrie => (
-                                                    <MenuItem key={countrie.id} value={countrie.name}>
+                                                    <MenuItem key={countrie.id} value={this.state.country}>
                                                         {countrie.name}
                                                     </MenuItem>
                                                 ))}
