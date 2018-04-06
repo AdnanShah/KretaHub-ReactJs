@@ -14,11 +14,6 @@ const TextField = ({match}) => {
         <div className="animated slideInUpTiny animation-duration-3">
             <ContainerHeader title={<IntlMessages id="sidebar.components.textFields"/>} match={match}/>
 
-            <div className="row mb-md-4">
-                <CardBox styleName="col-lg-12" heading={<IntlMessages id="component.textFields.textfield"/>}>
-                    <TextFields/>
-                </CardBox>
-            </div>
 
             <div className="row mb-md-4">
                 <CardBox styleName="col-lg-12" heading={<IntlMessages id="component.textFields.components"/>}>
