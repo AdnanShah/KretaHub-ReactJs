@@ -159,57 +159,46 @@ class TextFields extends React.Component {
     }
     _onChange = (e) => {
 
-        const file    = this.refs.uploadImg.files[0]
-        const reader  = new FileReader();
-    
+        const file = this.refs.uploadImg.files[0]
+        const reader = new FileReader();
+
         reader.onloadend = () => {
-            this.setState({
-                imageUrl: reader.result
-            })
+            this.setState({imageUrl: reader.result})
         }
         if (file) {
             reader.readAsDataURL(file);
-            this.setState({
-                imageUrl :reader.result
-            })
-        } 
-        else {
-            this.setState({
-                imageUrl: ""
-            })
+            this.setState({imageUrl: reader.result})
+        } else {
+            this.setState({imageUrl: ""})
         }
     }
-    
+
     render() {
 
         return (
-      
-      <div style={divStyle} className="container">
+
+            <div style={divStyle} className="container">
                 <br/>
                 <h1
-                   className="text-center"                   
-                   style={{
+                    className="text-center"
+                    style={{
                     background: '#212121',
                     color: '#fff'
                 }}>
                     Shipper Signup</h1>
-                    
+
                 <h2
                     style={{
                     background: '#212121',
                     color: '#fff'
                 }}>
                     Shipper Information</h2>
-                    <div class="form-row text-center">
-                    <div class="col-12"> 
-                    <Button
-                       variant="raised"
-                        color="primary"
-                        size="small"
-                    >Fill Form</Button>
+                <div class="form-row text-center">
+                    <div class="col-12">
+                        <Button variant="raised" color="primary" size="small">Fill Form</Button>
                     </div>
-                    </div>
-                    <form noValidate autoComplete="off">
+                </div>
+                <form noValidate autoComplete="off">
                     <div className="row">
                         <div className="col-md-4 col-12">
                             <TextField
@@ -346,18 +335,19 @@ class TextFields extends React.Component {
 
                     </div>
                     <br/>
+                    <br/>
+
                     <div className="row">
-                        <div className="col-md-4 col-12">
-                            <h3>NPWP Document</h3>
+                        <div className="col-md-6 col-12">
+                            <h1>NPWP Document</h1>
+
                         </div>
-                        <div className="col-md-8 col-12">
-                            <input accept="image/*" id="raised-button-file" multiple type="file"/>
-                            <label htmlFor="raised-button-file">
-                                <Button variant="raised" component="span">
-                                    Upload
-                                </Button>
-                            </label>
-                        </div>
+                        <input accept="image/*" id="raised-button-file" multiple type="file"/>
+                        <label htmlFor="raised-button-file">
+                            <Button variant="raised" component="span">
+                                Upload
+                            </Button>
+                        </label>
                     </div>
                     <br/>
                     <div className="row">
@@ -371,21 +361,37 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth/>
                         </div>
-                    </div>      
-<br/>                         <div class="form-row text-center">
-                    <div class="col-12"> 
-                             <h1>  Upload Logo Here</h1>
-                        <input
-                            ref="uploadImg"
-                            type="file"
-                            name="selectedFile"
-                            onChange={this._onChange}
-                            />
-<br/>
-<br/>                        <img src={this.state.imageUrl}  className="rounded" width="304" height="36" alt="LOGO"/>
-                        <br/>           
                     </div>
+                    <br/>
+
+                    <div className="row">
+                        <div className="col-md-6 col-12">
+                            <h1>
+                                Upload Logo Here</h1>
+                        </div>
+                        <div className="col-md-6 col-12">
+                            <input
+                                ref="uploadImg"
+                                type="file"
+                                name="selectedFile"
+                                onChange={this._onChange}/>
+                            <br/>
+                            <br/>
+                        </div>
                     </div>
+                    <div class="form-row text-center">
+                        <div class="col-12">
+                            <img
+                                src={this.state.imageUrl}
+                                className="rounded"
+                                width="304"
+                                height="126"
+                                alt="LOGO"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div>
                         {this
                             .state
@@ -393,7 +399,7 @@ class TextFields extends React.Component {
                             .map((Representative, idx) => (
                                 <div>
                                     <h1
-                                                            style={{
+                                        style={{
                                         background: '#212121',
                                         color: '#fff'
                                     }}>
@@ -491,30 +497,30 @@ class TextFields extends React.Component {
                                     </div>
                                     <br/>
                                     <div class="form-row text-center">
-    <div class="col-12">
- 
-                                    <Button
-                                        variant="raised"
-                                        color="primary"
-                                        size="small"
-                                        onClick={this.handleRemoveRepresentative(idx)}>-</Button>
-                                </div>
-                                </div>
+                                        <div class="col-12">
+
+                                            <Button
+                                                variant="raised"
+                                                color="primary"
+                                                size="small"
+                                                onClick={this.handleRemoveRepresentative(idx)}>-</Button>
+                                        </div>
+                                    </div>
                                 </div>
                             ))}
-                            <br/>                                    
-                            <div class="form-row text-center">
-    <div class="col-12">
- 
-                        <Button
-                            variant="raised"
-                            color="primary"
-                            size="small"
-                            onClick={this.handleAddRepresentative}>
-                            Add another Representative
-                        </Button>
-                    </div>
-                    </div>
+                        <br/>
+                        <div class="form-row text-center">
+                            <div class="col-12">
+
+                                <Button
+                                    variant="raised"
+                                    color="primary"
+                                    size="small"
+                                    onClick={this.handleAddRepresentative}>
+                                    Add another Representative
+                                </Button>
+                            </div>
+                        </div>
                     </div>
                     <br/>
                     <br/> {this
@@ -523,17 +529,17 @@ class TextFields extends React.Component {
                         .map((Officer, idx) => (
                             <div>
                                 <h1
-                                                    style={{
+                                    style={{
                                     background: '#212121',
                                     color: '#fff'
                                 }}>
                                     Officers</h1>
                                 <div className="row">
-                                    <div className="col-md-6 col-12">
+                                    <div className="col-md-4 col-12">
                                         <TextField id="officersName" label="Officers" margin="normal" fullWidth/>
                                     </div>
 
-                                    <div className="col-md-6 col-12">
+                                    <div className="col-md-8 col-12">
                                         <TextField
                                             id="Identity Number"
                                             label="Identity Number"
@@ -544,7 +550,7 @@ class TextFields extends React.Component {
                                 <br/>
                                 <div className="row">
                                     <div className="col-md-4 col-12">
-                                        <h3>Identity Type</h3>
+                                        <h1>Identity Type</h1>
                                     </div>
                                     <div className="col-md-8 col-12">
                                         <div className="form-check form-check-inline">
@@ -596,42 +602,43 @@ class TextFields extends React.Component {
                                 <br/>
                                 <div className="row">
                                     <div className="col-md-4 col-12">
-                                        <h3>Identity Document</h3>
+                                        <h1>Identity Document</h1>
                                     </div>
-                                    <div class="form-row text-center">
-    <div class="col-12">
-                                        <input accept="image/*" id="raised-button-file" multiple type="file"/>
-                                        <label htmlFor="raised-button-file">
-                                            <Button variant="raised" component="span">
-                                                Upload
-                                            </Button>
-                                        </label>
-                                    </div>                                   
-                                    </div>                                   
-                                </div>
+
+                                        <div className="col-md-6 col-12">
+                                            <input accept="image/*" id="raised-button-file" multiple type="file"/>
+                                            <label htmlFor="raised-button-file">
+                                                <Button variant="raised" component="span">
+                                                    Upload
+                                                </Button>
+                                            </label>
+                                        </div>
+                                    </div>
                                 <div class="form-row text-center">
-    <div class="col-12">
- 
-                                <Button type="button" onClick={this.handleRemoveOfficer(idx)} variant="raised"
-                                color="primary"
-                                size="small">-</Button>      
+                                    <div class="col-12">
+
+                                        <Button
+                                            type="button"
+                                            onClick={this.handleRemoveOfficer(idx)}
+                                            variant="raised"
+                                            color="primary"
+                                            size="small">-</Button>
+                                    </div>
+                                </div>
                             </div>
-                            </div>
-                            </div>
-                        ))} 
-                <br/>
-                <div class="form-row text-center">
-    <div class="col-12">
- 
-                <Button
-                    onClick={this.handleAddOfficer}
-                    variant="raised"
-                    color="primary"
-                    size="small">
-                    Add another Officers
-                </Button>
-                <br/>
-                <br/>
+                        ))
+                } < br /> <div class="form-row text-center">
+                    <div class="col-12">
+
+                        <Button
+                            onClick={this.handleAddOfficer}
+                            variant="raised"
+                            color="primary"
+                            size="small">
+                            Add another Officers
+                        </Button>
+                        <br/>
+                        <br/>
                 <Button variant="raised" color="primary" size="small">
                     Submit
                 </Button>
