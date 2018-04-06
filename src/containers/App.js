@@ -39,6 +39,7 @@ import {
 import MainApp from 'app/index';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import EmailTemplate from './EmailTemplate'
 import {setInitUrl} from '../actions/Auth';
 
 const RestrictedRoute = ({component: Component, ...rest, authUser}) =>
@@ -162,6 +163,7 @@ class App extends Component {
                         <RestrictedRoute path={`${match.url}app`} authUser={authUser} component={MainApp}/>
                         <Route path='/signin' component={SignIn}/>
                         <Route path='/signup' component={SignUp}/>
+                        <Route path='/thankYou' component={EmailTemplate}/>
                     </div>
                 </IntlProvider>
             </MuiThemeProvider>

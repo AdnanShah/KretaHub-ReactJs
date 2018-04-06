@@ -16,7 +16,16 @@ import {
     userSignIn,
     userTwitterSignIn
 } from 'actions/Auth';
-
+import Background from './images/bg.jpg';
+const divStyle={
+    overflowY: 'scroll',
+    border:'1px solid red',
+    width:'100%',
+    float: 'center',
+    height:'100%',
+    position:'relative',
+    backgroundImage: `url(${Background})`
+  };
 class SignIn extends React.Component {
     constructor() {
         super();
