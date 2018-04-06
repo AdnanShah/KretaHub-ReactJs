@@ -541,9 +541,12 @@ class TextFields extends React.Component {
                                                 Upload
                                             </Button>
                                         </label>
-                                    </div>
-                                    
+                                    </div>                                   
                                 </div>
+                                <Button type="button" onClick={this.handleRemoveOfficer(idx)} variant="raised"
+                                color="primary"
+                                size="small">-</Button>
+      
                             </div>
                         ))} 
                 <br/>
