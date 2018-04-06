@@ -37,27 +37,6 @@ const divStyle = {
 };
 
 class TextFields extends React.Component {
-    state = {
-        name: 'Jhon',
-        age: '',
-        multiline: 'Controlled',
-        currency: 'EUR',
-        industry: 'Axact',
-        shipment: '1-10/month',
-        address: '',
-        city: '',
-        imageUrl: '',
-        Representatives: [
-            {
-                name: ''
-            }
-        ],
-        Officers: [
-            {
-                name: ''
-            }
-        ]
-    };
 
     handleChange = name => event => {
         this.setState({[name]: event.target.value});
@@ -172,6 +151,81 @@ class TextFields extends React.Component {
             this.setState({imageUrl: ""})
         }
     }
+    state = {
+        name: '',
+        age: '',
+        multiline: '',
+        currency: '',
+        industry: '',
+        shipment: '',
+        State: '',
+        address: '',
+        city: '',
+        zipCode: '',
+        imageUrl: '',
+        phone: '',
+        awayMessageText: '',
+        awayMessage: 'xyz',
+        fax: '',
+        email: '',
+        npwpNumber: '',
+        suipNumber: '',
+        suipExpirationDate: '',
+        repName: '',
+        repAddress: '',
+        repCity: '',
+        repState: '',
+        repZipCode: '',
+        repPhone: '',
+        repFax: '',
+        repMobile: '',
+        shipment: '',
+        country: '',
+
+        Representatives: [
+            {}
+        ],
+        Officers: [
+            {
+                name: ''
+            }
+        ]
+    };
+
+    autoFill = () => {
+        this.setState({
+            awayMessageText: 'ghjj',
+            name: 'PT. IndoTech',
+            address: 'Rajawali 109',
+            zipCode: '10000',
+            phone: '+62317482303',
+            fax: '+62317290361',
+            email: 'indotech@gmail.com',
+            npwpNumber: '01.000.333.2-333.000',
+            suipNumber: '503/8836.A/324.1.18/2018',
+            suipExpirationDate: '2/27/2018',
+            State: 'Jawa Timur',
+            repName: 'Benny Sukamto',
+            repAddress: 'Kalianak Barat 57',
+            repCity: 'Surabaya',
+            repState: 'Jawa Timur',
+            repZipCode: '10000',
+            repCountry: 'Indonesia',
+            repPhone: '+62317482303',
+            repFax: '+62317290363',
+            repMobile: '+628155521198',
+            officerName: 'Haris',
+            officerNumber: '12345678910234500000',
+            industry:currencies[0].value,
+            shipment:shipments[0].label,
+            city:citys[0].name_id,
+            country:countries[0].name,
+
+            // industry:this.currencies.value,
+
+        })
+        console.log("this.currencies[0]",currencies);
+    }
 
     render() {
 
@@ -179,6 +233,8 @@ class TextFields extends React.Component {
 
             <div style={divStyle} className="container">
                 <br/>
+                <input ref="text" value={this.state.awayMessageText}/>
+
                 <h1
                     className="text-center"
                     style={{
@@ -195,7 +251,13 @@ class TextFields extends React.Component {
                     Shipper Information</h2>
                 <div class="form-row text-center">
                     <div class="col-12">
-                        <Button variant="raised" color="primary" size="small">Fill Form</Button>
+                        <Button
+                            onClick={this
+                            .autoFill
+                            .bind(this)}
+                            variant="raised"
+                            color="primary"
+                            size="small">Fill Form</Button>
                     </div>
                 </div>
                 <form noValidate autoComplete="off">
@@ -221,7 +283,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth>
                                 {currencies.map(industry => (
-                                    <MenuItem key={industry.value} value={industry.value}>
+                                    <MenuItem key={industry.value} value={this.state.industry}>
                                         {industry.label}
                                     </MenuItem>
                                 ))}
@@ -239,7 +301,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth>
                                 {shipments.map(shipment => (
-                                    <MenuItem key={shipment.value} value={shipment.value}>
+                                    <MenuItem key={shipment.value} value={this.state.shipment}>
                                         {shipment.label}
                                     </MenuItem>
                                 ))}
@@ -279,6 +341,7 @@ class TextFields extends React.Component {
                         </div>
                         <div className="col-md-4 col-12">
                             <TextField
+                                value={this.state.State}
                                 id="State"
                                 label="State"
                                 defaultValue="State"
@@ -289,6 +352,7 @@ class TextFields extends React.Component {
                     <div className="row">
                         <div className="col-md-4 col-12">
                             <TextField
+                                value={this.state.zipCode}
                                 id="Zip-Code"
                                 label="Zip-Code"
                                 defaultValue="Zip-Code"
@@ -299,15 +363,15 @@ class TextFields extends React.Component {
                             <TextField
                                 id="city"
                                 select
-                                label="Select City"
-                                value={this.state.city}
+                                label="Select Country"
+                                value={this.state.country}
                                 onChange={this.handleChange('city')}
                                 SelectProps={{}}
                                 helperText="Please select your city"
                                 margin="normal"
                                 fullWidth>
                                 {countries.map(countrie => (
-                                    <MenuItem key={countrie.id} value={countrie.name}>
+                                    <MenuItem key={countrie.id} value={this.state.country}>
                                         {countrie.name}
                                     </MenuItem>
                                 ))}
@@ -315,6 +379,7 @@ class TextFields extends React.Component {
                         </div>
                         <div className="col-md-4 col-12">
                             <TextField
+                                value={this.state.phone}
                                 id="Phone"
                                 label="Phone"
                                 defaultValue="+62317482303"
@@ -324,13 +389,28 @@ class TextFields extends React.Component {
                     </div>
                     <div className="row">
                         <div className="col-md-4 col-12">
-                            <TextField id="fax" label="fax" margin="normal" fullWidth/>
+                            <TextField
+                                id="fax"
+                                value={this.state.fax}
+                                label="fax"
+                                margin="normal"
+                                fullWidth/>
                         </div>
                         <div className="col-md-4 col-12">
-                            <TextField id="email" label="email" margin="normal" fullWidth/>
+                            <TextField
+                                id="email"
+                                value={this.state.email}
+                                label="email"
+                                margin="normal"
+                                fullWidth/>
                         </div>
                         <div className="col-md-4 col-12">
-                            <TextField id="NPWPNumber" label="NPWP Number" margin="normal" fullWidth/>
+                            <TextField
+                                id="NPWPNumber"
+                                value={this.state.npwpNumber}
+                                label="NPWP Number"
+                                margin="normal"
+                                fullWidth/>
                         </div>
 
                     </div>
@@ -342,20 +422,29 @@ class TextFields extends React.Component {
                             <h1>NPWP Document</h1>
 
                         </div>
-                        <input accept="image/*" id="raised-button-file" multiple type="file"/>
-                        <label htmlFor="raised-button-file">
-                            <Button variant="raised" component="span">
-                                Upload
-                            </Button>
-                        </label>
+                        <div className="col-md-6 col-12">
+
+                            <input accept="image/*" id="raised-button-file" multiple type="file"/>
+                            <label htmlFor="raised-button-file">
+                                <Button variant="raised" component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
                     </div>
                     <br/>
                     <div className="row">
                         <div className="col-md-6 col-12">
-                            <TextField id="SIUPNumber" label="SIUP Number" margin="normal" fullWidth/>
+                            <TextField
+                                id="SIUPNumber"
+                                value={this.state.suipNumber}
+                                label="SIUP Number"
+                                margin="normal"
+                                fullWidth/>
                         </div>
                         <div className="col-md-6 col-12">
                             <TextField
+                                value={this.state.suipExpirationDate}
                                 id="SIUPExpirationDate"
                                 label="SIUP Expiration Date"
                                 margin="normal"
@@ -409,7 +498,7 @@ class TextFields extends React.Component {
                                             <TextField
                                                 id="name"
                                                 label="Name"
-                                                value={this.state.name}
+                                                value={this.state.repName}
                                                 onChange={this.handleChange('name')}
                                                 margin="normal"
                                                 fullWidth/>
@@ -420,7 +509,7 @@ class TextFields extends React.Component {
                                                 label="Address"
                                                 multiline
                                                 rowsMax="4"
-                                                value={this.state.address}
+                                                value={this.state.repAddress}
                                                 onChange={this.handleChange('address')}
                                                 margin="normal"
                                                 fullWidth/>
@@ -448,6 +537,7 @@ class TextFields extends React.Component {
                                     <div className="row">
                                         <div className="col-md-4 col-12">
                                             <TextField
+                                                value={this.state.repState}
                                                 id="State"
                                                 label="State"
                                                 defaultValue="State"
@@ -456,6 +546,7 @@ class TextFields extends React.Component {
                                         </div>
                                         <div className="col-md-4 col-12">
                                             <TextField
+                                                value={this.state.repZipCode}
                                                 id="Zip-Code"
                                                 label="Zip-Code"
                                                 defaultValue="Zip-Code"
@@ -464,17 +555,17 @@ class TextFields extends React.Component {
                                         </div>
                                         <div className="col-md-4 col-12">
                                             <TextField
-                                                id="city"
+                                                id="country"
                                                 select
-                                                label="Select City"
-                                                value={this.state.city}
-                                                onChange={this.handleChange('city')}
+                                                label="Select country"
+                                                value={this.state.country}
+                                                onChange={this.handleChange('country')}
                                                 SelectProps={{}}
-                                                helperText="Please select your city"
+                                                helperText="Please select your country"
                                                 margin="normal"
                                                 fullWidth>
                                                 {countries.map(countrie => (
-                                                    <MenuItem key={countrie.id} value={countrie.name}>
+                                                    <MenuItem key={countrie.id} value={this.state.country}>
                                                         {countrie.name}
                                                     </MenuItem>
                                                 ))}
@@ -482,6 +573,7 @@ class TextFields extends React.Component {
                                         </div>
                                         <div className="col-md-4 col-12">
                                             <TextField
+                                                value={this.state.repPhone}
                                                 id="Phone"
                                                 label="Phone"
                                                 defaultValue="+62317482303"
@@ -489,10 +581,20 @@ class TextFields extends React.Component {
                                                 fullWidth/>
                                         </div>
                                         <div className="col-md-4 col-12">
-                                            <TextField id="fax" label="fax" margin="normal" fullWidth/>
+                                            <TextField
+                                                id="fax"
+                                                value={this.state.repFax}
+                                                label="fax"
+                                                margin="normal"
+                                                fullWidth/>
                                         </div>
                                         <div className="col-md-4 col-12">
-                                            <TextField id="mobile" label="Mobile" margin="normal" fullWidth/>
+                                            <TextField
+                                                id="mobile"
+                                                value={this.state.repMobile}
+                                                label="Mobile"
+                                                margin="normal"
+                                                fullWidth/>
                                         </div>
                                     </div>
                                     <br/>
@@ -503,7 +605,7 @@ class TextFields extends React.Component {
                                                 variant="raised"
                                                 color="primary"
                                                 size="small"
-                                                onClick={this.handleRemoveRepresentative(idx)}>-</Button>
+                                                onClick={this.handleRemoveRepresentative(idx)}>Remove</Button>
                                         </div>
                                     </div>
                                 </div>
@@ -536,13 +638,13 @@ class TextFields extends React.Component {
                                     Officers</h1>
                                 <div className="row">
                                     <div className="col-md-4 col-12">
-                                        <TextField id="officersName" label="Officers" margin="normal" fullWidth/>
+                                        <TextField id="officersName" value={this.state.officerName}  margin="normal" fullWidth/>
                                     </div>
 
                                     <div className="col-md-8 col-12">
                                         <TextField
+                                            value={this.state.officerNumber}
                                             id="Identity Number"
-                                            label="Identity Number"
                                             margin="normal"
                                             fullWidth/>
                                     </div>
@@ -605,15 +707,15 @@ class TextFields extends React.Component {
                                         <h1>Identity Document</h1>
                                     </div>
 
-                                        <div className="col-md-6 col-12">
-                                            <input accept="image/*" id="raised-button-file" multiple type="file"/>
-                                            <label htmlFor="raised-button-file">
-                                                <Button variant="raised" component="span">
-                                                    Upload
-                                                </Button>
-                                            </label>
-                                        </div>
+                                    <div className="col-md-6 col-12">
+                                        <input accept="image/*" id="raised-button-file" multiple type="file"/>
+                                        <label htmlFor="raised-button-file">
+                                            <Button variant="raised" component="span">
+                                                Upload
+                                            </Button>
+                                        </label>
                                     </div>
+                                </div>
                                 <div class="form-row text-center">
                                     <div class="col-12">
 
@@ -622,7 +724,7 @@ class TextFields extends React.Component {
                                             onClick={this.handleRemoveOfficer(idx)}
                                             variant="raised"
                                             color="primary"
-                                            size="small">-</Button>
+                                            size="small">Remove</Button>
                                     </div>
                                 </div>
                             </div>
