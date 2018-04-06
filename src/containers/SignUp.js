@@ -6,8 +6,7 @@ import citys from './jsonDataSource/province-ID.json';
 import locality from './jsonDataSource/locality-ID.json';
 import countries from './jsonDataSource/countries.json';
 import Button from 'material-ui/Button';
-import Upload from 'material-ui-upload/Upload';
-
+ 
 const currencies = [
     {
         value: 'USD',
@@ -58,6 +57,7 @@ class TextFields extends React.Component {
 
         return (
             <div style={divStyle} className="container">
+
                 <br/>
                 <h1
                     className="text-center"
@@ -203,6 +203,20 @@ class TextFields extends React.Component {
 
                     </div>
                     <div className="row">
+                        <div className="col-md-2 col-12">
+                            <h3>NPWP Document</h3>
+                        </div>
+                        <div className="col-md-8 col-12">
+                            <input accept="image/*" id="raised-button-file" multiple type="file"/>
+                            <label htmlFor="raised-button-file">
+                                <Button variant="raised" component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="row">
                         <div className="col-md-3 col-12">
                             <TextField id="SIUPNumber" label="SIUP Number" margin="normal" fullWidth/>
                         </div>
@@ -329,11 +343,11 @@ class TextFields extends React.Component {
                     }}>
                         Officers</h1>
                     <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField id="officersName" label="Officers" margin="normal" fullWidth/>
                         </div>
 
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="Identity Number"
                                 label="Identity Number"
@@ -341,11 +355,11 @@ class TextFields extends React.Component {
                                 fullWidth/>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row well">
                         <div className="col-md-3 col-12">
                             <h3>Identity Type</h3>
                         </div>
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-8 col-12">
                             <div className="form-check form-check-inline">
                                 <label className="form-check-label">
                                     <input
@@ -392,7 +406,19 @@ class TextFields extends React.Component {
                             </div>
                         </div>
                     </div>
-                    
+                    <div className="row">
+                        <div className="col-md-3 col-12">
+                            <h3>Identity Document</h3>
+                        </div>
+                        <div className="col-md-8 col-12">
+                            <input accept="image/*" id="raised-button-file" multiple type="file"/>
+                            <label htmlFor="raised-button-file">
+                                <Button variant="raised" component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                    </div>
                     <br/>
                     <Button variant="raised" color="primary" size="small">
                         Add another Officers
