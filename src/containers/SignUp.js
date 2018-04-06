@@ -45,7 +45,17 @@ class TextFields extends React.Component {
         industry: 'Axact',
         shipment: '1-10/month',
         address: '',
-        city: ''
+        city: '',
+        Representatives: [
+            {
+                name: ''
+            }
+        ],
+        Officers: [
+            {
+                name: ''
+            }
+        ]
     };
 
     handleChange = name => event => {
@@ -53,11 +63,104 @@ class TextFields extends React.Component {
     };
     onFileLoad = (e, file) => console.log(e.target.result, file.name);
 
+    handleNameChange = (evt) => {
+        this.setState({name: evt.target.value});
+    }
+
+    handleRepresentativeNameChange = (idx) => (evt) => {
+        const newRepresentatives = this
+            .state
+            .Representatives
+            .map((Representative, sidx) => {
+                if (idx !== sidx) 
+                    return Representative;
+                return {
+                    ...Representative,
+                    name: evt.target.value
+                };
+            });
+
+        this.setState({Representatives: newRepresentatives});
+    }
+
+    handleSubmit = (evt) => {
+        const {name, Representatives} = this.state;
+        alert(`Incorporated: ${name} with ${Representatives.length} Representatives`);
+    }
+
+    handleAddRepresentative = () => {
+        this.setState({
+            Representatives: this
+                .state
+                .Representatives
+                .concat([
+                    {
+                        name: ''
+                    }
+                ])
+        });
+    }
+
+    handleRemoveRepresentative = (idx) => () => {
+        this.setState({
+            Representatives: this
+                .state
+                .Representatives
+                .filter((s, sidx) => idx !== sidx)
+        });
+    }
+
+    handleNameChange = (evt) => {
+        this.setState({name: evt.target.value});
+    }
+
+    handleOfficerNameChange = (idx) => (evt) => {
+        const newOfficers = this
+            .state
+            .Officers
+            .map((Officer, sidx) => {
+                if (idx !== sidx) 
+                    return Officer;
+                return {
+                    ...Officer,
+                    name: evt.target.value
+                };
+            });
+
+        this.setState({Officers: newOfficers});
+    }
+
+    handleSubmit = (evt) => {
+        const {name, Officers} = this.state;
+        alert(`Incorporated: ${name} with ${Officers.length} Officers`);
+    }
+
+    handleAddOfficer = () => {
+        this.setState({
+            Officers: this
+                .state
+                .Officers
+                .concat([
+                    {
+                        name: ''
+                    }
+                ])
+        });
+    }
+
+    handleRemoveOfficer = (idx) => () => {
+        this.setState({
+            Officers: this
+                .state
+                .Officers
+                .filter((s, sidx) => idx !== sidx)
+        });
+    }
+
     render() {
 
         return (
             <div style={divStyle} className="container">
-
                 <br/>
                 <h1
                     className="text-center"
@@ -229,215 +332,240 @@ class TextFields extends React.Component {
                                 fullWidth/>
                         </div>
                     </div>
-
-                    <h1
-                        className="text-center"
-                        style={{
-                        background: '#212121',
-                        color: '#fff'
-                    }}>
-                        Representatives</h1>
-                    <div className="row">
-                        <div className="col-md-4 col-12">
-                            <TextField
-                                id="name"
-                                label="Name"
-                                value={this.state.name}
-                                onChange={this.handleChange('name')}
-                                margin="normal"
-                                fullWidth/>
-                        </div>
-                        <div className="col-md-4 col-12">
-                            <TextField
-                                id="address"
-                                label="Address"
-                                multiline
-                                rowsMax="4"
-                                value={this.state.address}
-                                onChange={this.handleChange('address')}
-                                margin="normal"
-                                fullWidth/>
-                        </div>
-
-                        <div className="col-md-4 col-12">
-                            <TextField
-                                id="city"
-                                select
-                                label="Select City"
-                                value={this.state.city}
-                                onChange={this.handleChange('city')}
-                                SelectProps={{}}
-                                helperText="Please select your city"
-                                margin="normal"
-                                fullWidth>
-                                {citys.map(city => (
-                                    <MenuItem key={city.id} value={city.name_id}>
-                                        {city.name_id}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-4 col-12">
-                            <TextField
-                                id="State"
-                                label="State"
-                                defaultValue="State"
-                                margin="normal"
-                                fullWidth/>
-                        </div>
-                        <div className="col-md-4 col-12">
-                            <TextField
-                                id="Zip-Code"
-                                label="Zip-Code"
-                                defaultValue="Zip-Code"
-                                margin="normal"
-                                fullWidth/>
-                        </div>
-                        <div className="col-md-4 col-12">
-                            <TextField
-                                id="city"
-                                select
-                                label="Select City"
-                                value={this.state.city}
-                                onChange={this.handleChange('city')}
-                                SelectProps={{}}
-                                helperText="Please select your city"
-                                margin="normal"
-                                fullWidth>
-                                {countries.map(countrie => (
-                                    <MenuItem key={countrie.id} value={countrie.name}>
-                                        {countrie.name}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </div>
-                        <div className="col-md-4 col-12">
-                            <TextField
-                                id="Phone"
-                                label="Phone"
-                                defaultValue="+62317482303"
-                                margin="normal"
-                                fullWidth/>
-                        </div>
-                        <div className="col-md-4 col-12">
-                            <TextField id="fax" label="fax" margin="normal" fullWidth/>
-                        </div>
-                        <div className="col-md-4 col-12">
-                            <TextField id="mobile" label="Mobile" margin="normal" fullWidth/>
-                        </div>
-                    </div>
                     <div>
-                        <Button variant="raised" color="primary" size="small">
+                        {this
+                            .state
+                            .Representatives
+                            .map((Representative, idx) => (
+                                <div>
+                                    <h1
+                                        className="text-center"
+                                        style={{
+                                        background: '#212121',
+                                        color: '#fff'
+                                    }}>
+                                        Representatives</h1>
+                                    <div className="row">
+                                        <div className="col-md-4 col-12">
+                                            <TextField
+                                                id="name"
+                                                label="Name"
+                                                value={this.state.name}
+                                                onChange={this.handleChange('name')}
+                                                margin="normal"
+                                                fullWidth/>
+                                        </div>
+                                        <div className="col-md-4 col-12">
+                                            <TextField
+                                                id="address"
+                                                label="Address"
+                                                multiline
+                                                rowsMax="4"
+                                                value={this.state.address}
+                                                onChange={this.handleChange('address')}
+                                                margin="normal"
+                                                fullWidth/>
+                                        </div>
+
+                                        <div className="col-md-4 col-12">
+                                            <TextField
+                                                id="city"
+                                                select
+                                                label="Select City"
+                                                value={this.state.city}
+                                                onChange={this.handleChange('city')}
+                                                SelectProps={{}}
+                                                helperText="Please select your city"
+                                                margin="normal"
+                                                fullWidth>
+                                                {citys.map(city => (
+                                                    <MenuItem key={city.id} value={city.name_id}>
+                                                        {city.name_id}
+                                                    </MenuItem>
+                                                ))}
+                                            </TextField>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-4 col-12">
+                                            <TextField
+                                                id="State"
+                                                label="State"
+                                                defaultValue="State"
+                                                margin="normal"
+                                                fullWidth/>
+                                        </div>
+                                        <div className="col-md-4 col-12">
+                                            <TextField
+                                                id="Zip-Code"
+                                                label="Zip-Code"
+                                                defaultValue="Zip-Code"
+                                                margin="normal"
+                                                fullWidth/>
+                                        </div>
+                                        <div className="col-md-4 col-12">
+                                            <TextField
+                                                id="city"
+                                                select
+                                                label="Select City"
+                                                value={this.state.city}
+                                                onChange={this.handleChange('city')}
+                                                SelectProps={{}}
+                                                helperText="Please select your city"
+                                                margin="normal"
+                                                fullWidth>
+                                                {countries.map(countrie => (
+                                                    <MenuItem key={countrie.id} value={countrie.name}>
+                                                        {countrie.name}
+                                                    </MenuItem>
+                                                ))}
+                                            </TextField>
+                                        </div>
+                                        <div className="col-md-4 col-12">
+                                            <TextField
+                                                id="Phone"
+                                                label="Phone"
+                                                defaultValue="+62317482303"
+                                                margin="normal"
+                                                fullWidth/>
+                                        </div>
+                                        <div className="col-md-4 col-12">
+                                            <TextField id="fax" label="fax" margin="normal" fullWidth/>
+                                        </div>
+                                        <div className="col-md-4 col-12">
+                                            <TextField id="mobile" label="Mobile" margin="normal" fullWidth/>
+                                        </div>
+                                    </div>
+                                    <Button
+                                        variant="raised"
+                                        color="primary"
+                                        size="small"
+                                        onClick={this.handleRemoveRepresentative(idx)}>-</Button>
+                                </div>
+                            ))}
+                        <Button
+                            variant="raised"
+                            color="primary"
+                            size="small"
+                            onClick={this.handleAddRepresentative}>
                             Add another Representative
                         </Button>
                     </div>
                     <br/>
-                    <br/>
+                    <br/> {this
+                        .state
+                        .Officers
+                        .map((Officer, idx) => (
+                            <div>
+                                <h1
+                                    className="text-center"
+                                    style={{
+                                    background: '#212121',
+                                    color: '#fff'
+                                }}>
+                                    Officers</h1>
+                                <div className="row">
+                                    <div className="col-md-6 col-12">
+                                        <TextField id="officersName" label="Officers" margin="normal" fullWidth/>
+                                    </div>
 
-                    <h1
-                        className="text-center"
-                        style={{
-                        background: '#212121',
-                        color: '#fff'
-                    }}>
-                        Officers</h1>
-                    <div className="row">
-                        <div className="col-md-6 col-12">
-                            <TextField id="officersName" label="Officers" margin="normal" fullWidth/>
-                        </div>
+                                    <div className="col-md-6 col-12">
+                                        <TextField
+                                            id="Identity Number"
+                                            label="Identity Number"
+                                            margin="normal"
+                                            fullWidth/>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div className="row">
+                                    <div className="col-md-4 col-12">
+                                        <h3>Identity Type</h3>
+                                    </div>
+                                    <div className="col-md-8 col-12">
+                                        <div className="form-check form-check-inline">
+                                            <label className="form-check-label">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="inlineRadioOptions"
+                                                    id="inlineRadio1"
+                                                    value="option1"/>
+                                                Citizen ID Card
+                                            </label>
+                                        </div>
+                                        <div className="form-check form-check-inline">
+                                            <label className="form-check-label">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="radio"
+                                                    name="inlineRadioOptions"
+                                                    id="inlineRadio2"
+                                                    value="option2"/>
+                                                Driver's License
+                                            </label>
+                                        </div>
+                                        <div className="form-check form-check-inline disabled">
+                                            <label className="form-check-label">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="radio"
+                                                    name="inlineRadioOptions"
+                                                    id="inlineRadio3"
+                                                    value="option3"/>
+                                                Residency Permit
+                                            </label>
+                                        </div>
+                                        <div className="form-check form-check-inline disabled">
+                                            <label className="form-check-label">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="radio"
+                                                    name="inlineRadioOptions"
+                                                    id="inlineRadio3"
+                                                    value="option3"/>
+                                                Passport
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div className="row">
+                                    <div className="col-md-4 col-12">
+                                        <h3>Identity Document</h3>
+                                    </div>
+                                    <div className="col-md-8 col-12">
+                                        <input accept="image/*" id="raised-button-file" multiple type="file"/>
+                                        <label htmlFor="raised-button-file">
+                                            <Button variant="raised" component="span">
+                                                Upload
+                                            </Button>
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        ))} 
+                <br/>
+                <Button
+                    onClick={this.handleAddOfficer}
+                    variant="raised"
+                    color="primary"
+                    size="small">
+                    Add another Officers
+                </Button>
+                <br/>
+                <br/>
+                <Button variant="raised" color="primary" size="small">
+                    Submit
+                </Button>
+                <br/>
+                <br/>
+            </form>
+        </div>
 
-                        <div className="col-md-6 col-12">
-                            <TextField
-                                id="Identity Number"
-                                label="Identity Number"
-                                margin="normal"
-                                fullWidth/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div className="row">
-                        <div className="col-md-4 col-12">
-                            <h3>Identity Type</h3>
-                        </div>
-                        <div className="col-md-8 col-12">
-                            <div className="form-check form-check-inline">
-                                <label className="form-check-label">
-                                    <input
-                                        className="form-check-input"
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineRadio1"
-                                        value="option1"/>
-                                    Citizen ID Card
-                                </label>
-                            </div>
-                            <div className="form-check form-check-inline">
-                                <label className="form-check-label">
-                                    <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineRadio2"
-                                        value="option2"/>
-                                    Driver's License
-                                </label>
-                            </div>
-                            <div className="form-check form-check-inline disabled">
-                                <label className="form-check-label">
-                                    <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineRadio3"
-                                        value="option3"/>
-                                    Residency Permit
-                                </label>
-                            </div>
-                            <div className="form-check form-check-inline disabled">
-                                <label className="form-check-label">
-                                    <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineRadio3"
-                                        value="option3"/>
-                                    Passport
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <br/>
-                    <div className="row">
-                        <div className="col-md-4 col-12">
-                            <h3>Identity Document</h3>
-                        </div>
-                        <div className="col-md-8 col-12">
-                            <input accept="image/*" id="raised-button-file" multiple type="file"/>
-                            <label htmlFor="raised-button-file">
-                                <Button variant="raised" component="span">
-                                    Upload
-                                </Button>
-                            </label>
-                        </div>
-                    </div>
-                    <br/>
-                    <Button variant="raised" color="primary" size="small">
-                        Add another Officers
-                    </Button>
-                    <br/>
-                    <br/>
-                    <Button variant="raised" color="primary" size="small">
-                        Submit
-                    </Button>
-                    <br/>
-                    <br/>
-                </form>
-            </div>
-
-        );
-    }
+    )
+}
 }
 
 export default TextFields;
