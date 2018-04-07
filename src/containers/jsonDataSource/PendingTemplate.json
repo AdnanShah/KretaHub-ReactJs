@@ -1,0 +1,11 @@
+[
+    {
+        "emailSubject": " Your Shipper Signup Request is Being Processed",
+        "shipper name": "Jhon",
+        "to": "PT. Indotech (shipper name)",
+        "heading": "Your Shipper Signup Request is Being Processed",
+        "subHeading": "Thank you for signing up as a shipper on KretaHub.",
+        "subHeading2": "We will send you a follow-up email when your request has been approved.",
+        "followUs": "In the mean time, you can follow us on:"
+    }
+]

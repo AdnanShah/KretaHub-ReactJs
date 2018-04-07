@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
-// import jsonData from './dataSource/EmailTemplate.json';
+// import jsonData from './dataSource/PendingTemplate.json';
 
 const divStyle = {
   overflowY: 'scroll',

@@ -1,0 +1,11 @@
+[
+    {
+        "heading": "Your Shipper Signup Request is Being Processed",
+        "subHeading": "Thank you for signing up as a shipper on KretaHub.",
+        "subHeading2": "Shipper Information",
+        "userName": "{{name}}",
+        "userEmail": "{{email}}",
+        "conformNote": "We will notify you by email when your request has been approved.",
+        "followUs": "In the mean time, you can follow us on:"
+    }
+]
