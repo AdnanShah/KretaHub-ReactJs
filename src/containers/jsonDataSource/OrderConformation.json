@@ -1,10 +1,13 @@
 [
     {
-        "mainHeading": "Booking #0001 Accepted - Please Pay Down Payment",
+        "mainHeading": "Booking #0001 Confirmed",
         "subHeading1": "Dear PT. Indotech",
-        "subHeading2": "Your order has been confirmed and is awaiting down payment.",
+        "subHeading2": "Your order has been confirmed by PT. Bumi Wijaya Indorail as your carrier.",
+        "subHeading3": "Your downpayment for this order has been received.",
+        "subHeading4": "Please ensure your freight has arrived at the designated station no later than the closing time.",
         "mainEmail": "someone@example.com",
         "shipper": "PT. Indotech",
+        "shipper1": "PT. Bumi Wijaya Indorail",
         "line1": "Sungai Lagoa - Jakarta",
         "line4": "KA. Maju Cepat",
         "line5": "Kalimas - Surabaya",

@@ -35,7 +35,7 @@ const styles = theme => ({
       paddingBottom: 16,
       marginTop: theme.spacing.unit * 3,
       width: '55%',
-      top: '80%',
+      top: '105%',
       left: '50%',
       marginRight: '-50%',
       transform: `translate(-50%, -50%)`,
@@ -117,7 +117,11 @@ class ComposedTextField extends React.Component {
                 </p>
                 <p>{jsonData[0].subHeading1}
                 </p>
-                <h2>{jsonData[0].subHeading2}
+                <p>{jsonData[0].subHeading2}
+                </p>
+                <p>{jsonData[0].subHeading3}
+                </p>
+                <h2>{jsonData[0].subHeading4}
                 </h2>
               </div>
             </div>
@@ -125,56 +129,19 @@ class ComposedTextField extends React.Component {
             <br/>
             <div class="container">
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Order :</label>
+                <label className="col-md-4 col-12" for="email">Shipper :</label>
                 <div className="col-md-4 col-12">
-                  <p className="">{jsonData[0].field1}</p>
+                  <p className="">{jsonData[0].shipper}</p>
                 </div>
               </div>
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Order Total :</label>
+                <label className="col-md-4 col-12" for="email">Carrier :</label>
                 <div className="col-md-4 col-12">
-                  <p className="">{jsonData[0].field2}</p>
+                  <p className="">{jsonData[0].shipper}</p>
                 </div>
               </div>
-              <div className="row">
-                <label className="col-md-4 col-12" for="email">Minimum Down-Payment :</label>
-                <div className="col-md-4 col-12">
-                  <p className="">{jsonData[0].field3}</p>
-                </div>
-              </div>
-              <h2>
-                <u>Please make payment to :</u>
-              </h2>
-              <div className="row">
-                <label className="col-md-4 col-12" for="email">Bank :</label>
-                <div className="col-md-4 col-12">
-                  <p className="">{jsonData[0].field4}</p>
-                </div>
-              </div>
-              <div className="row">
-                <label className="col-md-4 col-12" for="email">Account name :</label>
-                <div className="col-md-4 col-12">
-                  <p className="">{jsonData[0].field5}</p>
-                </div>
-              </div>
-              <div className="row">
-                <label className="col-md-4 col-12" for="email">Account number :</label>
-                <div className="col-md-4 col-12">
-                  <p className="">{jsonData[0].field6}</p>
-                </div>
-              </div>
-              <div className="row">
-                <label className="col-md-4 col-12" for="email">Branch :</label>
-                <div className="col-md-4 col-12">
-                  <p className="">{jsonData[0].field7}</p>
-                </div>
-              </div>
-              <div className="row">
-                <h2 className="col-md-12 col-12" for="email">
-                  <u>Your order details are shown below for your reference :</u>
-                </h2>
-              </div>
-
+              <br/>
+              <br/>
               <div className="row">
                 <label className="col-md-3 col-12" for="email">Departure :</label>
                 <div className="col-md-3 col-12">
