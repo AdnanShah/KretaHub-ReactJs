@@ -53,19 +53,27 @@ function PaperSheet(props) {
       <br/>
       <br/>
       <br/>
-
       <br/>
-
       <div className="text-center">
-        <p style={{
-          color: 'white'
-        }} className="text-center">Your Shipper Signup Request is Being Processed</p>
         <Paper className={classes.root} elevation={4}>
-          <h1 className="h1 display-1 text-center">
-            {jsonData[0].mainHeading}
+          <div>
+            <p className="float-left">
+              {jsonData[0].emailSubjectHeading}
+              <strong>
+                {jsonData[0].shipperName}
+              </strong>
+              <span></span>
+              {jsonData[0].mainHeading}
+            </p>
+            <br/>
+          </div>
+          <h1>
+            <strong>
+              {jsonData[0].mainHeading}
+            </strong>
           </h1>
           <br/>
-          <div class="form-group">
+          <div className="float-left">
             <label for="Student">To:
             </label>
             <label style={{
@@ -73,17 +81,15 @@ function PaperSheet(props) {
             }} name="Student">{jsonData[0].shipperName}</label>
             <br/>
           </div>
-          {/* <div class="form-group">
-            <label for="Student">Email:  </label>
-            <label style={{marginLeft:'20px'}} name="Student">UmerSaleem@gmail.com</label>
-          </div> */}
-
+          <br/>
           <Typography component="label">
             {jsonData[0].heading}
           </Typography>
           <br/>
           <Typography component="p">
-            {jsonData[0].subHeading}
+            {jsonData[0].subHeading01}
+            <a href="#">{jsonData[0].shipperWebsite}</a>
+            {jsonData[0].subHeading02}
           </Typography>
           <br/>
           <br/>
