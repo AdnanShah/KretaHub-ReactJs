@@ -6,7 +6,7 @@ import Typography from 'material-ui/Typography';
 import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
-import jsonData from './jsonDataSource/ThankYou.json';
+import jsonData from './jsonDataSource/BookingConform.json';
 import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
 import Input, {InputLabel} from 'material-ui/Input';
 import {FormControl, FormHelperText} from 'material-ui/Form';

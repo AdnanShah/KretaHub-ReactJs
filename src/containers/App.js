@@ -42,6 +42,7 @@ import SignUp from './SignUp';
 import EmailTemplate from './EmailTemplate'
 import ApprovalTemplate from './ApprovalTemplate'
 import PendingTemplate from './PendingTemplate'
+import BookingConform from './BookingConform'
 import ThankYou from './ThankYou'
 import {setInitUrl} from '../actions/Auth';
 
@@ -170,6 +171,7 @@ class App extends Component {
                         <Route path='/pending' component={PendingTemplate}/>
                         <Route path='/approval' component={ApprovalTemplate}/>
                         <Route path='/mainthankyou' component={ThankYou}/>
+                        <Route path='/bookingconform' component={BookingConform}/>
                     </div>
                 </IntlProvider>
             </MuiThemeProvider>
