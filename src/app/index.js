@@ -50,7 +50,7 @@ class App extends React.Component {
 
         return (
             <div className={`app-container ${drawerStyle}`}>
-                <Tour/>
+                {/* <Tour/> */}
 
                 <Sidebar onToggleCollapsedNav={this.onToggleCollapsedNav.bind(this)}/>
                 <div className="app-main-container">

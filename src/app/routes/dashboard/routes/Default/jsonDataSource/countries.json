@@ -1,0 +1,1360 @@
+[
+    {
+        "id": "Q889",
+        "name": "Afghanistan",
+        "geonamesId": 1149361,
+        "iso": "AF",
+        "iso3": "AFG"
+    },
+    {
+        "id": "Q222",
+        "name": "Albania",
+        "geonamesId": 783754,
+        "iso": "AL",
+        "iso3": "ALB"
+    },
+    {
+        "id": "Q262",
+        "name": "Algeria",
+        "geonamesId": 2589581,
+        "iso": "DZ",
+        "iso3": "DZA"
+    },
+    {
+        "id": "Q228",
+        "name": "Andorra",
+        "geonamesId": 3041565,
+        "iso": "AD",
+        "iso3": "AND"
+    },
+    {
+        "id": "Q916",
+        "name": "Angola",
+        "geonamesId": 3351879,
+        "iso": "AO",
+        "iso3": "AGO"
+    },
+    {
+        "id": "Q781",
+        "name": "Antigua and Barbuda",
+        "geonamesId": 3576396,
+        "iso": "AG",
+        "iso3": "ATG"
+    },
+    {
+        "id": "Q414",
+        "name": "Argentina",
+        "geonamesId": 3865483,
+        "iso": "AR",
+        "iso3": "ARG"
+    },
+    {
+        "id": "Q399",
+        "name": "Armenia",
+        "geonamesId": 174982,
+        "iso": "AM",
+        "iso3": "ARM"
+    },
+    {
+        "id": "Q408",
+        "name": "Australia",
+        "geonamesId": 2077456,
+        "iso": "AU",
+        "iso3": "AUS"
+    },
+    {
+        "id": "Q40",
+        "name": "Austria",
+        "geonamesId": 2782113,
+        "iso": "AT",
+        "iso3": "AUT"
+    },
+    {
+        "id": "Q227",
+        "name": "Azerbaijan",
+        "geonamesId": 587116,
+        "iso": "AZ",
+        "iso3": "AZE"
+    },
+    {
+        "id": "Q398",
+        "name": "Bahrain",
+        "geonamesId": 290291,
+        "iso": "BH",
+        "iso3": "BHR"
+    },
+    {
+        "id": "Q902",
+        "name": "Bangladesh",
+        "geonamesId": 1210997,
+        "iso": "BD",
+        "iso3": "BGD"
+    },
+    {
+        "id": "Q244",
+        "name": "Barbados",
+        "geonamesId": 3374084,
+        "iso": "BB",
+        "iso3": "BRB"
+    },
+    {
+        "id": "Q184",
+        "name": "Belarus",
+        "geonamesId": 630336,
+        "iso": "BY",
+        "iso3": "BLR"
+    },
+    {
+        "id": "Q31",
+        "name": "Belgium",
+        "geonamesId": 2802361,
+        "iso": "BE",
+        "iso3": "BEL"
+    },
+    {
+        "id": "Q242",
+        "name": "Belize",
+        "geonamesId": 3582678,
+        "iso": "BZ",
+        "iso3": "BLZ"
+    },
+    {
+        "id": "Q962",
+        "name": "Benin",
+        "geonamesId": 2395170,
+        "iso": "BJ",
+        "iso3": "BEN"
+    },
+    {
+        "id": "Q917",
+        "name": "Bhutan",
+        "geonamesId": 1252634,
+        "iso": "BT",
+        "iso3": "BTN"
+    },
+    {
+        "id": "Q750",
+        "name": "Bolivia",
+        "geonamesId": 3923057,
+        "iso": "BO",
+        "iso3": "BOL"
+    },
+    {
+        "id": "Q225",
+        "name": "Bosnia and Herzegovina",
+        "geonamesId": 3277605,
+        "iso": "BA",
+        "iso3": "BIH"
+    },
+    {
+        "id": "Q963",
+        "name": "Botswana",
+        "geonamesId": 933860,
+        "iso": "BW",
+        "iso3": "BWA"
+    },
+    {
+        "id": "Q155",
+        "name": "Brazil",
+        "geonamesId": 3469034,
+        "iso": "BR",
+        "iso3": "BRA"
+    },
+    {
+        "id": "Q921",
+        "name": "Brunei",
+        "geonamesId": 1820814,
+        "iso": "BN",
+        "iso3": "BRN"
+    },
+    {
+        "id": "Q219",
+        "name": "Bulgaria",
+        "geonamesId": 732800,
+        "iso": "BG",
+        "iso3": "BGR"
+    },
+    {
+        "id": "Q965",
+        "name": "Burkina Faso",
+        "geonamesId": 2361809,
+        "iso": "BF",
+        "iso3": "BFA"
+    },
+    {
+        "id": "Q967",
+        "name": "Burundi",
+        "geonamesId": 433561,
+        "iso": "BI",
+        "iso3": "BDI"
+    },
+    {
+        "id": "Q424",
+        "name": "Cambodia",
+        "geonamesId": 1831722,
+        "iso": "KH",
+        "iso3": "KHM"
+    },
+    {
+        "id": "Q1009",
+        "name": "Cameroon",
+        "geonamesId": 2233387,
+        "iso": "CM",
+        "iso3": "CMR"
+    },
+    {
+        "id": "Q16",
+        "name": "Canada",
+        "geonamesId": 6251999,
+        "iso": "CA",
+        "iso3": "CAN"
+    },
+    {
+        "id": "Q1011",
+        "name": "Cape Verde",
+        "geonamesId": 3374766,
+        "iso": "CV",
+        "iso3": "CPV"
+    },
+    {
+        "id": "Q929",
+        "name": "Central African Republic",
+        "geonamesId": 239880,
+        "iso": "CF",
+        "iso3": "CAF"
+    },
+    {
+        "id": "Q657",
+        "name": "Chad",
+        "geonamesId": 2434508,
+        "iso": "TD",
+        "iso3": "TCD"
+    },
+    {
+        "id": "Q298",
+        "name": "Chile",
+        "geonamesId": 3895114,
+        "iso": "CL",
+        "iso3": "CHL"
+    },
+    {
+        "id": "Q739",
+        "name": "Colombia",
+        "geonamesId": 3686110,
+        "iso": "CO",
+        "iso3": "COL"
+    },
+    {
+        "id": "Q970",
+        "name": "Comoros",
+        "geonamesId": 921929,
+        "iso": "KM",
+        "iso3": "COM"
+    },
+    {
+        "id": "Q800",
+        "name": "Costa Rica",
+        "geonamesId": 3624060,
+        "iso": "CR",
+        "iso3": "CRI"
+    },
+    {
+        "id": "Q224",
+        "name": "Croatia",
+        "geonamesId": 3202326,
+        "iso": "HR",
+        "iso3": "HRV"
+    },
+    {
+        "id": "Q241",
+        "name": "Cuba",
+        "geonamesId": 3562981,
+        "iso": "CU",
+        "iso3": "CUB"
+    },
+    {
+        "id": "Q229",
+        "name": "Cyprus",
+        "geonamesId": 146669,
+        "iso": "CY",
+        "iso3": "CYP"
+    },
+    {
+        "id": "Q213",
+        "name": "Czech Republic",
+        "geonamesId": 3077311,
+        "iso": "CZ",
+        "iso3": "CZE"
+    },
+    {
+        "id": "Q1008",
+        "name": "Côte d'Ivoire",
+        "geonamesId": 2287781,
+        "iso": "CI",
+        "iso3": "CIV"
+    },
+    {
+        "id": "Q974",
+        "name": "Democratic Republic of the Congo",
+        "geonamesId": 203312,
+        "iso": "CD",
+        "iso3": "COD"
+    },
+    {
+        "id": "Q35",
+        "name": "Denmark",
+        "geonamesId": 2623032,
+        "iso": "DK",
+        "iso3": "DNK"
+    },
+    {
+        "id": "Q977",
+        "name": "Djibouti",
+        "geonamesId": 223816,
+        "iso": "DJ",
+        "iso3": "DJI"
+    },
+    {
+        "id": "Q784",
+        "name": "Dominica",
+        "geonamesId": 3575830,
+        "iso": "DM",
+        "iso3": "DMA"
+    },
+    {
+        "id": "Q786",
+        "name": "Dominican Republic",
+        "geonamesId": 3508796,
+        "iso": "DO",
+        "iso3": "DOM"
+    },
+    {
+        "id": "Q574",
+        "name": "East Timor",
+        "geonamesId": 1966436,
+        "iso": "TL",
+        "iso3": "TLS"
+    },
+    {
+        "id": "Q736",
+        "name": "Ecuador",
+        "geonamesId": 3658394,
+        "iso": "EC",
+        "iso3": "ECU"
+    },
+    {
+        "id": "Q79",
+        "name": "Egypt",
+        "geonamesId": 357994,
+        "iso": "EG",
+        "iso3": "EGY"
+    },
+    {
+        "id": "Q792",
+        "name": "El Salvador",
+        "geonamesId": 3585968,
+        "iso": "SV",
+        "iso3": "SLV"
+    },
+    {
+        "id": "Q983",
+        "name": "Equatorial Guinea",
+        "geonamesId": 2309096,
+        "iso": "GQ",
+        "iso3": "GNQ"
+    },
+    {
+        "id": "Q986",
+        "name": "Eritrea",
+        "geonamesId": 338010,
+        "iso": "ER",
+        "iso3": "ERI"
+    },
+    {
+        "id": "Q191",
+        "name": "Estonia",
+        "geonamesId": 453733,
+        "iso": "EE",
+        "iso3": "EST"
+    },
+    {
+        "id": "Q115",
+        "name": "Ethiopia",
+        "geonamesId": 337996,
+        "iso": "ET",
+        "iso3": "ETH"
+    },
+    {
+        "id": "Q702",
+        "name": "Federated States of Micronesia",
+        "geonamesId": 2081918,
+        "iso": "FM",
+        "iso3": "FSM"
+    },
+    {
+        "id": "Q712",
+        "name": "Fiji",
+        "geonamesId": 2205218,
+        "iso": "FJ",
+        "iso3": "FJI"
+    },
+    {
+        "id": "Q33",
+        "name": "Finland",
+        "geonamesId": 660013,
+        "iso": "FI",
+        "iso3": "FIN"
+    },
+    {
+        "id": "Q142",
+        "name": "France",
+        "geonamesId": 3017382,
+        "iso": "FR",
+        "iso3": "FRA"
+    },
+    {
+        "id": "Q1000",
+        "name": "Gabon",
+        "geonamesId": 2400553,
+        "iso": "GA",
+        "iso3": "GAB"
+    },
+    {
+        "id": "Q1005",
+        "name": "Gambia",
+        "geonamesId": 2413451,
+        "iso": "GM",
+        "iso3": "GMB"
+    },
+    {
+        "id": "Q230",
+        "name": "Georgia",
+        "geonamesId": 614540,
+        "iso": "GE",
+        "iso3": "GEO"
+    },
+    {
+        "id": "Q183",
+        "name": "Germany",
+        "geonamesId": 2921044,
+        "iso": "DE",
+        "iso3": "DEU"
+    },
+    {
+        "id": "Q117",
+        "name": "Ghana",
+        "geonamesId": 2300660,
+        "iso": "GH",
+        "iso3": "GHA"
+    },
+    {
+        "id": "Q41",
+        "name": "Greece",
+        "geonamesId": 390903,
+        "iso": "GR",
+        "iso3": "GRC"
+    },
+    {
+        "id": "Q769",
+        "name": "Grenada",
+        "geonamesId": 3580239,
+        "iso": "GD",
+        "iso3": "GRD"
+    },
+    {
+        "id": "Q774",
+        "name": "Guatemala",
+        "geonamesId": 3595528,
+        "iso": "GT",
+        "iso3": "GTM"
+    },
+    {
+        "id": "Q1006",
+        "name": "Guinea",
+        "geonamesId": 2420477,
+        "iso": "GN",
+        "iso3": "GIN"
+    },
+    {
+        "id": "Q1007",
+        "name": "Guinea-Bissau",
+        "geonamesId": 2372248,
+        "iso": "GW",
+        "iso3": "GNB"
+    },
+    {
+        "id": "Q734",
+        "name": "Guyana",
+        "geonamesId": 3378535,
+        "iso": "GY",
+        "iso3": "GUY"
+    },
+    {
+        "id": "Q790",
+        "name": "Haiti",
+        "geonamesId": 3723988,
+        "iso": "HT",
+        "iso3": "HTI"
+    },
+    {
+        "id": "Q783",
+        "name": "Honduras",
+        "geonamesId": 3608932,
+        "iso": "HN",
+        "iso3": "HND"
+    },
+    {
+        "id": "Q28",
+        "name": "Hungary",
+        "geonamesId": 719819,
+        "iso": "HU",
+        "iso3": "HUN"
+    },
+    {
+        "id": "Q189",
+        "name": "Iceland",
+        "geonamesId": 2629691,
+        "iso": "IS",
+        "iso3": "ISL"
+    },
+    {
+        "id": "Q668",
+        "name": "India",
+        "geonamesId": 1269750,
+        "iso": "IN",
+        "iso3": "IND"
+    },
+    {
+        "id": "Q252",
+        "name": "Indonesia",
+        "geonamesId": 1643084,
+        "iso": "ID",
+        "iso3": "IDN"
+    },
+    {
+        "id": "Q794",
+        "name": "Iran",
+        "geonamesId": 130758,
+        "iso": "IR",
+        "iso3": "IRN"
+    },
+    {
+        "id": "Q796",
+        "name": "Iraq",
+        "geonamesId": 99237,
+        "iso": "IQ",
+        "iso3": "IRQ"
+    },
+    {
+        "id": "Q27",
+        "name": "Ireland",
+        "geonamesId": 2963597,
+        "iso": "IE",
+        "iso3": "IRL"
+    },
+    {
+        "id": "Q801",
+        "name": "Israel",
+        "geonamesId": 294640,
+        "iso": "IL",
+        "iso3": "ISR"
+    },
+    {
+        "id": "Q38",
+        "name": "Italy",
+        "geonamesId": 3175395,
+        "iso": "IT",
+        "iso3": "ITA"
+    },
+    {
+        "id": "Q766",
+        "name": "Jamaica",
+        "geonamesId": 3489940,
+        "iso": "JM",
+        "iso3": "JAM"
+    },
+    {
+        "id": "Q17",
+        "name": "Japan",
+        "geonamesId": 1861060,
+        "iso": "JP",
+        "iso3": "JPN"
+    },
+    {
+        "id": "Q810",
+        "name": "Jordan",
+        "geonamesId": 248816,
+        "iso": "JO",
+        "iso3": "JOR"
+    },
+    {
+        "id": "Q232",
+        "name": "Kazakhstan",
+        "geonamesId": 1522867,
+        "iso": "KZ",
+        "iso3": "KAZ"
+    },
+    {
+        "id": "Q114",
+        "name": "Kenya",
+        "geonamesId": 192950,
+        "iso": "KE",
+        "iso3": "KEN"
+    },
+    {
+        "id": "Q710",
+        "name": "Kiribati",
+        "geonamesId": 4030945,
+        "iso": "KI",
+        "iso3": "KIR"
+    },
+    {
+        "id": "Q817",
+        "name": "Kuwait",
+        "geonamesId": 285570,
+        "iso": "KW",
+        "iso3": "KWT"
+    },
+    {
+        "id": "Q813",
+        "name": "Kyrgyzstan",
+        "geonamesId": 1527747,
+        "iso": "KG",
+        "iso3": "KGZ"
+    },
+    {
+        "id": "Q819",
+        "name": "Laos",
+        "geonamesId": 1655842,
+        "iso": "LA",
+        "iso3": "LAO"
+    },
+    {
+        "id": "Q211",
+        "name": "Latvia",
+        "geonamesId": 458258,
+        "iso": "LV",
+        "iso3": "LVA"
+    },
+    {
+        "id": "Q822",
+        "name": "Lebanon",
+        "geonamesId": 272103,
+        "iso": "LB",
+        "iso3": "LBN"
+    },
+    {
+        "id": "Q1013",
+        "name": "Lesotho",
+        "geonamesId": 932692,
+        "iso": "LS",
+        "iso3": "LSO"
+    },
+    {
+        "id": "Q1014",
+        "name": "Liberia",
+        "geonamesId": 2275384,
+        "iso": "LR",
+        "iso3": "LBR"
+    },
+    {
+        "id": "Q1016",
+        "name": "Libya",
+        "geonamesId": 2215636,
+        "iso": "LY",
+        "iso3": "LBY"
+    },
+    {
+        "id": "Q347",
+        "name": "Liechtenstein",
+        "geonamesId": 3042058,
+        "iso": "LI",
+        "iso3": "LIE"
+    },
+    {
+        "id": "Q37",
+        "name": "Lithuania",
+        "geonamesId": 597427,
+        "iso": "LT",
+        "iso3": "LTU"
+    },
+    {
+        "id": "Q32",
+        "name": "Luxembourg",
+        "geonamesId": 2960313,
+        "iso": "LU",
+        "iso3": "LUX"
+    },
+    {
+        "id": "Q1019",
+        "name": "Madagascar",
+        "geonamesId": 1062947,
+        "iso": "MG",
+        "iso3": "MDG"
+    },
+    {
+        "id": "Q1020",
+        "name": "Malawi",
+        "geonamesId": 927384,
+        "iso": "MW",
+        "iso3": "MWI"
+    },
+    {
+        "id": "Q833",
+        "name": "Malaysia",
+        "geonamesId": 1733045,
+        "iso": "MY",
+        "iso3": "MYS"
+    },
+    {
+        "id": "Q826",
+        "name": "Maldives",
+        "geonamesId": 1282028,
+        "iso": "MV",
+        "iso3": "MDV"
+    },
+    {
+        "id": "Q912",
+        "name": "Mali",
+        "geonamesId": 2453866,
+        "iso": "ML",
+        "iso3": "MLI"
+    },
+    {
+        "id": "Q233",
+        "name": "Malta",
+        "geonamesId": 2562770,
+        "iso": "MT",
+        "iso3": "MLT"
+    },
+    {
+        "id": "Q709",
+        "name": "Marshall Islands",
+        "geonamesId": 2080185,
+        "iso": "MH",
+        "iso3": "MHL"
+    },
+    {
+        "id": "Q1025",
+        "name": "Mauritania",
+        "geonamesId": 2378080,
+        "iso": "MR",
+        "iso3": "MRT"
+    },
+    {
+        "id": "Q1027",
+        "name": "Mauritius",
+        "geonamesId": 934292,
+        "iso": "MU",
+        "iso3": "MUS"
+    },
+    {
+        "id": "Q96",
+        "name": "Mexico",
+        "geonamesId": 3996063,
+        "iso": "MX",
+        "iso3": "MEX"
+    },
+    {
+        "id": "Q217",
+        "name": "Moldova",
+        "geonamesId": 617790,
+        "iso": "MD",
+        "iso3": "MDA"
+    },
+    {
+        "id": "Q235",
+        "name": "Monaco",
+        "geonamesId": 2993457,
+        "iso": "MC",
+        "iso3": "MCO"
+    },
+    {
+        "id": "Q711",
+        "name": "Mongolia",
+        "geonamesId": 2029969,
+        "iso": "MN",
+        "iso3": "MNG"
+    },
+    {
+        "id": "Q236",
+        "name": "Montenegro",
+        "geonamesId": 3194884,
+        "iso": "ME",
+        "iso3": "MNE"
+    },
+    {
+        "id": "Q1028",
+        "name": "Morocco",
+        "geonamesId": 2542007,
+        "iso": "MA",
+        "iso3": "MAR"
+    },
+    {
+        "id": "Q1029",
+        "name": "Mozambique",
+        "geonamesId": 1036973,
+        "iso": "MZ",
+        "iso3": "MOZ"
+    },
+    {
+        "id": "Q836",
+        "name": "Myanmar",
+        "geonamesId": 1327865,
+        "iso": "MM",
+        "iso3": "MMR"
+    },
+    {
+        "id": "Q1030",
+        "name": "Namibia",
+        "geonamesId": 3355338,
+        "iso": "NA",
+        "iso3": "NAM"
+    },
+    {
+        "id": "Q697",
+        "name": "Nauru",
+        "geonamesId": 2110425,
+        "iso": "NR",
+        "iso3": "NRU"
+    },
+    {
+        "id": "Q837",
+        "name": "Nepal",
+        "geonamesId": 1282988,
+        "iso": "NP",
+        "iso3": "NPL"
+    },
+    {
+        "id": "Q664",
+        "name": "New Zealand",
+        "geonamesId": 2186224,
+        "iso": "NZ",
+        "iso3": "NZL"
+    },
+    {
+        "id": "Q811",
+        "name": "Nicaragua",
+        "geonamesId": 3617476,
+        "iso": "NI",
+        "iso3": "NIC"
+    },
+    {
+        "id": "Q1032",
+        "name": "Niger",
+        "geonamesId": 2440476,
+        "iso": "NE",
+        "iso3": "NER"
+    },
+    {
+        "id": "Q1033",
+        "name": "Nigeria",
+        "geonamesId": 2328926,
+        "iso": "NG",
+        "iso3": "NGA"
+    },
+    {
+        "id": "Q423",
+        "name": "North Korea",
+        "geonamesId": 1873107,
+        "iso": "KP",
+        "iso3": "PRK"
+    },
+    {
+        "id": "Q20",
+        "name": "Norway",
+        "geonamesId": 3144096,
+        "iso": "NO",
+        "iso3": "NOR"
+    },
+    {
+        "id": "Q842",
+        "name": "Oman",
+        "geonamesId": 286963,
+        "iso": "OM",
+        "iso3": "OMN"
+    },
+    {
+        "id": "Q843",
+        "name": "Pakistan",
+        "geonamesId": 1168579,
+        "iso": "PK",
+        "iso3": "PAK"
+    },
+    {
+        "id": "Q695",
+        "name": "Palau",
+        "geonamesId": 1559582,
+        "iso": "PW",
+        "iso3": "PLW"
+    },
+    {
+        "id": "Q804",
+        "name": "Panama",
+        "geonamesId": 3703430,
+        "iso": "PA",
+        "iso3": "PAN"
+    },
+    {
+        "id": "Q691",
+        "name": "Papua New Guinea",
+        "geonamesId": 2088628,
+        "iso": "PG",
+        "iso3": "PNG"
+    },
+    {
+        "id": "Q733",
+        "name": "Paraguay",
+        "geonamesId": 3437598,
+        "iso": "PY",
+        "iso3": "PRY"
+    },
+    {
+        "id": "Q148",
+        "name": "People's Republic of China",
+        "geonamesId": 1814991,
+        "iso": "CN",
+        "iso3": "CHN"
+    },
+    {
+        "id": "Q419",
+        "name": "Peru",
+        "geonamesId": 3932488,
+        "iso": "PE",
+        "iso3": "PER"
+    },
+    {
+        "id": "Q928",
+        "name": "Philippines",
+        "geonamesId": 1694008,
+        "iso": "PH",
+        "iso3": "PHL"
+    },
+    {
+        "id": "Q36",
+        "name": "Poland",
+        "geonamesId": 798544,
+        "iso": "PL",
+        "iso3": "POL"
+    },
+    {
+        "id": "Q45",
+        "name": "Portugal",
+        "geonamesId": 2264397,
+        "iso": "PT",
+        "iso3": "PRT"
+    },
+    {
+        "id": "Q846",
+        "name": "Qatar",
+        "geonamesId": 289688,
+        "iso": "QA",
+        "iso3": "QAT"
+    },
+    {
+        "id": "Q221",
+        "name": "Republic of Macedonia",
+        "geonamesId": 718075,
+        "iso": "MK",
+        "iso3": "MKD"
+    },
+    {
+        "id": "Q971",
+        "name": "Republic of the Congo",
+        "geonamesId": 2260494,
+        "iso": "CG",
+        "iso3": "COG"
+    },
+    {
+        "id": "Q218",
+        "name": "Romania",
+        "geonamesId": 798549,
+        "iso": "RO",
+        "iso3": "ROU"
+    },
+    {
+        "id": "Q159",
+        "name": "Russia",
+        "geonamesId": 2017370,
+        "iso": "RU",
+        "iso3": "RUS"
+    },
+    {
+        "id": "Q1037",
+        "name": "Rwanda",
+        "geonamesId": 49518,
+        "iso": "RW",
+        "iso3": "RWA"
+    },
+    {
+        "id": "Q763",
+        "name": "Saint Kitts and Nevis",
+        "geonamesId": 3575174,
+        "iso": "KN",
+        "iso3": "KNA"
+    },
+    {
+        "id": "Q760",
+        "name": "Saint Lucia",
+        "geonamesId": 3576468,
+        "iso": "LC",
+        "iso3": "LCA"
+    },
+    {
+        "id": "Q757",
+        "name": "Saint Vincent and the Grenadines",
+        "geonamesId": 3577815,
+        "iso": "VC",
+        "iso3": "VCT"
+    },
+    {
+        "id": "Q683",
+        "name": "Samoa",
+        "geonamesId": 4034894,
+        "iso": "WS",
+        "iso3": "WSM"
+    },
+    {
+        "id": "Q238",
+        "name": "San Marino",
+        "geonamesId": 3168068,
+        "iso": "SM",
+        "iso3": "SMR"
+    },
+    {
+        "id": "Q1039",
+        "name": "Sao Tomé and Príncipe",
+        "geonamesId": 2410758,
+        "iso": "ST",
+        "iso3": "STP"
+    },
+    {
+        "id": "Q851",
+        "name": "Saudi Arabia",
+        "geonamesId": 102358,
+        "iso": "SA",
+        "iso3": "SAU"
+    },
+    {
+        "id": "Q1041",
+        "name": "Senegal",
+        "geonamesId": 2245662,
+        "iso": "SN",
+        "iso3": "SEN"
+    },
+    {
+        "id": "Q403",
+        "name": "Serbia",
+        "geonamesId": 6290252,
+        "iso": "RS",
+        "iso3": "SRB"
+    },
+    {
+        "id": "Q1042",
+        "name": "Seychelles",
+        "geonamesId": 241170,
+        "iso": "SC",
+        "iso3": "SYC"
+    },
+    {
+        "id": "Q1044",
+        "name": "Sierra Leone",
+        "geonamesId": 2403846,
+        "iso": "SL",
+        "iso3": "SLE"
+    },
+    {
+        "id": "Q334",
+        "name": "Singapore",
+        "geonamesId": 1880251,
+        "iso": "SG",
+        "iso3": "SGP"
+    },
+    {
+        "id": "Q214",
+        "name": "Slovakia",
+        "geonamesId": 3057568,
+        "iso": "SK",
+        "iso3": "SVK"
+    },
+    {
+        "id": "Q215",
+        "name": "Slovenia",
+        "geonamesId": 3190538,
+        "iso": "SI",
+        "iso3": "SVN"
+    },
+    {
+        "id": "Q685",
+        "name": "Solomon Islands",
+        "geonamesId": 2103350,
+        "iso": "SB",
+        "iso3": "SLB"
+    },
+    {
+        "id": "Q1045",
+        "name": "Somalia",
+        "geonamesId": 51537,
+        "iso": "SO",
+        "iso3": "SOM"
+    },
+    {
+        "id": "Q258",
+        "name": "South Africa",
+        "geonamesId": 953987,
+        "iso": "ZA",
+        "iso3": "ZAF"
+    },
+    {
+        "id": "Q884",
+        "name": "South Korea",
+        "geonamesId": 1835841,
+        "iso": "KR",
+        "iso3": "KOR"
+    },
+    {
+        "id": "Q958",
+        "name": "South Sudan",
+        "geonamesId": 7909807,
+        "iso": "SS",
+        "iso3": "SSD"
+    },
+    {
+        "id": "Q29",
+        "name": "Spain",
+        "geonamesId": 2510769,
+        "iso": "ES",
+        "iso3": "ESP"
+    },
+    {
+        "id": "Q854",
+        "name": "Sri Lanka",
+        "geonamesId": 1227603,
+        "iso": "LK",
+        "iso3": "LKA"
+    },
+    {
+        "id": "Q1049",
+        "name": "Sudan",
+        "geonamesId": 366755,
+        "iso": "SD",
+        "iso3": "SDN"
+    },
+    {
+        "id": "Q730",
+        "name": "Suriname",
+        "geonamesId": 3382998,
+        "iso": "SR",
+        "iso3": "SUR"
+    },
+    {
+        "id": "Q1050",
+        "name": "Swaziland",
+        "geonamesId": 934841,
+        "iso": "SZ",
+        "iso3": "SWZ"
+    },
+    {
+        "id": "Q34",
+        "name": "Sweden",
+        "geonamesId": 2661886,
+        "iso": "SE",
+        "iso3": "SWE"
+    },
+    {
+        "id": "Q39",
+        "name": "Switzerland",
+        "geonamesId": 2658434,
+        "iso": "CH",
+        "iso3": "CHE"
+    },
+    {
+        "id": "Q858",
+        "name": "Syria",
+        "geonamesId": 163843,
+        "iso": "SY",
+        "iso3": "SYR"
+    },
+    {
+        "id": "Q865",
+        "name": "Taiwan",
+        "geonamesId": 1668284,
+        "iso": "TW",
+        "iso3": "TWN"
+    },
+    {
+        "id": "Q863",
+        "name": "Tajikistan",
+        "geonamesId": 1220409,
+        "iso": "TJ",
+        "iso3": "TJK"
+    },
+    {
+        "id": "Q924",
+        "name": "Tanzania",
+        "geonamesId": 149590,
+        "iso": "TZ",
+        "iso3": "TZA"
+    },
+    {
+        "id": "Q869",
+        "name": "Thailand",
+        "geonamesId": 1605651,
+        "iso": "TH",
+        "iso3": "THA"
+    },
+    {
+        "id": "Q778",
+        "name": "The Bahamas",
+        "geonamesId": 3572887,
+        "iso": "BS",
+        "iso3": "BHS"
+    },
+    {
+        "id": "Q945",
+        "name": "Togo",
+        "geonamesId": 2363686,
+        "iso": "TG",
+        "iso3": "TGO"
+    },
+    {
+        "id": "Q678",
+        "name": "Tonga",
+        "geonamesId": 4032283,
+        "iso": "TO",
+        "iso3": "TON"
+    },
+    {
+        "id": "Q754",
+        "name": "Trinidad and Tobago",
+        "geonamesId": 3573591,
+        "iso": "TT",
+        "iso3": "TTO"
+    },
+    {
+        "id": "Q948",
+        "name": "Tunisia",
+        "geonamesId": 2464461,
+        "iso": "TN",
+        "iso3": "TUN"
+    },
+    {
+        "id": "Q43",
+        "name": "Turkey",
+        "geonamesId": 298795,
+        "iso": "TR",
+        "iso3": "TUR"
+    },
+    {
+        "id": "Q874",
+        "name": "Turkmenistan",
+        "geonamesId": 1218197,
+        "iso": "TM",
+        "iso3": "TKM"
+    },
+    {
+        "id": "Q672",
+        "name": "Tuvalu",
+        "geonamesId": 2110297,
+        "iso": "TV",
+        "iso3": "TUV"
+    },
+    {
+        "id": "Q1036",
+        "name": "Uganda",
+        "geonamesId": 226074,
+        "iso": "UG",
+        "iso3": "UGA"
+    },
+    {
+        "id": "Q212",
+        "name": "Ukraine",
+        "geonamesId": 690791,
+        "iso": "UA",
+        "iso3": "UKR"
+    },
+    {
+        "id": "Q878",
+        "name": "United Arab Emirates",
+        "geonamesId": 290557,
+        "iso": "AE",
+        "iso3": "ARE"
+    },
+    {
+        "id": "Q145",
+        "name": "United Kingdom",
+        "geonamesId": 2635167,
+        "iso": "GB",
+        "iso3": "GBR"
+    },
+    {
+        "id": "Q30",
+        "name": "United States of America",
+        "geonamesId": 6252001,
+        "iso": "US",
+        "iso3": "USA"
+    },
+    {
+        "id": "Q77",
+        "name": "Uruguay",
+        "geonamesId": 3439705,
+        "iso": "UY",
+        "iso3": "URY"
+    },
+    {
+        "id": "Q265",
+        "name": "Uzbekistan",
+        "geonamesId": 1512440,
+        "iso": "UZ",
+        "iso3": "UZB"
+    },
+    {
+        "id": "Q686",
+        "name": "Vanuatu",
+        "geonamesId": 2134431,
+        "iso": "VU",
+        "iso3": "VUT"
+    },
+    {
+        "id": "Q237",
+        "name": "Vatican City",
+        "geonamesId": 3164670,
+        "iso": "VA",
+        "iso3": "VAT"
+    },
+    {
+        "id": "Q717",
+        "name": "Venezuela",
+        "geonamesId": 3625428,
+        "iso": "VE",
+        "iso3": "VEN"
+    },
+    {
+        "id": "Q881",
+        "name": "Vietnam",
+        "geonamesId": 1562822,
+        "iso": "VN",
+        "iso3": "VNM"
+    },
+    {
+        "id": "Q805",
+        "name": "Yemen",
+        "geonamesId": 69543,
+        "iso": "YE",
+        "iso3": "YEM"
+    },
+    {
+        "id": "Q953",
+        "name": "Zambia",
+        "geonamesId": 895949,
+        "iso": "ZM",
+        "iso3": "ZMB"
+    },
+    {
+        "id": "Q954",
+        "name": "Zimbabwe",
+        "geonamesId": 878675,
+        "iso": "ZW",
+        "iso3": "ZWE"
+    }
+]
