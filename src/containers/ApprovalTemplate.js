@@ -5,7 +5,8 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
-import jsonData from './jsonDataSource/EmailTemplate.json';
+import Button from 'material-ui/Button';
+import jsonData from './jsonDataSource/ApprovalTemplate.json';
 
 const divStyle = {
   overflowY: 'scroll',
@@ -43,13 +44,10 @@ const label = {
   float: 'left',
   marginRight: '15px'
 }
-
 function PaperSheet(props) {
   const {classes} = props;
   return (
     <div style={divStyle}>
-
-      <br/>
       <br/>
       <br/>
       <br/>
@@ -57,43 +55,49 @@ function PaperSheet(props) {
       <br/>
       <br/>
       <div className="text-center">
-        <p style={{
-          color: 'white'
-        }} className="text-center">{jsonData[0].heading}</p>
         <Paper className={classes.root} elevation={4}>
-          <h1 className="h1 display-1 text-center">{jsonData[0].subHeading}
+          <div>
+            <p className="float-left">
+              {jsonData[0].emailSubjectHeading}
+              <strong>
+                {jsonData[0].shipperName}
+              </strong>
+              <span></span>
+              {jsonData[0].mainHeading}
+            </p>
+            <br/>
+          </div>
+          <h1>
+            <strong>
+              {jsonData[0].mainHeading}
+            </strong>
           </h1>
           <br/>
-          <Typography component="p" style={{
-            fontWeight: 'bold'
-          }}>
-            Shipper Information
-          </Typography>
-          <div class="form-group">
-            <label for="Student">Name:
+          <div className="float-left">
+            <label for="Student">To:
             </label>
             <label style={{
               marginLeft: '20px'
-            }} name="Student">{jsonData[0].userName}</label>
+            }} name="Student">{jsonData[0].shipperName}</label>
             <br/>
-            <label for="Student">Email:
-            </label>
-            <label style={{
-              marginLeft: '20px'
-            }} name="Student">{jsonData[0].userEmail}</label>
           </div>
-          {/* <div class="form-group">
-            <label for="Student">Email:  </label>
-            <label style={{marginLeft:'20px'}} name="Student">UmerSaleem@gmail.com</label>
-          </div> */}
-
+          <br/>
           <Typography component="label">
-            {jsonData[0].conformNote}
+            {jsonData[0].heading}
           </Typography>
           <br/>
           <Typography component="p">
-            {jsonData[0].followUs}
+            {jsonData[0].subHeading01}
+            <a href="#">{jsonData[0].shipperWebsite}</a>
+            {jsonData[0].subHeading02}
           </Typography>
+          <br/>
+          <br/>
+          <Button variant="raised" size="large" color="primary">
+            Login to KretaHub
+          </Button>
+          <br/>
+          <br/>
           <br/>
           <footer
             className="text-center"

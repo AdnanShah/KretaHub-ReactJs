@@ -5,7 +5,8 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
-import jsonData from './jsonDataSource/EmailTemplate.json';
+import Button from 'material-ui/Button';
+import jsonData from './jsonDataSource/PendingTemplate.json';
 
 const divStyle = {
   overflowY: 'scroll',
@@ -19,7 +20,9 @@ const divStyle = {
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundImage: `url(${Background})`,
-  position: 'relative'
+  position: 'relative',
+  fontFamily: 'Sans-Sarif'
+
 };
 const styles = theme => ({
   root: theme
@@ -43,44 +46,66 @@ const label = {
   float: 'left',
   marginRight: '15px'
 }
-
 function PaperSheet(props) {
   const {classes} = props;
   return (
     <div style={divStyle}>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
 
       <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+
       <div className="text-center">
-        <p style={{
-          color: 'white'
-        }} className="text-center">{jsonData[0].heading}</p>
+        <h2
+          style={{
+          color: 'white',
+          fontFamily: 'Sans-Sarif'
+        }}
+          className="text-center">
+          <strong>
+            {jsonData[0].mainHeading}
+          </strong>
+        </h2>
+        <span
+          style={{
+          color: 'red',
+          margin: '3%',
+          paddingBottom: '30%'
+        }}
+          className="text-center">-</span>
+        <span
+          style={{
+          color: 'red',
+          margin: '3%',
+          paddingBottom: '30%'
+        }}
+          className="text-center">-</span>
+        <span
+          style={{
+          color: 'red',
+          margin: '3%',
+          paddingBottom: '30%'
+        }}
+          className="text-center">-</span>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <Paper className={classes.root} elevation={4}>
-          <h1 className="h1 display-1 text-center">{jsonData[0].subHeading}
+          <h1 className="h1 display-1 text-center">
+            {jsonData[0].mainHeading}
           </h1>
           <br/>
-          <Typography component="p" style={{
-            fontWeight: 'bold'
-          }}>
-            Shipper Information
-          </Typography>
           <div class="form-group">
-            <label for="Student">Name:
+            <label for="Student">To:
             </label>
             <label style={{
               marginLeft: '20px'
-            }} name="Student">{jsonData[0].userName}</label>
+            }} name="Student">{jsonData[0].shipperName}</label>
             <br/>
-            <label for="Student">Email:
-            </label>
-            <label style={{
-              marginLeft: '20px'
-            }} name="Student">{jsonData[0].userEmail}</label>
           </div>
           {/* <div class="form-group">
             <label for="Student">Email:  </label>
@@ -88,17 +113,23 @@ function PaperSheet(props) {
           </div> */}
 
           <Typography component="label">
-            {jsonData[0].conformNote}
+            {jsonData[0].subHeading}
           </Typography>
+          <br/>
+          <Typography component="p">
+            {jsonData[0].subHeading2}
+          </Typography>
+          <br/>
           <br/>
           <Typography component="p">
             {jsonData[0].followUs}
           </Typography>
           <br/>
+          <br/>
           <footer
             className="text-center"
             style={{
-            backgroundColor: '#F3F3F3',
+            backgroundColor: '#fff',
             alignContent: 'center'
           }}>
             <a
@@ -119,6 +150,15 @@ function PaperSheet(props) {
             }}
               href='www.raqamisolutions.com'>Twitter</a>
           </footer>
+          <div class="form-group">
+            <label for="Student">Regards:
+            </label>
+            <label style={{
+              marginLeft: '20px'
+            }} name="Student">{jsonData[0].companyName}</label>
+            <br/>
+          </div>
+
         </Paper>
       </div>
     </div>

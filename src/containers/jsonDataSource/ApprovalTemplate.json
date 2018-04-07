@@ -1,0 +1,13 @@
+[
+    {
+        "emailSubjectHeading": "Email Subject:",
+        "mainHeading": "Welcome to KretaHub!",
+        "shipperName": "Jhon",
+        "shipperEmail": "UmerSaleem@gmail.com",
+        "shipperWebsite": "https://shipper.kretahub.com/",
+        "to": "PT. Indotech (shipper name)",
+        "heading": "Your Shipper Signup request has been approved. You can now get freight quotes and book your freight conveniently.",
+        "subHeading01": "Go to ",
+        "subHeading02": "and login using your email address and password, or click the button below."
+    }
+]
