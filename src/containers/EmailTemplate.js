@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
-// import jsonData from './dataSource/EmailTemplate.json';
+import jsonData from './jsonDataSource/EmailTemplate.json';
 
 const divStyle = {
   overflowY: 'scroll',
@@ -43,10 +43,12 @@ const label = {
   float: 'left',
   marginRight: '15px'
 }
+
 function PaperSheet(props) {
   const {classes} = props;
   return (
     <div style={divStyle}>
+
       <br/>
       <br/>
       <br/>
@@ -57,10 +59,9 @@ function PaperSheet(props) {
       <div className="text-center">
         <p style={{
           color: 'white'
-        }} className="text-center">Your Shipper Signup Request is Being Processed</p>
+        }} className="text-center">{jsonData[0].heading}</p>
         <Paper className={classes.root} elevation={4}>
-          <h1 className="h1 display-1 text-center">
-            Thank you for signing up as a shipper on KretaHub.
+          <h1 className="h1 display-1 text-center">{jsonData[0].subHeading}
           </h1>
           <br/>
           <Typography component="p" style={{
@@ -73,13 +74,13 @@ function PaperSheet(props) {
             </label>
             <label style={{
               marginLeft: '20px'
-            }} name="Student">Umer Saleem</label>
+            }} name="Student">{jsonData[0].userName}</label>
             <br/>
             <label for="Student">Email:
             </label>
             <label style={{
               marginLeft: '20px'
-            }} name="Student">UmerSaleem@gmail.com</label>
+            }} name="Student">{jsonData[0].userEmail}</label>
           </div>
           {/* <div class="form-group">
             <label for="Student">Email:  </label>
@@ -87,11 +88,11 @@ function PaperSheet(props) {
           </div> */}
 
           <Typography component="label">
-            We will notify you by email when your request has been approved.
+            {jsonData[0].conformNote}
           </Typography>
           <br/>
           <Typography component="p">
-            In the mean time, you can follow us on:
+            {jsonData[0].followUs}
           </Typography>
           <br/>
           <footer

@@ -5,7 +5,8 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
-import jsonData from './dataSource/ApprovalTemplate.json';
+import Button from 'material-ui/Button';
+import jsonData from './jsonDataSource/ApprovalTemplate.json';
 
 const divStyle = {
   overflowY: 'scroll',
@@ -52,34 +53,25 @@ function PaperSheet(props) {
       <br/>
       <br/>
       <br/>
+
       <br/>
-      <br/>
+
       <div className="text-center">
         <p style={{
           color: 'white'
         }} className="text-center">Your Shipper Signup Request is Being Processed</p>
         <Paper className={classes.root} elevation={4}>
           <h1 className="h1 display-1 text-center">
-            Thank you for signing up as a shipper on KretaHub.
+            {jsonData[0].mainHeading}
           </h1>
           <br/>
-          <Typography component="p" style={{
-            fontWeight: 'bold'
-          }}>
-            Shipper Information
-          </Typography>
           <div class="form-group">
-            <label for="Student">Name:
+            <label for="Student">To:
             </label>
             <label style={{
               marginLeft: '20px'
-            }} name="Student">Umer Saleem</label>
+            }} name="Student">{jsonData[0].shipperName}</label>
             <br/>
-            <label for="Student">Email:
-            </label>
-            <label style={{
-              marginLeft: '20px'
-            }} name="Student">UmerSaleem@gmail.com</label>
           </div>
           {/* <div class="form-group">
             <label for="Student">Email:  </label>
@@ -87,12 +79,19 @@ function PaperSheet(props) {
           </div> */}
 
           <Typography component="label">
-            We will notify you by email when your request has been approved.
+            {jsonData[0].heading}
           </Typography>
           <br/>
           <Typography component="p">
-            In the mean time, you can follow us on:
+            {jsonData[0].subHeading}
           </Typography>
+          <br/>
+          <br/>
+          <Button variant="raised" size="large" color="primary">
+            Login to KretaHub
+          </Button>
+          <br/>
+          <br/>
           <br/>
           <footer
             className="text-center"
