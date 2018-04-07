@@ -42,6 +42,7 @@ import SignUp from './SignUp';
 import EmailTemplate from './EmailTemplate'
 import ApprovalTemplate from './ApprovalTemplate'
 import PendingTemplate from './PendingTemplate'
+import ThankYou from './ThankYou'
 import {setInitUrl} from '../actions/Auth';
 
 const RestrictedRoute = ({component: Component, ...rest, authUser}) =>
@@ -168,6 +169,7 @@ class App extends Component {
                         <Route path='/thankYou' component={EmailTemplate}/>
                         <Route path='/pending' component={PendingTemplate}/>
                         <Route path='/approval' component={ApprovalTemplate}/>
+                        <Route path='/mainthankyou' component={ThankYou}/>
                     </div>
                 </IntlProvider>
             </MuiThemeProvider>

@@ -1,0 +1,15 @@
+[
+    {
+        "mainHeading": "Your Order is Being Verified",
+        "line1": "Thank you for your order.",
+        "line2": "Your order has been received and is now being verified. Your order details are shown",
+        "line3": "below for your reference :",
+        "line4": "below for your reference :",
+        "shipperEmail": "UmerSaleem@gmail.com",
+        "shipperWebsite": "https://shipper.kretahub.com/",
+        "to": "PT. Indotech (shipper name)",
+        "heading": "Your Shipper Signup request has been approved. You can now get freight quotes and book your freight conveniently.",
+        "subHeading01": "Go to ",
+        "subHeading02": "and login using your email address and password, or click the button below."
+    }
+]
