@@ -60,8 +60,9 @@ import CardHeader from 'components/dashboard/Common/CardHeader/index';
 import IntlMessages from 'util/IntlMessages';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import countries from './jsonDataSource/countries.json';
+import DateFormatInput from 'material-ui-next-datepicker'
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
+import { Link } from 'react-router-dom';
 const label= {
     /* Other styling..*/
     textAlign: 'right',
@@ -99,7 +100,6 @@ class Default extends React.Component {
 
     constructor() {
         super();
-       
         var today = new Date();
         var dd = today.getDate();
         var mm = today.getMonth()+1; //January is 0!
@@ -119,9 +119,13 @@ class Default extends React.Component {
         }
         
     }
+    onChange = (date) => {
+        console.log(date)
+        this.setState({date})
+      } 
 
     render() {
-        const {anchorEl, menuState} = this.state;
+        const {anchorEl, menuState,currentDate} = this.state;
         const { classes } = this.props;
         console.log(this.state.currentDate);
         return (
@@ -183,6 +187,12 @@ class Default extends React.Component {
                             </form>
                            <br/> 
                             <label style={{marginRight:'20px'}} for="Student">Departure/Arrival date:</label>
+                            {/* <DateFormatInput name='date-input'
+                               // min={Date}
+                                value={currentDate}
+                                onChange={this.onChange}
+                                fullWidth='false'
+                                /> */}
                             <TextField
                                 id="date"                   
                                 type="date"
@@ -191,7 +201,6 @@ class Default extends React.Component {
                                 InputLabelProps={{
                                 shrink: true,
                                 }}
-                                
                             />
                             <label style={{marginRight:'20px'}} for="Student">Until:</label>
                             <TextField
@@ -204,9 +213,18 @@ class Default extends React.Component {
                                 }}
                             />
                             <br/> <br/>
-                            <Button variant="raised" style={{background:'#29487D',color:'#fff'}} component="span">
+                            <Link 
+                            to={{
+                                pathname:'freightSearch',
+                                state: {key:this.state.country},
+                            }}     
+                        >   
+                            <Button variant="raised" 
+                                    style={{background:'#29487D',color:'#fff'}} 
+                                    component="span">
                                 Search
                             </Button>
+                        </Link>  
                         </div>
                     </div>
                 </div>
