@@ -290,7 +290,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth>
                                 {currencies.map(industry => (
-                                    <MenuItem key={industry.value} value={this.state.industry}>
+                                    <MenuItem key={industry.value} value={industry.label}>
                                         {industry.label}
                                     </MenuItem>
                                 ))}
@@ -308,7 +308,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth>
                                 {shipments.map(shipment => (
-                                    <MenuItem key={shipment.value} value={this.state.shipment}>
+                                    <MenuItem key={shipment.value} value={shipment.label}>
                                         {shipment.label}
                                     </MenuItem>
                                 ))}
@@ -367,6 +367,26 @@ class TextFields extends React.Component {
                                 fullWidth/>
                         </div>
                         <div className="col-md-4 col-12">
+                        <TextField
+                                id="city"
+                                select
+                                label="Select Country"
+                                value={this.state.country1}
+                                onChange={this.handleChange('country1')}
+                                SelectProps={{}}
+                                helperText="Please select your city"
+                                margin="normal"
+                                fullWidth
+                                >
+                                {countries.map(countrie => (
+                                    <MenuItem key={countrie.id} value={countrie.name}>
+                                        {countrie.name}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                                
+                        
+{/*                         
                             <TextField
                                 id="city"
                                 select
@@ -378,11 +398,11 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth>
                                 {countries.map(countrie => (
-                                    <MenuItem key={countrie.id} value={this.state.country}>
+                                    <MenuItem key={countrie.id} value={countrie.name}>
                                         {countrie.name}
                                     </MenuItem>
                                 ))}
-                            </TextField>
+                            </TextField> */}
                         </div>
                         <div className="col-md-4 col-12">
                             <TextField
@@ -527,6 +547,7 @@ class TextFields extends React.Component {
                                         </div>
 
                                         <div className="col-md-4 col-12">
+                                        
                                             <TextField
                                                 id="city"
                                                 select
@@ -576,7 +597,7 @@ class TextFields extends React.Component {
                                                 margin="normal"
                                                 fullWidth>
                                                 {countries.map(countrie => (
-                                                    <MenuItem key={countrie.id} value={this.state.country}>
+                                                    <MenuItem key={countrie.id} value={countrie.name}>
                                                         {countrie.name}
                                                     </MenuItem>
                                                 ))}
