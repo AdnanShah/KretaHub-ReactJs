@@ -126,6 +126,13 @@ class Default extends React.Component {
         console.log(date)
         this.setState({date})
       } 
+      nextRoute = () => {
+        this.props.history.push({
+              pathname:'freightSearch',
+              state:{key:this.state}              
+          });
+      }
+   
 
     render() {
         const {anchorEl, menuState,currentDate} = this.state;
@@ -221,12 +228,14 @@ class Default extends React.Component {
                                 pathname:'freightSearch',
                                 state: {key:this.state.country},
                             }}     
-                        >   
-                            <Button variant="raised" 
-                                    style={{background:'#29487D',color:'#fff'}} 
-                                    component="span">
-                                Search
-                            </Button>
+                        > 
+                        <Button variant="raised" 
+                        onClick={this.nextRoute}
+                        style={{background:'#29487D',color:'#fff'}} 
+                                component="span">
+                            Search
+                        </Button>
+
                         </Link>  
                         </div>
                     </div>
