@@ -27,7 +27,6 @@ import SimpleCard from 'components/Cards/Sample/index';
 import PopularProduct from 'components/dashboard/Common/PopularProduct';
 import WeatherDetail from 'components/Weather/WeatherDetail';
 import LatestPosts from 'components/dashboard/Common/LatestPosts/index';
-
 import {
     announcementsNotification,
     appNotification,
@@ -36,7 +35,6 @@ import {
     pieChartData,
     products
 } from 'app/routes/dashboard/routes/Default/data';
-
 import Button from 'material-ui/Button';
 import CafeCard from 'components/Cards/Cafe/index';
 import Statistics from 'components/dashboard/default/Statistics';
@@ -80,7 +78,7 @@ const data = [
     id += 1;
     return { id, name, calories, fat, carbs, protein };
   }
-class FreightSearch extends React.Component {
+class Freightdetail extends React.Component {
         
 
     handleChange = name => event => {
@@ -183,10 +181,6 @@ class FreightSearch extends React.Component {
                                     <label style={{marginRight:'20px'}} for="Student">LCL</label> 
                                             <input type="radio" value="group1" name="group1"/>
                                     <label style={{marginRight:'20px'}} for="Student">General Cargo</label>        
-                                    <Button  variant="raised" 
-                                        style={{background:'#29487D',color:'#fff',float:'right'}} 
-                                        component="span">Change Search
-                                     </Button>
                                 </div>
                             </form>
                            <br/> 
@@ -220,45 +214,33 @@ class FreightSearch extends React.Component {
                     </div>
                </div>
             </div>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell numeric>Calories</TableCell>
-                            <TableCell numeric>Fat (g)</TableCell>
-                            <TableCell numeric>Carbs (g)</TableCell>
-                            <TableCell numeric>Protein (g)</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                    {data.map(n => {
-                        return (
-                        <TableRow key={n.id}>
-                            <TableCell>{n.name}</TableCell>
-                            <TableCell numeric>{n.calories}</TableCell>
-                            <TableCell numeric>{n.fat}</TableCell>
-                            <TableCell numeric>{n.carbs}</TableCell>
-                            <TableCell numeric>{n.protein}</TableCell>
-                            <Link 
-                            to={{
-                                pathname:'freightDetail',
-                                state: {key:this.state.country},
-                            }}     
-                              >  
-                            <TableCell><Button  variant="raised" 
-                                style={{background:'#29487D',color:'#fff'}} 
-                                component="span">Details
-                                </Button>
-                            </TableCell>
-                           </Link> 
-                        </TableRow>
-                        );
-                    })}
-                    </TableBody>
-                </Table>          
+     <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell numeric>Calories</TableCell>
+            <TableCell numeric>Fat (g)</TableCell>
+            <TableCell numeric>Carbs (g)</TableCell>
+            <TableCell numeric>Protein (g)</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map(n => {
+            return (
+              <TableRow key={n.id}>
+                <TableCell>{n.name}</TableCell>
+                <TableCell numeric>{n.calories}</TableCell>
+                <TableCell numeric>{n.fat}</TableCell>
+                <TableCell numeric>{n.carbs}</TableCell>
+                <TableCell numeric>{n.protein}</TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>          
         </div>
         );
     }
 }
 
-export default FreightSearch;
+export default Freightdetail;
