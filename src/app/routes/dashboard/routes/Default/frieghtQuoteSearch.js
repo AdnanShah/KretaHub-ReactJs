@@ -214,8 +214,7 @@ class FreightSearch extends React.Component {
                     </div>
                </div>
             </div>
-
-     <Table >
+     <Table>
         <TableHead>
           <TableRow>
             <TableCell>Dessert (100g serving)</TableCell>
@@ -240,8 +239,6 @@ class FreightSearch extends React.Component {
         </TableBody>
       </Table>          
         </div>
-
-
         );
     }
 }
