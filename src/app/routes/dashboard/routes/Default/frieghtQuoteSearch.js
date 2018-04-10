@@ -137,7 +137,7 @@ class FreightSearch extends React.Component {
     }
 
     componentDidMount() {
-        this.props.location.state.key
+        this.props.location.state.key.country1
     }
 
     render() {
@@ -189,13 +189,14 @@ class FreightSearch extends React.Component {
                                     id="city"
                                     select
                                     label="Select Country"
-                                    value={this.state.country2}
+                                    defaultValue={this.props.location.state.key.country1}
+                                    value={this.state.country1}
                                     onChange={this.handleChange2('country2')}
                                     SelectProps={{}}
                                     helperText="Please select your city"
                                     margin="normal">
                                     {countries.map(countrie => (
-                                        <MenuItem key={countrie.id} value={this.state.country}>
+                                        <MenuItem key={countrie.id} value={this.props.location.state.key.country1}>
                                             {countrie.name}
                                         </MenuItem>
                                     ))}
