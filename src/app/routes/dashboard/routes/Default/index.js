@@ -14,7 +14,7 @@ import {
     Tooltip,
     XAxis
 } from 'recharts';
-
+import TextField from 'material-ui/TextField';
 import MonthlyRevenue from 'components/dashboard/default/MonthlyRevenue';
 import {chartDataWithoutAxis, data2} from 'app/routes/dashboard/routes/ECommerce/data'
 import {cardData, cardData1, cardData2, connections, data1, expanseData, todoData} from '../data'
@@ -58,10 +58,39 @@ import CardMenu from 'components/dashboard/Common/CardMenu';
 import Team from 'app/routes/extraPages/routes/aboutUs/Componets/Team';
 import CardHeader from 'components/dashboard/Common/CardHeader/index';
 import IntlMessages from 'util/IntlMessages';
-
+import MenuItem from 'material-ui/Menu/MenuItem';
+import countries from './jsonDataSource/countries.json';
+import DateFormatInput from 'material-ui-next-datepicker'
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
+import { Link } from 'react-router-dom';
+const label= {
+    /* Other styling..*/
+    textAlign: 'right',
+    clear: 'both',
+    marginRight:'15px',
+}
+const styles = theme => ({
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing.unit,
+      marginRight: theme.spacing.unit,
+      width: 200,
+    },
+});
 class Default extends React.Component {
+        
+
+    handleChange = name => event => {
+        console.log("name",name,"event",event.target.value);
+        this.setState({[name]: event.target.value});
+    };    
+    handleChange2 = name => event => {
+        console.log("name",name,"event",event.target.value);
+        this.setState({[name]: event.target.value});
+    }; 
     onOptionMenuSelect = event => {
         this.setState({menuState: true, anchorEl: event.currentTarget});
     };
@@ -71,29 +100,136 @@ class Default extends React.Component {
 
     constructor() {
         super();
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        } 
+        if(mm<10){
+            mm='0'+mm;
+        } 
         this.state = {
             anchorEl: undefined,
             menuState: false,
+            country1:'Algeria',
+            country2:'Australia',
+            currentDate:yyyy+'-'+mm+'-'+dd,
         }
+        
     }
+    onChange = (date) => {
+        console.log(date)
+        this.setState({date})
+      } 
 
     render() {
-        const {anchorEl, menuState} = this.state;
+        const {anchorEl, menuState,currentDate} = this.state;
+        const { classes } = this.props;
+        console.log(this.state.currentDate);
         return (
             <div className="dashboard animated slideInUpTiny animation-duration-3">
-                <ContainerHeader match={this.props.match} title={<IntlMessages id="sidebar.dashboard"/>}/>
-
+                {/* <ContainerHeader match={this.props.match} title={<IntlMessages id="sidebar.dashboard"/>}/> */}
                 <div className="row">
-                    <div className="col-xl-5 col-12">
+                    <div className="col-xl-5 col-xl-7 col-xl-9 col-11 col-12 col-13">
                         <div className="jr-card p-0">
                             <div className="jr-card-header pt-3 px-4">
-                                <h3><IntlMessages id="dashboard.userStatstics"/></h3>
+                                <h2><IntlMessages id="Freight Quote Search"/></h2>
                             </div>
-                            <MonthlyRevenue chartData={expanseData}/>
+                            <div class="form-group">
+                                <label style={{marginRight:'20px'}} for="Student">Departure:</label>
+                                <TextField
+                                id="city"
+                                select
+                                style={{marginRight:'85px'}}
+                                label="Select Country"
+                                value={this.state.country1}
+                                onChange={this.handleChange.bind(this,'country1')}
+                                SelectProps={{}}
+                                helperText="Please select your city"
+                                margin="normal"
+                                >
+                                {countries.map(countrie => (
+                                    <MenuItem key={countrie.id} value={this.state.country}>
+                                        {countrie.name}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                                <label style={{marginRight:'20px'}} for="Student">Arrival:</label>
+                                <TextField
+                                id="city"
+                                select
+                                label="Select Country"
+                                value={this.state.country2}
+                                onChange={this.handleChange2('country2')}
+                                SelectProps={{}}
+                                helperText="Please select your city"
+                                margin="normal"
+                                >
+                                {countries.map(countrie => (
+                                    <MenuItem key={countrie.id} value={this.state.country}>
+                                        {countrie.name}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                            </div>
+                            <form>
+                                <div id="group1">
+                                    <label style={{marginRight:'20px'}} for="Student">Freight type:</label>
+                                            <input type="radio" value="group1" name="Umer "/>
+                                    <label style={{marginRight:'20px'}} for="Student">FCL</label>        
+                                            <input type="radio" value="group1" name="group1"/>
+                                    <label style={{marginRight:'20px'}} for="Student">LCL</label> 
+                                            <input type="radio" value="group1" name="group1"/>
+                                    <label style={{marginRight:'20px'}} for="Student">General Cargo</label>        
+                                </div>
+                            </form>
+                           <br/> 
+                            <label style={{marginRight:'20px'}} for="Student">Departure/Arrival date:</label>
+                            {/* <DateFormatInput name='date-input'
+                               // min={Date}
+                                value={currentDate}
+                                onChange={this.onChange}
+                                fullWidth='false'
+                                /> */}
+                            <TextField
+                                id="date"                   
+                                type="date"
+                                min={this.state.currentDate}
+                                defaultValue={this.state.currentDate}
+                                InputLabelProps={{
+                                shrink: true,
+                                }}
+                            />
+                            <label style={{marginRight:'20px'}} for="Student">Until:</label>
+                            <TextField
+                                id="date"
+                                type="date"
+                                defaultValue="2018-05-08"
+                                style={{marginRight:'20px'}}
+                                InputLabelProps={{
+                                shrink: true,
+                                }}
+                            />
+                            <br/> <br/>
+                            <Link 
+                            to={{
+                                pathname:'freightSearch',
+                                state: {key:this.state.country},
+                            }}     
+                        >   
+                            <Button variant="raised" 
+                                    style={{background:'#29487D',color:'#fff'}} 
+                                    component="span">
+                                Search
+                            </Button>
+                        </Link>  
                         </div>
                     </div>
-
-                    <div className="col-xl-7 col-12">
+                </div>
+                
+                    {/* <div className="col-xl-7 col-12">
                         <div className="row">
                             <div className="col-xl-7 col-lg-6 col-sm-7 col-12">
                                 <div className="row">
@@ -104,9 +240,9 @@ class Default extends React.Component {
                                         <InfoCard data={cardData1} styleName="bg-cyan darken-2"/>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <div className="col-xl-5 col-lg-6 col-sm-5 col-12">
+                            {/* <div className="col-xl-5 col-lg-6 col-sm-5 col-12">
                                 <ChartCard styleName="bg-primary jr-chart-or text-white">
                                     <div className="chart-title text-right">
                                         <h3 className="mb-0">
@@ -122,8 +258,8 @@ class Default extends React.Component {
                                         </LineChart>
                                     </ResponsiveContainer>
                                 </ChartCard>
-                            </div>
-                            <div className="col-xl-7 col-lg-6 col-sm-7 col-12">
+                            </div> */}
+                            {/* <div className="col-xl-7 col-lg-6 col-sm-7 col-12">
                                 <InFoWithBgImage data={cardData2}/>
                             </div>
                             <div className="col-xl-5 col-lg-6 col-sm-5 col-12">
@@ -131,9 +267,9 @@ class Default extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-lg-3 col-sm-6 col-12">
                         <UserProfileCard headerStyle="bg-primary"/>
                     </div>
@@ -146,9 +282,9 @@ class Default extends React.Component {
 
                             <UserDetailTable data={connections}/>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-5 col-sm-6 col-12">
+                    {/* <div className="col-lg-5 col-sm-6 col-12">
                         <div className="jr-card">
                             <CardHeader heading={<IntlMessages id="dashboard.recentActivities"/>}
                                         subHeading={<IntlMessages id="dashboard.lastActivity"/>}/>
@@ -156,9 +292,9 @@ class Default extends React.Component {
                             {recentList.map((recentList, index) => <RecentActivities key={index}
                                                                                      recentData={recentList}/>)}
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-4 col-sm-6 col-12">
+                    {/* <div className="col-lg-4 col-sm-6 col-12">
                         <div className="jr-card">
                             <div className="jr-card-header mb-3 d-flex">
                                 <h3 className="mb-0 mr-auto"><IntlMessages id="dashboard.currentProjects"/></h3>
@@ -166,9 +302,9 @@ class Default extends React.Component {
                             </div>
                             <ProjectsList data={projects}/>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-4 col-sm-6 col-12">
+                    {/* <div className="col-lg-4 col-sm-6 col-12">
                         <div className="jr-card">
                             <div className="jr-card-header d-flex">
                                 <div className="mr-auto">
@@ -183,9 +319,9 @@ class Default extends React.Component {
                             </div>
                             <SimpleToDo data={todoData}/>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-4 col-sm-6 col-12">
+                    {/* <div className="col-lg-4 col-sm-6 col-12">
                         <div className="jr-card">
                             <div className="jr-card-header d-flex align-items-center mb-3">
                                 <h3 className="card-heading mb-0"><i
@@ -198,9 +334,9 @@ class Default extends React.Component {
                             <MarketingTable data={marketingData}/>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-lg-4 col-md-6 col-12">
                         <LatestNotifications appNotification={appNotification}
                                              announcementsNotification={announcementsNotification}/>
@@ -226,9 +362,9 @@ class Default extends React.Component {
                             <YourDailyFeed data={dailyFeedData}/>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-lg-5 col-12">
                         <ReportBox heading="This Year Sale Report" title="$685K+" detail="Post 9 month data">
                             <BarChart data={chartDataWithoutAxis}>
@@ -236,9 +372,9 @@ class Default extends React.Component {
                                 <XAxis stroke="#3f51b5" dataKey="name"/>
                             </BarChart>
                         </ReportBox>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-5 col-sm-8 col-12 order-lg-3 ">
+                    {/* <div className="col-lg-5 col-sm-8 col-12 order-lg-3 ">
                         <div className="jr-card">
                             <div className="row">
                                 <div className="col-sm-5 col-12">
@@ -273,9 +409,9 @@ class Default extends React.Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-2 col-sm-4 col-12">
+                    {/* <div className="col-lg-2 col-sm-4 col-12">
                         <div className="jr-card bg-primary text-white text-center py-5">
                             <div className="mb-3">
                                 <img src="http://via.placeholder.com/54x52" alt="image"/>
@@ -283,9 +419,9 @@ class Default extends React.Component {
                             <h5 className="text-uppercase mb-0"><IntlMessages id="dashboard.upgradeToday"/></h5>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-lg-3 col-sm-6 col-12">
                         <ChartCard styleName="bg-secondary text-white">
                             <div className="chart-title">
@@ -300,9 +436,9 @@ class Default extends React.Component {
                                 </BarChart>
                             </ResponsiveContainer>
                         </ChartCard>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-3 col-sm-6 col-12">
+                    {/* <div className="col-lg-3 col-sm-6 col-12">
                         <ChartCard styleName="bg-primary text-white">
                             <div className="chart-title">
                                 <h3>$7,890</h3>
@@ -317,9 +453,9 @@ class Default extends React.Component {
                                 </AreaChart>
                             </ResponsiveContainer>
                         </ChartCard>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-3 col-sm-6 col-12">
+                    {/* <div className="col-lg-3 col-sm-6 col-12">
                         <ChartCard styleName="bg-teal lighten-1 text-white">
                             <div className="chart-title">
                                 <h3>236</h3>
@@ -335,9 +471,9 @@ class Default extends React.Component {
                             </ResponsiveContainer>
 
                         </ChartCard>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-3 col-sm-6 col-12">
+                    {/* <div className="col-lg-3 col-sm-6 col-12">
                         <ChartCard styleName="bg-blue text-white">
                             <div className="chart-title">
                                 <h3>$87,345</h3>
@@ -351,15 +487,15 @@ class Default extends React.Component {
                             </ResponsiveContainer>
                         </ChartCard>
                     </div>
-                </div>
-
+                </div> */}
+{/* 
                 <div className="row">
                     <div className="col-lg-4 col-sm-6 col-12">
                         <div className="jr-card">
                             <WeatherDetail/>
                         </div>
-                    </div>
-
+                    </div> */}
+{/* 
                     <div className="col-lg-5 col-sm-6 col-12">
                         <div className="jr-card">
                             <div className="jr-card-header d-flex">
@@ -385,9 +521,9 @@ class Default extends React.Component {
                             </div>
                         </div>
                     </div>
+ */}
 
-
-                    <div className="col-lg-3 col-sm-12 col-12">
+                    {/* <div className="col-lg-3 col-sm-12 col-12">
                         <div className="row">
                             <div className="col-lg-12 col-sm-6 col-12">
                                 <SimpleCard/>
@@ -421,9 +557,9 @@ class Default extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-lg-8 col-12">
                         <div className="jr-card">
                             <div className="jr-card-header d-flex">
@@ -442,9 +578,9 @@ class Default extends React.Component {
                             <a href="javascript:void(0)" className="card-link text-uppercase">
                                 <IntlMessages id="dashboard.allProducts"/> </a>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-4 col-sm-6 col-12">
+                    {/* <div className="col-lg-4 col-sm-6 col-12">
                         <ContactCard/>
                     </div>
 
@@ -460,9 +596,9 @@ class Default extends React.Component {
                         </div>
                         <SiteVisitor/>
                     </CardBox>
-                </div>
+                </div> */}
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-4 col-12">
                         <Statistics/>
                     </div>
@@ -478,20 +614,20 @@ class Default extends React.Component {
                             description: 'Nam imperdiet ornare enim ac tempor Suspendisse ac accumsan orci jomnic dr neva ketoli respecotra domeko... ',
                             image: 'http://via.placeholder.com/150x150'
                         }}/>
-                    </div>
+                    </div> */}
 
-
+{/* 
                     <div className="col-12">
                         <div className="jr-card mb-0 p-0">
                             <SimpleMap/>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <CardMenu menuState={menuState} anchorEl={anchorEl}
-                          handleRequestClose={this.handleRequestClose.bind(this)}/>
+                {/* <CardMenu menuState={menuState} anchorEl={anchorEl}
+                          handleRequestClose={this.handleRequestClose.bind(this)}/> */}
+     </div>
 
-            </div>
 
         );
     }

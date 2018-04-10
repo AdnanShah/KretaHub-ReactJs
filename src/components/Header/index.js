@@ -13,7 +13,8 @@ import CardHeader from 'components/dashboard/Common/CardHeader/index';
 import {switchLanguage} from 'actions/Setting';
 import IntlMessages from 'util/IntlMessages';
 import LanguageSwitcher from 'components/LanguageSwitcher/index';
-
+import logo from './kretahub-mock-icon.png';
+import {userSignOut} from 'actions/Auth';
 class Header extends React.Component {
 
     onAppNotificationSelect = () => {
@@ -70,17 +71,17 @@ class Header extends React.Component {
                         <span className="menu-icon"/>
                     </IconButton>
 
-                    <Link className="app-logo" to="/">
+                    {/* <Link className="app-logo" to="/">
                         <img src="http://via.placeholder.com/177x65" alt="Jambo" title="Jambo"/>
-                    </Link>
+                    </Link> */}
 
 
-                    <SearchBox styleName="d-none d-sm-block" placeholder=""
+                    {/* <SearchBox styleName="d-none d-sm-block" placeholder=""
                                onChange={this.updateSearchText.bind(this)}
-                               value={this.state.searchText}/>
+                               value={this.state.searchText}/> */}
 
                     <ul className="header-notifications list-inline ml-auto">
-                        <li className="d-inline-block d-sm-none list-inline-item">
+                        {/* <li className="d-inline-block d-sm-none list-inline-item">
                             <Dropdown
                                 className="quick-menu nav-searchbox"
                                 isOpen={this.state.searchBox}
@@ -101,28 +102,9 @@ class Header extends React.Component {
                                                value={this.state.searchText}/>
                                 </DropdownMenu>
                             </Dropdown>
-                        </li>
+                        </li> */}
                         <li className="list-inline-item">
-                            <Dropdown
-                                className="quick-menu"
-                                isOpen={this.state.langSwitcher}
-                                toggle={this.onLangSwitcherSelect.bind(this)}>
-
-                                <DropdownToggle
-                                    className="d-inline-block"
-                                    tag="span"
-                                    data-toggle="dropdown">
-                                    <div className="d-flex align-items-center pointer">
-                                        <i className={`flag flag-32 flag-${locale.icon}`}/>
-                                        <h4 className="mb-0 ml-1 d-none d-md-block">{locale.name}</h4>
-                                    </div>
-                                </DropdownToggle>
-
-                                <DropdownMenu right className="w-50">
-                                    <LanguageSwitcher switchLanguage={this.props.switchLanguage}/>
-                                </DropdownMenu>
-                            </Dropdown>
-
+                          <image src={logo}/>
 
                         </li>
                         <li className="list-inline-item app-tour">
@@ -148,28 +130,13 @@ class Header extends React.Component {
                             </Dropdown>
                         </li>
                         <li className="list-inline-item mail-tour">
-                            <Dropdown
-                                className="quick-menu"
-                                isOpen={this.state.mailNotification}
-                                toggle={this.onMailNotificationSelect.bind(this)}
-                            >
-                                <DropdownToggle
-                                    className="d-inline-block"
-                                    tag="span"
-                                    data-toggle="dropdown">
-
-                                    <IconButton className="icon-btn size-30">
-                                        <i className="zmdi zmdi-comment-alt-text icon-alert zmdi-hc-fw"/>
+                                    <IconButton className="icon-btn size-30"
+                                    onClick={() => {
+                                        this.props.userSignOut()
+                                    }}
+                                     >
+                                      <i style={{color:'#fff'}} className="zmdi zmdi-sign-in zmdi-hc-fw mr-2"/>
                                     </IconButton>
-                                </DropdownToggle>
-
-
-                                <DropdownMenu right>
-                                    <CardHeader styleName="align-items-center"
-                                                heading={<IntlMessages id="mailNotification.title"/>}/>
-                                    <MailNotification/>
-                                </DropdownMenu>
-                            </Dropdown>
                         </li>
                     </ul>
                 </Toolbar>
@@ -184,4 +151,4 @@ const mapStateToProps = ({settings}) => {
     return {locale}
 };
 
-export default connect(mapStateToProps, {switchLanguage})(Header);
+export default connect(mapStateToProps,{switchLanguage,userSignOut})(Header);
