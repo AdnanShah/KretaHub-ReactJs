@@ -35,6 +35,7 @@ import SimpleCard from 'components/Cards/Sample/index';
 import PopularProduct from 'components/dashboard/Common/PopularProduct';
 import WeatherDetail from 'components/Weather/WeatherDetail';
 import LatestPosts from 'components/dashboard/Common/LatestPosts/index';
+
 import {
     announcementsNotification,
     appNotification,
@@ -43,6 +44,7 @@ import {
     pieChartData,
     products
 } from 'app/routes/dashboard/routes/Default/data';
+
 import Button from 'material-ui/Button';
 import CafeCard from 'components/Cards/Cafe/index';
 import Statistics from 'components/dashboard/default/Statistics';
@@ -289,6 +291,18 @@ class FreightSearch extends React.Component {
                 <TableCell numeric>{n.fat}</TableCell>
                 <TableCell numeric>{n.carbs}</TableCell>
                 <TableCell numeric>{n.protein}</TableCell>
+                            <Link 
+                            to={{
+                                pathname:'freightDetail',
+                                state: {key:this.state.country},
+                            }}     
+                              >  
+                            <TableCell><Button  variant="raised" 
+                                style={{background:'#29487D',color:'#fff'}} 
+                                component="span">Details
+                                </Button>
+                            </TableCell>
+                           </Link> 
               </TableRow>
             );
           })}
