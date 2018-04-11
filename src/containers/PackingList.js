@@ -145,6 +145,86 @@ class PackingList extends React.Component {
                                                         <TableCell numeric>Size (Length)</TableCell>
                                                         <TableCell numeric>Size (Width)</TableCell>
                                                         <TableCell numeric>Size (Height)</TableCell>
+                                                        <TableCell numeric>
+                                                            <Button
+                                                                variant="raised"
+                                                                style={{
+                                                                background: '#29487D',
+                                                                color: '#fff'
+                                                            }}
+                                                                size="small">
+                                                                Remove
+                                                            </Button>
+                                                        </TableCell>
+
+                                                    </TableRow>
+                                                </TableHead>
+                                                <TableBody>
+                                                    {data.map(n => {
+                                                        return (
+                                                            <TableRow key={n.id}>
+                                                                <TableCell>{n.type}</TableCell>
+                                                                <TableCell numeric>{n.name}</TableCell>
+                                                                <TableCell numeric>{n.description}</TableCell>
+                                                                <TableCell numeric>{n.qty}</TableCell>
+                                                                <TableCell numeric>{n.unit}</TableCell>
+                                                                <TableCell numeric>{n.weight}</TableCell>
+                                                                <TableCell numeric>{n.length}</TableCell>
+                                                                <TableCell numeric>{n.width}</TableCell>
+                                                                <TableCell numeric>{n.height}</TableCell>
+                                                                <TableCell numeric>
+                                                                    <Button
+                                                                        type="button"
+                                                                        variant="raised"
+                                                                        style={{
+                                                                        background: '#29487D',
+                                                                        color: '#fff'
+                                                                    }}
+                                                                        size="small">Add</Button>
+                                                                </TableCell>
+                                                            </TableRow>
+                                                        );
+                                                    })}
+                                                </TableBody>
+                                            </Table>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            ))}
+                        {this
+                            .state
+                            .PickLists
+                            .map((PickList, idx) => (
+
+                                <div className="table-responsive-material">
+                                    <Paper>
+                                        <h2
+                                            style={{
+                                            background: '#4267B2',
+                                            color: '#fff',
+                                            textAlign: 'left',
+                                            fontFamily: 'sans-sarif'
+                                        }}>Container {`#${idx + 1}`}: 20RF</h2>
+                                    </Paper>
+
+                                    <div className="row">
+                                        <div className="col-8">
+                                            <Table>
+                                                <TableHead>
+                                                    <TableRow>
+                                                        <TableCell>Type</TableCell>
+                                                        <TableCell numeric>Name</TableCell>
+                                                        <TableCell numeric>Description</TableCell>
+                                                        <TableCell numeric>Qty</TableCell>
+                                                        <TableCell numeric>Unit</TableCell>
+                                                        <TableCell numeric>Weight</TableCell>
+                                                        <TableCell numeric>Size (Length)</TableCell>
+                                                        <TableCell numeric>Size (Width)</TableCell>
+                                                        <TableCell numeric>Size (Height)</TableCell>
                                                     </TableRow>
                                                 </TableHead>
                                                 <TableBody>
@@ -167,14 +247,12 @@ class PackingList extends React.Component {
                                                                         background: '#29487D',
                                                                         color: '#fff'
                                                                     }}
-                                                                        size="small"
-                                                                        onClick={this.handleAddPickList}>
+                                                                        size="small">
                                                                         Add
                                                                     </Button>
                                                                 </TableCell>
                                                                 <TableCell numeric>
                                                                     <Button
-                                                                        onClick={this.handleRemovePickList(idx)}
                                                                         type="button"
                                                                         variant="raised"
                                                                         style={{
@@ -182,6 +260,87 @@ class PackingList extends React.Component {
                                                                         color: '#fff'
                                                                     }}
                                                                         size="small">Remove</Button>
+                                                                </TableCell>
+                                                            </TableRow>
+                                                        );
+                                                    })}
+                                                </TableBody>
+                                            </Table>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            ))}
+                        {this
+                            .state
+                            .PickLists
+                            .map((PickList, idx) => (
+
+                                <div className="table-responsive-material">
+                                    <Paper>
+                                        <h2
+                                            style={{
+                                            background: '#4267B2',
+                                            color: '#fff',
+                                            textAlign: 'left',
+                                            fontFamily: 'sans-sarif'
+                                        }}>Container {`#${idx + 1}`}: 20RF</h2>
+                                    </Paper>
+
+                                    <div className="row">
+                                        <div className="col-8">
+                                            <Table>
+                                                <TableHead>
+                                                    <TableRow>
+                                                        <TableCell>Type</TableCell>
+                                                        <TableCell numeric>Name</TableCell>
+                                                        <TableCell numeric>Description</TableCell>
+                                                        <TableCell numeric>Qty</TableCell>
+                                                        <TableCell numeric>Unit</TableCell>
+                                                        <TableCell numeric>Weight</TableCell>
+                                                        <TableCell numeric>Size (Length)</TableCell>
+                                                        <TableCell numeric>Size (Width)</TableCell>
+                                                        <TableCell numeric>Size (Height)</TableCell>
+                                                    </TableRow>
+                                                </TableHead>
+                                                <TableBody>
+                                                    {data.map(n => {
+                                                        return (
+                                                            <TableRow key={n.id}>
+                                                                <TableCell>{n.type}</TableCell>
+                                                                <TableCell numeric>{n.name}</TableCell>
+                                                                <TableCell numeric>{n.description}</TableCell>
+                                                                <TableCell numeric>{n.qty}</TableCell>
+                                                                <TableCell numeric>{n.unit}</TableCell>
+                                                                <TableCell numeric>{n.weight}</TableCell>
+                                                                <TableCell numeric>{n.length}</TableCell>
+                                                                <TableCell numeric>{n.width}</TableCell>
+                                                                <TableCell numeric>{n.height}</TableCell>
+                                                                <TableCell numeric>
+                                                                    {/* <Button
+                                                                        variant="raised"
+                                                                        style={{
+                                                                        background: '#29487D',
+                                                                        color: '#fff'
+                                                                    }}
+                                                                        size="small"
+                                                                   >
+                                                                        Add
+                                                                    </Button> */}
+                                                                </TableCell>
+                                                                <TableCell numeric>
+                                                                    {/* <Button
+
+                                                                        type="button"
+                                                                        variant="raised"
+                                                                        style={{
+                                                                        background: '#29487D',
+                                                                        color: '#fff'
+                                                                    }}
+                                                                        size="small">Remove</Button> */}
                                                                 </TableCell>
                                                             </TableRow>
                                                         );

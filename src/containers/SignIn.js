@@ -7,6 +7,7 @@ import Button from 'material-ui/Button';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import IntlMessages from 'util/IntlMessages';
 import {CircularProgress} from 'material-ui/Progress';
+
 import {
     hideMessage,
     showAuthLoader,
@@ -17,15 +18,15 @@ import {
     userTwitterSignIn
 } from 'actions/Auth';
 import Background from './images/bg.jpg';
-const divStyle={
+const divStyle = {
     overflowY: 'scroll',
-    border:'1px solid red',
-    width:'100%',
+    border: '1px solid red',
+    width: '100%',
     float: 'center',
-    height:'100%',
-    position:'relative',
+    height: '100%',
+    position: 'relative',
     backgroundImage: `url(${Background})`
-  };
+};
 class SignIn extends React.Component {
     constructor() {
         super();
@@ -38,26 +39,30 @@ class SignIn extends React.Component {
     componentDidUpdate() {
         if (this.props.showMessage) {
             setTimeout(() => {
-                this.props.hideMessage();
+                this
+                    .props
+                    .hideMessage();
             }, 100);
         }
         if (this.props.authUser !== null) {
-            this.props.history.push('/');
+            this
+                .props
+                .history
+                .push('/');
         }
     }
 
     render() {
-        const {
-            email,
-            password
-        } = this.state;
+        const {email, password} = this.state;
         const {showMessage, loader, alertMessage} = this.props;
         return (
+
             <div
                 className="app-login-container d-flex justify-content-center align-items-center animated slideInUpTiny animation-duration-3">
                 <div className="app-login-main-content">
 
-                    <div className="app-logo-content d-flex align-items-center justify-content-center">
+                    <div
+                        className="app-logo-content d-flex align-items-center justify-content-center">
                         <Link className="logo-lg" to="/" title="Jambo">
                             <img src="http://via.placeholder.com/177x65" alt="jambo" title="jambo"/>
                         </Link>
@@ -72,30 +77,41 @@ class SignIn extends React.Component {
                             <form>
                                 <fieldset>
                                     <TextField
-                                        label={<IntlMessages id="appModule.email"/>}
+                                        label={< IntlMessages id = "appModule.email" />}
                                         fullWidth
                                         onChange={(event) => this.setState({email: event.target.value})}
                                         defaultValue={email}
                                         margin="normal"
-                                        className="mt-1 my-sm-3"
-                                    />
+                                        className="mt-1 my-sm-3"/>
                                     <TextField
                                         type="password"
-                                        label={<IntlMessages id="appModule.password"/>}
+                                        label={< IntlMessages id = "appModule.password" />}
                                         fullWidth
                                         onChange={(event) => this.setState({password: event.target.value})}
                                         defaultValue={password}
                                         margin="normal"
-                                        className="mt-1 my-sm-3"
-                                    />
+                                        className="mt-1 my-sm-3"/>
 
                                     <div className="mb-3 d-flex align-items-center justify-content-between">
-                                        <Button onClick={() => {
-                                            this.props.showAuthLoader();
-                                            this.props.userSignIn({email, password});
-                                        }} variant="raised" color="primary">
+                                        <Button
+                                            onClick={() => {
+                                            this
+                                                .props
+                                                .showAuthLoader();
+                                            this
+                                                .props
+                                                .userSignIn({email, password});
+                                        }}
+                                            variant="raised"
+                                            color="primary">
                                             <IntlMessages id="appModule.signIn"/>
                                         </Button>
+
+                                        <Link to="/signup">
+                                            <Button variant="raised" color="secondary">
+                                                Next
+                                            </Button>
+                                        </Link>
 
                                         <Link to="/signup">
                                             <IntlMessages id="signIn.signUp"/>
@@ -103,66 +119,82 @@ class SignIn extends React.Component {
                                     </div>
 
                                     <div className="app-social-block my-1 my-sm-3">
-                                        <IntlMessages
-                                            id="signIn.connectWith"/>
+                                        <IntlMessages id="signIn.connectWith"/>
                                         <ul className="social-link">
                                             <li>
-                                                <IconButton className="icon"
-                                                            onClick={() => {
-                                                                this.props.showAuthLoader();
-                                                                this.props.userFacebookSignIn();
-                                                            }}>
+                                                <IconButton
+                                                    className="icon"
+                                                    onClick={() => {
+                                                    this
+                                                        .props
+                                                        .showAuthLoader();
+                                                    this
+                                                        .props
+                                                        .userFacebookSignIn();
+                                                }}>
                                                     <i className="zmdi zmdi-facebook"/>
                                                 </IconButton>
                                             </li>
 
                                             <li>
-                                                <IconButton className="icon"
-                                                            onClick={() => {
-                                                                this.props.showAuthLoader();
-                                                                this.props.userTwitterSignIn();
-                                                            }}>
+                                                <IconButton
+                                                    className="icon"
+                                                    onClick={() => {
+                                                    this
+                                                        .props
+                                                        .showAuthLoader();
+                                                    this
+                                                        .props
+                                                        .userTwitterSignIn();
+                                                }}>
                                                     <i className="zmdi zmdi-twitter"/>
                                                 </IconButton>
                                             </li>
 
                                             <li>
-                                                <IconButton className="icon"
-                                                            onClick={() => {
-                                                                this.props.showAuthLoader();
-                                                                this.props.userGoogleSignIn();
-
-                                                            }}>
+                                                <IconButton
+                                                    className="icon"
+                                                    onClick={() => {
+                                                    this
+                                                        .props
+                                                        .showAuthLoader();
+                                                    this
+                                                        .props
+                                                        .userGoogleSignIn();
+                                                }}>
                                                     <i className="zmdi zmdi-google-plus"/>
                                                 </IconButton>
                                             </li>
 
                                             <li>
-                                                <IconButton className="icon"
-                                                            onClick={() => {
-                                                                this.props.showAuthLoader();
-                                                                this.props.userGithubSignIn();
-                                                            }}>
+                                                <IconButton
+                                                    className="icon"
+                                                    onClick={() => {
+                                                    this
+                                                        .props
+                                                        .showAuthLoader();
+                                                    this
+                                                        .props
+                                                        .userGithubSignIn();
+                                                }}>
                                                     <i className="zmdi zmdi-github"/>
                                                 </IconButton>
                                             </li>
                                         </ul>
                                     </div>
-
                                 </fieldset>
                             </form>
                         </div>
                     </div>
 
                 </div>
-                {
-                    loader &&
-                    <div className="loader-view">
-                        <CircularProgress/>
-                    </div>
-                }
+                {loader && <div className="loader-view">
+                    <CircularProgress/>
+                </div>
+}
                 {showMessage && NotificationManager.error(alertMessage)}
                 <NotificationContainer/>
+
             </div>
         );
     }

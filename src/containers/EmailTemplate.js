@@ -6,7 +6,8 @@ import Typography from 'material-ui/Typography';
 import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
 import jsonData from './jsonDataSource/EmailTemplate.json';
-
+import {Link} from 'react-router-dom';
+import Button from 'material-ui/Button';
 const divStyle = {
   overflowY: 'scroll',
   border: '1px solid red',
@@ -48,6 +49,12 @@ function PaperSheet(props) {
   const {classes} = props;
   return (
     <div style={divStyle}>
+
+      <Link to="/pending">
+        <Button variant="raised" color="secondary">
+          Next
+        </Button>
+      </Link>
 
       <br/>
       <br/>

@@ -7,6 +7,7 @@ import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
 import jsonData from './jsonDataSource/PendingTemplate.json';
+import {Link} from 'react-router-dom';
 
 const divStyle = {
   overflowY: 'scroll',
@@ -50,14 +51,19 @@ function PaperSheet(props) {
   const {classes} = props;
   return (
     <div style={divStyle}>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+
+      <Link to="/approval">
+        <Button variant="raised" color="secondary">
+          Next
+        </Button>
+      </Link>
 
       <br/>
-
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <div className="text-center">
         <h2
           style={{

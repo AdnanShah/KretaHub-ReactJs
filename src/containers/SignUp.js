@@ -7,6 +7,8 @@ import locality from './jsonDataSource/locality-ID.json';
 import countries from './jsonDataSource/countries.json';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
+import {Link} from 'react-router-dom';
+
 const currencies = [
     {
         value: 'USD',
@@ -236,6 +238,13 @@ class TextFields extends React.Component {
     render() {
         return (
             <div style={divStyle} className="container">
+                
+<Link to="/thankYou">
+        <Button variant="raised" color="secondary">
+          Next
+        </Button>
+      </Link>
+
                 <br/>
                 <h1 // className="text-center"
                     style={{
