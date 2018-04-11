@@ -1,0 +1,27 @@
+[
+    {
+        "mainHeading": "Booking #0001 Confirmed",
+        "subHeading1": "Dear PT. Indotech",
+        "subHeading2": "Your order has been confirmed by PT. Bumi Wijaya Indorail as your carrier.",
+        "subHeading3": "Your downpayment for this order has been received.",
+        "subHeading4": "Please ensure your freight has arrived at the designated station no later than the closing time.",
+        "mainEmail": "someone@example.com",
+        "shipper": "PT. Indotech",
+        "shipper1": "PT. Bumi Wijaya Indorail",
+        "line1": "Sungai Lagoa - Jakarta",
+        "line4": "KA. Maju Cepat",
+        "line5": "Kalimas - Surabaya",
+        "line6": "18 hours",
+        "line8": "107",
+        "line9": "Pemilik / pengirim baru",
+        "line10": "Station-to-Station",
+        "field1": "#0001",
+        "field2": "IDR 8.700.000",
+        "field3": "IDR 1.740.000",
+        "field4": "BCA",
+        "field5": "PT KretaHub Logistik Internasional",
+        "field6": "000-123-4567",
+        "field7": "Senayan",
+        "companyName": "KretaHub"
+    }
+]
