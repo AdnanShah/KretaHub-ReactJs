@@ -86,10 +86,13 @@ class Default extends React.Component {
     handleChange = name => event => {
         console.log("name",name,"event",event.target.value);
         this.setState({[name]: event.target.value});
+       
     };    
     handleChange2 = name => event => {
         console.log("name",name,"event",event.target.value);
-        this.setState({[name]: event.target.value});
+        this.setState({country2: event.target.value});
+        console.log("name",this.state.name,this.state);
+
     }; 
     onOptionMenuSelect = event => {
         this.setState({menuState: true, anchorEl: event.currentTarget});
@@ -123,6 +126,13 @@ class Default extends React.Component {
         console.log(date)
         this.setState({date})
       } 
+      nextRoute = () => {
+        this.props.history.push({
+              pathname:'freightSearch',
+              state:{key:this.state}              
+          });
+      }
+   
 
     render() {
         const {anchorEl, menuState,currentDate} = this.state;
@@ -145,13 +155,13 @@ class Default extends React.Component {
                                 style={{marginRight:'85px'}}
                                 label="Select Country"
                                 value={this.state.country1}
-                                onChange={this.handleChange.bind(this,'country1')}
+                                onChange={this.handleChange('country1')}
                                 SelectProps={{}}
                                 helperText="Please select your city"
                                 margin="normal"
                                 >
                                 {countries.map(countrie => (
-                                    <MenuItem key={countrie.id} value={this.state.country}>
+                                    <MenuItem key={countrie.id} value={countrie.name}>
                                         {countrie.name}
                                     </MenuItem>
                                 ))}
@@ -168,7 +178,7 @@ class Default extends React.Component {
                                 margin="normal"
                                 >
                                 {countries.map(countrie => (
-                                    <MenuItem key={countrie.id} value={this.state.country}>
+                                    <MenuItem key={countrie.id} value={countrie.name}>
                                         {countrie.name}
                                     </MenuItem>
                                 ))}
@@ -218,12 +228,14 @@ class Default extends React.Component {
                                 pathname:'freightSearch',
                                 state: {key:this.state.country},
                             }}     
-                        >   
-                            <Button variant="raised" 
-                                    style={{background:'#29487D',color:'#fff'}} 
-                                    component="span">
-                                Search
-                            </Button>
+                        > 
+                        <Button variant="raised" 
+                        onClick={this.nextRoute}
+                        style={{background:'#29487D',color:'#fff'}} 
+                                component="span">
+                            Search
+                        </Button>
+
                         </Link>  
                         </div>
                     </div>
