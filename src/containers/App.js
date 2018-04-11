@@ -48,6 +48,7 @@ import OrderConformation from './OrderConformation'
 import DeliveryNotice from './DeliveryNotice'
 import ATANotice from './ATANotice'
 import PaymentRequired from './PaymentRequired'
+import PackingList from './PackingList'
 import {setInitUrl} from '../actions/Auth';
 
 const RestrictedRoute = ({component: Component, ...rest, authUser}) =>
@@ -180,6 +181,7 @@ class App extends Component {
                         <Route path='/deliverynotice' component={DeliveryNotice}/>
                         <Route path='/atanotice' component={ATANotice}/>
                         <Route path='/paymentrequired' component={PaymentRequired}/>
+                        <Route path='/packinglist' component={PackingList}/>
                     </div>
                 </IntlProvider>
             </MuiThemeProvider>
