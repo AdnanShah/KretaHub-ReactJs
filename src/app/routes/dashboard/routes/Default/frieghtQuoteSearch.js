@@ -25,7 +25,7 @@ import MarketingTable from 'components/dashboard/Common/MarketingTable';
 import PhotoCollage from 'components/dashboard/Common/PhotoCollage/index';
 import LatestNotifications from 'components/dashboard/Common/LatestNotifications';
 import RecentActivities from 'components/dashboard/Common/RecentActivities/index';
-import {dailyFeedData, projects, recentList} from '../Intranet/data';
+import { dailyFeedData, projects, recentList } from '../Intranet/data';
 import ProjectsList from 'components/dashboard/Common/ProjectsList';
 import YourDailyFeed from 'components/dashboard/Common/DailyFeed/index';
 import TimerView from 'components/dashboard/Common/TimerView/index';
@@ -56,9 +56,9 @@ import IntlMessages from 'util/IntlMessages';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import countries from './jsonDataSource/countries.json';
 import DateFormatInput from 'material-ui-next-datepicker'
-import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const label = {
     /* Other styling..*/
     textAlign: 'right',
@@ -99,17 +99,17 @@ class FreightSearch extends React.Component {
 
     handleChange = name => event => {
         console.log("name", name, "event", event.target.value);
-        this.setState({[name]: event.target.value});
+        this.setState({ [name]: event.target.value });
     };
     handleChange2 = name => event => {
         console.log("name", name, "event", event.target.value);
-        this.setState({[name]: event.target.value});
+        this.setState({ [name]: event.target.value });
     };
     onOptionMenuSelect = event => {
-        this.setState({menuState: true, anchorEl: event.currentTarget});
+        this.setState({ menuState: true, anchorEl: event.currentTarget });
     };
     handleRequestClose = () => {
-        this.setState({menuState: false});
+        this.setState({ menuState: false });
     };
 
     constructor() {
@@ -135,7 +135,7 @@ class FreightSearch extends React.Component {
     }
     onChange = (date) => {
         console.log(date)
-        this.setState({date})
+        this.setState({ date })
     }
 
     componentDidMount() {
@@ -144,8 +144,8 @@ class FreightSearch extends React.Component {
 
     render() {
         console.log(this.props.location.state.key);
-        const {anchorEl, menuState, currentDate} = this.state;
-        const {classes} = this.props;
+        const { anchorEl, menuState, currentDate } = this.state;
+        const { classes } = this.props;
         console.log(this.state.currentDate);
         return (
             <div className="dashboard animated slideInUpTiny animation-duration-3">
@@ -154,25 +154,25 @@ class FreightSearch extends React.Component {
                     <div className="col-xl-5 col-xl-7 col-xl-9 col-11 col-12 col-13">
                         <div className="jr-card p-0">
                             <div className="jr-card-header pt-3 px-4">
-                                <h2><IntlMessages id="Freight Quote Search"/></h2>
+                                <h2><IntlMessages id="Freight Quote Search" /></h2>
                             </div>
                             <div class="form-group">
                                 <label
                                     style={{
-                                    marginRight: '20px'
-                                }}
+                                        marginRight: '20px'
+                                    }}
                                     for="Student">Departure:</label>
                                 <TextField
                                     id="city"
                                     select
                                     style={{
-                                    marginRight: '85px'
-                                }}
+                                        marginRight: '85px'
+                                    }}
                                     label="Select Country"
                                     value={this.state.country1}
                                     onChange={this
-                                    .handleChange
-                                    .bind(this, 'country1')}
+                                        .handleChange
+                                        .bind(this, 'country1')}
                                     SelectProps={{}}
                                     helperText="Please select your city"
                                     margin="normal">
@@ -184,8 +184,8 @@ class FreightSearch extends React.Component {
                                 </TextField>
                                 <label
                                     style={{
-                                    marginRight: '20px'
-                                }}
+                                        marginRight: '20px'
+                                    }}
                                     for="Student">Arrival:</label>
                                 <TextField
                                     id="city"
@@ -208,34 +208,34 @@ class FreightSearch extends React.Component {
                                 <div id="group1">
                                     <label
                                         style={{
-                                        marginRight: '20px'
-                                    }}
+                                            marginRight: '20px'
+                                        }}
                                         for="Student">Freight type:</label>
-                                    <input type="radio" value="group1" name="Umer "/>
+                                    <input type="radio" value="group1" name="Umer " />
                                     <label
                                         style={{
-                                        marginRight: '20px'
-                                    }}
+                                            marginRight: '20px'
+                                        }}
                                         for="Student">FCL</label>
-                                    <input type="radio" value="group1" name="group1"/>
+                                    <input type="radio" value="group1" name="group1" />
                                     <label
                                         style={{
-                                        marginRight: '20px'
-                                    }}
+                                            marginRight: '20px'
+                                        }}
                                         for="Student">LCL</label>
-                                    <input type="radio" value="group1" name="group1"/>
+                                    <input type="radio" value="group1" name="group1" />
                                     <label
                                         style={{
-                                        marginRight: '20px'
-                                    }}
+                                            marginRight: '20px'
+                                        }}
                                         for="Student">General Cargo</label>
                                 </div>
                             </form>
-                            <br/>
+                            <br />
                             <label
                                 style={{
-                                marginRight: '20px'
-                            }}
+                                    marginRight: '20px'
+                                }}
                                 for="Student">Departure/Arrival date:</label>
                             {/* <DateFormatInput name='date-input'
                                // min={Date}
@@ -249,66 +249,67 @@ class FreightSearch extends React.Component {
                                 min={this.state.currentDate}
                                 defaultValue={this.state.currentDate}
                                 InputLabelProps={{
-                                shrink: true
-                            }}/>
+                                    shrink: true
+                                }} />
                             <label
                                 style={{
-                                marginRight: '20px'
-                            }}
+                                    marginRight: '20px'
+                                }}
                                 for="Student">Until:</label>
                             <TextField
                                 id="date"
                                 type="date"
                                 defaultValue="2018-05-08"
                                 style={{
-                                marginRight: '20px'
-                            }}
+                                    marginRight: '20px'
+                                }}
                                 InputLabelProps={{
-                                shrink: true
-                            }}/>
-                            <br/>
-                            <br/>
+                                    shrink: true
+                                }} />
+                            <br />
+                            <br />
                         </div>
                     </div>
-               </div>
-            </div>
-     <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell numeric>Calories</TableCell>
-            <TableCell numeric>Fat (g)</TableCell>
-            <TableCell numeric>Carbs (g)</TableCell>
-            <TableCell numeric>Protein (g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map(n => {
-            return (
-              <TableRow key={n.id}>
-                <TableCell>{n.name}</TableCell>
-                <TableCell numeric>{n.calories}</TableCell>
-                <TableCell numeric>{n.fat}</TableCell>
-                <TableCell numeric>{n.carbs}</TableCell>
-                <TableCell numeric>{n.protein}</TableCell>
-                            <Link 
-                            to={{
-                                pathname:'freightDetail',
-                                state: {key:this.state.country},
-                            }}     
-                              >  
-                            <TableCell><Button  variant="raised" 
-                                style={{background:'#29487D',color:'#fff'}} 
-                                component="span">Details
+                </div>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Dessert (100g serving)</TableCell>
+                            <TableCell numeric>Calories</TableCell>
+                            <TableCell numeric>Fat (g)</TableCell>
+                            <TableCell numeric>Carbs (g)</TableCell>
+                            <TableCell numeric>Protein (g)</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {data.map(n => {
+                            return (
+                                <TableRow key={n.id}>
+                                    <TableCell>{n.name}</TableCell>
+                                    <TableCell numeric>{n.calories}</TableCell>
+                                    <TableCell numeric>{n.fat}</TableCell>
+                                    <TableCell numeric>{n.carbs}</TableCell>
+                                    <TableCell numeric>{n.protein}</TableCell>
+                                    <Link
+                                        to={{
+                                            pathname: 'freightDetail',
+                                            state: { key: this.state.country },
+                                        }}
+                                    >
+                                        <TableCell><Button variant="raised"
+                                            style={{ background: '#29487D', color: '#fff' }}
+                                            component="span">Details
                                 </Button>
-                            </TableCell>
-                           </Link> 
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>          
-        </div>
+                                        </TableCell>
+                                    </Link>
+                                </TableRow>
+                            );
+                        })}
+                    </TableBody>
+                </Table>
+            </div>
+
+
         );
     }
 }
