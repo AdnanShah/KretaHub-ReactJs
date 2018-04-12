@@ -64,17 +64,6 @@ function PaperSheet(props) {
       <br/>
       <div className="text-center">
         <Paper className={classes.root} elevation={4}>
-          <div>
-            <p className="float-left">
-              {jsonData[0].emailSubjectHeading}
-              <strong>
-                {jsonData[0].shipperName}
-              </strong>
-              <span></span>
-              {jsonData[0].mainHeading}
-            </p>
-            <br/>
-          </div>
           <h1>
             <strong>
               {jsonData[0].mainHeading}

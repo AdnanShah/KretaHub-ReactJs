@@ -137,11 +137,22 @@ class FreightSearch extends React.Component {
         this.setState({date})
     }
 
-    componentDidMount() {
-        this.props.location.state.key.country1
+    // componentDidMount() {
+    // }
+    handleDetails=()=>{
+        this.props.history.push({
+            pathname:'freightSearch',
+            state:{key:this.state}              
+        });
+   
     }
-
     render() {
+        try {
+            this.props.location.state.key.country1
+        } catch (err) {
+        //    next()
+        }
+
         console.log(this.props.location.state.key);
         const {anchorEl, menuState, currentDate} = this.state;
         const {classes} = this.props;
@@ -168,7 +179,7 @@ class FreightSearch extends React.Component {
                                     marginRight: '85px'
                                 }}
                                     label="Select Country"
-                                    value={this.state.country1}
+                                    value={this.props.location.state.key.country1}
                                     onChange={this
                                     .handleChange
                                     .bind(this, 'country1')}
@@ -176,7 +187,7 @@ class FreightSearch extends React.Component {
                                     helperText="Please select your city"
                                     margin="normal">
                                     {countries.map(countrie => (
-                                        <MenuItem key={countrie.id} value={this.state.country}>
+                                        <MenuItem key={countrie.id} value={countrie.name}>
                                             {countrie.name}
                                         </MenuItem>
                                     ))}
@@ -190,14 +201,14 @@ class FreightSearch extends React.Component {
                                     id="city"
                                     select
                                     label="Select Country"
-                                    defaultValue={this.props.location.state.key.country1}
-                                    value={this.state.country1}
+                                    // defaultValue={this.props.location.state.key.country1}
+                                    value={this.props.location.state.key.country2}
                                     onChange={this.handleChange2('country2')}
                                     SelectProps={{}}
                                     helperText="Please select your city"
                                     margin="normal">
                                     {countries.map(countrie => (
-                                        <MenuItem key={countrie.id} value={this.props.location.state.key.country1}>
+                                        <MenuItem key={countrie.id} value={countrie.name}>
                                             {countrie.name}
                                         </MenuItem>
                                     ))}
@@ -245,8 +256,9 @@ class FreightSearch extends React.Component {
                             <TextField
                                 id="date"
                                 type="date"
-                                min={this.state.currentDate}
-                                defaultValue={this.state.currentDate}
+                                min={this.props.location.state.key.currentDate}
+                                defaultValue={this.props.location.state.key.currentDate}
+                                value={this.props.location.state.key.currentDate}
                                 InputLabelProps={{
                                 shrink: true
                             }}/>
@@ -285,9 +297,9 @@ class FreightSearch extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {data.map(n => {
+                            {data.map((n,idx) => {
                                 return (
-                                    <TableRow key={n.id}>
+                                    <TableRow key={idx}>
                                         <TableCell>{n.field1}-{n.field2}</TableCell>
                                         <TableCell>{n.field3}-{n.field4}</TableCell>
                                         <TableCell>{n.field5}</TableCell>
@@ -299,7 +311,7 @@ class FreightSearch extends React.Component {
                                             to={{
                                             pathname: 'freightDetail',
                                             state: {
-                                                key: this.state.country
+                                                key: idx
                                             }
                                         }}>
                                             <TableCell>

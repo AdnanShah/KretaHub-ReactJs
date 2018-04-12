@@ -223,12 +223,6 @@ class Default extends React.Component {
                                 }}
                             />
                             <br/> <br/>
-                            <Link 
-                            to={{
-                                pathname:'freightSearch',
-                                state: {key:this.state.country},
-                            }}     
-                        > 
                         <Button variant="raised" 
                         onClick={this.nextRoute}
                         style={{background:'#29487D',color:'#fff'}} 
@@ -236,7 +230,6 @@ class Default extends React.Component {
                             Search
                         </Button>
 
-                        </Link>  
                         </div>
                     </div>
                 </div>

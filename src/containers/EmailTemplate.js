@@ -64,9 +64,9 @@ function PaperSheet(props) {
       <br/>
       <br/>
       <div className="text-center">
-        <p style={{
+        <h2 style={{
           color: 'white'
-        }} className="text-center">{jsonData[0].heading}</p>
+        }} className="text-center">{jsonData[0].heading}</h2>
         <Paper className={classes.root} elevation={4}>
           <h1 className="h1 display-1 text-center">{jsonData[0].subHeading}
           </h1>

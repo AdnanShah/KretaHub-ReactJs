@@ -64,13 +64,13 @@ class SignIn extends React.Component {
                     <div
                         className="app-logo-content d-flex align-items-center justify-content-center">
                         <Link className="logo-lg" to="/" title="Jambo">
-                            <img src="http://via.placeholder.com/177x65" alt="jambo" title="jambo"/>
+                            {/* <img src="http://via.placeholder.com/177x65" alt="jambo" title="jambo"/> */}
                         </Link>
                     </div>
 
                     <div className="app-login-content">
                         <div className="app-login-header mb-4">
-                            <h1><IntlMessages id="appModule.email"/></h1>
+                            <h1>Shipper Login</h1>
                         </div>
 
                         <div className="app-login-form">
@@ -104,89 +104,25 @@ class SignIn extends React.Component {
                                         }}
                                             variant="raised"
                                             color="primary">
-                                            <IntlMessages id="appModule.signIn"/>
+                                            Log In
                                         </Button>
-
-                                        <Link to="/signup">
-                                            <Button variant="raised" color="secondary">
-                                                Next
-                                            </Button>
-                                        </Link>
-
-                                        <Link to="/signup">
-                                            <IntlMessages id="signIn.signUp"/>
-                                        </Link>
                                     </div>
-
-                                    <div className="app-social-block my-1 my-sm-3">
-                                        <IntlMessages id="signIn.connectWith"/>
-                                        <ul className="social-link">
-                                            <li>
-                                                <IconButton
-                                                    className="icon"
-                                                    onClick={() => {
-                                                    this
-                                                        .props
-                                                        .showAuthLoader();
-                                                    this
-                                                        .props
-                                                        .userFacebookSignIn();
-                                                }}>
-                                                    <i className="zmdi zmdi-facebook"/>
-                                                </IconButton>
-                                            </li>
-
-                                            <li>
-                                                <IconButton
-                                                    className="icon"
-                                                    onClick={() => {
-                                                    this
-                                                        .props
-                                                        .showAuthLoader();
-                                                    this
-                                                        .props
-                                                        .userTwitterSignIn();
-                                                }}>
-                                                    <i className="zmdi zmdi-twitter"/>
-                                                </IconButton>
-                                            </li>
-
-                                            <li>
-                                                <IconButton
-                                                    className="icon"
-                                                    onClick={() => {
-                                                    this
-                                                        .props
-                                                        .showAuthLoader();
-                                                    this
-                                                        .props
-                                                        .userGoogleSignIn();
-                                                }}>
-                                                    <i className="zmdi zmdi-google-plus"/>
-                                                </IconButton>
-                                            </li>
-
-                                            <li>
-                                                <IconButton
-                                                    className="icon"
-                                                    onClick={() => {
-                                                    this
-                                                        .props
-                                                        .showAuthLoader();
-                                                    this
-                                                        .props
-                                                        .userGithubSignIn();
-                                                }}>
-                                                    <i className="zmdi zmdi-github"/>
-                                                </IconButton>
-                                            </li>
-                                        </ul>
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <p>No account yet?</p>
+                                        </div>
+                                        <div className="col-6">
+                                            <div className=" float-right">
+                                                <Link to="/signup">
+                                                    Sign Up
+                                                </Link>
+                                            </div>
+                                        </div>
                                     </div>
                                 </fieldset>
                             </form>
                         </div>
                     </div>
-
                 </div>
                 {loader && <div className="loader-view">
                     <CircularProgress/>
