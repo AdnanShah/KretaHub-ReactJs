@@ -289,15 +289,9 @@ class Freightdetail extends React.Component {
                         </div>
                         <br/>
                         <br/>
-                        <Button
-                            variant="raised"
-                            style={{
-                            background: '#29487D',
-                            color: '#fff'
-                        }}
-                            className='text-center'
-                            component="span">BOOK NOW
-                        </Button>
+                        <Link to="/packinglist">
+                            BOOK NOW
+                        </Link>
                     </div>
                 </div>
             </div>

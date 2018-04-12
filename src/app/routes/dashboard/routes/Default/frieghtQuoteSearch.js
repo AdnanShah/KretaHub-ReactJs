@@ -178,13 +178,13 @@ class FreightSearch extends React.Component {
                                     style={{
                                     marginRight: '85px'
                                 }}
-                                    label="Select Country"
+                                    label="Select Stations"
                                     value={this.props.location.state.key.country1}
                                     onChange={this
                                     .handleChange
                                     .bind(this, 'country1')}
                                     SelectProps={{}}
-                                    helperText="Please select your city"
+                                    helperText="Please select your stations"
                                     margin="normal">
                                     {countries.map(countrie => (
                                         <MenuItem key={countrie.id} value={countrie.name}>
@@ -200,12 +200,12 @@ class FreightSearch extends React.Component {
                                 <TextField
                                     id="city"
                                     select
-                                    label="Select Country"
+                                    label="Select Stations"
                                     // defaultValue={this.props.location.state.key.country1}
                                     value={this.props.location.state.key.country2}
                                     onChange={this.handleChange2('country2')}
                                     SelectProps={{}}
-                                    helperText="Please select your city"
+                                    helperText="Please select your stations"
                                     margin="normal">
                                     {countries.map(countrie => (
                                         <MenuItem key={countrie.id} value={countrie.name}>

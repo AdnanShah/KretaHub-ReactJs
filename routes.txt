@@ -1,0 +1,17 @@
+http://localhost:3000/#/signin
+http://localhost:3000/#/signup
+http://localhost:3000/#/thankYou
+http://localhost:3000/#/pending
+http://localhost:3000/#/approval
+http://localhost:3000/#/mainthankyou
+http://localhost:3000/#/bookingconform
+http://localhost:3000/#/orderconformation
+http://localhost:3000/#/deliverynotice
+http://localhost:3000/#/atanotice
+http://localhost:3000/#/paymentrequired
+http://localhost:3000/#/orderpending
+http://localhost:3000/#/fullpayment
+
+http://localhost:3000/#/app/dashboard/default
+http://localhost:3000/#/app/dashboard/freightSearch
+http://localhost:3000/#/app/dashboard/freightDetail
