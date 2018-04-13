@@ -55,6 +55,7 @@ import CardHeader from 'components/dashboard/Common/CardHeader/index';
 import IntlMessages from 'util/IntlMessages';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import countries from './jsonDataSource/countries.json';
+import stations from './jsonDataSource/stations.json';
 import DateFormatInput from 'material-ui-next-datepicker'
 import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -158,14 +159,15 @@ class FreightSearch extends React.Component {
         const {classes} = this.props;
         console.log(this.state.currentDate);
         return (
-            <div className="dashboard animated slideInUpTiny animation-duration-3">
-                {/* <ContainerHeader match={this.props.match} title={<IntlMessages id="sidebar.dashboard"/>}/> */}
+            <div className="container">
                 <div className="row">
-                    <div className="col-xl-5 col-xl-7 col-xl-9 col-11 col-12 col-13">
+                    <div className="col">
                         <div className="jr-card p-0">
                             <div className="jr-card-header pt-3 px-4">
                                 <h2><IntlMessages id="Freight Quote Search"/></h2>
                             </div>
+                            <div className="col">
+                    
                             <div class="form-group">
                                 <label
                                     style={{
@@ -178,17 +180,17 @@ class FreightSearch extends React.Component {
                                     style={{
                                     marginRight: '85px'
                                 }}
-                                    label="Select Stations"
+                                    label="Select Country"
                                     value={this.props.location.state.key.country1}
                                     onChange={this
                                     .handleChange
                                     .bind(this, 'country1')}
                                     SelectProps={{}}
-                                    helperText="Please select your stations"
+                                    helperText="Please select your city"
                                     margin="normal">
-                                    {countries.map(countrie => (
-                                        <MenuItem key={countrie.id} value={countrie.name}>
-                                            {countrie.name}
+                                    {stations.map(countrie => (
+                                        <MenuItem key={countrie.id} value={countrie.field}>
+                                            {countrie.field}
                                         </MenuItem>
                                     ))}
                                 </TextField>
@@ -200,20 +202,23 @@ class FreightSearch extends React.Component {
                                 <TextField
                                     id="city"
                                     select
-                                    label="Select Stations"
+                                    label="Select Country"
                                     // defaultValue={this.props.location.state.key.country1}
                                     value={this.props.location.state.key.country2}
                                     onChange={this.handleChange2('country2')}
                                     SelectProps={{}}
-                                    helperText="Please select your stations"
+                                    helperText="Please select your city"
                                     margin="normal">
-                                    {countries.map(countrie => (
-                                        <MenuItem key={countrie.id} value={countrie.name}>
-                                            {countrie.name}
+                                    {stations.map(countrie => (
+                                        <MenuItem key={countrie.id} value={countrie.field}>
+                                            {countrie.field}
                                         </MenuItem>
                                     ))}
                                 </TextField>
                             </div>
+                            </div>
+                            <div className="col">
+                    
                             <form>
                                 <div id="group1">
                                     <label
@@ -279,6 +284,7 @@ class FreightSearch extends React.Component {
                             }}/>
                             <br/>
                             <br/>
+                        </div>
                         </div>
                     </div>
                 </div>

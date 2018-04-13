@@ -145,11 +145,10 @@ class Freightdetail extends React.Component {
         const {classes} = this.props;
         console.log(this.state.currentDate);
         return (
-            <div className="dashboard animated slideInUpTiny animation-duration-3">
-                {/* <ContainerHeader match={this.props.match} title={<IntlMessages id="sidebar.dashboard"/>}/> */}
-                <div className="row">
-                    <div className="col-xl-5 col-xl-7 col-xl-9 col-11 col-12 col-13">
-                        <div className="jr-card p-0">
+            <div className="container">
+            <div className="row">
+                <div className="col">
+                   <div className="jr-card p-0">
                             <div className="jr-card-header pt-3 px-4">
                                 <h2><IntlMessages id="Freight Quote Details"/></h2>
                             </div>

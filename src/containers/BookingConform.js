@@ -123,7 +123,7 @@ class ComposedTextField extends React.Component {
             </div>
             <br/>
             <br/>
-            <div class="container">
+            <div className="container">
               <div className="row">
                 <label className="col-md-4 col-12" for="email">Order :</label>
                 <div className="col-md-4 col-12">
