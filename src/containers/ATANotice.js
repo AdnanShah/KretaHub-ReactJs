@@ -35,7 +35,7 @@ const styles = theme => ({
       paddingBottom: 16,
       marginTop: theme.spacing.unit * 3,
       width: '55%',
-      top: '135%',
+      top: '105%',
       left: '50%',
       marginRight: '-50%',
       transform: `translate(-50%, -50%)`,
