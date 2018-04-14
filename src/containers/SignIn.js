@@ -108,6 +108,13 @@ class SignIn extends React.Component {
                                         </Button>
                                     </div>
                                     <div className="row">
+                                        <div className="col">
+                                            <Link to="/signup">
+                                                Forgot password
+                                            </Link>
+                                        </div>
+                                    </div>
+                                    <div className="row">
                                         <div className="col-6">
                                             <p>No account yet?</p>
                                         </div>

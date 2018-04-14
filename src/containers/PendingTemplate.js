@@ -21,8 +21,7 @@ const divStyle = {
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundImage: `url(${Background})`,
-  position: 'relative',
-  fontFamily: 'Sans-Sarif'
+  position: 'relative'
 
 };
 const styles = theme => ({
@@ -64,42 +63,12 @@ function PaperSheet(props) {
       <br/>
       <br/>
       <br/>
-      <div className="text-center">
-        <h2
-          style={{
-          color: 'white',
-          fontFamily: 'Sans-Sarif'
-        }}
-          className="text-center">
-          <strong>
-            {jsonData[0].mainHeading}
-          </strong>
+      <div className="">
+        <h2 style={{
+          color: 'white'
+        }} className="text-center">
+          {jsonData[0].mainHeading}
         </h2>
-        <span
-          style={{
-          color: 'red',
-          margin: '3%',
-          paddingBottom: '30%'
-        }}
-          className="text-center">-</span>
-        <span
-          style={{
-          color: 'red',
-          margin: '3%',
-          paddingBottom: '30%'
-        }}
-          className="text-center">-</span>
-        <span
-          style={{
-          color: 'red',
-          margin: '3%',
-          paddingBottom: '30%'
-        }}
-          className="text-center">-</span>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
         <Paper className={classes.root} elevation={4}>
           <h1 className="h1 display-1 text-center">
             {jsonData[0].mainHeading}
@@ -113,12 +82,7 @@ function PaperSheet(props) {
             }} name="Student">{jsonData[0].shipperName}</label>
             <br/>
           </div>
-          {/* <div class="form-group">
-            <label for="Student">Email:  </label>
-            <label style={{marginLeft:'20px'}} name="Student">UmerSaleem@gmail.com</label>
-          </div> */}
-
-          <Typography component="label">
+          <Typography component="p">
             {jsonData[0].subHeading}
           </Typography>
           <br/>
@@ -126,16 +90,15 @@ function PaperSheet(props) {
             {jsonData[0].subHeading2}
           </Typography>
           <br/>
-          <br/>
           <Typography component="p">
             {jsonData[0].followUs}
           </Typography>
           <br/>
-          <br/>
+
           <footer
             className="text-center"
             style={{
-            backgroundColor: '#fff',
+            backgroundColor: '#F3F3F3',
             alignContent: 'center'
           }}>
             <a
@@ -158,10 +121,8 @@ function PaperSheet(props) {
           </footer>
           <div class="form-group">
             <label for="Student">Regards:
-            </label>
-            <label style={{
-              marginLeft: '20px'
-            }} name="Student">{jsonData[0].companyName}</label>
+            </label><br/>
+            <label >{jsonData[0].companyName}</label>
             <br/>
           </div>
 

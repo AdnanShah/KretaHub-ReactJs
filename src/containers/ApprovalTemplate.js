@@ -62,12 +62,10 @@ function PaperSheet(props) {
       <br/>
       <br/>
       <br/>
-      <div className="text-center">
+      <div className="">
         <Paper className={classes.root} elevation={4}>
           <h1>
-            <strong>
-              {jsonData[0].mainHeading}
-            </strong>
+            {jsonData[0].mainHeading}
           </h1>
           <br/>
           <div className="float-left">
@@ -90,36 +88,20 @@ function PaperSheet(props) {
           </Typography>
           <br/>
           <br/>
-          <Button variant="raised" size="large" color="primary">
-            Login to KretaHub
-          </Button>
+          <Link to="/signin">
+            <Button variant="raised" size="large" color="primary">
+              Login to KretaHub
+            </Button>
+          </Link>
           <br/>
           <br/>
           <br/>
-          <footer
-            className="text-center"
-            style={{
-            backgroundColor: '#F3F3F3',
-            alignContent: 'center'
-          }}>
-            <a
-              style={{
-              marginLeft: '5px',
-              color: '#20B0A8'
-            }}
-              href='www.raqamisolutions.com'>Facebook</a>
-            <a
-              style={{
-              marginLeft: '20px',
-              color: '#20B0A8'
-            }}href='www.raqamisolutions.com'>Instagram</a>
-            <a
-              style={{
-              marginLeft: '20px',
-              color: '#20B0A8'
-            }}
-              href='www.raqamisolutions.com'>Twitter</a>
-          </footer>
+          <div class="form-group">
+            <label for="Student">Regards:
+            </label><br/>
+            <label >{jsonData[0].companyName}</label>
+            <br/>
+          </div>
         </Paper>
       </div>
     </div>

@@ -292,7 +292,7 @@ class ComposedTextField extends React.Component {
                     return (
                       <TableRow key={n.id}>
                         <TableCell>{n.field1}</TableCell>
-                        <TableCell numeric>{n.field2}</TableCell>
+                        <TableCell numeric>{n.field2}+</TableCell>
                         <TableCell numeric>
                           <input type="number" defaultValue={n.field3} onChange={this.updateInput}/>
                         </TableCell>

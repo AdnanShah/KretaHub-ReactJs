@@ -1,6 +1,6 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
-
+import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import {
     cardData,
@@ -145,155 +145,171 @@ class Freightdetail extends React.Component {
         const {classes} = this.props;
         console.log(this.state.currentDate);
         return (
-            <div className="container">
-            <div className="row">
-                <div className="col">
-                   <div className="jr-card p-0">
-                            <div className="jr-card-header pt-3 px-4">
-                                <h2><IntlMessages id="Freight Quote Details"/></h2>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div className="row">
-                                <label className="col-md-4 col-12" for="email">Order :</label>
-                                <div className="col-md-4 col-12">
-                                    <p className="">{jsonData[0].field1}</p>
+            <Paper>
+                <div className="container">
+
+                    <div className="row">
+                        <div className="col">
+                            <div className="jr-card p-0">
+                                <div className="jr-card-header pt-3 px-4">
+                                    <h2><IntlMessages id="Freight Quote Details"/></h2>
                                 </div>
                             </div>
-                            <div className="row">
-                                <label className="col-md-4 col-12" for="email">Shipper :</label>
-                                <div className="col-md-4 col-12">
-                                    <p className="">{jsonData[0].shipper}</p>
+                            <div class="container">
+                                <div className="row">
+                                    <label className="col-md-4 col-12" for="email">Order :</label>
+                                    <div className="col-md-4 col-12">
+                                        <p className="">{jsonData[0].field1}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="row">
-                                <label className="col-md-4 col-12" for="email">Carrier :</label>
-                                <div className="col-md-4 col-12">
-                                    <p className="">{jsonData[0].carrier}</p>
+                                <div className="row">
+                                    <label className="col-md-4 col-12" for="email">Shipper :</label>
+                                    <div className="col-md-4 col-12">
+                                        <p className="">{jsonData[0].shipper}</p>
+                                    </div>
                                 </div>
+                                <div className="row">
+                                    <label className="col-md-4 col-12" for="email">Carrier :</label>
+                                    <div className="col-md-4 col-12">
+                                        <p className="">{jsonData[0].carrier}</p>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <label className="col-md-3 col-12" for="email">Departure :</label>
+                                    <div className="col-md-3 col-12">
+                                        <p className="">{jsonData[0].line1}</p>
+                                    </div>
+                                    <label className="col-md-3 col-12" for="email">Arrival :</label>
+                                    <div className="col-md-3 col-12">
+                                        <p className="">{jsonData[0].line5}</p>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <label className="col-md-3 col-12" for="email">Estimated Departure Time:</label>
+                                    <div className="col-md-3 col-12">
+                                        <input
+                                            id="date"
+                                            label="Date"
+                                            type="date"
+                                            defaultValue="2017-05-24"
+                                            InputLabelProps={{
+                                            shrink: true
+                                        }}/>
+
+                                    </div>
+                                    <label className="col-md-3 col-12" for="email">Trip Length :</label>
+                                    <div className="col-md-3 col-12">
+                                        <p className="">{jsonData[0].line6}</p>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <label className="col-md-3 col-12" for="email">Actual Departure Time :</label>
+                                    <div className="col-md-3 col-12">
+                                        <input
+                                            id="date"
+                                            label="Date"
+                                            type="date"
+                                            defaultValue="2018-04-20"
+                                            InputLabelProps={{
+                                            shrink: true
+                                        }}/>
+                                    </div>
+                                    <label className="col-md-3 col-12" for="email">Estimated Arrival Time :</label>
+                                    <div className="col-md-3 col-12">
+                                        <input
+                                            id="date"
+                                            label="Date"
+                                            type="date"
+                                            defaultValue="2018-04-21"
+                                            InputLabelProps={{
+                                            shrink: true
+                                        }}/>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <label className="col-md-3 col-12" for="email">Train Name:</label>
+                                    <div className="col-md-3 col-12">
+                                        <p className="">{jsonData[0].line4}</p>
+                                    </div>
+                                    <label className="col-md-3 col-12" for="email">Train Number :</label>
+                                    <div className="col-md-3 col-12">
+                                        <p className="">{jsonData[0].line8}</p>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <label className="col-md-4 col-12" for="email">Terms and Conditions:</label>
+                                    <div className="col-md-4 col-12">
+                                        <textarea
+                                            className="border border-primary rounded"
+                                            rows="3"
+                                            style={{
+                                            minWidth: '100%'
+                                        }}>{jsonData[0].line9}</textarea>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <label className="col-md-4 col-12" for="email">Incoterm :</label>
+                                    <div className="col-md-4 col-12">
+                                        <p className="border border-primary rounded">{jsonData[0].line10}</p>
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <div className="row">
-                                <label className="col-md-3 col-12" for="email">Departure :</label>
-                                <div className="col-md-3 col-12">
-                                    <p className="">{jsonData[0].line1}</p>
-                                </div>
-                                <label className="col-md-3 col-12" for="email">Arrival :</label>
-                                <div className="col-md-3 col-12">
-                                    <p className="">{jsonData[0].line5}</p>
-                                </div>
+                            <div className="table-responsive-material">
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Container type</TableCell>
+                                            <TableCell numeric>Price</TableCell>
+                                            <TableCell numeric>Qty</TableCell>
+                                            <TableCell numeric>Capacity</TableCell>
+                                            <TableCell numeric>Subtotal</TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {data.map(n => {
+                                            return (
+                                                <TableRow key={n.id}>
+                                                    <TableCell>{n.name}</TableCell>
+                                                    <TableCell numeric>{n.calories}</TableCell>
+                                                    <TableCell numeric>{n.fat}</TableCell>
+                                                    <TableCell numeric>{n.carbs}</TableCell>
+                                                    <TableCell numeric>{n.protein}</TableCell>
+                                                </TableRow>
+                                            );
+                                        })}
+                                    </TableBody>
+                                </Table>
                             </div>
-
-                            <div className="row">
-                                <label className="col-md-3 col-12" for="email">Estimated Departure Time:</label>
-                                <div className="col-md-3 col-12">
-                                    <input
-                                        id="date"
-                                        label="Date"
-                                        type="date"
-                                        defaultValue="2017-05-24"
-                                        InputLabelProps={{
-                                        shrink: true
-                                    }}/>
-
-                                </div>
-                                <label className="col-md-3 col-12" for="email">Trip Length :</label>
-                                <div className="col-md-3 col-12">
-                                    <p className="">{jsonData[0].line6}</p>
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <label className="col-md-3 col-12" for="email">Actual Departure Time :</label>
-                                <div className="col-md-3 col-12">
-                                    <input
-                                        id="date"
-                                        label="Date"
-                                        type="date"
-                                        defaultValue="2018-04-20"
-                                        InputLabelProps={{
-                                        shrink: true
-                                    }}/>
-                                </div>
-                                <label className="col-md-3 col-12" for="email">Estimated Arrival Time :</label>
-                                <div className="col-md-3 col-12">
-                                    <input
-                                        id="date"
-                                        label="Date"
-                                        type="date"
-                                        defaultValue="2018-04-21"
-                                        InputLabelProps={{
-                                        shrink: true
-                                    }}/>
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <label className="col-md-3 col-12" for="email">Train Name:</label>
-                                <div className="col-md-3 col-12">
-                                    <p className="">{jsonData[0].line4}</p>
-                                </div>
-                                <label className="col-md-3 col-12" for="email">Train Number :</label>
-                                <div className="col-md-3 col-12">
-                                    <p className="">{jsonData[0].line8}</p>
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <label className="col-md-4 col-12" for="email">Terms and Conditions:</label>
-                                <div className="col-md-4 col-12">
-                                    <textarea
-                                        className="border border-primary rounded"
-                                        rows="3"
+                            <br/>
+                            <br/>
+                            <div className="row align-items-center justify-content-center">
+                                <Link to="/packinglist">
+                                    <Button
+                                        variant="raised"
                                         style={{
-                                        minWidth: '100%'
-                                    }}>{jsonData[0].line9}</textarea>
-                                </div>
+                                        background: '#29487D',
+                                        color: '#fff'
+                                    }}
+                                        component="span">
+                                        BOOK NOW
+                                    </Button>
+                                </Link>
+                                <br/>
+                                <br/>
+                                <br/>
                             </div>
-
-                            <div className="row">
-                                <label className="col-md-4 col-12" for="email">Incoterm :</label>
-                                <div className="col-md-4 col-12">
-                                    <p className="border border-primary rounded">{jsonData[0].line10}</p>
-                                </div>
-                            </div>
-
                         </div>
-
-                        <div className="table-responsive-material">
-                            <Table>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>Container type</TableCell>
-                                        <TableCell numeric>Price</TableCell>
-                                        <TableCell numeric>Qty</TableCell>
-                                        <TableCell numeric>Capacity</TableCell>
-                                        <TableCell numeric>Subtotal</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {data.map(n => {
-                                        return (
-                                            <TableRow key={n.id}>
-                                                <TableCell>{n.name}</TableCell>
-                                                <TableCell numeric>{n.calories}</TableCell>
-                                                <TableCell numeric>{n.fat}</TableCell>
-                                                <TableCell numeric>{n.carbs}</TableCell>
-                                                <TableCell numeric>{n.protein}</TableCell>
-                                            </TableRow>
-                                        );
-                                    })}
-                                </TableBody>
-                            </Table>
-                        </div>
-                        <br/>
-                        <br/>
-                        <Link to="/packinglist">
-                            BOOK NOW
-                        </Link>
                     </div>
                 </div>
-            </div>
+            </Paper>
         );
     }
 }

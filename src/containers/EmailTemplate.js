@@ -63,7 +63,7 @@ function PaperSheet(props) {
       <br/>
       <br/>
       <br/>
-      <div className="text-center">
+      <div className="">
         <h2 style={{
           color: 'white'
         }} className="text-center">{jsonData[0].heading}</h2>
