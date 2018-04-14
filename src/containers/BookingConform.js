@@ -55,15 +55,16 @@ const label = {
 }
 
 let id = 0;
-function createData(name, calories, fat, carbs, protein) {
+function createData(field1, field2, field3, field4, field5,field6) {
   id += 1;
   return {
     id,
-    name,
-    calories,
-    fat,
-    carbs,
-    protein
+    field1,
+    field2,
+    field3,
+    field4,
+    field5,
+    field6
   };
 }
 const data = [
@@ -78,14 +79,26 @@ const data = [
 
 class ComposedTextField extends React.Component {
   state = {
-    name: 'Composed TextField'
+    name: 'Composed TextField',
+    inputVal: '',
+    inputVal2: '',
+    defInputVal: '',
+    total:''
   };
 
   handleChange = event => {
     this.setState({name: event.target.value});
   };
 
+  updateInput = (event,id) => {
+  //  total=event.target.value*30;
+    this.setState({inputVal: event.target.value,
+    total:event.target.value*30
+    })
+  
+  }
   render() {
+    console.log(this.state);
     const {classes} = this.props;
 
     return (
@@ -126,19 +139,19 @@ class ComposedTextField extends React.Component {
             <br/>
             <div className="container">
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Order :</label>
+                <label className="col-md-4 col-12" htmlFor="email">Order :</label>
                 <div className="col-md-4 col-12">
                   <p className="">{jsonData[0].field1}</p>
                 </div>
               </div>
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Order Total :</label>
+                <label className="col-md-4 col-12" htmlFor="email">Order Total :</label>
                 <div className="col-md-4 col-12">
                   <p className="">{jsonData[0].field2}</p>
                 </div>
               </div>
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Minimum Down-Payment :</label>
+                <label className="col-md-4 col-12" htmlFor="email">Minimum Down-Payment :</label>
                 <div className="col-md-4 col-12">
                   <p className="">{jsonData[0].field3}</p>
                 </div>
@@ -147,41 +160,41 @@ class ComposedTextField extends React.Component {
                 <u>Please make payment to :</u>
               </h2>
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Bank :</label>
+                <label className="col-md-4 col-12" htmlFor="email">Bank :</label>
                 <div className="col-md-4 col-12">
                   <p className="">{jsonData[0].field4}</p>
                 </div>
               </div>
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Account name :</label>
+                <label className="col-md-4 col-12" htmlFor="email">Account name :</label>
                 <div className="col-md-4 col-12">
                   <p className="">{jsonData[0].field5}</p>
                 </div>
               </div>
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Account number :</label>
+                <label className="col-md-4 col-12" htmlFor="email">Account number :</label>
                 <div className="col-md-4 col-12">
                   <p className="">{jsonData[0].field6}</p>
                 </div>
               </div>
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Branch :</label>
+                <label className="col-md-4 col-12" htmlFor="email">Branch :</label>
                 <div className="col-md-4 col-12">
                   <p className="">{jsonData[0].field7}</p>
                 </div>
               </div>
               <div className="row">
-                <h2 className="col-md-12 col-12" for="email">
-                  <u>Your order details are shown below for your reference :</u>
+                <h2 className="col-md-12 col-12" htmlFor="email">
+                  <u>Your order details are shown below htmlFor your reference :</u>
                 </h2>
               </div>
 
               <div className="row">
-                <label className="col-md-3 col-12" for="email">Departure :</label>
+                <label className="col-md-3 col-12" htmlFor="email">Departure :</label>
                 <div className="col-md-3 col-12">
                   <p className="">{jsonData[0].line1}</p>
                 </div>
-                <label className="col-md-3 col-12" for="email">Closing time :</label>
+                <label className="col-md-3 col-12" htmlFor="email">Closing time :</label>
                 <div className="col-md-2 col-12">
                   <input
                     id="date"
@@ -195,7 +208,7 @@ class ComposedTextField extends React.Component {
               </div>
 
               <div className="row">
-                <label className="col-md-3 col-12" for="email">Departure time :</label>
+                <label className="col-md-3 col-12" htmlFor="email">Departure time :</label>
                 <div className="col-md-3 col-12">
                   <input
                     id="date"
@@ -207,14 +220,14 @@ class ComposedTextField extends React.Component {
                   }}/>
 
                 </div>
-                <label className="col-md-3 col-12" for="email">Departure name :</label>
+                <label className="col-md-3 col-12" htmlFor="email">Departure name :</label>
                 <div className="col-md-3 col-12">
                   <p className="">{jsonData[0].line4}</p>
                 </div>
               </div>
 
               <div className="row">
-                <label className="col-md-3 col-12" for="email">Arrival :</label>
+                <label className="col-md-3 col-12" htmlFor="email">Arrival :</label>
                 <div className="col-md-3 col-12">
                   <input
                     id="date"
@@ -225,25 +238,25 @@ class ComposedTextField extends React.Component {
                     shrink: true
                   }}/>
                 </div>
-                <label className="col-md-3 col-12" for="email">Trip Length :</label>
+                <label className="col-md-3 col-12" htmlFor="email">Trip Length :</label>
                 <div className="col-md-3 col-12">
                   <p className="">{jsonData[0].line6}</p>
                 </div>
               </div>
 
               <div className="row">
-                <label className="col-md-3 col-12" for="email">Arrival time :</label>
+                <label className="col-md-3 col-12" htmlFor="email">Arrival time :</label>
                 <div className="col-md-3 col-12">
                   <p className="">{jsonData[0].line7}</p>
                 </div>
-                <label className="col-md-3 col-12" for="email">Train Number :</label>
+                <label className="col-md-3 col-12" htmlFor="email">Train Number :</label>
                 <div className="col-md-3 col-12">
                   <p className="">{jsonData[0].line8}</p>
                 </div>
               </div>
 
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Terms and Conditions:</label>
+                <label className="col-md-4 col-12" htmlFor="email">Terms and Conditions:</label>
                 <div className="col-md-4 col-12">
                   <textarea
                     className="border border-primary rounded"
@@ -255,7 +268,7 @@ class ComposedTextField extends React.Component {
               </div>
 
               <div className="row">
-                <label className="col-md-4 col-12" for="email">Incoterm :</label>
+                <label className="col-md-4 col-12" htmlFor="email">Incoterm :</label>
                 <div className="col-md-4 col-12">
                   <p className="border border-primary rounded">{jsonData[0].line10}</p>
                 </div>
@@ -278,11 +291,16 @@ class ComposedTextField extends React.Component {
                   {data.map(n => {
                     return (
                       <TableRow key={n.id}>
-                        <TableCell>{n.name}</TableCell>
-                        <TableCell numeric>{n.calories}</TableCell>
-                        <TableCell numeric>{n.fat}</TableCell>
-                        <TableCell numeric>{n.carbs}</TableCell>
-                        <TableCell numeric>{n.protein}</TableCell>
+                        <TableCell>{n.field1}</TableCell>
+                        <TableCell numeric>{n.field2}</TableCell>
+                        <TableCell numeric>
+                          <input type="number" defaultValue={n.field3} onChange={this.updateInput}/>
+                        </TableCell>
+                        <TableCell numeric>{n.field4}</TableCell>
+                        <TableCell numeric>                        
+                        <input type="number" value={this.state.total}/>                       
+                        {/* <input type="number" defaultValue={n.field5} onChange={this.updateInput}/> */}
+                        </TableCell>
                       </TableRow>
                     );
                   })}
