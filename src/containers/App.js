@@ -45,12 +45,14 @@ import PendingTemplate from './PendingTemplate'
 import BookingConform from './BookingConform'
 import ThankYou from './ThankYou'
 import OrderConformation from './OrderConformation'
+import DownPayment from './DownPayment'
 import DeliveryNotice from './DeliveryNotice'
 import ATANotice from './ATANotice'
 import PaymentRequired from './PaymentRequired'
 import PackingList from './PackingList'
 import OrderPending from './OrderPending'
 import FullPayment from './FullPayment'
+import FullPaymentReceive from './FullPaymentReceive'
 import {setInitUrl} from '../actions/Auth';
 
 const RestrictedRoute = ({component: Component, ...rest, authUser}) =>
@@ -179,6 +181,7 @@ class App extends Component {
                         <Route path='/approval' component={ApprovalTemplate}/>
                         <Route path='/mainthankyou' component={ThankYou}/>
                         <Route path='/bookingconform' component={BookingConform}/>
+                        <Route path='/downpayment' component={DownPayment}/>
                         <Route path='/orderconformation' component={OrderConformation}/>
                         <Route path='/deliverynotice' component={DeliveryNotice}/>
                         <Route path='/atanotice' component={ATANotice}/>
@@ -186,6 +189,7 @@ class App extends Component {
                         <Route path='/packinglist' component={PackingList}/>
                         <Route path='/orderpending' component={OrderPending}/>
                         <Route path='/fullpayment' component={FullPayment}/>
+                        <Route path='/fullpaymentreceive' component={FullPaymentReceive}/>
                     </div>
                 </IntlProvider>
             </MuiThemeProvider>

@@ -91,7 +91,7 @@ class ComposedTextField extends React.Component {
     return (
       <div style={divStyle}>
 
-        <Link to="/pending">
+        <Link to="/bookingconform">
           <Button variant="raised" color="secondary">
             Next
           </Button>

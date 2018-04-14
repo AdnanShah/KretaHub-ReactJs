@@ -1,8 +1,24 @@
 [
     {
-        "heading": "Your Shipper Signup Request is Being Processed",
-        "subHeading": "Full Payment for Order #0001 has been Received",
-        "subHeading1": "Thank you for full payment for order #0001.",
-        "subHeading2": "We hope you are satisfied with our service."
+        "mainHeading": "Booking #0001 Accepted - Please Pay Down Payment",
+        "subHeading1": "Dear PT. Indotech",
+        "subHeading2": "Your order has been confirmed and is awaiting down payment.",
+        "mainEmail": "someone@example.com",
+        "shipper": "PT. Indotech",
+        "line1": "Sungai Lagoa - Jakarta",
+        "line4": "KA. Maju Cepat",
+        "line5": "Kalimas - Surabaya",
+        "line6": "18 hours",
+        "line8": "107",
+        "line9": "Pemilik / pengirim baru",
+        "line10": "Station-to-Station",
+        "field1": "#0001",
+        "field2": "IDR 8.700.000",
+        "field3": "IDR 1.740.000",
+        "field4": "BCA",
+        "field5": "PT KretaHub Logistik Internasional",
+        "field6": "000-123-4567",
+        "field7": "Senayan",
+        "companyName": "KretaHub"
     }
 ]
