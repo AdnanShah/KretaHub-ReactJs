@@ -12,6 +12,8 @@ import Input, {InputLabel} from 'material-ui/Input';
 import {FormControl, FormHelperText} from 'material-ui/Form';
 import logo from './kretahub-mock-icon.png';
 import TextField from 'material-ui/TextField';
+import {Link} from 'react-router-dom';
+
 const divStyle = {
   overflowY: 'scroll',
   border: '1px solid red',
@@ -87,6 +89,12 @@ class ComposedTextField extends React.Component {
 
     return (
       <div style={divStyle}>
+        <Link to="/fullpayment">
+          <Button variant="raised" color="secondary">
+            Next
+          </Button>
+        </Link>
+
         <div>
           <Paper className={classes.root} elevation={4}>
             <div
