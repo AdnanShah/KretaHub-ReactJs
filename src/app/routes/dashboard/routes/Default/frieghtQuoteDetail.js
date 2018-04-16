@@ -153,7 +153,7 @@ class Freightdetail extends React.Component {
                             <div className="jr-card-header pt-3 px-4">
                                 <h2><IntlMessages id="Freight Quote Details"/></h2>
                             </div>
-                            <div class="container">
+                            <div className="container">
                                 <div className="row">
                                     <label className="col-md-4 col-12" for="email">Order :</label>
                                     <div className="col-md-4 col-12">

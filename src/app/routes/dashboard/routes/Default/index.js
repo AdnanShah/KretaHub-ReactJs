@@ -1,5 +1,6 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
+import Paper from 'material-ui/Paper';
 import {
     Area,
     AreaChart,
@@ -151,64 +152,66 @@ class Default extends React.Component {
         const {classes} = this.props;
         console.log(this.state.currentDate);
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <div className="jr-card p-0">
-                            <div className="jr-card-header pt-3 px-4">
-                                <h2><IntlMessages id="Freight Quote Search"/></h2>
-                            </div>
-                            <div className="col">
-
-                                <div className="form-group">
-                                    <label
-                                        style={{
-                                        marginRight: '20px'
-                                    }}
-                                        for="Student">Departure:</label>
-                                    <TextField
-                                        id="city"
-                                        select
-                                        style={{
-                                        marginRight: '85px'
-                                    }}
-                                        label="Select Station"
-                                        value={this.state.country1}
-                                        onChange={this.handleChange('country1')}
-                                        SelectProps={{}}
-                                        helperText="Please select your station"
-                                        margin="normal">
-                                        {stations.map(countrie => (
-                                            <MenuItem key={countrie.id} value={countrie.field}>
-                                                {countrie.field}
-                                            </MenuItem>
-                                        ))}
-                                    </TextField>
-                                    <label
-                                        style={{
-                                        marginRight: '20px'
-                                    }}
-                                        for="Student">Arrival:</label>
-                                    <TextField
-                                        id="city"
-                                        select
-                                        label="Select Station"
-                                        value={this.state.country2}
-                                        onChange={this.handleChange2('country2')}
-                                        SelectProps={{}}
-                                        helperText="Please select your station"
-                                        margin="normal">
-                                        {stations.map(countrie => (
-                                            <MenuItem key={countrie.id} value={countrie.field}>
-                                                {countrie.field}
-                                            </MenuItem>
-                                        ))}
-                                    </TextField>
+            <Paper>
+                <div className="container">
+                    <div className="">
+                        <div className="">
+                            <div className="">
+                                <div className="jr-card-header pt-3 px-4">
+                                    <h2><IntlMessages id="Freight Quote Search"/></h2>
                                 </div>
-                            </div>
-                            <div className="col">
+                                <div className="row">
+                                    <div className="col-6">
 
-                                <form>
+                                        <label
+                                            style={{
+                                            marginRight: '20px'
+                                        }}
+                                            for="Student">Departure:</label>
+                                        <TextField
+                                            id="city"
+                                            select
+                                            style={{
+                                            marginRight: '85px'
+                                        }}
+                                            label="Select Station"
+                                            value={this.state.country1}
+                                            onChange={this.handleChange('country1')}
+                                            SelectProps={{}}
+                                            helperText="Please select your station"
+                                            margin="normal">
+                                            {stations.map(countrie => (
+                                                <MenuItem key={countrie.id} value={countrie.field}>
+                                                    {countrie.field}
+                                                </MenuItem>
+                                            ))}
+                                        </TextField>
+                                    </div>
+                                    <div className="col-6">
+                                        <label
+                                            style={{
+                                            marginRight: '20px'
+                                        }}
+                                            for="Student">Arrival:</label>
+                                        <TextField
+                                            id="city"
+                                            select
+                                            label="Select Station"
+                                            value={this.state.country2}
+                                            onChange={this.handleChange2('country2')}
+                                            SelectProps={{}}
+                                            helperText="Please select your station"
+                                            margin="normal">
+                                            {stations.map(countrie => (
+                                                <MenuItem key={countrie.id} value={countrie.field}>
+                                                    {countrie.field}
+                                                </MenuItem>
+                                            ))}
+                                        </TextField>
+                                    </div>
+                                </div>
+                                <div className="col-12">
+
                                     <div id="group1">
                                         <label
                                             style={{
@@ -234,45 +237,47 @@ class Default extends React.Component {
                                         }}
                                             for="Student">General Cargo</label>
                                     </div>
-                                </form>
+                                </div>
+                                <br/>
+                                <div className="row">
+                                    <div className="col-6">
 
-                                <br/>
-                                <label
-                                    style={{
-                                    marginRight: '20px'
-                                }}
-                                    for="Student">Departure/Arrival date:</label>
-                                {/* <DateFormatInput name='date-input'
-                               // min={Date}
-                                value={currentDate}
-                                onChange={this.onChange}
-                                fullWidth='false'
-                                /> */}
-                                <TextField
-                                    id="date"
-                                    type="date"
-                                    min={this.state.currentDate}
-                                    defaultValue={this.state.currentDate}
-                                    InputLabelProps={{
-                                    shrink: true
-                                }}/>
-                                <label
-                                    style={{
-                                    marginRight: '20px'
-                                }}
-                                    for="Student">Until:</label>
-                                <TextField
-                                    id="date"
-                                    type="date"
-                                    defaultValue="2018-05-08"
-                                    style={{
-                                    marginRight: '20px'
-                                }}
-                                    InputLabelProps={{
-                                    shrink: true
-                                }}/>
-                                <br/>
-                                <br/>
+                                        <label
+                                            style={{
+                                            marginRight: '20px'
+                                        }}
+                                            for="Student">Departure/Arrival date:</label>
+                                        <TextField
+                                            id="date"
+                                            type="date"
+                                            min={this.state.currentDate}
+                                            defaultValue={this.state.currentDate}
+                                            InputLabelProps={{
+                                            shrink: true
+                                        }}/>
+                                    </div>
+                                    <div className="col-6">
+
+                                        <label
+                                            style={{
+                                            marginRight: '20px'
+                                        }}
+                                            for="Student">Until:</label>
+                                        <TextField
+                                            id="date"
+                                            type="date"
+                                            defaultValue="2018-05-08"
+                                            style={{
+                                            marginRight: '20px'
+                                        }}
+                                            InputLabelProps={{
+                                            shrink: true
+                                        }}/>
+                                        <br/>
+                                        <br/>
+                                    </div>
+                                </div>
+
                                 <Button
                                     variant="raised"
                                     onClick={this.nextRoute}
@@ -290,8 +295,7 @@ class Default extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </Paper>
         );
     }
 }

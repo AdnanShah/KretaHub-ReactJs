@@ -133,7 +133,8 @@ renderEditable=(cellInfo)=> {
 }
   render() {
     const {classes} = this.props;
-
+    const { data } = this.state;
+    
     return (
       <div style={divStyle}>
 
