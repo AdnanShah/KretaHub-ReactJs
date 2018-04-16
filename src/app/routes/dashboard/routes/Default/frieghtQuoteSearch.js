@@ -340,16 +340,14 @@ class FreightSearch extends React.Component {
                                                 key: idx
                                             }
                                         }}>
-                                            <TableCell>
-                                                <Button
-                                                    variant="raised"
-                                                    style={{
-                                                    background: '#29487D',
-                                                    color: '#fff'
-                                                }}
-                                                    component="span">Details
-                                                </Button>
-                                            </TableCell>
+                                            <Button
+                                                variant="raised"
+                                                style={{
+                                                background: '#29487D',
+                                                color: '#fff'
+                                            }}
+                                                component="span">Details
+                                            </Button>
                                         </Link>
                                     </TableRow>
                                 );

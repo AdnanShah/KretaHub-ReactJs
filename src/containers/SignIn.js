@@ -91,7 +91,14 @@ class SignIn extends React.Component {
                                         defaultValue={password}
                                         margin="normal"
                                         className="mt-1 my-sm-3"/>
-
+                                    <div className="row">
+                                        <div className="col">
+                                            <Link to="/signup">
+                                                Forgot password
+                                            </Link>
+                                        </div>
+                                    </div>
+                                    <br/>
                                     <div className="mb-3 d-flex align-items-center justify-content-between">
                                         <Button
                                             onClick={() => {
@@ -106,13 +113,6 @@ class SignIn extends React.Component {
                                             color="primary">
                                             Log In
                                         </Button>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col">
-                                            <Link to="/signup">
-                                                Forgot password
-                                            </Link>
-                                        </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-6">
