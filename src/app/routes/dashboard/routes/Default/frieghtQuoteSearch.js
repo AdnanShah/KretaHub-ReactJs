@@ -1,5 +1,6 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
+import Paper from 'material-ui/Paper';
 import data from './jsonDataSource/tabledata.json';
 import TextField from 'material-ui/TextField';
 import {
@@ -163,200 +164,220 @@ class FreightSearch extends React.Component {
         const {classes} = this.props;
         console.log(this.state.currentDate);
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <div className="jr-card p-0">
-                            <div className="jr-card-header pt-3 px-4">
-                                <h2><IntlMessages id="Freight Quote Search"/></h2>
-                            </div>
-                            <div className="col">
+            <Paper>
+                <div className="container">
+                    <div className="">
+                        <div className="">
+                            <div className="">
+                                <div className="">
+                                    <div className="jr-card-header pt-3 px-4">
+                                        <h2><IntlMessages id="Freight Quote Search"/></h2>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-6">
 
-                                <div class="form-group">
-                                    <label
-                                        style={{
-                                        marginRight: '20px'
-                                    }}
-                                        for="Student">Departure:</label>
-                                    <TextField
-                                        id="city"
-                                        select
-                                        style={{
-                                        marginRight: '85px'
-                                    }}
-                                        label="Select Country"
-                                        value={this.props.location.state.key.country1}
-                                        onChange={this
-                                        .handleChange
-                                        .bind(this, 'country1')}
-                                        SelectProps={{}}
-                                        helperText="Please select your city"
-                                        margin="normal">
-                                        {stations.map(countrie => (
-                                            <MenuItem key={countrie.id} value={countrie.field}>
-                                                {countrie.field}
-                                            </MenuItem>
-                                        ))}
-                                    </TextField>
-                                    <label
-                                        style={{
-                                        marginRight: '20px'
-                                    }}
-                                        for="Student">Arrival:</label>
-                                    <TextField
-                                        id="city"
-                                        select
-                                        label="Select Country"
-                                        value={this.props.location.state.key.country2}
-                                        onChange={this.handleChange2('country2')}
-                                        SelectProps={{}}
-                                        helperText="Please select your city"
-                                        margin="normal">
-                                        {stations.map(countrie => (
-                                            <MenuItem key={countrie.id} value={countrie.field}>
-                                                {countrie.field}
-                                            </MenuItem>
-                                        ))}
-                                    </TextField>
-                                </div>
-                            </div>
-                            <div className="col">
+                                            <div className="form-group">
+                                                <label
+                                                    style={{
+                                                    marginRight: '20px'
+                                                }}
+                                                    for="Student">Departure:</label>
+                                                <TextField
+                                                    id="city"
+                                                    select
+                                                    style={{
+                                                    marginRight: '85px'
+                                                }}
+                                                    label="Select Country"
+                                                    value={this.props.location.state.key.country1}
+                                                    onChange={this
+                                                    .handleChange
+                                                    .bind(this, 'country1')}
+                                                    SelectProps={{}}
+                                                    helperText="Please select your city"
+                                                    margin="normal">
+                                                    {stations.map(countrie => (
+                                                        <MenuItem key={countrie.id} value={countrie.field}>
+                                                            {countrie.field}
+                                                        </MenuItem>
+                                                    ))}
+                                                </TextField>
+                                            </div>
+                                        </div>
+                                        <div className="col-6">
 
-                                <form>
-                                    <div id="group1">
-                                        <label
-                                            style={{
-                                            marginRight: '20px'
-                                        }}
-                                            for="Student">Freight type:</label>
-                                        <input type="radio" value="group1" name="Umer "/>
-                                        <label
-                                            style={{
-                                            marginRight: '20px'
-                                        }}
-                                            for="Student">FCL</label>
-                                        <input type="radio" value="group1" name="group1"/>
-                                        <label
-                                            style={{
-                                            marginRight: '20px'
-                                        }}
-                                            for="Student">LCL</label>
-                                        <input type="radio" value="group1" name="group1"/>
-                                        <label
-                                            style={{
-                                            marginRight: '20px'
-                                        }}
-                                            for="Student">General Cargo</label>
+                                            <label
+                                                style={{
+                                                marginRight: '20px'
+                                            }}
+                                                for="Student">Arrival:</label>
+                                            <TextField
+                                                id="city"
+                                                select
+                                                label="Select Country"
+                                                value={this.props.location.state.key.country2}
+                                                onChange={this.handleChange2('country2')}
+                                                SelectProps={{}}
+                                                helperText="Please select your city"
+                                                margin="normal">
+                                                {stations.map(countrie => (
+                                                    <MenuItem key={countrie.id} value={countrie.field}>
+                                                        {countrie.field}
+                                                    </MenuItem>
+                                                ))}
+                                            </TextField>
+                                        </div>
+
                                     </div>
 
-                                </form>
-                                <br/>
-                                <label
-                                    style={{
-                                    marginRight: '20px'
-                                }}
-                                    for="Student">Departure/Arrival date:</label>
-                                {/* <DateFormatInput name='date-input'
-                               // min={Date}
-                                value={currentDate}
-                                onChange={this.onChange}
-                                fullWidth='false'
-                                /> */}
-                                <TextField
-                                    id="date"
-                                    type="date"
-                                    min={this.props.location.state.key.currentDate}
-                                    defaultValue={this.props.location.state.key.currentDate}
-                                    value={this.props.location.state.key.currentDate}
-                                    InputLabelProps={{
-                                    shrink: true
-                                }}/>
-                                <label
-                                    style={{
-                                    marginRight: '20px'
-                                }}
-                                    for="Student">Until:</label>
-                                <TextField
-                                    id="date"
-                                    type="date"
-                                    defaultValue="2018-05-08"
-                                    style={{
-                                    marginRight: '20px'
-                                }}
-                                    InputLabelProps={{
-                                    shrink: true
-                                }}/>
-                                <br/>
-                                <br/>
-                                <Link
-                                    to={{
-                                    pathname: 'freightDetail'
-                                }}>
-                                    <Button
-                                        variant="raised"
-                                        style={{
-                                        background: '#29487D',
-                                        color: '#fff'
-                                    }}
-                                        component="span">Change Search
-                                    </Button>
-                                </Link>
+                                    <div className="row">
+                                        <div className="col-12 ">
 
-                                <br/>
-                                <br/>
+                                            <div id="group1">
+                                                <label
+                                                    style={{
+                                                    marginRight: '20px'
+                                                }}
+                                                    for="Student">Freight type:</label>
+                                                <input
+                                                    type="radio"
+                                                    checked={this.props.location.state.key.radioButton === "radioButton1"}
+                                                    name="radioButton1"/>
+                                                <label
+                                                    style={{
+                                                    marginRight: '20px'
+                                                }}
+                                                    for="Student">FCL</label>
+                                                <input
+                                                    type="radio"
+                                                    checked={this.props.location.state.key.radioButton === "radioButton2"}
+                                                    name="radioButton2"/>
+                                                <label
+                                                    style={{
+                                                    marginRight: '20px'
+                                                }}
+                                                    for="Student">LCL</label>
+                                                <input
+                                                    type="radio"
+                                                    checked={this.props.location.state.key.radioButton === "radioButton3"}
+                                                    name="radioButton3"/>
+                                                <label
+                                                    style={{
+                                                    marginRight: '20px'
+                                                }}
+                                                    for="Student">General Cargo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <div className="row">
+                                        <div className="col-6">
+
+                                            <label
+                                                style={{
+                                                marginRight: '20px'
+                                            }}
+                                                for="Student">Departure/Arrival date:</label>
+                                            <TextField
+                                                id="date"
+                                                type="date"
+                                                min={this.state.currentDate}
+                                                defaultValue={this.state.currentDate}
+                                                InputLabelProps={{
+                                                shrink: true
+                                            }}/>
+                                        </div>
+                                        <div className="col-6">
+
+                                            <label
+                                                style={{
+                                                marginRight: '20px'
+                                            }}
+                                                for="Student">Until:</label>
+                                            <TextField
+                                                id="date"
+                                                type="date"
+                                                defaultValue="2018-05-08"
+                                                style={{
+                                                marginRight: '20px'
+                                            }}
+                                                InputLabelProps={{
+                                                shrink: true
+                                            }}/>
+                                            <br/>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <Link
+                                to={{
+                                pathname: 'freightDetail'
+                            }}>
+                                <Button
+                                    variant="raised"
+                                    style={{
+                                    background: '#29487D',
+                                    color: '#fff'
+                                }}
+                                    component="span">Change Search
+                                </Button>
+                            </Link>
+
+                        </div>
+                        <br/>
+                        <br/>
+                        <hr/>
+                        <div className="table-responsive-material">
+
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>{data[0].head1}</TableCell>
+                                        <TableCell >{data[0].head2}</TableCell>
+                                        <TableCell >{data[0].head3}</TableCell>
+                                        <TableCell >{data[0].head4}</TableCell>
+                                        <TableCell >{data[0].head5}</TableCell>
+                                        <TableCell >{data[0].head6}</TableCell>
+                                        <TableCell >{data[0].head7}</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {data.map((n, idx) => {
+                                        return (
+                                            <TableRow key={idx}>
+                                                <TableCell>{n.field1}-{n.field2}</TableCell>
+                                                <TableCell>{n.field3}-{n.field4}</TableCell>
+                                                <TableCell>{n.field5}</TableCell>
+                                                <TableCell >{n.field6}</TableCell>
+                                                <TableCell >{n.field7}</TableCell>
+                                                <TableCell >{n.field7}</TableCell>
+                                                <TableCell >{n.field7}</TableCell>
+                                                <Link
+                                                    to={{
+                                                    pathname: 'freightDetail',
+                                                    state: {
+                                                        key: idx
+                                                    }
+                                                }}>
+                                                    <Button
+                                                        variant="raised"
+                                                        style={{
+                                                        background: '#29487D',
+                                                        color: '#fff'
+                                                    }}
+                                                        component="span">Details
+                                                    </Button>
+                                                </Link>
+                                            </TableRow>
+                                        );
+                                    })}
+                                </TableBody>
+                            </Table>
                         </div>
                     </div>
                 </div>
-                <div className="table-responsive-material">
-
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>{data[0].head1}</TableCell>
-                                <TableCell >{data[0].head2}</TableCell>
-                                <TableCell >{data[0].head3}</TableCell>
-                                <TableCell >{data[0].head4}</TableCell>
-                                <TableCell >{data[0].head5}</TableCell>
-                                <TableCell >{data[0].head6}</TableCell>
-                                <TableCell >{data[0].head7}</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {data.map((n, idx) => {
-                                return (
-                                    <TableRow key={idx}>
-                                        <TableCell>{n.field1}-{n.field2}</TableCell>
-                                        <TableCell>{n.field3}-{n.field4}</TableCell>
-                                        <TableCell>{n.field5}</TableCell>
-                                        <TableCell >{n.field6}</TableCell>
-                                        <TableCell >{n.field7}</TableCell>
-                                        <TableCell >{n.field7}</TableCell>
-                                        <TableCell >{n.field7}</TableCell>
-                                        <Link
-                                            to={{
-                                            pathname: 'freightDetail',
-                                            state: {
-                                                key: idx
-                                            }
-                                        }}>
-                                            <Button
-                                                variant="raised"
-                                                style={{
-                                                background: '#29487D',
-                                                color: '#fff'
-                                            }}
-                                                component="span">Details
-                                            </Button>
-                                        </Link>
-                                    </TableRow>
-                                );
-                            })}
-                        </TableBody>
-                    </Table>
-                </div>
-            </div>
-
+            </Paper>
         );
     }
 }

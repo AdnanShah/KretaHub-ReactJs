@@ -127,7 +127,8 @@ class Default extends React.Component {
             menuState: false,
             country1: 'Algeria',
             country2: 'Australia',
-            currentDate: yyyy + '-' + mm + '-' + dd
+            currentDate: yyyy + '-' + mm + '-' + dd,
+            radioButton:''
         }
 
     }
@@ -146,7 +147,9 @@ class Default extends React.Component {
                 }
             });
     }
-
+    setRadioButton=(event)=>{
+        this.setState({radioButton:event.target.value});
+    }
     render() {
         const {anchorEl, menuState, currentDate} = this.state;
         const {classes} = this.props;
@@ -210,32 +213,35 @@ class Default extends React.Component {
                                         </TextField>
                                     </div>
                                 </div>
-                                <div className="col-12">
+                                <br/>
+                                <div className="row" >
+                                    <div className="col-12" onChange={this.setRadioButton}>
 
-                                    <div id="group1">
-                                        <label
-                                            style={{
-                                            marginRight: '20px'
-                                        }}
-                                            for="Student">Freight type:</label>
-                                        <input type="radio" value="group1" name="Umer "/>
-                                        <label
-                                            style={{
-                                            marginRight: '20px'
-                                        }}
-                                            for="Student">FCL</label>
-                                        <input type="radio" value="group1" name="group1"/>
-                                        <label
-                                            style={{
-                                            marginRight: '20px'
-                                        }}
-                                            for="Student">LCL</label>
-                                        <input type="radio" value="group1" name="group1"/>
-                                        <label
-                                            style={{
-                                            marginRight: '20px'
-                                        }}
-                                            for="Student">General Cargo</label>
+                                        <div id="group1">
+                                            <label
+                                                style={{
+                                                marginRight: '20px'
+                                            }}
+                                                for="Student">Freight type:</label>
+                                            <input type="radio" value="radioButton1" name="radioButton"/>
+                                            <label
+                                                style={{
+                                                marginRight: '20px'
+                                            }}
+                                                for="Student">FCL</label>
+                                            <input type="radio" value="radioButton2" name="radioButton"/>
+                                            <label
+                                                style={{
+                                                marginRight: '20px'
+                                            }}
+                                                for="Student">LCL</label>
+                                            <input type="radio" value="radioButton3" name="radioButton"/>
+                                            <label
+                                                style={{
+                                                marginRight: '20px'
+                                            }}
+                                                for="Student">General Cargo</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <br/>
