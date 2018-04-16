@@ -153,7 +153,7 @@ class PackingList extends React.Component {
                                                                     style={{
                                                                     background: '#29487D',
                                                                     color: '#fff'
-                                                                }}>Add</Button>
+                                                                }}>Remove</Button>
                                                             </TableCell>
 
                                                         </TableRow>
@@ -240,7 +240,7 @@ class PackingList extends React.Component {
                                                                     style={{
                                                                     background: '#29487D',
                                                                     color: '#fff'
-                                                                }}>Add</Button>
+                                                                }}>Remove</Button>
                                                             </TableCell>
                                                         </TableRow>
                                                     </TableHead>
@@ -326,7 +326,7 @@ class PackingList extends React.Component {
                                                                     style={{
                                                                     background: '#29487D',
                                                                     color: '#fff'
-                                                                }}>Add</Button>
+                                                                }}>Remove</Button>
                                                             </TableCell>
 
                                                         </TableRow>
