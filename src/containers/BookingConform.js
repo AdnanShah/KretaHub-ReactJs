@@ -57,19 +57,6 @@ const label = {
   marginRight: '15px'
 }
 
-let id = 0;
-function createData(field1, field2, field3, field4, field5, field6) {
-  id += 1;
-  return {
-    id,
-    field1,
-    field2,
-    field3,
-    field4,
-    field5,
-    field6
-  };
-}
 // const data = [   createData('20RF', 'IDR 2,200,000', '2', '	of 10', 'IDR
 // 4,400,000'),   createData('20TK', 'IDR 2,200,000', null, 'of 10', null),
 // createData('20GP', 'IDR 2,200,000', null, 'of 10', null), createData('40RF',
@@ -80,25 +67,13 @@ function createData(field1, field2, field3, field4, field5, field6) {
 
 class ComposedTextField extends React.Component {
   state = {
-    name: 'Composed TextField',
-    inputVal: '',
-    inputVal2: '',
-    defInputVal: '',
-    total: '',
-    products: [{ number: 1, product: '', description: '', quantity: '', rate: '', amount: 0 }]
+    products: [{ number: 1, product:{name:'abcaa'}, description: '', quantity: '', rate: '', amount: 0 }]
 
   };
 
   handleChange = event => {
     this.setState({name: event.target.value});
   };
-
-  updateInput = (event, id) => {
-    //  total=event.target.value*30;
-    console.log("asd");
-    // this.setState({inputVal: event.target.value, total: event.target.*30})
-}
-
 
 addRow = () => {
   this.setState(prevState => ({
@@ -157,7 +132,6 @@ renderEditable=(cellInfo)=> {
   );
 }
   render() {
-    console.log(this.state);
     const {classes} = this.props;
 
     return (
@@ -347,7 +321,6 @@ renderEditable=(cellInfo)=> {
                     <div className="p-a">
                       <ReactTable
                         data={this.state.products}
-                        loading={this.props.isSubmitting}
                         columns={[
                         {
                           Header: '#',
@@ -355,8 +328,7 @@ renderEditable=(cellInfo)=> {
                           minWidth: 25
                         }, {
                           Header: 'Container type',
-                          accessor: 'product',
-                          Cell: this.renderEditable,
+                          accessor: 'product.name',
                           minWidth: 150
                         }, {
                           Header: 'Capacity',
