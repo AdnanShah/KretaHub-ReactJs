@@ -13,6 +13,8 @@ import {FormControl, FormHelperText} from 'material-ui/Form';
 import logo from './kretahub-mock-icon.png';
 import TextField from 'material-ui/TextField';
 import {Link} from 'react-router-dom';
+import ReactTable from 'react-table'
+import 'react-table/react-table.css'
 
 const divStyle = {
   overflowY: 'scroll',
@@ -56,7 +58,7 @@ const label = {
 }
 
 let id = 0;
-function createData(field1, field2, field3, field4, field5,field6) {
+function createData(field1, field2, field3, field4, field5, field6) {
   id += 1;
   return {
     id,
@@ -68,15 +70,13 @@ function createData(field1, field2, field3, field4, field5,field6) {
     field6
   };
 }
-const data = [
-  createData('20RF', 'IDR 2,200,000', '2', '	of 10', 'IDR 4,400,000'),
-  createData('20TK', 'IDR 2,200,000', null, 'of 10', null),
-  createData('20GP', 'IDR 2,200,000', null, 'of 10', null),
-  createData('40RF', 'IDR 4,200,000', null, 'of 5', null),
-  createData('40GP', 'IDR 4,200,000', '1', 'of 5', 'IDR 4,200,000'),
-  createData('Ancillary Price', null, null, null, 'IDR 100,000'),
-  createData('Total Price', null, null, null, ' IDR 8,700,000 ')
-];
+// const data = [   createData('20RF', 'IDR 2,200,000', '2', '	of 10', 'IDR
+// 4,400,000'),   createData('20TK', 'IDR 2,200,000', null, 'of 10', null),
+// createData('20GP', 'IDR 2,200,000', null, 'of 10', null), createData('40RF',
+// 'IDR 4,200,000', null, 'of 5', null),   createData('40GP', 'IDR 4,200,000',
+// '1', 'of 5', 'IDR 4,200,000'),   createData('Ancillary Price', null, null,
+// null, 'IDR 100,000'),   createData('Total Price', null, null, null, ' IDR
+// 8,700,000 ') ];
 
 class ComposedTextField extends React.Component {
   state = {
@@ -84,33 +84,90 @@ class ComposedTextField extends React.Component {
     inputVal: '',
     inputVal2: '',
     defInputVal: '',
-    total:''
+    total: '',
+    products: [{ number: 1, product: '', description: '', quantity: '', rate: '', amount: 0 }]
+
   };
 
   handleChange = event => {
     this.setState({name: event.target.value});
   };
 
-  updateInput = (event,id) => {
-  //  total=event.target.value*30;
-  console.log("asd");
-  this.setState({inputVal: event.target.value,
-    total:event.target.value*30
-    })
-  
-  }
+  updateInput = (event, id) => {
+    //  total=event.target.value*30;
+    console.log("asd");
+    // this.setState({inputVal: event.target.value, total: event.target.*30})
+}
+
+
+addRow = () => {
+  this.setState(prevState => ({
+    products: [...prevState.products, {
+      number: prevState.products.length + 1,
+      product: '',
+      description: '',
+      quantity: '',
+      rate: '',
+      amount: 0
+    }]
+  }));
+}
+
+calculateTotal = () => {
+  const data = this.state.products;
+  let total = 0;
+
+  data.forEach((d) => {
+    total += d.amount;
+  });
+
+  // this.setState({ total });
+  return total;
+}
+
+saveData = () => {
+  const { state } = this;
+  this.props.saveInvoice(state);
+}
+
+handleDateChange = (date) => {
+  this.setState({ date });
+}
+
+handleDueChange = (due) => {
+  this.setState({ due });
+}
+
+renderEditable=(cellInfo)=> {
+  return (
+    <div
+      style={{ backgroundColor: '#fafafa' }}
+      contentEditable
+      suppressContentEditableWarning
+      onBlur={(e) => {
+        const products = [...this.state.products];
+        products[ cellInfo.index ][ cellInfo.column.id ] = e.target.innerHTML;
+        products[ cellInfo.index ].amount = products[ cellInfo.index ].rate * products[ cellInfo.index ].quantity;
+        this.setState({ products });
+      }}
+      dangerouslySetInnerHTML={{ //eslint-disable-line
+        __html: this.state.products[ cellInfo.index ][ cellInfo.column.id ]
+      }}
+    />
+  );
+}
   render() {
     console.log(this.state);
     const {classes} = this.props;
 
     return (
       <div style={divStyle}>
-        
-      <Link to="/deliverynotice">
-        <Button variant="raised" color="secondary">
-          Next
-        </Button>
-      </Link>
+
+        <Link to="/deliverynotice">
+          <Button variant="raised" color="secondary">
+            Next
+          </Button>
+        </Link>
         <div>
           <Paper className={classes.root} elevation={4}>
             <div
@@ -284,36 +341,49 @@ class ComposedTextField extends React.Component {
 
             </div>
 
-            <div className="table-responsive-material">
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Container type</TableCell>
-                    <TableCell numeric>Price</TableCell>
-                    <TableCell numeric>Qty</TableCell>
-                    <TableCell numeric>Capacity</TableCell>
-                    <TableCell numeric>Subtotal</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {data.map(n => {
-                    return (
-                      <TableRow key={n.id}>
-                        <TableCell>{n.field1}</TableCell>
-                        <TableCell numeric>{n.field2}+</TableCell>
-                        <TableCell numeric>
-                          <input type="number" defaultValue={n.field3} onChange={this.updateInput}/>
-                        </TableCell>
-                        <TableCell numeric>{n.field4}</TableCell>
-                        <TableCell numeric>                        
-                        <input type="number" value={this.state.total}/>                       
-                        {/* <input type="number" defaultValue={n.field5} onChange={this.updateInput}/> */}
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                </TableBody>
-              </Table>
+            <div className="table-responsive-material">            
+
+                  <div className="col-sm-12">
+                    <div className="p-a">
+                      <ReactTable
+                        data={this.state.products}
+                        loading={this.props.isSubmitting}
+                        columns={[
+                        {
+                          Header: '#',
+                          accessor: 'number',
+                          minWidth: 25
+                        }, {
+                          Header: 'Container type',
+                          accessor: 'product',
+                          Cell: this.renderEditable,
+                          minWidth: 150
+                        }, {
+                          Header: 'Capacity',
+                          accessor: 'description',
+                          Cell: this.renderEditable,
+                          minWidth: 150
+                        }, {
+                          Header: 'QUANTITY',
+                          accessor: 'quantity',
+                          Cell: this.renderEditable
+                        }, {
+                          Header: 'Price',
+                          accessor: 'rate',
+                          Cell: this.renderEditable
+                        }, {
+                          Header: 'Subtotal',
+                          accessor: 'amount'
+                        }
+                      ]}
+                        defaultPageSize={10}
+                        className="-striped -highlight"/>
+                      <br/>
+                      <Button onClick={this.addRow}>Add row</Button>
+                    <Button onClick={this.saveData}>Save</Button>
+                  <h1>Price: {this.calculateTotal()}</h1>
+                    </div>
+                  </div>
             </div>
             <h2>
               <u>Best regards</u>
