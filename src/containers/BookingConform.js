@@ -93,7 +93,8 @@ class ComposedTextField extends React.Component {
 
   updateInput = (event,id) => {
   //  total=event.target.value*30;
-    this.setState({inputVal: event.target.value,
+  console.log("asd");
+  this.setState({inputVal: event.target.value,
     total:event.target.value*30
     })
   

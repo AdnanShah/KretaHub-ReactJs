@@ -138,20 +138,24 @@ class FreightSearch extends React.Component {
         this.setState({date})
     }
 
-    // componentDidMount() {
-    // }
-    handleDetails=()=>{
-        this.props.history.push({
-            pathname:'freightSearch',
-            state:{key:this.state}              
-        });
-   
+    // componentDidMount() { }
+    handleDetails = () => {
+        this
+            .props
+            .history
+            .push({
+                pathname: 'freightSearch',
+                state: {
+                    key: this.state
+                }
+            });
+
     }
     render() {
         try {
             this.props.location.state.key.country1
         } catch (err) {
-        //    next()
+            //    next()
         }
 
         console.log(this.props.location.state.key);
@@ -167,124 +171,140 @@ class FreightSearch extends React.Component {
                                 <h2><IntlMessages id="Freight Quote Search"/></h2>
                             </div>
                             <div className="col">
-                    
-                            <div class="form-group">
-                                <label
-                                    style={{
-                                    marginRight: '20px'
-                                }}
-                                    for="Student">Departure:</label>
-                                <TextField
-                                    id="city"
-                                    select
-                                    style={{
-                                    marginRight: '85px'
-                                }}
-                                    label="Select Country"
-                                    value={this.props.location.state.key.country1}
-                                    onChange={this
-                                    .handleChange
-                                    .bind(this, 'country1')}
-                                    SelectProps={{}}
-                                    helperText="Please select your city"
-                                    margin="normal">
-                                    {stations.map(countrie => (
-                                        <MenuItem key={countrie.id} value={countrie.field}>
-                                            {countrie.field}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                                <label
-                                    style={{
-                                    marginRight: '20px'
-                                }}
-                                    for="Student">Arrival:</label>
-                                <TextField
-                                    id="city"
-                                    select
-                                    label="Select Country"
-                                    // defaultValue={this.props.location.state.key.country1}
-                                    value={this.props.location.state.key.country2}
-                                    onChange={this.handleChange2('country2')}
-                                    SelectProps={{}}
-                                    helperText="Please select your city"
-                                    margin="normal">
-                                    {stations.map(countrie => (
-                                        <MenuItem key={countrie.id} value={countrie.field}>
-                                            {countrie.field}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </div>
+
+                                <div class="form-group">
+                                    <label
+                                        style={{
+                                        marginRight: '20px'
+                                    }}
+                                        for="Student">Departure:</label>
+                                    <TextField
+                                        id="city"
+                                        select
+                                        style={{
+                                        marginRight: '85px'
+                                    }}
+                                        label="Select Country"
+                                        value={this.props.location.state.key.country1}
+                                        onChange={this
+                                        .handleChange
+                                        .bind(this, 'country1')}
+                                        SelectProps={{}}
+                                        helperText="Please select your city"
+                                        margin="normal">
+                                        {stations.map(countrie => (
+                                            <MenuItem key={countrie.id} value={countrie.field}>
+                                                {countrie.field}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+                                    <label
+                                        style={{
+                                        marginRight: '20px'
+                                    }}
+                                        for="Student">Arrival:</label>
+                                    <TextField
+                                        id="city"
+                                        select
+                                        label="Select Country"
+                                        value={this.props.location.state.key.country2}
+                                        onChange={this.handleChange2('country2')}
+                                        SelectProps={{}}
+                                        helperText="Please select your city"
+                                        margin="normal">
+                                        {stations.map(countrie => (
+                                            <MenuItem key={countrie.id} value={countrie.field}>
+                                                {countrie.field}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+                                </div>
                             </div>
                             <div className="col">
-                    
-                            <form>
-                                <div id="group1">
-                                    <label
-                                        style={{
-                                        marginRight: '20px'
-                                    }}
-                                        for="Student">Freight type:</label>
-                                    <input type="radio" value="group1" name="Umer "/>
-                                    <label
-                                        style={{
-                                        marginRight: '20px'
-                                    }}
-                                        for="Student">FCL</label>
-                                    <input type="radio" value="group1" name="group1"/>
-                                    <label
-                                        style={{
-                                        marginRight: '20px'
-                                    }}
-                                        for="Student">LCL</label>
-                                    <input type="radio" value="group1" name="group1"/>
-                                    <label
-                                        style={{
-                                        marginRight: '20px'
-                                    }}
-                                        for="Student">General Cargo</label>
-                                </div>
-                            </form>
-                            <br/>
-                            <label
-                                style={{
-                                marginRight: '20px'
-                            }}
-                                for="Student">Departure/Arrival date:</label>
-                            {/* <DateFormatInput name='date-input'
+
+                                <form>
+                                    <div id="group1">
+                                        <label
+                                            style={{
+                                            marginRight: '20px'
+                                        }}
+                                            for="Student">Freight type:</label>
+                                        <input type="radio" value="group1" name="Umer "/>
+                                        <label
+                                            style={{
+                                            marginRight: '20px'
+                                        }}
+                                            for="Student">FCL</label>
+                                        <input type="radio" value="group1" name="group1"/>
+                                        <label
+                                            style={{
+                                            marginRight: '20px'
+                                        }}
+                                            for="Student">LCL</label>
+                                        <input type="radio" value="group1" name="group1"/>
+                                        <label
+                                            style={{
+                                            marginRight: '20px'
+                                        }}
+                                            for="Student">General Cargo</label>
+                                    </div>
+
+                                </form>
+                                <br/>
+                                <label
+                                    style={{
+                                    marginRight: '20px'
+                                }}
+                                    for="Student">Departure/Arrival date:</label>
+                                {/* <DateFormatInput name='date-input'
                                // min={Date}
                                 value={currentDate}
                                 onChange={this.onChange}
                                 fullWidth='false'
                                 /> */}
-                            <TextField
-                                id="date"
-                                type="date"
-                                min={this.props.location.state.key.currentDate}
-                                defaultValue={this.props.location.state.key.currentDate}
-                                value={this.props.location.state.key.currentDate}
-                                InputLabelProps={{
-                                shrink: true
-                            }}/>
-                            <label
-                                style={{
-                                marginRight: '20px'
-                            }}
-                                for="Student">Until:</label>
-                            <TextField
-                                id="date"
-                                type="date"
-                                defaultValue="2018-05-08"
-                                style={{
-                                marginRight: '20px'
-                            }}
-                                InputLabelProps={{
-                                shrink: true
-                            }}/>
-                            <br/>
-                            <br/>
-                        </div>
+                                <TextField
+                                    id="date"
+                                    type="date"
+                                    min={this.props.location.state.key.currentDate}
+                                    defaultValue={this.props.location.state.key.currentDate}
+                                    value={this.props.location.state.key.currentDate}
+                                    InputLabelProps={{
+                                    shrink: true
+                                }}/>
+                                <label
+                                    style={{
+                                    marginRight: '20px'
+                                }}
+                                    for="Student">Until:</label>
+                                <TextField
+                                    id="date"
+                                    type="date"
+                                    defaultValue="2018-05-08"
+                                    style={{
+                                    marginRight: '20px'
+                                }}
+                                    InputLabelProps={{
+                                    shrink: true
+                                }}/>
+                                <br/>
+                                <br/>
+                                <Link
+                                    to={{
+                                    pathname: 'freightDetail'
+                                }}>
+                                    <Button
+                                        variant="raised"
+                                        style={{
+                                        background: '#29487D',
+                                        color: '#fff'
+                                    }}
+                                        component="span">Change Search
+                                    </Button>
+                                </Link>
+
+                                <br/>
+                                <br/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -303,7 +323,7 @@ class FreightSearch extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {data.map((n,idx) => {
+                            {data.map((n, idx) => {
                                 return (
                                     <TableRow key={idx}>
                                         <TableCell>{n.field1}-{n.field2}</TableCell>
