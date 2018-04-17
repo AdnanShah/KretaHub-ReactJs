@@ -67,8 +67,50 @@ const label = {
 
 class ComposedTextField extends React.Component {
   state = {
-    products: [{ number: 1, product:{name:'abcaa'}, description: '', quantity: '', rate: '', amount: 0 }]
-
+    makeData: [
+      {
+        field1: "20RF",
+        field2: "IDR 2,200,000",
+        field3: "2",
+        field4: "of 10",
+        field5: 0
+      },
+      {
+        field1: "20TK",
+        field2: "IDR 2,200,000",
+        field3: "",
+        field4: "of 10",
+        field5: 0
+      },
+      {
+        field1: "20GP",
+        field2: "IDR 2,200,000",
+        field3: "",
+        field4: "of 10",
+        field5: 0
+      },
+      {
+        field1: "40RF",
+        field2: "IDR 4,200,000",
+        field3: "2",
+        field4: "of 5",
+        field5: 0
+      },
+      {
+        field1: "40GP",
+        field2: "IDR 4,200,000",
+        field3: "1",
+        field4: "of 5",
+        field5: 0
+      },
+      {
+        field1: "20GP",
+        field2: "IDR 2,200,000",
+        field3: "",
+        field4: "of 10",
+        field5: 0
+      },
+    ]
   };
 
   handleChange = event => {
@@ -77,8 +119,8 @@ class ComposedTextField extends React.Component {
 
 addRow = () => {
   this.setState(prevState => ({
-    products: [...prevState.products, {
-      number: prevState.products.length + 1,
+    makeData: [...prevState.makeData, {
+      number: prevState.makeData.length + 1,
       product: '',
       description: '',
       quantity: '',
@@ -89,7 +131,7 @@ addRow = () => {
 }
 
 calculateTotal = () => {
-  const data = this.state.products;
+  const data = this.state.makeData;
   let total = 0;
 
   data.forEach((d) => {
@@ -112,25 +154,33 @@ handleDateChange = (date) => {
 handleDueChange = (due) => {
   this.setState({ due });
 }
-
 renderEditable=(cellInfo)=> {
+  console.log('cellInfo',cellInfo.index,cellInfo.column.id);
   return (
     <div
       style={{ backgroundColor: '#fafafa' }}
       contentEditable
       suppressContentEditableWarning
       onBlur={(e) => {
-        const products = [...this.state.products];
-        products[ cellInfo.index ][ cellInfo.column.id ] = e.target.innerHTML;
-        products[ cellInfo.index ].amount = products[ cellInfo.index ].rate * products[ cellInfo.index ].quantity;
-        this.setState({ products });
+        const makeData = [...this.state.makeData];
+        console.log(makeData); 
+        makeData[ cellInfo.index ][ cellInfo.column.id ] = e.target.innerHTML;
+        makeData[ cellInfo.index ].field5 =parseInt( makeData[ cellInfo.index ].field2 * makeData[ cellInfo.index ].field3);
+        this.setState({ makeData });
+        debugger
+       
       }}
       dangerouslySetInnerHTML={{ //eslint-disable-line
-        __html: this.state.products[ cellInfo.index ][ cellInfo.column.id ]
+        __html: this.state.makeData[ cellInfo.index ][ cellInfo.column.id ]
       }}
     />
   );
 }
+
+//  makeData=()=> {
+// 	return;}
+
+
   render() {
     const {classes} = this.props;
     const { data } = this.state;
@@ -315,49 +365,52 @@ renderEditable=(cellInfo)=> {
               </div>
 
             </div>
-
             <div className="table-responsive-material">            
-
                   <div className="col-sm-12">
                     <div className="p-a">
                       <ReactTable
-                        data={this.state.products}
+                        // data={this.state.makeData}
+                        data={this.state.makeData}
+
+                
                         columns={[
                         {
                           Header: '#',
                           accessor: 'number',
                           minWidth: 25
-                        }, {
+                        },                        
+                        {
                           Header: 'Container type',
-                          accessor: 'product.name',
+                          accessor: 'field1',
                           minWidth: 150
+                        },
+                        {
+                          Header: 'Price',
+                          accessor: 'field2',
+                          },
+                        {
+                          Header: 'QTY',
+                          accessor: 'field3',
+                          Cell: this.renderEditable
                         }, {
                           Header: 'Capacity',
-                          accessor: 'description',
-                          Cell: this.renderEditable,
+                          accessor: 'field4',
                           minWidth: 150
                         }, {
-                          Header: 'QUANTITY',
-                          accessor: 'quantity',
-                          Cell: this.renderEditable
-                        }, {
-                          Header: 'Price',
-                          accessor: 'rate',
-                          Cell: this.renderEditable
-                        }, {
                           Header: 'Subtotal',
-                          accessor: 'amount'
+                          accessor: 'field5'
                         }
                       ]}
-                        defaultPageSize={10}
+                        defaultPageSize={5}
                         className="-striped -highlight"/>
                       <br/>
                       <Button onClick={this.addRow}>Add row</Button>
                     <Button onClick={this.saveData}>Save</Button>
-                  <h1>Price: {this.calculateTotal()}</h1>
+                  {/* <h1>Price: {this.calculateTotal()}</h1> */}
                     </div>
                   </div>
             </div>
+           
             <h2>
               <u>Best regards</u>
             </h2>
