@@ -50,20 +50,11 @@ const styles = theme => ({
   }
 });
 const label = {
-  /* Other styling.. */
   textAlign: 'right',
   clear: 'both',
   float: 'left',
   marginRight: '15px'
 }
-
-// const data = [   createData('20RF', 'IDR 2,200,000', '2', '	of 10', 'IDR
-// 4,400,000'),   createData('20TK', 'IDR 2,200,000', null, 'of 10', null),
-// createData('20GP', 'IDR 2,200,000', null, 'of 10', null), createData('40RF',
-// 'IDR 4,200,000', null, 'of 5', null),   createData('40GP', 'IDR 4,200,000',
-// '1', 'of 5', 'IDR 4,200,000'),   createData('Ancillary Price', null, null,
-// null, 'IDR 100,000'),   createData('Total Price', null, null, null, ' IDR
-// 8,700,000 ') ];
 
 class ComposedTextField extends React.Component {
   state = {
@@ -131,12 +122,9 @@ addRow = () => {
 calculateTotal = () => {
   const data = this.state.makeData;
   let total = 0;
-
   data.forEach((d) => {
     total += d.field5;
   });
-
-  // this.setState({ total });
   return total+100000;
 }
 
@@ -165,23 +153,17 @@ renderEditable=(cellInfo)=> {
         makeData[ cellInfo.index ][ cellInfo.column.id ] = e.target.innerHTML;
         makeData[ cellInfo.index ].field5 = makeData[ cellInfo.index ].field6 * makeData[ cellInfo.index ].field3;
         this.setState({ makeData });
-        // debugger
        
       }}
-      dangerouslySetInnerHTML={{ //eslint-disable-line
+      dangerouslySetInnerHTML={{ 
         __html: this.state.makeData[ cellInfo.index ][ cellInfo.column.id ]
       }}
     />
   );
 }
 
-//  makeData=()=> {
-// 	return;}
-
-
   render() {
     const {classes} = this.props;
-    const { data } = this.state;
     
     return (
       <div style={divStyle}>
@@ -367,10 +349,7 @@ renderEditable=(cellInfo)=> {
                   <div className="col-sm-12">
                     <div className="p-a">
                       <ReactTable
-                        // data={this.state.makeData}
                         data={this.state.makeData}
-
-                
                         columns={[
                         {
                           Header: '#',

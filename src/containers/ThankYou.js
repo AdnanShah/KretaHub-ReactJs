@@ -12,6 +12,8 @@ import Input, {InputLabel} from 'material-ui/Input';
 import {FormControl, FormHelperText} from 'material-ui/Form';
 import logo from './kretahub-mock-icon.png';
 import {Link} from 'react-router-dom';
+import ReactTable from 'react-table'
+import 'react-table/react-table.css'
 
 const divStyle = {
   overflowY: 'scroll',
@@ -78,12 +80,109 @@ const data = [
 
 class ComposedTextField extends React.Component {
   state = {
-    name: 'Composed TextField'
+    name: 'Composed TextField',
+
+    makeData: [
+      {
+        field1: "20RF",
+        field2: "IDR 2,200,000",
+        field6: "2200000",
+        field3: "2",
+        field4: "of 10",
+        field5: 0
+      }, {
+        field1: "20TK",
+        field2: "IDR 2,200,000",
+        field6: "2200000",
+        field3: "",
+        field4: "of 10",
+        field5: 0
+      }, {
+        field1: "20GP",
+        field2: "IDR 2,200,000",
+        field6: "2200000",
+        field3: "",
+        field4: "of 10",
+        field5: 0
+      }, {
+        field1: "40RF",
+        field2: "IDR 4,200,000",
+        field6: "4200000",
+        field3: "",
+        field4: "of 5",
+        field5: 0
+      }, {
+        field1: "40GP",
+        field2: "IDR 4,200,000",
+        field6: "4200000",
+        field3: "1",
+        field4: "of 5",
+        field5: 0
+      }
+    ]
   };
 
   handleChange = event => {
     this.setState({name: event.target.value});
   };
+
+  addRow = () => {
+    this.setState(prevState => ({
+      makeData: [
+        ...prevState.makeData, {
+          number: prevState.makeData.length + 1,
+          product: '',
+          description: '',
+          quantity: '',
+          rate: '',
+          amount: 0
+        }
+      ]
+    }));
+  }
+
+  calculateTotal = () => {
+    const data = this.state.makeData;
+    let total = 0;
+    data.forEach((d) => {
+      total += d.field5;
+    });
+    return total + 100000;
+  }
+
+  saveData = () => {
+    const {state} = this;
+    this
+      .props
+      .saveInvoice(state);
+  }
+
+  handleDateChange = (date) => {
+    this.setState({date});
+  }
+
+  handleDueChange = (due) => {
+    this.setState({due});
+  }
+  renderEditable = (cellInfo) => {
+    console.log('cellInfo', cellInfo.index, cellInfo.column.id);
+    return (<div
+      style={{
+      backgroundColor: '#fafafa'
+    }}
+      contentEditable
+      suppressContentEditableWarning
+      onBlur={(e) => {
+      const makeData = [...this.state.makeData];
+      console.log(makeData);
+      makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+      makeData[cellInfo.index].field5 = makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
+      this.setState({makeData});
+    }}
+      dangerouslySetInnerHTML={{
+      __html: this.state.makeData[cellInfo.index][cellInfo.column.id]
+    }}/>);
+  }
 
   render() {
     const {classes} = this.props;
@@ -205,31 +304,62 @@ class ComposedTextField extends React.Component {
             </div>
 
             <div className="table-responsive-material">
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Container type</TableCell>
-                    <TableCell numeric>Price</TableCell>
-                    <TableCell numeric>Qty</TableCell>
-                    <TableCell numeric>Capacity</TableCell>
-                    <TableCell numeric>Subtotal</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {data.map(n => {
-                    return (
-                      <TableRow key={n.id}>
-                        <TableCell>{n.name}</TableCell>
-                        <TableCell numeric>{n.calories}</TableCell>
-                        <TableCell numeric>{n.fat}</TableCell>
-                        <TableCell numeric>{n.carbs}</TableCell>
-                        <TableCell numeric>{n.protein}</TableCell>
-                      </TableRow>
-                    );
-                  })}
-                </TableBody>
-              </Table>
+              <div className="col-sm-12">
+                <div className="p-a">
+                  <ReactTable
+                    data={this.state.makeData}
+                    columns={[
+                    {
+                      Header: '#',
+                      accessor: 'number',
+                      minWidth: 25
+                    }, {
+                      Header: 'Container type',
+                      accessor: 'field1',
+                      minWidth: 150
+                    }, {
+                      Header: 'Price',
+                      accessor: 'field2'
+                    }, {
+                      Header: 'QTY',
+                      accessor: 'field3',
+                      Cell: this.renderEditable
+                    }, {
+                      Header: 'Capacity',
+                      accessor: 'field4',
+                      minWidth: 150
+                    }, {
+                      Header: 'Subtotal',
+                      accessor: 'field5'
+                    }
+                  ]}
+                    defaultPageSize={5}
+                    className="-striped -highlight"/>
+                  <br/>
+                  <div className="row">
+                    <div className="col-6">
+                      <h3>Ancillary Price:</h3>
+                    </div>
+                    <div className="col-6 float-right">
+                      <div className="float-right">
+                        <h3>IDR 100,000</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-6">
+                      <h1>Total:</h1>
+                    </div>
+                    <div className="col-6 float-right">
+                      <div className="float-right">
+                        <h1>{this.calculateTotal()}</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+
           </Paper>
         </div>
       </div>
