@@ -71,6 +71,7 @@ class ComposedTextField extends React.Component {
       {
         field1: "20RF",
         field2: "IDR 2,200,000",
+        field6: "2200000",
         field3: "2",
         field4: "of 10",
         field5: 0
@@ -78,6 +79,7 @@ class ComposedTextField extends React.Component {
       {
         field1: "20TK",
         field2: "IDR 2,200,000",
+        field6: "2200000",
         field3: "",
         field4: "of 10",
         field5: 0
@@ -85,6 +87,7 @@ class ComposedTextField extends React.Component {
       {
         field1: "20GP",
         field2: "IDR 2,200,000",
+        field6: "2200000",
         field3: "",
         field4: "of 10",
         field5: 0
@@ -92,24 +95,19 @@ class ComposedTextField extends React.Component {
       {
         field1: "40RF",
         field2: "IDR 4,200,000",
-        field3: "2",
+        field6: "4200000",
+        field3: "",
         field4: "of 5",
         field5: 0
       },
       {
         field1: "40GP",
         field2: "IDR 4,200,000",
+        field6: "4200000",
         field3: "1",
         field4: "of 5",
         field5: 0
-      },
-      {
-        field1: "20GP",
-        field2: "IDR 2,200,000",
-        field3: "",
-        field4: "of 10",
-        field5: 0
-      },
+      }
     ]
   };
 
@@ -135,11 +133,11 @@ calculateTotal = () => {
   let total = 0;
 
   data.forEach((d) => {
-    total += d.amount;
+    total += d.field5;
   });
 
   // this.setState({ total });
-  return total;
+  return total+100000;
 }
 
 saveData = () => {
@@ -165,9 +163,9 @@ renderEditable=(cellInfo)=> {
         const makeData = [...this.state.makeData];
         console.log(makeData); 
         makeData[ cellInfo.index ][ cellInfo.column.id ] = e.target.innerHTML;
-        makeData[ cellInfo.index ].field5 =parseInt( makeData[ cellInfo.index ].field2 * makeData[ cellInfo.index ].field3);
+        makeData[ cellInfo.index ].field5 = makeData[ cellInfo.index ].field6 * makeData[ cellInfo.index ].field3;
         this.setState({ makeData });
-        debugger
+        // debugger
        
       }}
       dangerouslySetInnerHTML={{ //eslint-disable-line
@@ -404,9 +402,26 @@ renderEditable=(cellInfo)=> {
                         defaultPageSize={5}
                         className="-striped -highlight"/>
                       <br/>
-                      <Button onClick={this.addRow}>Add row</Button>
-                    <Button onClick={this.saveData}>Save</Button>
-                  {/* <h1>Price: {this.calculateTotal()}</h1> */}
+                  <div className="row">
+                  <div className="col-6">
+                  <h3>Ancillary Price:</h3>                  
+                  </div>
+                  <div className="col-6 float-right">
+                  <div className="float-right">
+                  <h3>IDR 100,000</h3>                  
+                  </div>
+                  </div>
+                  </div>
+                  <div className="row">
+                  <div className="col-6">
+                  <h1>Total:</h1>                  
+                  </div>
+                  <div className="col-6 float-right">
+                  <div className="float-right">
+                  <h1>{this.calculateTotal()}</h1>                  
+                  </div>
+                  </div>
+                  </div>
                     </div>
                   </div>
             </div>
