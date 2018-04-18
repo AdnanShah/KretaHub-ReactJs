@@ -248,6 +248,52 @@ class FreightSearch extends React.Component {
             __html: this.state.makeData[cellInfo.index][cellInfo.column.id]
         }}/>);
     }
+    columns = [
+        {
+            Header: data[0].head1,
+            accessor: `field1`
+        }, {
+            Header: data[0].head2,
+            accessor: 'field3'
+        }, {
+            Header: data[0].head3,
+            accessor: 'field5'
+        }, {
+            Header: data[0].head4,
+            accessor: 'field6'
+        }, {
+            Header: data[0].head5,
+            accessor: 'field7'
+        }, {
+            Header: data[0].head6,
+            accessor: 'field7'
+        }, {
+            Header: data[0].head7,
+            accessor: 'field7'
+        }, {
+            Header: "Details",
+            Cell: row => (
+                <Link to={{
+                    pathname: 'freightDetail'
+                }}>
+
+                    <div
+                    className="float-right"
+                        style={{
+                        width: "70%",
+                        height: "90%",
+                        color: '#fff',
+                        backgroundColor: "#29487D",
+                        borderRadius: "2px"
+                    }}></div>
+                </Link>
+            )
+
+        }
+    ]
+    sub_columns = this
+        .columns
+        .slice(0);
 
     render() {
         try {
@@ -260,6 +306,7 @@ class FreightSearch extends React.Component {
         const {anchorEl, menuState, currentDate} = this.state;
         const {classes} = this.props;
         console.log(this.state.currentDate);
+
         return (
             <Paper>
                 <div className="container">
@@ -430,36 +477,7 @@ class FreightSearch extends React.Component {
                                 <div className="p-a">
                                     <ReactTable
                                         data={data}
-                                        columns={[
-                                        {
-                                            Header: '#',
-                                            accessor: 'number',
-                                            minWidth: 25
-                                        }, {
-                                            Header: data[0].head1,
-                                            accessor: `field1`,
-                                            minWidth: 150
-                                        }, {
-                                            Header: data[0].head2,
-                                            accessor: 'field3'
-                                        }, {
-                                            Header: data[0].head3,
-                                            accessor: 'field5'
-                                        }, {
-                                            Header: data[0].head4,
-                                            accessor: 'field6',
-                                            minWidth: 150
-                                        }, {
-                                            Header: data[0].head5,
-                                            accessor: 'field7'
-                                        }, {
-                                            Header: data[0].head6,
-                                            accessor: 'field7'
-                                        }, {
-                                            Header: data[0].head7,
-                                            accessor: 'field7'
-                                        }
-                                    ]}
+                                        columns={this.sub_columns}
                                         defaultPageSize={10}
                                         className="-striped -highlight"/>
                                     <br/>
