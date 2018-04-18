@@ -61,6 +61,9 @@ import DateFormatInput from 'material-ui-next-datepicker'
 import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 import {Link} from 'react-router-dom';
+import ReactTable from 'react-table'
+import 'react-table/react-table.css'
+
 const label = {
     /* Other styling..*/
     textAlign: 'right',
@@ -78,10 +81,6 @@ const styles = theme => ({
         width: 200
     }
 });
-// const data = [     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-// createData('Ice cream sandwich', 237, 9.0, 37, 4.3),     createData('Eclair',
-// 262, 16.0, 24, 6.0),     createData('Cupcake', 305, 3.7, 67, 4.3),
-// createData('Gingerbread', 356, 16.0, 49, 3.9) ];
 let id = 0;
 function createData(name, calories, fat, carbs, protein, field6, field7) {
     id += 1;
@@ -130,7 +129,46 @@ class FreightSearch extends React.Component {
             menuState: false,
             country1: 'Algeria',
             country2: 'Australia',
-            currentDate: yyyy + '-' + mm + '-' + dd
+            currentDate: yyyy + '-' + mm + '-' + dd,
+            makeData: [
+                {
+                    field1: "20RF",
+                    field2: "IDR 2,200,000",
+                    field6: "2200000",
+                    field3: "2",
+                    field4: "of 10",
+                    field5: 0
+                }, {
+                    field1: "20TK",
+                    field2: "IDR 2,200,000",
+                    field6: "2200000",
+                    field3: "",
+                    field4: "of 10",
+                    field5: 0
+                }, {
+                    field1: "20GP",
+                    field2: "IDR 2,200,000",
+                    field6: "2200000",
+                    field3: "",
+                    field4: "of 10",
+                    field5: 0
+                }, {
+                    field1: "40RF",
+                    field2: "IDR 4,200,000",
+                    field6: "4200000",
+                    field3: "",
+                    field4: "of 5",
+                    field5: 0
+                }, {
+                    field1: "40GP",
+                    field2: "IDR 4,200,000",
+                    field6: "4200000",
+                    field3: "1",
+                    field4: "of 5",
+                    field5: 0
+                }
+            ]
+
         }
 
     }
@@ -152,6 +190,65 @@ class FreightSearch extends React.Component {
             });
 
     }
+
+    addRow = () => {
+        this.setState(prevState => ({
+            makeData: [
+                ...prevState.makeData, {
+                    number: prevState.makeData.length + 1,
+                    product: '',
+                    description: '',
+                    quantity: '',
+                    rate: '',
+                    amount: 0
+                }
+            ]
+        }));
+    }
+
+    calculateTotal = () => {
+        const data = this.state.makeData;
+        let total = 0;
+        data.forEach((d) => {
+            total += d.field5;
+        });
+        return total + 100000;
+    }
+
+    saveData = () => {
+        const {state} = this;
+        this
+            .props
+            .saveInvoice(state);
+    }
+
+    handleDateChange = (date) => {
+        this.setState({date});
+    }
+
+    handleDueChange = (due) => {
+        this.setState({due});
+    }
+    renderEditable = (cellInfo) => {
+        console.log('cellInfo', cellInfo.index, cellInfo.column.id);
+        return (<div
+            style={{
+            backgroundColor: '#fafafa'
+        }}
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={(e) => {
+            const makeData = [...this.state.makeData];
+            console.log(makeData);
+            makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+            makeData[cellInfo.index].field5 = makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
+            this.setState({makeData});
+        }}
+            dangerouslySetInnerHTML={{
+            __html: this.state.makeData[cellInfo.index][cellInfo.column.id]
+        }}/>);
+    }
+
     render() {
         try {
             this.props.location.state.key.country1
@@ -329,51 +426,45 @@ class FreightSearch extends React.Component {
                         <br/>
                         <hr/>
                         <div className="table-responsive-material">
-
-                            <Table>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>{data[0].head1}</TableCell>
-                                        <TableCell >{data[0].head2}</TableCell>
-                                        <TableCell >{data[0].head3}</TableCell>
-                                        <TableCell >{data[0].head4}</TableCell>
-                                        <TableCell >{data[0].head5}</TableCell>
-                                        <TableCell >{data[0].head6}</TableCell>
-                                        <TableCell >{data[0].head7}</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {data.map((n, idx) => {
-                                        return (
-                                            <TableRow key={idx}>
-                                                <TableCell>{n.field1}-{n.field2}</TableCell>
-                                                <TableCell>{n.field3}-{n.field4}</TableCell>
-                                                <TableCell>{n.field5}</TableCell>
-                                                <TableCell >{n.field6}</TableCell>
-                                                <TableCell >{n.field7}</TableCell>
-                                                <TableCell >{n.field7}</TableCell>
-                                                <TableCell >{n.field7}</TableCell>
-                                                <Link
-                                                    to={{
-                                                    pathname: 'freightDetail',
-                                                    state: {
-                                                        key: idx
-                                                    }
-                                                }}>
-                                                    <Button
-                                                        variant="raised"
-                                                        style={{
-                                                        background: '#29487D',
-                                                        color: '#fff'
-                                                    }}
-                                                        component="span">Details
-                                                    </Button>
-                                                </Link>
-                                            </TableRow>
-                                        );
-                                    })}
-                                </TableBody>
-                            </Table>
+                            <div className="col-sm-12">
+                                <div className="p-a">
+                                    <ReactTable
+                                        data={data}
+                                        columns={[
+                                        {
+                                            Header: '#',
+                                            accessor: 'number',
+                                            minWidth: 25
+                                        }, {
+                                            Header: data[0].head1,
+                                            accessor: `field1`,
+                                            minWidth: 150
+                                        }, {
+                                            Header: data[0].head2,
+                                            accessor: 'field3'
+                                        }, {
+                                            Header: data[0].head3,
+                                            accessor: 'field5'
+                                        }, {
+                                            Header: data[0].head4,
+                                            accessor: 'field6',
+                                            minWidth: 150
+                                        }, {
+                                            Header: data[0].head5,
+                                            accessor: 'field7'
+                                        }, {
+                                            Header: data[0].head6,
+                                            accessor: 'field7'
+                                        }, {
+                                            Header: data[0].head7,
+                                            accessor: 'field7'
+                                        }
+                                    ]}
+                                        defaultPageSize={10}
+                                        className="-striped -highlight"/>
+                                    <br/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
