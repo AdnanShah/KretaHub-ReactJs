@@ -190,11 +190,11 @@ class FreightSearch extends React.Component {
   ];
 
   render() {
-    // try {
-    //   this.props.location.state.key;
-    // } catch (err) {
-    //      next()
-    // }
+    try {
+      this.props.location.state.key;
+    } catch (err) {
+         window.location.replace("default")
+    }
 
     // console.log(this.props.location.state.key);
     const { anchorEl, menuState, currentDate } = this.state;

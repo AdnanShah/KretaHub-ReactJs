@@ -82,7 +82,7 @@ class SidenavContent extends Component {
         </Link>
         <Link
             to={{
-              pathname: "freightSearch"
+              pathname: "freightDetail"
             }}
           >
         
