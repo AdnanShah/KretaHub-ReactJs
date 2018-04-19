@@ -73,6 +73,7 @@ import stations from './jsonDataSource/stations.json';
 import DateFormatInput from 'material-ui-next-datepicker'
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 import {Link} from 'react-router-dom';
+import Tour from '../../../../../components/Tour/index';
 const label = {
     /* Other styling..*/
     textAlign: 'right',
@@ -156,12 +157,13 @@ class Default extends React.Component {
         console.log(this.state.currentDate);
         return (
             <Paper>
+                <Tour/>
                 <div className="container">
                     <div className="">
                         <div className="">
                             <div className="">
                                 <div className="jr-card-header pt-3 px-4">
-                                    <h2><IntlMessages id="Freight Quote Search"/></h2>
+                                    <h2 className="freight-heading"><IntlMessages id="Freight Quote Search"/></h2>
                                 </div>
                                 <div className="row">
                                     <div className="col-6">
@@ -170,7 +172,7 @@ class Default extends React.Component {
                                             style={{
                                             marginRight: '20px'
                                         }}
-                                            for="Student">Departure:</label>
+                                            for="Student" className="destination">Departure:</label>
                                         <TextField
                                             id="city"
                                             select
@@ -195,7 +197,7 @@ class Default extends React.Component {
                                             style={{
                                             marginRight: '20px'
                                         }}
-                                            for="Student">Arrival:</label>
+                                            for="Student" className="origin">Arrival:</label>
                                         <TextField
                                             id="city"
                                             select
@@ -222,7 +224,7 @@ class Default extends React.Component {
                                                 style={{
                                                 marginRight: '20px'
                                             }}
-                                                for="Student">Freight type:</label>
+                                                for="Student" className="freight-type">Freight type:</label>
                                             <input type="radio" value="radioButton1" name="radioButton"/>
                                             <label
                                                 style={{
@@ -291,6 +293,7 @@ class Default extends React.Component {
                                     background: '#29487D',
                                     color: '#fff'
                                 }}
+                                className="searchButton"
                                     component="span">
                                     Search
                                 </Button>

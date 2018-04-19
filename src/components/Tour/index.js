@@ -5,10 +5,10 @@ class Tour extends React.PureComponent {
 
     static defaultProps = {
         joyride: {
-            autoStart: false,
+            autoStart: true,
             resizeDebounce: false,
-            run: false,
-        },
+            run: false
+        }
     };
 
     constructor(props) {
@@ -18,39 +18,93 @@ class Tour extends React.PureComponent {
             running: false,
             steps: [
                 {
-                    text: 'Shows logged-in user\'s info with dropdown context menu.',
+                    title: 'Shipper logo',
+                    text: 'Your profile - Click here to view or edit your profile, change settings, and log out.',
                     textAlign: 'center',
-                    selector: '.app-container .app-sidebar .user-profile',
-                    position: 'right',
-                    isFixed: true,
-                },
-                {
+                    selector: '.app-sidebar-content',
+                    position: 'left',
+                    isFixed: true
+                }, {
+                    title: 'Dashboard',
+                    text: 'Click here to get to this screen, where you can start booking your freight.',
+                    textAlign: 'center',
+                    selector: '.sidebar-dashboard',
+                    position: 'left',
+                    isFixed: true
+                }, {
+                    title: 'Freight Quotes',
+                    text: 'Click here to search for available freight quotes.',
+                    textAlign: 'center',
+                    selector: '.freight-quotes',
+                    position: 'left',
+                    isFixed: true
+                }, {
+                    title: 'Bookings',
+                    text: ' Click here to see and manage all of your bookings.',
+                    textAlign: 'center',
+                    selector: '.bookings',
+                    position: 'left',
+                    isFixed: true
+                }, {
                     title: 'Notifications',
-                    text: 'Keep yourself notified with the upcoming alerts and announcements',
+                    text: 'Click here to see your notifications.',
                     textAlign: 'center',
                     selector: '.app-container .app-main-container .app-main-header .app-tour',
                     position: 'top',
-                    isFixed: true,
-                },
-                {
-                    title: 'Messages',
+                    isFixed: true
+                }, {
+                    title: 'Destination field',
+                    text: 'Choose your destination station - Your freight will be unloaded here.',
+                    textAlign: 'center',
+                    selector: '.container .destination',
+                    position: 'top',
+                    isFixed: true
+                }, {
+                    title: 'Origin field',
+                    text: 'Choose your station origin station - Your freight will be loaded here.',
+                    textAlign: 'center',
+                    selector: '.container .origin',
+                    position: 'top',
+                    isFixed: true
+                }, {
+                    title: 'Freight type',
+                    text: "Choose your freight type - FCL (Full Container Load) or LCL (Less Than Container Load).",
+                    textAlign: 'center',
+                    selector: '.container .freight-type',
+                    position: 'top',
+                    isFixed: true
+                }, {
+                    title: 'Search button',
+                    text: 'Start searching - Click the Search button to see choices for your freight.',
+                    textAlign: 'center',
+                    selector: '.container .searchButton',
+                    position: 'top',
+                    isFixed: true
+                }, {
+                    title: "That's it! - Start booking your freight now.",
                     text: 'Check your recent messages from your connections.',
                     textAlign: 'center',
-                    selector: '.app-container .app-main-container .app-main-header .mail-tour',
+                    selector: '.container',
                     position: 'top',
-                    isFixed: false,
+                    isFixed: false
                 }
             ],
-            step: 0,
+            step: 0
         };
 
-        this.handleNextButtonClick = this.handleNextButtonClick.bind(this);
-        this.handleJoyrideCallback = this.handleJoyrideCallback.bind(this);
+        this.handleNextButtonClick = this
+            .handleNextButtonClick
+            .bind(this);
+        this.handleJoyrideCallback = this
+            .handleJoyrideCallback
+            .bind(this);
     }
 
     handleNextButtonClick() {
         if (this.state.step === 1) {
-            this.joyride.next();
+            this
+                .joyride
+                .next();
         }
     }
 
@@ -63,14 +117,17 @@ class Tour extends React.PureComponent {
         }
 
         if (result.type === 'finished' && this.state.running) {
-            // Need to set our running state to false, so we can restart if we click start again.
+            // Need to set our running state to false, so we can restart if we click start
+            // again.
             this.setState({running: false});
         }
 
         if (result.type === 'error:target_not_found') {
             this.setState({
-                step: result.action === 'back' ? result.index - 1 : result.index + 1,
-                autoStart: result.action !== 'close' && result.action !== 'esc',
+                step: result.action === 'back'
+                    ? result.index - 1
+                    : result.index + 1,
+                autoStart: result.action !== 'close' && result.action !== 'esc'
             });
         }
 
@@ -81,10 +138,7 @@ class Tour extends React.PureComponent {
 
     componentDidMount() {
         setTimeout(() => {
-            this.setState({
-                running: true,
-                step: 0,
-            });
+            this.setState({running: true, step: 0});
         }, 1000);
     }
 
@@ -102,14 +156,9 @@ class Tour extends React.PureComponent {
             steps: joyride.steps || this.state.steps,
             type: joyride.type || 'continuous'
         };
-        return ( <Joyride
-                {...joyrideProps}
-                ref={c => (this.joyride = c)}/>
-
-        )
+        return (<Joyride {...joyrideProps} ref={c => (this.joyride = c)}/>)
 
     }
 }
 
 export default Tour;
-

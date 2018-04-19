@@ -349,6 +349,7 @@ renderEditable=(cellInfo)=> {
                   <div className="col-sm-12">
                     <div className="p-a">
                       <ReactTable
+                      minRows = {0}
                         data={this.state.makeData}
                         columns={[
                         {

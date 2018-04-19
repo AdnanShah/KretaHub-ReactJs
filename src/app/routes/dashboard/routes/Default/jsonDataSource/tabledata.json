@@ -1,14 +1,5 @@
 [
     {
-        "head1": "Estimated Time of Departure (ETD)",
-        "head2": "Estimated Time of Arrival (ETA)",
-        "head3": "Train",
-        "head4": "Available Capacity",
-        "head5": "Station-to-Station",
-        "head6": "Door-to-Station",
-        "head7": "Door-to-Door"
-    },
-    {
         "field1": "March 20  2018",
         "field2": "",
         "field3": "March 21  2018",
