@@ -191,9 +191,10 @@ class TextFields extends React.Component {
         repMobile: '',
         shipment: '',
         country: '',
-
+        officerNumber: '',
+        officerName: '',
         Representatives: [
-            {}
+            { officerNumber: '' }
         ],
         Officers: [
             {
@@ -288,7 +289,7 @@ class TextFields extends React.Component {
                 </div>
                 <form noValidate autoComplete="off">
                     <div className="row">
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="name"
                                 label="Name"
@@ -297,7 +298,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth />
                         </div>
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="select-industry"
                                 select
@@ -305,17 +306,20 @@ class TextFields extends React.Component {
                                 value={this.state.industry}
                                 onChange={this.handleChange('industry')}
                                 SelectProps={{}}
-                                
+
                                 margin="normal"
                                 fullWidth>
-                                {currencies.map(industry => (
-                                    <MenuItem key={industry.value} value={industry.label}>
+                                {currencies.map((industry, i) => (
+                                    <MenuItem key={i} value={industry.label}>
                                         {industry.label}
                                     </MenuItem>
                                 ))}
                             </TextField>
                         </div>
-                        <div className="col-md-4 col-12">
+                    </div>
+                    <div className="row">
+
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="select-shipment"
                                 select
@@ -323,7 +327,7 @@ class TextFields extends React.Component {
                                 value={this.state.shipment}
                                 onChange={this.handleChange('shipment')}
                                 SelectProps={{}}
-                                
+
                                 margin="normal"
                                 fullWidth>
                                 {shipments.map(shipment => (
@@ -333,21 +337,21 @@ class TextFields extends React.Component {
                                 ))}
                             </TextField>
                         </div>
-
-                    </div>
-                    <div className="row">
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="address"
                                 label="Address"
                                 multiline
-                                rowsMax="4"
+                                rowsMax="6"
                                 value={this.state.address}
                                 onChange={this.handleChange('address')}
                                 margin="normal"
                                 fullWidth />
                         </div>
-                        <div className="col-md-4 col-12">
+                    </div>
+                    <div className="row">
+
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="city"
                                 select
@@ -355,7 +359,7 @@ class TextFields extends React.Component {
                                 value={this.state.city}
                                 onChange={this.handleChange('city')}
                                 SelectProps={{}}
-                                
+
                                 margin="normal"
                                 fullWidth>
                                 {citys.map(city => (
@@ -365,7 +369,7 @@ class TextFields extends React.Component {
                                 ))}
                             </TextField>
                         </div>
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 value={this.state.State}
                                 id="State"
@@ -374,9 +378,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth />
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 value={this.state.zipCode}
                                 id="Zip-Code"
@@ -385,7 +387,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth />
                         </div>
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="countries"
                                 select
@@ -393,7 +395,7 @@ class TextFields extends React.Component {
                                 value={this.state.countries}
                                 onChange={this.handleChange('countries')}
                                 SelectProps={{}}
-                                
+
                                 margin="normal"
                                 fullWidth>
                                 {countries.map(countrie => (
@@ -402,10 +404,10 @@ class TextFields extends React.Component {
                                     </MenuItem>
                                 ))}
                             </TextField>
-
-
-                        </div>
-                        <div className="col-md-4 col-12">
+                        </div>                        
+                    </div>
+                    <div className="row">
+                    <div className="col-md-6 col-12">
                             <TextField
                                 value={this.state.phone}
                                 id="Phone"
@@ -414,9 +416,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth />
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="fax"
                                 value={this.state.fax}
@@ -424,7 +424,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth />
                         </div>
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="email"
                                 value={this.state.email}
@@ -432,7 +432,7 @@ class TextFields extends React.Component {
                                 margin="normal"
                                 fullWidth />
                         </div>
-                        <div className="col-md-4 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 id="NPWPNumber"
                                 value={this.state.npwpNumber}
@@ -526,7 +526,7 @@ class TextFields extends React.Component {
                                             }}>Representatives</h1>
                                     </Paper>
                                     <div className="row">
-                                        <div className="col-md-4 col-12">
+                                        <div className="col-md-6 col-12">
                                             <TextField
                                                 id="name"
                                                 label="Name"
@@ -535,19 +535,21 @@ class TextFields extends React.Component {
                                                 margin="normal"
                                                 fullWidth />
                                         </div>
-                                        <div className="col-md-4 col-12">
+                                        <div className="col-md-6 col-12">
                                             <TextField
                                                 id="address"
                                                 label="Address"
                                                 multiline
-                                                rowsMax="4"
+                                                rowsMax="6"
                                                 value={this.state.repAddress}
                                                 onChange={this.handleChange('address')}
                                                 margin="normal"
                                                 fullWidth />
                                         </div>
 
-                                        <div className="col-md-4 col-12">
+                                    </div>
+                                    <div className="row">
+                                    <div className="col-md-6 col-12">
                                             <TextField
                                                 id="country"
                                                 select
@@ -555,19 +557,18 @@ class TextFields extends React.Component {
                                                 value={this.state.country}
                                                 onChange={this.handleChangeCountry('country')}
                                                 SelectProps={{}}
-                                                
+
                                                 margin="normal"
                                                 fullWidth>
-                                                {citys.map(citys => (
-                                                    <MenuItem key={citys.id} value={citys.name_id}>
-                                                        {citys.name_id}
+                                                {countries.map(countrie => (
+                                                    <MenuItem key={countrie.id} value={countrie.name}>
+                                                        {countrie.name}
                                                     </MenuItem>
                                                 ))}
                                             </TextField>
                                         </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-4 col-12">
+                              
+                                        <div className="col-md-6 col-12">
                                             <TextField
                                                 value={this.state.repState}
                                                 id="State"
@@ -576,7 +577,7 @@ class TextFields extends React.Component {
                                                 margin="normal"
                                                 fullWidth />
                                         </div>
-                                        <div className="col-md-4 col-12">
+                                        <div className="col-md-6 col-12">
                                             <TextField
                                                 value={this.state.repZipCode}
                                                 id="Zip-Code"
@@ -585,7 +586,7 @@ class TextFields extends React.Component {
                                                 margin="normal"
                                                 fullWidth />
                                         </div>
-                                        <div className="col-md-4 col-12">
+                                        <div className="col-md-6 col-12">
                                             <TextField
                                                 id="city"
                                                 select
@@ -593,7 +594,7 @@ class TextFields extends React.Component {
                                                 value={this.state.city}
                                                 onChange={this.handleChangeCity('city')}
                                                 SelectProps={{}}
-                                                
+
                                                 margin="normal"
                                                 fullWidth>
                                                 {citys.map(city => (
@@ -603,7 +604,7 @@ class TextFields extends React.Component {
                                                 ))}
                                             </TextField>
                                         </div>
-                                        <div className="col-md-4 col-12">
+                                        <div className="col-md-6 col-12">
                                             <TextField
                                                 value={this.state.repPhone}
                                                 id="Phone"
@@ -612,7 +613,7 @@ class TextFields extends React.Component {
                                                 margin="normal"
                                                 fullWidth />
                                         </div>
-                                        <div className="col-md-4 col-12">
+                                        <div className="col-md-6 col-12">
                                             <TextField
                                                 id="fax"
                                                 value={this.state.repFax}
@@ -620,7 +621,7 @@ class TextFields extends React.Component {
                                                 margin="normal"
                                                 fullWidth />
                                         </div>
-                                        <div className="col-md-4 col-12">
+                                        <div className="col-md-12 col-12">
                                             <TextField
                                                 id="mobile"
                                                 value={this.state.repMobile}
@@ -679,7 +680,7 @@ class TextFields extends React.Component {
                                         Officers</h1>
                                 </Paper>
                                 <div className="row">
-                                    <div className="col-md-4 col-12">
+                                    <div className="col-md-6 col-12">
                                         <TextField
                                             id="officersName"
                                             label="Officers Name"
@@ -688,10 +689,10 @@ class TextFields extends React.Component {
                                             fullWidth />
                                     </div>
 
-                                    <div className="col-md-8 col-12">
+                                    <div className="col-md-6 col-12">
                                         <TextField
                                             value={this.state.officerNumber}
-                                            id="IdentityNumber"
+                                            id="Identity Number"
                                             label="Identity Number"
                                             margin="normal"
                                             fullWidth />
@@ -699,7 +700,7 @@ class TextFields extends React.Component {
                                 </div>
                                 <br />
                                 <div className="row">
-                                    <div className="col-md-4 col-12">
+                                    <div className="col-md-6 col-12">
                                         <h1
                                             style={{
                                                 fontFamily: 'sans-sarif'
@@ -754,7 +755,7 @@ class TextFields extends React.Component {
                                 </div>
                                 <br />
                                 <div className="row">
-                                    <div className="col-md-4 col-12">
+                                    <div className="col-md-6 col-12">
                                         <h1
                                             style={{
                                                 fontFamily: 'sans-sarif'
