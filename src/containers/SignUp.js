@@ -301,11 +301,11 @@ class TextFields extends React.Component {
                             <TextField
                                 id="select-industry"
                                 select
-                                label="Select Industry"
+                                label="Industry"
                                 value={this.state.industry}
                                 onChange={this.handleChange('industry')}
                                 SelectProps={{}}
-                                helperText="Please select your industry"
+                                
                                 margin="normal"
                                 fullWidth>
                                 {currencies.map(industry => (
@@ -319,11 +319,11 @@ class TextFields extends React.Component {
                             <TextField
                                 id="select-shipment"
                                 select
-                                label="Select Shipment"
+                                label="Shipment"
                                 value={this.state.shipment}
                                 onChange={this.handleChange('shipment')}
                                 SelectProps={{}}
-                                helperText="Please select your shipment"
+                                
                                 margin="normal"
                                 fullWidth>
                                 {shipments.map(shipment => (
@@ -351,11 +351,11 @@ class TextFields extends React.Component {
                             <TextField
                                 id="city"
                                 select
-                                label="Select City"
+                                label="City"
                                 value={this.state.city}
                                 onChange={this.handleChange('city')}
                                 SelectProps={{}}
-                                helperText="Please select your city"
+                                
                                 margin="normal"
                                 fullWidth>
                                 {citys.map(city => (
@@ -389,11 +389,11 @@ class TextFields extends React.Component {
                             <TextField
                                 id="countries"
                                 select
-                                label="Select Country"
+                                label="Country"
                                 value={this.state.countries}
                                 onChange={this.handleChange('countries')}
                                 SelectProps={{}}
-                                helperText="Please select your country"
+                                
                                 margin="normal"
                                 fullWidth>
                                 {countries.map(countrie => (
@@ -420,7 +420,7 @@ class TextFields extends React.Component {
                             <TextField
                                 id="fax"
                                 value={this.state.fax}
-                                label="fax"
+                                label="Fax"
                                 margin="normal"
                                 fullWidth />
                         </div>
@@ -428,7 +428,7 @@ class TextFields extends React.Component {
                             <TextField
                                 id="email"
                                 value={this.state.email}
-                                label="email"
+                                label="Email"
                                 margin="normal"
                                 fullWidth />
                         </div>
@@ -551,11 +551,11 @@ class TextFields extends React.Component {
                                             <TextField
                                                 id="country"
                                                 select
-                                                label="Select Country"
+                                                label="Country"
                                                 value={this.state.country}
                                                 onChange={this.handleChangeCountry('country')}
                                                 SelectProps={{}}
-                                                helperText="Please select your country"
+                                                
                                                 margin="normal"
                                                 fullWidth>
                                                 {citys.map(citys => (
@@ -589,11 +589,11 @@ class TextFields extends React.Component {
                                             <TextField
                                                 id="city"
                                                 select
-                                                label="Select City"
+                                                label="City"
                                                 value={this.state.city}
                                                 onChange={this.handleChangeCity('city')}
                                                 SelectProps={{}}
-                                                helperText="Please select your city"
+                                                
                                                 margin="normal"
                                                 fullWidth>
                                                 {citys.map(city => (
@@ -616,7 +616,7 @@ class TextFields extends React.Component {
                                             <TextField
                                                 id="fax"
                                                 value={this.state.repFax}
-                                                label="fax"
+                                                label="Fax"
                                                 margin="normal"
                                                 fullWidth />
                                         </div>
@@ -682,6 +682,7 @@ class TextFields extends React.Component {
                                     <div className="col-md-4 col-12">
                                         <TextField
                                             id="officersName"
+                                            label="Officers Name"
                                             value={this.state.officerName}
                                             margin="normal"
                                             fullWidth />
@@ -690,7 +691,8 @@ class TextFields extends React.Component {
                                     <div className="col-md-8 col-12">
                                         <TextField
                                             value={this.state.officerNumber}
-                                            id="Identity Number"
+                                            id="IdentityNumber"
+                                            label="Identity Number"
                                             margin="normal"
                                             fullWidth />
                                     </div>
