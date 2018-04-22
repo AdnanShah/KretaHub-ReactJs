@@ -35,7 +35,7 @@ const shipments = [
     }
 ];
 const divStyle = {
-    overflowY: 'scroll'
+    overflowY: 'auto'
 };
 
 class TextFields extends React.Component {
@@ -237,7 +237,7 @@ class TextFields extends React.Component {
 
     render() {
         return (
-            <div style={divStyle} className="container">
+            <div style={divStyle} className="container-fluid">
 
                 <Link to="/thankYou">
                     <Button variant="raised" color="secondary">
