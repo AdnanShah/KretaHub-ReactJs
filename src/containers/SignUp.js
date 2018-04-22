@@ -7,7 +7,7 @@ import locality from './jsonDataSource/locality-ID.json';
 import countries from './jsonDataSource/countries.json';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const currencies = [
     {
@@ -41,19 +41,19 @@ const divStyle = {
 class TextFields extends React.Component {
 
     handleChange = name => event => {
-        this.setState({[name]: event.target.value});
+        this.setState({ [name]: event.target.value });
     };
 
     handleChangeCountry = name => event => {
-        this.setState({[name]: event.target.value});
+        this.setState({ [name]: event.target.value });
     };
     handleChangeCity = name => event => {
-        this.setState({[name]: event.target.value});
+        this.setState({ [name]: event.target.value });
     };
     onFileLoad = (e, file) => console.log(e.target.result, file.name);
 
     handleNameChange = (evt) => {
-        this.setState({name: evt.target.value});
+        this.setState({ name: evt.target.value });
     }
 
     handleRepresentativeNameChange = (idx) => (evt) => {
@@ -61,7 +61,7 @@ class TextFields extends React.Component {
             .state
             .Representatives
             .map((Representative, sidx) => {
-                if (idx !== sidx) 
+                if (idx !== sidx)
                     return Representative;
                 return {
                     ...Representative,
@@ -69,11 +69,11 @@ class TextFields extends React.Component {
                 };
             });
 
-        this.setState({Representatives: newRepresentatives});
+        this.setState({ Representatives: newRepresentatives });
     }
 
     handleSubmit = (evt) => {
-        const {name, Representatives} = this.state;
+        const { name, Representatives } = this.state;
         alert(`Incorporated: ${name} with ${Representatives.length} Representatives`);
     }
 
@@ -100,7 +100,7 @@ class TextFields extends React.Component {
     }
 
     handleNameChange = (evt) => {
-        this.setState({name: evt.target.value});
+        this.setState({ name: evt.target.value });
     }
 
     handleOfficerNameChange = (idx) => (evt) => {
@@ -108,7 +108,7 @@ class TextFields extends React.Component {
             .state
             .Officers
             .map((Officer, sidx) => {
-                if (idx !== sidx) 
+                if (idx !== sidx)
                     return Officer;
                 return {
                     ...Officer,
@@ -116,11 +116,11 @@ class TextFields extends React.Component {
                 };
             });
 
-        this.setState({Officers: newOfficers});
+        this.setState({ Officers: newOfficers });
     }
 
     handleSubmit = (evt) => {
-        const {name, Officers} = this.state;
+        const { name, Officers } = this.state;
         alert(`Incorporated: ${name} with ${Officers.length} Officers`);
     }
 
@@ -151,13 +151,13 @@ class TextFields extends React.Component {
         const reader = new FileReader();
 
         reader.onloadend = () => {
-            this.setState({imageUrl: reader.result})
+            this.setState({ imageUrl: reader.result })
         }
         if (file) {
             reader.readAsDataURL(file);
-            this.setState({imageUrl: reader.result})
+            this.setState({ imageUrl: reader.result })
         } else {
-            this.setState({imageUrl: ""})
+            this.setState({ imageUrl: "" })
         }
     }
     state = {
@@ -238,51 +238,51 @@ class TextFields extends React.Component {
     render() {
         return (
             <div style={divStyle} className="container">
-                
-<Link to="/thankYou">
-        <Button variant="raised" color="secondary">
-          Next
-        </Button>
-      </Link>
 
-                <br/>
+                <Link to="/thankYou">
+                    <Button variant="raised" color="secondary">
+                        Next
+        </Button>
+                </Link>
+
+                <br />
                 <h1 // className="text-center"
                     style={{
-                    fontWeight: 'bold',
-                    color: '#000',
-                    fontFamily: 'sans-sarif',
-                    textAlign: 'center'
-                }}>
+                        fontWeight: 'bold',
+                        color: '#000',
+                        fontFamily: 'sans-sarif',
+                        textAlign: 'center'
+                    }}>
                     Shipper Signup</h1>
                 <h1 // className="text-center"
                     style={{
-                    fontWeight: 'bold',
-                    color: '#3F51B5',
-                    fontFamily: 'sans-sarif',
-                    textAlign: 'center'
-                }}>
+                        fontWeight: 'bold',
+                        color: '#3F51B5',
+                        fontFamily: 'sans-sarif',
+                        textAlign: 'center'
+                    }}>
                     - - -</h1>
                 <Paper>
                     <h2
                         style={{
-                        background: '#4267B2',
-                        color: '#fff',
-                        textAlign: 'center',
-                        fontFamily: 'sans-sarif'
-                    }}>Shipper Information</h2>
+                            background: '#4267B2',
+                            color: '#fff',
+                            textAlign: 'center',
+                            fontFamily: 'sans-sarif'
+                        }}>Shipper Information</h2>
                 </Paper>
 
                 <div class="form-row text-center">
                     <div class="col-12">
                         <Button
                             onClick={this
-                            .autoFill
-                            .bind(this)}
+                                .autoFill
+                                .bind(this)}
                             variant="raised"
                             style={{
-                            background: '#29487D',
-                            color: '#fff'
-                        }}
+                                background: '#29487D',
+                                color: '#fff'
+                            }}
                             size="small">Auto-Fill Form</Button>
                     </div>
                 </div>
@@ -295,7 +295,7 @@ class TextFields extends React.Component {
                                 value={this.state.name}
                                 onChange={this.handleChange('name')}
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
                         <div className="col-md-4 col-12">
                             <TextField
@@ -345,7 +345,7 @@ class TextFields extends React.Component {
                                 value={this.state.address}
                                 onChange={this.handleChange('address')}
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
                         <div className="col-md-4 col-12">
                             <TextField
@@ -372,7 +372,7 @@ class TextFields extends React.Component {
                                 label="State"
                                 defaultValue="State"
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
                     </div>
                     <div className="row">
@@ -383,10 +383,10 @@ class TextFields extends React.Component {
                                 label="Zip-Code"
                                 defaultValue="Zip-Code"
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
                         <div className="col-md-4 col-12">
-                        <TextField
+                            <TextField
                                 id="countries"
                                 select
                                 label="Select Country"
@@ -402,8 +402,8 @@ class TextFields extends React.Component {
                                     </MenuItem>
                                 ))}
                             </TextField>
-                        
-                        
+
+
                         </div>
                         <div className="col-md-4 col-12">
                             <TextField
@@ -412,7 +412,7 @@ class TextFields extends React.Component {
                                 label="Phone"
                                 defaultValue="+62317482303"
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
                     </div>
                     <div className="row">
@@ -422,7 +422,7 @@ class TextFields extends React.Component {
                                 value={this.state.fax}
                                 label="fax"
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
                         <div className="col-md-4 col-12">
                             <TextField
@@ -430,7 +430,7 @@ class TextFields extends React.Component {
                                 value={this.state.email}
                                 label="email"
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
                         <div className="col-md-4 col-12">
                             <TextField
@@ -438,27 +438,27 @@ class TextFields extends React.Component {
                                 value={this.state.npwpNumber}
                                 label="NPWP Number"
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
 
                     </div>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
 
                     <div className="row">
                         <div className="col-md-6 col-12">
                             <h1
                                 style={{
-                                fontFamily: 'sans-sarif'
-                            }}>NPWP Document</h1>
+                                    fontFamily: 'sans-sarif'
+                                }}>NPWP Document</h1>
 
                         </div>
                         <div className="col-md-6 col-12">
 
-                            <input accept="image/*" id="raised-button-file" multiple type="file"/> 
+                            <input accept="image/*" id="raised-button-file" multiple type="file" />
                         </div>
                     </div>
-                    <br/>
+                    <br />
                     <div className="row">
                         <div className="col-md-6 col-12">
                             <TextField
@@ -466,7 +466,7 @@ class TextFields extends React.Component {
                                 value={this.state.suipNumber}
                                 label="SIUP Number"
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
                         <div className="col-md-6 col-12">
                             <TextField
@@ -474,17 +474,17 @@ class TextFields extends React.Component {
                                 id="SIUPExpirationDate"
                                 label="SIUP Expiration Date"
                                 margin="normal"
-                                fullWidth/>
+                                fullWidth />
                         </div>
                     </div>
-                    <br/>
+                    <br />
 
                     <div className="row">
                         <div className="col-md-6 col-12">
                             <h1
                                 style={{
-                                fontFamily: 'sans-sarif'
-                            }}>
+                                    fontFamily: 'sans-sarif'
+                                }}>
                                 Upload Logo Here</h1>
                         </div>
                         <div className="col-md-6 col-12">
@@ -492,9 +492,9 @@ class TextFields extends React.Component {
                                 ref="uploadImg"
                                 type="file"
                                 name="selectedFile"
-                                onChange={this._onChange}/>
-                            <br/>
-                            <br/>
+                                onChange={this._onChange} />
+                            <br />
+                            <br />
                         </div>
                     </div>
                     <div class="form-row text-center">
@@ -504,12 +504,12 @@ class TextFields extends React.Component {
                                 className="rounded"
                                 width="304"
                                 height="126"
-                                alt="LOGO"/>
+                                alt="LOGO" />
                         </div>
                     </div>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
+                    <br />
                     <div>
                         {this
                             .state
@@ -519,11 +519,11 @@ class TextFields extends React.Component {
                                     <Paper>
                                         <h1
                                             style={{
-                                            background: '#4267B2',
-                                            color: '#fff',
-                                            textAlign: 'center',
-                                            fontFamily: 'sans-sarif'
-                                        }}>Representatives</h1>
+                                                background: '#4267B2',
+                                                color: '#fff',
+                                                textAlign: 'center',
+                                                fontFamily: 'sans-sarif'
+                                            }}>Representatives</h1>
                                     </Paper>
                                     <div className="row">
                                         <div className="col-md-4 col-12">
@@ -533,7 +533,7 @@ class TextFields extends React.Component {
                                                 value={this.state.repName}
                                                 onChange={this.handleChange('name')}
                                                 margin="normal"
-                                                fullWidth/>
+                                                fullWidth />
                                         </div>
                                         <div className="col-md-4 col-12">
                                             <TextField
@@ -544,7 +544,7 @@ class TextFields extends React.Component {
                                                 value={this.state.repAddress}
                                                 onChange={this.handleChange('address')}
                                                 margin="normal"
-                                                fullWidth/>
+                                                fullWidth />
                                         </div>
 
                                         <div className="col-md-4 col-12">
@@ -574,7 +574,7 @@ class TextFields extends React.Component {
                                                 label="State"
                                                 defaultValue="State"
                                                 margin="normal"
-                                                fullWidth/>
+                                                fullWidth />
                                         </div>
                                         <div className="col-md-4 col-12">
                                             <TextField
@@ -583,10 +583,10 @@ class TextFields extends React.Component {
                                                 label="Zip-Code"
                                                 defaultValue="Zip-Code"
                                                 margin="normal"
-                                                fullWidth/>
+                                                fullWidth />
                                         </div>
                                         <div className="col-md-4 col-12">
-                                        <TextField
+                                            <TextField
                                                 id="city"
                                                 select
                                                 label="Select City"
@@ -602,7 +602,7 @@ class TextFields extends React.Component {
                                                     </MenuItem>
                                                 ))}
                                             </TextField>
-                                            </div>
+                                        </div>
                                         <div className="col-md-4 col-12">
                                             <TextField
                                                 value={this.state.repPhone}
@@ -610,7 +610,7 @@ class TextFields extends React.Component {
                                                 label="Phone"
                                                 defaultValue="+62317482303"
                                                 margin="normal"
-                                                fullWidth/>
+                                                fullWidth />
                                         </div>
                                         <div className="col-md-4 col-12">
                                             <TextField
@@ -618,7 +618,7 @@ class TextFields extends React.Component {
                                                 value={this.state.repFax}
                                                 label="fax"
                                                 margin="normal"
-                                                fullWidth/>
+                                                fullWidth />
                                         </div>
                                         <div className="col-md-4 col-12">
                                             <TextField
@@ -626,35 +626,35 @@ class TextFields extends React.Component {
                                                 value={this.state.repMobile}
                                                 label="Mobile"
                                                 margin="normal"
-                                                fullWidth/>
+                                                fullWidth />
                                         </div>
                                     </div>
-                                    <br/>
+                                    <br />
                                     <div class="form-row text-center">
                                         <div class="col-12">
 
                                             <Button
                                                 variant="raised"
                                                 style={{
-                                                background: '#29487D',
-                                                color: '#fff'
-                                            }}
+                                                    background: '#29487D',
+                                                    color: '#fff'
+                                                }}
                                                 size="small"
                                                 onClick={this.handleRemoveRepresentative(idx)}>Remove</Button>
                                         </div>
                                     </div>
                                 </div>
                             ))}
-                        <br/>
+                        <br />
                         <div class="form-row text-center">
                             <div class="col-12">
 
                                 <Button
                                     variant="raised"
                                     style={{
-                                    background: '#29487D',
-                                    color: '#fff'
-                                }}
+                                        background: '#29487D',
+                                        color: '#fff'
+                                    }}
                                     size="small"
                                     onClick={this.handleAddRepresentative}>
                                     Add another Representative
@@ -662,8 +662,8 @@ class TextFields extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <br/>
-                    <br/> {this
+                    <br />
+                    <br /> {this
                         .state
                         .Officers
                         .map((Officer, idx) => (
@@ -671,11 +671,11 @@ class TextFields extends React.Component {
                                 <Paper>
                                     <h1
                                         style={{
-                                        background: '#4267B2',
-                                        color: '#fff',
-                                        textAlign: 'center',
-                                        fontFamily: 'sans-sarif'
-                                    }}>
+                                            background: '#4267B2',
+                                            color: '#fff',
+                                            textAlign: 'center',
+                                            fontFamily: 'sans-sarif'
+                                        }}>
                                         Officers</h1>
                                 </Paper>
                                 <div className="row">
@@ -684,7 +684,7 @@ class TextFields extends React.Component {
                                             id="officersName"
                                             value={this.state.officerName}
                                             margin="normal"
-                                            fullWidth/>
+                                            fullWidth />
                                     </div>
 
                                     <div className="col-md-8 col-12">
@@ -692,16 +692,16 @@ class TextFields extends React.Component {
                                             value={this.state.officerNumber}
                                             id="Identity Number"
                                             margin="normal"
-                                            fullWidth/>
+                                            fullWidth />
                                     </div>
                                 </div>
-                                <br/>
+                                <br />
                                 <div className="row">
                                     <div className="col-md-4 col-12">
                                         <h1
                                             style={{
-                                            fontFamily: 'sans-sarif'
-                                        }}>Identity Type</h1>
+                                                fontFamily: 'sans-sarif'
+                                            }}>Identity Type</h1>
                                     </div>
                                     <div className="col-md-8 col-12">
                                         <div className="form-check form-check-inline">
@@ -711,7 +711,7 @@ class TextFields extends React.Component {
                                                     type="radio"
                                                     name="inlineRadioOptions"
                                                     id="inlineRadio1"
-                                                    value="option1"/>
+                                                    value="option1" />
                                                 Citizen ID Card
                                             </label>
                                         </div>
@@ -722,7 +722,7 @@ class TextFields extends React.Component {
                                                     type="radio"
                                                     name="inlineRadioOptions"
                                                     id="inlineRadio2"
-                                                    value="option2"/>
+                                                    value="option2" />
                                                 Driver's License
                                             </label>
                                         </div>
@@ -733,7 +733,7 @@ class TextFields extends React.Component {
                                                     type="radio"
                                                     name="inlineRadioOptions"
                                                     id="inlineRadio3"
-                                                    value="option3"/>
+                                                    value="option3" />
                                                 Residency Permit
                                             </label>
                                         </div>
@@ -744,30 +744,30 @@ class TextFields extends React.Component {
                                                     type="radio"
                                                     name="inlineRadioOptions"
                                                     id="inlineRadio3"
-                                                    value="option3"/>
+                                                    value="option3" />
                                                 Passport
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                <br />
                                 <div className="row">
                                     <div className="col-md-4 col-12">
                                         <h1
                                             style={{
-                                            fontFamily: 'sans-sarif'
-                                        }}>Identity Document</h1>
+                                                fontFamily: 'sans-sarif'
+                                            }}>Identity Document</h1>
                                     </div>
 
                                     <div className="col-md-6 col-12">
-                                        <input accept="image/*" id="raised-button-file" multiple type="file"/>
+                                        <input accept="image/*" id="raised-button-file" multiple type="file" />
                                         <label htmlFor="raised-button-file">
                                             <Button
                                                 variant="raised"
                                                 style={{
-                                                background: '#29487D',
-                                                color: '#fff'
-                                            }}
+                                                    background: '#29487D',
+                                                    color: '#fff'
+                                                }}
                                                 component="span">
                                                 Upload
                                             </Button>
@@ -782,44 +782,44 @@ class TextFields extends React.Component {
                                             onClick={this.handleRemoveOfficer(idx)}
                                             variant="raised"
                                             style={{
-                                            background: '#29487D',
-                                            color: '#fff'
-                                        }}
+                                                background: '#29487D',
+                                                color: '#fff'
+                                            }}
                                             size="small">Remove</Button>
                                     </div>
                                 </div>
                             </div>
                         ))
-                } < br /> <div class="form-row text-center">
-                    <div class="col-12">
+                    } < br /> <div class="form-row text-center">
+                        <div class="col-12">
 
-                        <Button
-                            onClick={this.handleAddOfficer}
-                            variant="raised"
-                            style={{
-                            background: '#29487D',
-                            color: '#fff'
-                        }}
-                            size="small">
+                            <Button
+                                onClick={this.handleAddOfficer}
+                                variant="raised"
+                                style={{
+                                    background: '#29487D',
+                                    color: '#fff'
+                                }}
+                                size="small">
 
-                            Add another Officers
+                                Add another Officers
                         </Button>
-                        <br/>
-                        <br/>
-                        <Button
-                            variant="raised"
-                            style={{
-                            background: '#29487D',
-                            color: '#fff',
-                            float: 'right'
-                        }}
-                            size="normal">
-                            Submit
+                            <br />
+                            <br />
+                            <Button
+                                variant="raised"
+                                style={{
+                                    background: '#29487D',
+                                    color: '#fff',
+                                    float: 'right'
+                                }}
+                                size="normal">
+                                Submit
                         </Button>
-                        <br/>
-                    </div>
-                </div> </form>
-                </div>
+                            <br />
+                        </div>
+                    </div> </form>
+            </div>
         )
     }
 }
