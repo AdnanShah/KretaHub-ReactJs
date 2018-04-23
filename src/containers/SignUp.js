@@ -193,6 +193,7 @@ class TextFields extends React.Component {
         country: '',
         officerNumber: '',
         officerName: '',
+        selected: '',
         Representatives: [
             { officerNumber: '' }
         ],
@@ -231,6 +232,7 @@ class TextFields extends React.Component {
             shipment: shipments[0].label,
             city: citys[0].capitalName_id,
             country: countries[0].name,
+            selected: 'option1',
             // industry:this.currencies.value,
         })
         console.log("this.currencies[0]", currencies);
@@ -309,7 +311,6 @@ class TextFields extends React.Component {
                                 value={this.state.shipment}
                                 onChange={this.handleChange('shipment')}
                                 SelectProps={{}}
-
                                 margin="normal"
                                 fullWidth>
                                 {shipments.map(shipment => (
@@ -341,7 +342,6 @@ class TextFields extends React.Component {
                                 value={this.state.city}
                                 onChange={this.handleChange('city')}
                                 SelectProps={{}}
-
                                 margin="normal"
                                 fullWidth>
                                 {citys.map(city => (
@@ -360,7 +360,6 @@ class TextFields extends React.Component {
                                 value={this.state.State}
                                 onChange={this.handleChangeCountry('State')}
                                 SelectProps={{}}
-
                                 margin="normal"
                                 fullWidth>
                                 {locality.map(stateName => (
@@ -373,6 +372,7 @@ class TextFields extends React.Component {
                         <div className="col-md-6 col-12">
                             <TextField
                                 value={this.state.zipCode}
+                                onChange={this.handleChange('zipCode')}
                                 id="Zip-Code"
                                 label="Zip-Code"
                                 defaultValue="Zip-Code"
@@ -387,7 +387,6 @@ class TextFields extends React.Component {
                                 value={this.state.country}
                                 onChange={this.handleChange('country')}
                                 SelectProps={{}}
-
                                 margin="normal"
                                 fullWidth>
                                 {countries.map(countrie => (
@@ -402,6 +401,7 @@ class TextFields extends React.Component {
                         <div className="col-md-6 col-12">
                             <TextField
                                 value={this.state.phone}
+                                onChange={this.handleChange('phone')}
                                 id="Phone"
                                 label="Phone"
                                 defaultValue="+62317482303"
@@ -412,6 +412,7 @@ class TextFields extends React.Component {
                             <TextField
                                 id="fax"
                                 value={this.state.fax}
+                                onChange={this.handleChange('fax')}
                                 label="Fax"
                                 margin="normal"
                                 fullWidth />
@@ -420,6 +421,7 @@ class TextFields extends React.Component {
                             <TextField
                                 id="email"
                                 value={this.state.email}
+                                onChange={this.handleChange('email')}
                                 label="Email"
                                 margin="normal"
                                 fullWidth />
@@ -428,6 +430,7 @@ class TextFields extends React.Component {
                             <TextField
                                 id="NPWPNumber"
                                 value={this.state.npwpNumber}
+                                onChange={this.handleChange('npwpNumber')}
                                 label="NPWP Number"
                                 margin="normal"
                                 fullWidth />
@@ -455,6 +458,7 @@ class TextFields extends React.Component {
                             <TextField
                                 id="SIUPNumber"
                                 value={this.state.suipNumber}
+                                onChange={this.handleChange('suipNumber')}
                                 label="SIUP Number"
                                 margin="normal"
                                 fullWidth />
@@ -462,6 +466,7 @@ class TextFields extends React.Component {
                         <div className="col-md-6 col-12">
                             <TextField
                                 value={this.state.suipExpirationDate}
+                                onChange={this.handleChange('suipExpirationDate')}
                                 id="SIUPExpirationDate"
                                 label="SIUP Expiration Date"
                                 margin="normal"
@@ -469,32 +474,33 @@ class TextFields extends React.Component {
                         </div>
                     </div>
                     <br />
+                    <div className="d-flex justify-content-center text-center">
+                        <div style={{ padding: '5px', border: '1px solid #29487D' }}>
+                            <div className="row">
+                                <div className="col-md-6 col-12">
+                                    <h3>Upload Logo Here</h3>
+                                </div>
+                                <div className="col-md-6 col-12">
+                                    <input
+                                        ref="uploadImg"
+                                        type="file"
+                                        name="selectedFile"
+                                        onChange={this._onChange} />
+                                    <br />
+                                    <br />
+                                </div>
+                            </div>
 
-                    <div className="row">
-                        <div className="col-md-6 col-12">
-                            <h1
-                                style={{
-                                }}>
-                                Upload Logo Here</h1>
-                        </div>
-                        <div className="col-md-6 col-12">
-                            <input
-                                ref="uploadImg"
-                                type="file"
-                                name="selectedFile"
-                                onChange={this._onChange} />
-                            <br />
-                            <br />
-                        </div>
-                    </div>
-                    <div class="form-row text-center">
-                        <div class="col-12">
-                            <img
-                                src={this.state.imageUrl}
-                                className="rounded"
-                                width="304"
-                                height="126"
-                                alt="LOGO" />
+                            <div class="form-row text-center">
+                                <div class="col-12">
+                                    <img
+                                        src={this.state.imageUrl}
+                                        className="rounded"
+                                        width="304"
+                                        height="126"
+                                        alt="LOGO" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br />
@@ -522,7 +528,7 @@ class TextFields extends React.Component {
                                                 id="name"
                                                 label="Name"
                                                 value={this.state.repName}
-                                                onChange={this.handleChange('name')}
+                                                onChange={this.handleChange('repName')}
                                                 margin="normal"
                                                 fullWidth />
                                         </div>
@@ -533,7 +539,7 @@ class TextFields extends React.Component {
                                                 multiline
                                                 rowsMax="6"
                                                 value={this.state.repAddress}
-                                                onChange={this.handleChange('address')}
+                                                onChange={this.handleChange('repAddress')}
                                                 margin="normal"
                                                 fullWidth />
                                         </div>
@@ -548,7 +554,6 @@ class TextFields extends React.Component {
                                                 value={this.state.country}
                                                 onChange={this.handleChangeCountry('country')}
                                                 SelectProps={{}}
-
                                                 margin="normal"
                                                 fullWidth>
                                                 {countries.map(countrie => (
@@ -567,7 +572,6 @@ class TextFields extends React.Component {
                                                 value={this.state.repState}
                                                 onChange={this.handleChangeCountry('repState')}
                                                 SelectProps={{}}
-
                                                 margin="normal"
                                                 fullWidth>
                                                 {locality.map(stateName => (
@@ -580,6 +584,7 @@ class TextFields extends React.Component {
                                         <div className="col-md-6 col-12">
                                             <TextField
                                                 value={this.state.repZipCode}
+                                                onChange={this.handleChange('repZipCode')}
                                                 id="Zip-Code"
                                                 label="Zip-Code"
                                                 defaultValue="Zip-Code"
@@ -607,6 +612,7 @@ class TextFields extends React.Component {
                                         <div className="col-md-6 col-12">
                                             <TextField
                                                 value={this.state.repPhone}
+                                                onChange={this.handleChange('repPhone')}
                                                 id="Phone"
                                                 label="Phone"
                                                 defaultValue="+62317482303"
@@ -617,6 +623,7 @@ class TextFields extends React.Component {
                                             <TextField
                                                 id="fax"
                                                 value={this.state.repFax}
+                                                onChange={this.handleChange('repFax')}
                                                 label="Fax"
                                                 margin="normal"
                                                 fullWidth />
@@ -625,6 +632,7 @@ class TextFields extends React.Component {
                                             <TextField
                                                 id="mobile"
                                                 value={this.state.repMobile}
+                                                onChange={this.handleChange('repMobile')}
                                                 label="Mobile"
                                                 margin="normal"
                                                 fullWidth />
@@ -681,22 +689,23 @@ class TextFields extends React.Component {
                             <div>
                                 <h2>#{idx + 1}</h2>
                                 <div className="row">
-                                    <div className="col-md-12 col-12">
+                                    <div className="col">
                                         <TextField
+                                            required
                                             id="officersName"
                                             label="Officers Name"
                                             value={this.state.officerName}
+                                            onChange={this.handleChange('officerName')}
                                             margin="normal"
                                             fullWidth />
                                     </div>
                                 </div>
+                                <br />
                                 <div className="row">
-                                    <div className="col-md-12 col-12">
-                                        <h1
-                                            style={{
-                                            }}>Identity Type</h1>
+                                    <div className="col">
+                                        <h3>Identity Type*</h3>
                                     </div>
-                                    <div className="col-md-12 col-12">
+                                    <div className="col">
                                         <div className="form-check form-check-inline">
                                             <label className="form-check-label">
                                                 <input
@@ -704,7 +713,9 @@ class TextFields extends React.Component {
                                                     type="radio"
                                                     name="inlineRadioOptions"
                                                     id="inlineRadio1"
-                                                    value="option1" />
+                                                    value="option1"
+                                                    checked={this.state.selected === 'option1'} onChange={(e) => this.setState({ selected: e.target.value })}
+                                                />
                                                 Citizen ID Card
                                             </label>
                                         </div>
@@ -715,7 +726,9 @@ class TextFields extends React.Component {
                                                     type="radio"
                                                     name="inlineRadioOptions"
                                                     id="inlineRadio2"
-                                                    value="option2" />
+                                                    value="option2"
+                                                    checked={this.state.selected === 'option2'} onChange={(e) => this.setState({ selected: e.target.value })}
+                                                />
                                                 Driver's License
                                             </label>
                                         </div>
@@ -726,7 +739,9 @@ class TextFields extends React.Component {
                                                     type="radio"
                                                     name="inlineRadioOptions"
                                                     id="inlineRadio3"
-                                                    value="option3" />
+                                                    value="option3"
+                                                    checked={this.state.selected === 'option3'} onChange={(e) => this.setState({ selected: e.target.value })}
+                                                    />
                                                 Residency Permit
                                             </label>
                                         </div>
@@ -737,17 +752,20 @@ class TextFields extends React.Component {
                                                     type="radio"
                                                     name="inlineRadioOptions"
                                                     id="inlineRadio3"
-                                                    value="option3" />
+                                                    value="option4" 
+                                                    checked={this.state.selected === 'option4'} onChange={(e) => this.setState({ selected: e.target.value })}
+                                                    />
                                                 Passport
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                                <br />
                                 <div className="row">
                                     <div className="col-md-12 col-12">
                                         <TextField
+                                            required
                                             value={this.state.officerNumber}
+                                            onChange={this.handleChange('officerNumber')}
                                             id="Identity Number"
                                             label="Identity Number"
                                             margin="normal"
@@ -755,26 +773,25 @@ class TextFields extends React.Component {
                                     </div>
                                 </div>
                                 <br />
-                                <div className="row" style={{ border: '1px solid #29487D' }}>
-                                    <div className="col-md-12 col-12">
-                                        <h1
-                                            style={{
-                                            }}>Identity Document</h1>
-                                    </div>
-
-                                    <div className="col-md-12 col-12" >
-                                        <input accept="image/*" id="raised-button-file" multiple type="file" />
-                                        <label htmlFor="raised-button-file">
-                                            <Button
-                                                variant="raised"
-                                                style={{
-                                                    background: '#29487D',
-                                                    color: '#fff'
-                                                }}
-                                                component="span">
-                                                Upload
+                                <div className="d-flex justify-content-center text-center">
+                                    <div style={{ padding: '5px', border: '1px solid #29487D' }}>
+                                        <div className="col">
+                                            <h3>Identity Document*</h3>
+                                        </div>
+                                        <div className="col" >
+                                            <input accept="image/*" id="raised-button-file" multiple type="file" />
+                                            <label htmlFor="raised-button-file">
+                                                <Button
+                                                    variant="raised"
+                                                    style={{
+                                                        background: '#29487D',
+                                                        color: '#fff'
+                                                    }}
+                                                    component="span">
+                                                    Upload
                                             </Button>
-                                        </label>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                                 <br />
@@ -805,7 +822,7 @@ class TextFields extends React.Component {
                                     color: '#fff'
                                 }}
                                 size="small">
-                                Add another Officers
+                                Add another Officer
                             </Button>
                             <br />
                             <br />

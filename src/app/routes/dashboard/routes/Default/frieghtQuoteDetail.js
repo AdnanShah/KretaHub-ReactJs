@@ -260,25 +260,6 @@ class Freightdetail extends React.Component {
                             </div>
                             <div className="container">
                                 <div className="row">
-                                    <label className="col-md-4 col-12" for="email">Order :</label>
-                                    <div className="col-md-4 col-12">
-                                        <p className="">{jsonData[0].field1}</p>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <label className="col-md-4 col-12" for="email">Shipper :</label>
-                                    <div className="col-md-4 col-12">
-                                        <p className="">{jsonData[0].shipper}</p>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <label className="col-md-4 col-12" for="email">Carrier :</label>
-                                    <div className="col-md-4 col-12">
-                                        <p className="">{jsonData[0].carrier}</p>
-                                    </div>
-                                </div>
-
-                                <div className="row">
                                     <label className="col-md-3 col-12" for="email">Departure :</label>
                                     <div className="col-md-3 col-12">
                                         <p className="">{jsonData[0].line1}</p>
