@@ -215,11 +215,11 @@ class TextFields extends React.Component {
             npwpNumber: '01.000.333.2-333.000',
             suipNumber: '503/8836.A/324.1.18/2018',
             suipExpirationDate: '2/27/2018',
-            State: 'Jawa Timur',
+            State: locality[0].name,
             repName: 'Benny Sukamto',
             repAddress: 'Kalianak Barat 57',
-            repCity: 'Surabaya',
-            repState: 'Jawa Timur',
+            repCity: citys[0].capitalName_id,
+            repState: locality[0].name,
             repZipCode: '10000',
             repCountry: 'Indonesia',
             repPhone: '+62317482303',
@@ -227,7 +227,7 @@ class TextFields extends React.Component {
             repMobile: '+628155521198',
             officerName: 'Haris',
             officerNumber: '12345678910234500000',
-            industry: currencies[0].value,
+            industry: currencies[0].label,
             shipment: shipments[0].label,
             city: citys[0].capitalName_id,
             country: countries[0].name,
@@ -244,25 +244,15 @@ class TextFields extends React.Component {
                     style={{
                         fontWeight: 'bold',
                         color: '#000',
-                        fontFamily: 'sans-sarif',
                         textAlign: 'center'
                     }}>
                     Shipper Signup</h1>
-                <h1 // className="text-center"
-                    style={{
-                        fontWeight: 'bold',
-                        color: '#3F51B5',
-                        fontFamily: 'sans-sarif',
-                        textAlign: 'center'
-                    }}>
-                    - - -</h1>
                 <Paper>
                     <h2
                         style={{
                             background: '#4267B2',
                             color: '#fff',
                             textAlign: 'center',
-                            fontFamily: 'sans-sarif'
                         }}>Shipper Information</h2>
                 </Paper>
 
@@ -271,7 +261,7 @@ class TextFields extends React.Component {
                         <Button
                             onClick={this
                                 .autoFill
-                                .bind(this)}
+                            }
                             variant="raised"
                             style={{
                                 background: '#29487D',
@@ -293,17 +283,16 @@ class TextFields extends React.Component {
                         </div>
                         <div className="col-md-6 col-12">
                             <TextField
-                                id="select-industry"
+                                id="industry"
                                 select
                                 label="Industry"
                                 value={this.state.industry}
                                 onChange={this.handleChange('industry')}
                                 SelectProps={{}}
-
                                 margin="normal"
                                 fullWidth>
-                                {currencies.map((industry, i) => (
-                                    <MenuItem key={i} value={industry.label}>
+                                {currencies.map((industry) => (
+                                    <MenuItem key={industry.value} value={industry.label}>
                                         {industry.label}
                                     </MenuItem>
                                 ))}
@@ -395,8 +384,8 @@ class TextFields extends React.Component {
                                 id="countries"
                                 select
                                 label="Country"
-                                value={this.state.countries}
-                                onChange={this.handleChange('countries')}
+                                value={this.state.country}
+                                onChange={this.handleChange('country')}
                                 SelectProps={{}}
 
                                 margin="normal"
@@ -452,7 +441,6 @@ class TextFields extends React.Component {
                         <div className="col-md-6 col-12">
                             <h1
                                 style={{
-                                    fontFamily: 'sans-sarif'
                                 }}>NPWP Document</h1>
 
                         </div>
@@ -486,7 +474,6 @@ class TextFields extends React.Component {
                         <div className="col-md-6 col-12">
                             <h1
                                 style={{
-                                    fontFamily: 'sans-sarif'
                                 }}>
                                 Upload Logo Here</h1>
                         </div>
@@ -520,7 +507,6 @@ class TextFields extends React.Component {
                                     background: '#4267B2',
                                     color: '#fff',
                                     textAlign: 'center',
-                                    fontFamily: 'sans-sarif'
                                 }}>Representatives</h1>
                         </Paper>
                         {this
@@ -605,15 +591,15 @@ class TextFields extends React.Component {
                                                 id="city"
                                                 select
                                                 label="City"
-                                                value={this.state.city}
-                                                onChange={this.handleChangeCity('city')}
+                                                value={this.state.repCity}
+                                                onChange={this.handleChange('repCity')}
                                                 SelectProps={{}}
 
                                                 margin="normal"
                                                 fullWidth>
                                                 {citys.map(city => (
-                                                    <MenuItem key={city.id} value={city.name_id}>
-                                                        {city.name_id}
+                                                    <MenuItem key={city.id} value={city.capitalName_id}>
+                                                        {city.capitalName_id}
                                                     </MenuItem>
                                                 ))}
                                             </TextField>
@@ -685,7 +671,6 @@ class TextFields extends React.Component {
                             background: '#4267B2',
                             color: '#fff',
                             textAlign: 'center',
-                            fontFamily: 'sans-sarif'
                         }}>
                         Officers</h1>
 
@@ -696,7 +681,7 @@ class TextFields extends React.Component {
                             <div>
                                 <h2>#{idx + 1}</h2>
                                 <div className="row">
-                                    <div className="col-md-6 col-12">
+                                    <div className="col-md-12 col-12">
                                         <TextField
                                             id="officersName"
                                             label="Officers Name"
@@ -704,25 +689,14 @@ class TextFields extends React.Component {
                                             margin="normal"
                                             fullWidth />
                                     </div>
-
-                                    <div className="col-md-6 col-12">
-                                        <TextField
-                                            value={this.state.officerNumber}
-                                            id="Identity Number"
-                                            label="Identity Number"
-                                            margin="normal"
-                                            fullWidth />
-                                    </div>
                                 </div>
-                                <br />
                                 <div className="row">
-                                    <div className="col-md-6 col-12">
+                                    <div className="col-md-12 col-12">
                                         <h1
                                             style={{
-                                                fontFamily: 'sans-sarif'
                                             }}>Identity Type</h1>
                                     </div>
-                                    <div className="col-md-8 col-12">
+                                    <div className="col-md-12 col-12">
                                         <div className="form-check form-check-inline">
                                             <label className="form-check-label">
                                                 <input
@@ -770,15 +744,25 @@ class TextFields extends React.Component {
                                     </div>
                                 </div>
                                 <br />
+                                <div className="row">
+                                    <div className="col-md-12 col-12">
+                                        <TextField
+                                            value={this.state.officerNumber}
+                                            id="Identity Number"
+                                            label="Identity Number"
+                                            margin="normal"
+                                            fullWidth />
+                                    </div>
+                                </div>
+                                <br />
                                 <div className="row" style={{ border: '1px solid #29487D' }}>
-                                    <div className="col-md-6 col-12">
+                                    <div className="col-md-12 col-12">
                                         <h1
                                             style={{
-                                                fontFamily: 'sans-sarif'
                                             }}>Identity Document</h1>
                                     </div>
 
-                                    <div className="col-md-6 col-12" >
+                                    <div className="col-md-12 col-12" >
                                         <input accept="image/*" id="raised-button-file" multiple type="file" />
                                         <label htmlFor="raised-button-file">
                                             <Button

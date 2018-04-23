@@ -183,7 +183,7 @@ class Default extends React.Component {
                                             value={this.state.country1}
                                             onChange={this.handleChange('country1')}
                                             SelectProps={{}}
-                                            helperText="Please select your station"
+                                            helperText="Please Select Your Station"
                                             margin="normal">
                                             {stations.map(countrie => (
                                                 <MenuItem key={countrie.id} value={countrie.field}>
@@ -205,7 +205,7 @@ class Default extends React.Component {
                                             value={this.state.country2}
                                             onChange={this.handleChange2('country2')}
                                             SelectProps={{}}
-                                            helperText="Please select your station"
+                                            helperText="Please Select Your Station"
                                             margin="normal">
                                             {stations.map(countrie => (
                                                 <MenuItem key={countrie.id} value={countrie.field}>
