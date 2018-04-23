@@ -5,7 +5,7 @@ class Tour extends React.PureComponent {
 
     static defaultProps = {
         joyride: {
-            autoStart: true,
+            autoStart: false,
             resizeDebounce: false,
             run: false
         }
@@ -18,8 +18,8 @@ class Tour extends React.PureComponent {
             running: false,
             steps: [
                 {
-                    title: 'Shipper logo',
-                    text: 'Your profile - Click here to view or edit your profile, change settings, and log out.',
+                    title: 'Your profile',
+                    text: 'Click here to view or edit your profile, change settings, and log out.',
                     textAlign: 'center',
                     selector: '.app-sidebar-content',
                     position: 'left',
@@ -53,36 +53,36 @@ class Tour extends React.PureComponent {
                     position: 'top',
                     isFixed: true
                 }, {
-                    title: 'Destination field',
-                    text: 'Choose your destination station - Your freight will be unloaded here.',
+                    title: 'Choose your destination station',
+                    text: 'Your freight will be unloaded here.',
                     textAlign: 'center',
                     selector: '.container .destination',
                     position: 'top',
                     isFixed: true
                 }, {
-                    title: 'Origin field',
-                    text: 'Choose your station origin station - Your freight will be loaded here.',
+                    title: 'Choose your station origin station',
+                    text: 'Your freight will be loaded here.',
                     textAlign: 'center',
                     selector: '.container .origin',
                     position: 'top',
                     isFixed: true
                 }, {
-                    title: 'Freight type',
-                    text: "Choose your freight type - FCL (Full Container Load) or LCL (Less Than Container Load).",
+                    title: 'Choose your freight type ',
+                    text: "FCL (Full Container Load) or LCL (Less Than Container Load).",
                     textAlign: 'center',
                     selector: '.container .freight-type',
                     position: 'top',
                     isFixed: true
                 }, {
-                    title: 'Search button',
-                    text: 'Start searching - Click the Search button to see choices for your freight.',
+                    title: 'Start searching ',
+                    text: 'Click the Search button to see choices for your freight.',
                     textAlign: 'center',
                     selector: '.container .searchButton',
                     position: 'top',
                     isFixed: true
                 }, {
-                    title: "That's it! - Start booking your freight now.",
-                    text: 'Check your recent messages from your connections.',
+                    title: "That's it!",
+                    text: 'Start booking your freight now.',
                     textAlign: 'center',
                     selector: '.container',
                     position: 'top',

@@ -16,7 +16,6 @@ import {Link} from 'react-router-dom';
 
 const divStyle = {
   overflowY: 'scroll',
-  border: '1px solid red',
   width: '100%',
   float: 'center',
   height: '100%',
@@ -103,13 +102,7 @@ class ComposedTextField extends React.Component {
     const {classes} = this.props;
 
     return (
-      <div style={divStyle}>
-        
-      <Link to="/fullpaymentreceive">
-        <Button variant="raised" color="secondary">
-          Next
-        </Button>
-      </Link>
+      <div style={divStyle}>        
         <div>
           <Paper className={classes.root} elevation={4}>
             <div
@@ -319,6 +312,18 @@ class ComposedTextField extends React.Component {
             <h2>
               <u>{jsonData[0].companyName}</u>
             </h2>
+            <br/>
+            <br/>
+            <div>
+              <Link to="/fullpaymentreceive" >
+                <Button variant="raised" color="default">
+                  Next
+                </Button>
+              </Link>
+            </div>
+            <br/>
+            <br/>
+
           </Paper>
         </div>
       </div>

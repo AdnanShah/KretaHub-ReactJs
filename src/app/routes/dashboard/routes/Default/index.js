@@ -166,13 +166,13 @@ class Default extends React.Component {
                                     <h2 className="freight-heading"><IntlMessages id="Freight Quote Search"/></h2>
                                 </div>
                                 <div className="row">
-                                    <div className="col-6">
+                                    <div className="col-6 destination">
 
                                         <label
                                             style={{
                                             marginRight: '20px'
                                         }}
-                                            for="Student" className="destination">Departure:</label>
+                                            for="Student" >Departure:</label>
                                         <TextField
                                             id="city"
                                             select
@@ -192,12 +192,12 @@ class Default extends React.Component {
                                             ))}
                                         </TextField>
                                     </div>
-                                    <div className="col-6">
+                                    <div className="col-6 origin">
                                         <label
                                             style={{
                                             marginRight: '20px'
                                         }}
-                                            for="Student" className="origin">Arrival:</label>
+                                            for="Student">Arrival:</label>
                                         <TextField
                                             id="city"
                                             select
@@ -217,14 +217,14 @@ class Default extends React.Component {
                                 </div>
                                 <br/>
                                 <div className="row" >
-                                    <div className="col-12" onChange={this.setRadioButton}>
+                                    <div className="col-12 freight-type" onChange={this.setRadioButton}>
 
                                         <div id="group1">
                                             <label
                                                 style={{
                                                 marginRight: '20px'
                                             }}
-                                                for="Student" className="freight-type">Freight type:</label>
+                                                for="Student">Freight type:</label>
                                             <input type="radio" value="radioButton1" name="radioButton"/>
                                             <label
                                                 style={{

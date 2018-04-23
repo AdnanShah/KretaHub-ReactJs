@@ -239,13 +239,6 @@ class TextFields extends React.Component {
     render() {
         return (
             <div style={divStyle} className="container-fluid">
-
-                <Link to="/thankYou">
-                    <Button variant="raised" color="secondary">
-                        Next
-        </Button>
-                </Link>
-
                 <br />
                 <h1 // className="text-center"
                     style={{
@@ -777,7 +770,7 @@ class TextFields extends React.Component {
                                     </div>
                                 </div>
                                 <br />
-                                <div className="row">
+                                <div className="row" style={{ border: '1px solid #29487D' }}>
                                     <div className="col-md-6 col-12">
                                         <h1
                                             style={{
@@ -785,7 +778,7 @@ class TextFields extends React.Component {
                                             }}>Identity Document</h1>
                                     </div>
 
-                                    <div className="col-md-6 col-12">
+                                    <div className="col-md-6 col-12" >
                                         <input accept="image/*" id="raised-button-file" multiple type="file" />
                                         <label htmlFor="raised-button-file">
                                             <Button
@@ -800,6 +793,7 @@ class TextFields extends React.Component {
                                         </label>
                                     </div>
                                 </div>
+                                <br />
                                 <div class="form-row text-center">
                                     <div class="col-12">
 
@@ -816,9 +810,9 @@ class TextFields extends React.Component {
                                 </div>
                             </div>
                         ))
-                    } < br /> <div class="form-row text-center">
+                    } < br />
+                    <div class="form-row  text-center">
                         <div class="col-12">
-
                             <Button
                                 onClick={this.handleAddOfficer}
                                 variant="raised"
@@ -827,9 +821,8 @@ class TextFields extends React.Component {
                                     color: '#fff'
                                 }}
                                 size="small">
-
                                 Add another Officers
-                        </Button>
+                            </Button>
                             <br />
                             <br />
                             <Button
@@ -837,14 +830,24 @@ class TextFields extends React.Component {
                                 style={{
                                     background: '#29487D',
                                     color: '#fff',
-                                    float: 'right'
                                 }}
                                 size="normal">
                                 Submit
-                        </Button>
+                            </Button>
+                            <br />
+                            <br />
+                            <div >
+                                <Link to="/thankyou" >
+                                    <Button variant="raised" color="default">
+                                        Next
+                                    </Button>
+                                </Link>
+                            </div>
+                            <br />
                             <br />
                         </div>
-                    </div> </form>
+                    </div>
+                </form>
             </div>
         )
     }
