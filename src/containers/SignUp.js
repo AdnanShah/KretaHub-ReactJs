@@ -370,13 +370,23 @@ class TextFields extends React.Component {
                             </TextField>
                         </div>
                         <div className="col-md-6 col-12">
+
                             <TextField
-                                value={this.state.State}
-                                id="State"
+                                id="state"
+                                select
                                 label="State"
-                                defaultValue="State"
+                                value={this.state.State}
+                                onChange={this.handleChangeCountry('State')}
+                                SelectProps={{}}
+
                                 margin="normal"
-                                fullWidth />
+                                fullWidth>
+                                {locality.map(stateName => (
+                                    <MenuItem key={stateName.id} value={stateName.name}>
+                                        {stateName.name}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
                         </div>
                         <div className="col-md-6 col-12">
                             <TextField
@@ -404,10 +414,10 @@ class TextFields extends React.Component {
                                     </MenuItem>
                                 ))}
                             </TextField>
-                        </div>                        
+                        </div>
                     </div>
                     <div className="row">
-                    <div className="col-md-6 col-12">
+                        <div className="col-md-6 col-12">
                             <TextField
                                 value={this.state.phone}
                                 id="Phone"
@@ -511,20 +521,22 @@ class TextFields extends React.Component {
                     <br />
                     <br />
                     <div>
+                        <Paper>
+                            <h1
+                                style={{
+                                    background: '#4267B2',
+                                    color: '#fff',
+                                    textAlign: 'center',
+                                    fontFamily: 'sans-sarif'
+                                }}>Representatives</h1>
+                        </Paper>
                         {this
                             .state
                             .Representatives
                             .map((Representative, idx) => (
                                 <div>
-                                    <Paper>
-                                        <h1
-                                            style={{
-                                                background: '#4267B2',
-                                                color: '#fff',
-                                                textAlign: 'center',
-                                                fontFamily: 'sans-sarif'
-                                            }}>Representatives</h1>
-                                    </Paper>
+                                    <h2>#{idx + 1}</h2>
+
                                     <div className="row">
                                         <div className="col-md-6 col-12">
                                             <TextField
@@ -549,7 +561,7 @@ class TextFields extends React.Component {
 
                                     </div>
                                     <div className="row">
-                                    <div className="col-md-6 col-12">
+                                        <div className="col-md-6 col-12">
                                             <TextField
                                                 id="country"
                                                 select
@@ -567,15 +579,24 @@ class TextFields extends React.Component {
                                                 ))}
                                             </TextField>
                                         </div>
-                              
+
                                         <div className="col-md-6 col-12">
                                             <TextField
-                                                value={this.state.repState}
-                                                id="State"
+                                                id="state"
+                                                select
                                                 label="State"
-                                                defaultValue="State"
+                                                value={this.state.repState}
+                                                onChange={this.handleChangeCountry('repState')}
+                                                SelectProps={{}}
+
                                                 margin="normal"
-                                                fullWidth />
+                                                fullWidth>
+                                                {locality.map(stateName => (
+                                                    <MenuItem key={stateName.id} value={stateName.name}>
+                                                        {stateName.name}
+                                                    </MenuItem>
+                                                ))}
+                                            </TextField>
                                         </div>
                                         <div className="col-md-6 col-12">
                                             <TextField
@@ -664,21 +685,23 @@ class TextFields extends React.Component {
                         </div>
                     </div>
                     <br />
-                    <br /> {this
+                    <br />
+
+                    <h1
+                        style={{
+                            background: '#4267B2',
+                            color: '#fff',
+                            textAlign: 'center',
+                            fontFamily: 'sans-sarif'
+                        }}>
+                        Officers</h1>
+
+                    {this
                         .state
                         .Officers
                         .map((Officer, idx) => (
                             <div>
-                                <Paper>
-                                    <h1
-                                        style={{
-                                            background: '#4267B2',
-                                            color: '#fff',
-                                            textAlign: 'center',
-                                            fontFamily: 'sans-sarif'
-                                        }}>
-                                        Officers</h1>
-                                </Paper>
+                                <h2>#{idx + 1}</h2>
                                 <div className="row">
                                     <div className="col-md-6 col-12">
                                         <TextField
