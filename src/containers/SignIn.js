@@ -18,6 +18,7 @@ import {
     userTwitterSignIn
 } from 'actions/Auth';
 import Background from './images/bg.jpg';
+
 const divStyle = {
     width: '80%',
     height: '100%',
@@ -41,8 +42,8 @@ class SignIn extends React.Component {
     constructor() {
         super();
         this.state = {
-            email: 'demo@example.com',
-            password: 'demo#123'
+            email: '',
+            password: ''
         }
     }
 
@@ -61,6 +62,8 @@ class SignIn extends React.Component {
                 .push('/');
         }
     }
+    handleEmail = (event) => this.setState({ email: event.target.value });
+    handlePassword = (event) => this.setState({ password: event.target.value });
     render() {
         const { email, password } = this.state;
         const { showMessage, loader, alertMessage } = this.props;
@@ -68,7 +71,7 @@ class SignIn extends React.Component {
 
 
             <div className="container text-center justify-content-center align-self-center">
-                <div 
+                <div
                     className="col my-auto d-flex justify-content-center align-items-center animated slideInUpTiny animation-duration-3">
                     <div className="app-login-main-content">
 
@@ -90,28 +93,28 @@ class SignIn extends React.Component {
                                 <form>
                                     <fieldset>
                                         <TextField
-                                            label={< IntlMessages id="appModule.email" />}
+                                            label="Email"
                                             fullWidth
-                                            onChange={(event) => this.setState({ email: event.target.value })}
-                                            defaultValue={email}
-                                            margin="normal"
-                                            className="mt-1 my-sm-3" />
+                                            onChange={this.handleEmail}
+                                            value={this.state.email}
+                                            margin="normal" />
                                         <TextField
                                             type="password"
                                             label={< IntlMessages id="appModule.password" />}
                                             fullWidth
-                                            onChange={(event) => this.setState({ password: event.target.value })}
-                                            defaultValue={password}
-                                            margin="normal"
-                                            className="mt-1 my-sm-3" />
+                                            onChange={this.handlePassword}
+                                            value={this.state.password}
+                                            margin="normal" />
+                                            <br/>
                                         <div className="row">
-                                            <div className="col">
-                                                <Link to="/signup">
-                                                    Forgot password
-                                            </Link>
+                                            <div className="col-6">
+                                                <div className="float-left">
+                                                    <Link to="/signup">
+                                                        Forgot password
+                                                    </Link>
+                                                </div>
                                             </div>
                                         </div>
-                                        <br />
                                         <div className="mb-3 d-flex align-items-center justify-content-between">
                                             <Button
                                                 onClick={() => {
@@ -129,10 +132,12 @@ class SignIn extends React.Component {
                                         </div>
                                         <div className="row">
                                             <div className="col-6">
-                                                <p>No account yet?</p>
+                                                <div className="float-left">
+                                                    <p>No account yet?</p>
+                                                </div>
                                             </div>
                                             <div className="col-6">
-                                                <div className=" float-right">
+                                                <div className="float-right">
                                                     <Link to="/signup">
                                                         Sign Up
                                                 </Link>
