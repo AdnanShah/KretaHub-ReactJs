@@ -7,6 +7,7 @@ import Button from 'material-ui/Button';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import IntlMessages from 'util/IntlMessages';
 import { CircularProgress } from 'material-ui/Progress';
+import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
 import {
     hideMessage,
@@ -78,8 +79,14 @@ class SignIn extends React.Component {
                         <div
                             className="app-logo-content d-flex align-items-center justify-content-center">
                             <Link className="logo-lg" to="/" title="Jambo">
-                                <img src="./kretahub-mock-icon.png" alt="jambo" title="jambo" />
-
+                                {/* <img style={{ width: '177px', height: '65px' }} src="./kretahub-mock-icon.png" alt="jambo" title="jambo" /> */}
+                                <Card>
+                                    <CardMedia
+                                        style={{ width: '187px', height: '195px',backgroundColor:'#3f51b5'}}
+                                        image="./kretahub-mock-icon.png"
+                                        title="Kretahub"
+                                    />
+                                </Card>
                                 {/* <img src="http://via.placeholder.com/177x65" alt="jambo" title="jambo"/> */}
                             </Link>
                         </div>
@@ -105,9 +112,9 @@ class SignIn extends React.Component {
                                             onChange={this.handlePassword}
                                             value={this.state.password}
                                             margin="normal" />
-                                            <br/>
+                                        <br />
                                         <div className="row">
-                                            <div className="col-6">
+                                            <div className="col">
                                                 <div className="float-left">
                                                     <Link to="/signup">
                                                         Forgot password
