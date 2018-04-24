@@ -80,13 +80,11 @@ class SignIn extends React.Component {
                             className="app-logo-content d-flex align-items-center justify-content-center">
                             <Link className="logo-lg" to="/" title="Jambo">
                                 {/* <img style={{ width: '177px', height: '65px' }} src="./kretahub-mock-icon.png" alt="jambo" title="jambo" /> */}
-                                <Card>
                                     <CardMedia
-                                        style={{ width: '187px', height: '195px',backgroundColor:'#3f51b5'}}
+                                        style={{ border:'0',width: '187px', height: '195px',backgroundColor:'#3f51b5'}}
                                         image="./kretahub-mock-icon.png"
                                         title="Kretahub"
                                     />
-                                </Card>
                                 {/* <img src="http://via.placeholder.com/177x65" alt="jambo" title="jambo"/> */}
                             </Link>
                         </div>
