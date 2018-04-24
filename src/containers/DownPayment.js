@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 
 import Typography from 'material-ui/Typography';
 import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
 import jsonData from './jsonDataSource/DownPayment.json';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Button from 'material-ui/Button';
 const divStyle = {
   overflowY: 'scroll',
@@ -47,23 +47,16 @@ const label = {
 }
 
 function PaperSheet(props) {
-  const {classes} = props;
+  const { classes } = props;
   return (
     <div style={divStyle}>
-
-      <Link to="/bookingconform">
-        <Button variant="raised" color="secondary">
-          Next
-        </Button>
-      </Link>
-
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div className="">
         <h2 style={{
           color: 'white'
@@ -71,12 +64,21 @@ function PaperSheet(props) {
         <Paper className={classes.root} elevation={4}>
           <h1 className="h1 display-1">{jsonData[0].subHeading}
           </h1>
-          <br/>      
+          <br />
           <Typography component="label">
             {jsonData[0].conformNote}
           </Typography>
-          <br/>
+          <br />
         </Paper>
+      </div>
+      <div className="align-bottom" style={{
+        position: 'absolute', bottom: 0
+      }}>
+        <Link to="/bookingconform" >
+          <Button variant="raised" color="default">
+            Next
+        </Button>
+        </Link>
       </div>
     </div>
   );

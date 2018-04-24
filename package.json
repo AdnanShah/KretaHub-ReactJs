@@ -52,6 +52,7 @@
     "react-intl": "^2.4.0",
     "react-joyride": "^1.11.0",
     "react-loadable": "^5.3.1",
+    "react-material-ui-form-validator": "^2.0.0-beta.9",
     "react-notifications": "^1.4.3",
     "react-number-format": "^3.0.2",
     "react-owl-carousel": "^2.2.0",

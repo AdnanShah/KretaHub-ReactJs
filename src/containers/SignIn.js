@@ -8,7 +8,7 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import IntlMessages from 'util/IntlMessages';
 import { CircularProgress } from 'material-ui/Progress';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
-
+import img from './kretahub-mock-icon.png';
 import {
     hideMessage,
     showAuthLoader,
@@ -79,12 +79,11 @@ class SignIn extends React.Component {
                         <div
                             className="app-logo-content d-flex align-items-center justify-content-center">
                             <Link className="logo-lg" to="/" title="Jambo">
-                                {/* <img style={{ width: '177px', height: '65px' }} src="./kretahub-mock-icon.png" alt="jambo" title="jambo" /> */}
-                                    <CardMedia
-                                        style={{ border:'0',width: '187px', height: '195px',backgroundColor:'#3f51b5'}}
-                                        image="./kretahub-mock-icon.png"
-                                        title="Kretahub"
-                                    />
+                                <CardMedia
+                                    style={{ border: '0', width: '187px', height: '195px', backgroundColor: '#3f51b5' }}
+                                    image={img}
+                                    title="Kretahub"
+                                />
                                 {/* <img src="http://via.placeholder.com/177x65" alt="jambo" title="jambo"/> */}
                             </Link>
                         </div>

@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Background from './images/bg.jpg';
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
 import jsonData from './jsonDataSource/DeliveryNotice.json';
-import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
-import Input, {InputLabel} from 'material-ui/Input';
-import {FormControl, FormHelperText} from 'material-ui/Form';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Input, { InputLabel } from 'material-ui/Input';
+import { FormControl, FormHelperText } from 'material-ui/Form';
 import logo from './kretahub-mock-icon.png';
 import TextField from 'material-ui/TextField';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
@@ -102,7 +102,7 @@ class ComposedTextField extends React.Component {
   };
 
   handleChange = event => {
-    this.setState({name: event.target.value});
+    this.setState({ name: event.target.value });
   };
 
   addRow = () => {
@@ -130,70 +130,64 @@ class ComposedTextField extends React.Component {
   }
 
   saveData = () => {
-    const {state} = this;
+    const { state } = this;
     this
       .props
       .saveInvoice(state);
   }
 
   handleDateChange = (date) => {
-    this.setState({date});
+    this.setState({ date });
   }
 
   handleDueChange = (due) => {
-    this.setState({due});
+    this.setState({ due });
   }
   renderEditable = (cellInfo) => {
     console.log('cellInfo', cellInfo.index, cellInfo.column.id);
     return (<div
       style={{
-      backgroundColor: '#fafafa'
-    }}
+        backgroundColor: '#fafafa'
+      }}
       contentEditable
       suppressContentEditableWarning
       onBlur={(e) => {
-      const makeData = [...this.state.makeData];
-      console.log(makeData);
-      makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-      makeData[cellInfo.index].field5 = makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
-      this.setState({makeData});
-    }}
+        const makeData = [...this.state.makeData];
+        console.log(makeData);
+        makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+        makeData[cellInfo.index].field5 = makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
+        this.setState({ makeData });
+      }}
       dangerouslySetInnerHTML={{
-      __html: this.state.makeData[cellInfo.index][cellInfo.column.id]
-    }}/>);
+        __html: this.state.makeData[cellInfo.index][cellInfo.column.id]
+      }} />);
   }
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     return (
       <div style={divStyle}>
-        <Link to="/atanotice">
-          <Button variant="raised" color="secondary">
-            Next
-          </Button>
-        </Link>
-
         <div>
           <Paper className={classes.root} elevation={4}>
             <div
               className="row"
               style={{
-              background: '#eee',
-              padding: '5%'
-            }}>
+                background: '#eee',
+                padding: '5%'
+              }}>
               <div className="col">
-                <img src={logo} className="img-thumbnail"/>
+                <img src={logo} className="img-thumbnail" />
 
               </div>
               <div className="col">
                 <h1
                   style={{
-                  fontFamily: 'Open Sans',
-                  fontSize: '28px',
-                  color: '#3b3b3b',
-                  lineHeight: '26px'
-                }}>
+                    fontFamily: 'Open Sans',
+                    fontSize: '28px',
+                    color: '#3b3b3b',
+                    lineHeight: '26px'
+                  }}>
                   {jsonData[0].mainHeading}
                 </h1>
                 <p>{jsonData[0].line1}
@@ -206,8 +200,8 @@ class ComposedTextField extends React.Component {
                 </h2>
               </div>
             </div>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div class="container">
               <div className="row">
                 <label className="col-md-4 col-12" for="email">Order :</label>
@@ -248,8 +242,8 @@ class ComposedTextField extends React.Component {
                     type="date"
                     defaultValue="2017-05-24"
                     InputLabelProps={{
-                    shrink: true
-                  }}/>
+                      shrink: true
+                    }} />
 
                 </div>
                 <label className="col-md-3 col-12" for="email">Trip Length :</label>
@@ -267,8 +261,8 @@ class ComposedTextField extends React.Component {
                     type="date"
                     defaultValue="2018-04-20"
                     InputLabelProps={{
-                    shrink: true
-                  }}/>
+                      shrink: true
+                    }} />
                 </div>
                 <label className="col-md-3 col-12" for="email">Estimated Arrival Time :</label>
                 <div className="col-md-3 col-12">
@@ -278,8 +272,8 @@ class ComposedTextField extends React.Component {
                     type="date"
                     defaultValue="2018-04-21"
                     InputLabelProps={{
-                    shrink: true
-                  }}/>
+                      shrink: true
+                    }} />
                 </div>
               </div>
 
@@ -301,8 +295,8 @@ class ComposedTextField extends React.Component {
                     className="border border-primary rounded"
                     rows="3"
                     style={{
-                    minWidth: '100%'
-                  }}>{jsonData[0].line9}</textarea>
+                      minWidth: '100%'
+                    }}>{jsonData[0].line9}</textarea>
                 </div>
               </div>
 
@@ -320,27 +314,27 @@ class ComposedTextField extends React.Component {
                   <ReactTable
                     data={this.state.makeData}
                     columns={[
-                    {
-                      Header: '#',
-                      accessor: 'number',
-                      minWidth: 25
-                    }, {
-                      Header: 'Container type',
-                      accessor: 'field1',
-                      minWidth: 150
-                    }, {
-                      Header: 'QTY',
-                      accessor: 'field3',
-                      Cell: this.renderEditable
-                    }, {
-                      Header: 'Capacity',
-                      accessor: 'field4',
-                      minWidth: 150
-                    }
-                  ]}
+                      {
+                        Header: '#',
+                        accessor: 'number',
+                        minWidth: 25
+                      }, {
+                        Header: 'Container type',
+                        accessor: 'field1',
+                        minWidth: 150
+                      }, {
+                        Header: 'QTY',
+                        accessor: 'field3',
+                        Cell: this.renderEditable
+                      }, {
+                        Header: 'Capacity',
+                        accessor: 'field4',
+                        minWidth: 150
+                      }
+                    ]}
                     defaultPageSize={5}
-                    className="-striped -highlight"/>
-                  <br/>
+                    className="-striped -highlight" />
+                  <br />
                 </div>
               </div>
             </div>
@@ -351,6 +345,11 @@ class ComposedTextField extends React.Component {
             <h2>
               <u>{jsonData[0].companyName}</u>
             </h2>
+            <Link to="/atanotice">
+              <Button variant="raised" color="default">
+                Next
+          </Button>
+            </Link>
           </Paper>
         </div>
       </div>

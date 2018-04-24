@@ -172,8 +172,9 @@ class App extends Component {
                     locale={currentAppLocale.locale}
                     messages={currentAppLocale.messages}
                 >
+                
                     <div className="app-main">
-                        <RestrictedRoute path={`${match.url}app`} authUser={authUser} component={MainApp}/>
+                         <RestrictedRoute path={`${match.url}app`} authUser={authUser} component={MainApp}/>
                         <Route path='/signin' component={SignIn}/>
                         <Route path='/signup' component={SignUp}/>
                         <Route path='/thankYou' component={EmailTemplate}/>

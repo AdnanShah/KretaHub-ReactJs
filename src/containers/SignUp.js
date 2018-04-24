@@ -173,7 +173,7 @@ class TextFields extends React.Component {
         zipCode: '',
         imageUrl: '',
         phone: '',
-        countries: '',
+        countries: countries[75].name,
         awayMessageText: '',
         awayMessage: 'xyz',
         fax: '',
@@ -190,7 +190,8 @@ class TextFields extends React.Component {
         repFax: '',
         repMobile: '',
         shipment: '',
-        country: '',
+        country: countries[75].name,
+        refCountry: countries[75].name,
         officerNumber: '',
         officerName: '',
         selected: '',
@@ -222,7 +223,7 @@ class TextFields extends React.Component {
             repCity: citys[0].capitalName_id,
             repState: locality[0].name,
             repZipCode: '10000',
-            repCountry: 'Indonesia',
+            repCountry: countries[75].name,
             repPhone: '+62317482303',
             repFax: '+62317290363',
             repMobile: '+628155521198',
@@ -231,7 +232,7 @@ class TextFields extends React.Component {
             industry: currencies[0].label,
             shipment: shipments[0].label,
             city: citys[0].capitalName_id,
-            country: countries[0].name,
+            country: countries[75].name,
             selected: 'option1',
             // industry:this.currencies.value,
         })
@@ -442,13 +443,9 @@ class TextFields extends React.Component {
 
                     <div className="row">
                         <div className="col-md-6 col-12">
-                            <h1
-                                style={{
-                                }}>NPWP Document</h1>
-
+                            <h3>NPWP Document</h3>
                         </div>
                         <div className="col-md-6 col-12">
-
                             <input accept="image/*" id="raised-button-file" multiple type="file" />
                         </div>
                     </div>
@@ -551,8 +548,8 @@ class TextFields extends React.Component {
                                                 id="country"
                                                 select
                                                 label="Country"
-                                                value={this.state.country}
-                                                onChange={this.handleChangeCountry('country')}
+                                                value={this.state.refCountry}
+                                                onChange={this.handleChangeCountry('refCountry')}
                                                 SelectProps={{}}
                                                 margin="normal"
                                                 fullWidth>
@@ -741,7 +738,7 @@ class TextFields extends React.Component {
                                                     id="inlineRadio3"
                                                     value="option3"
                                                     checked={this.state.selected === 'option3'} onChange={(e) => this.setState({ selected: e.target.value })}
-                                                    />
+                                                />
                                                 Residency Permit
                                             </label>
                                         </div>
@@ -752,9 +749,9 @@ class TextFields extends React.Component {
                                                     type="radio"
                                                     name="inlineRadioOptions"
                                                     id="inlineRadio3"
-                                                    value="option4" 
+                                                    value="option4"
                                                     checked={this.state.selected === 'option4'} onChange={(e) => this.setState({ selected: e.target.value })}
-                                                    />
+                                                />
                                                 Passport
                                             </label>
                                         </div>
@@ -835,18 +832,19 @@ class TextFields extends React.Component {
                                 size="normal">
                                 Submit
                             </Button>
-                            <br />
-                            <br />
-                            <div >
-                                <Link to="/thankyou" >
-                                    <Button variant="raised" color="default">
-                                        Next
-                                    </Button>
-                                </Link>
-                            </div>
-                            <br />
-                            <br />
                         </div>
+                        <br />
+                        <br />
+                        <div >
+                            <Link to="/thankyou" >
+                                <Button variant="raised" color="default">
+                                    Next
+                                    </Button>
+                            </Link>
+                        </div>
+                        <br />
+                        <br />
+
                     </div>
                 </form>
             </div>
