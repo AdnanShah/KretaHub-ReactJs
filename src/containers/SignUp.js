@@ -8,7 +8,7 @@ import countries from './jsonDataSource/countries.json';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import { Link } from 'react-router-dom';
-import { TextValidator, ValidatorForm, SelectValidator,CheckboxValidatorElement } from 'react-material-ui-form-validator';
+import { TextValidator, ValidatorForm, SelectValidator, CheckboxValidatorElement } from 'react-material-ui-form-validator';
 
 const currencies = [
     {
@@ -204,7 +204,7 @@ class TextFields extends React.Component {
                 name: ''
             }
         ],
-        submitted: false
+        submitted: true
     };
 
     autoFill = () => {
@@ -243,7 +243,7 @@ class TextFields extends React.Component {
 
 
     handleOnSubmit = () => {
-        this.setState({ submitted: true })
+        this.setState({ submitted: false })
     }
 
     render() {
@@ -798,7 +798,7 @@ class TextFields extends React.Component {
                                         <div className="col">
                                             <h3>Identity Type*</h3>
                                         </div>
-                                        <div className="col">                                            
+                                        <div className="col">
                                             <div className="form-check form-check-inline">
                                                 <label className="form-check-label">
                                                     <input
@@ -928,7 +928,10 @@ class TextFields extends React.Component {
                                 <Button
                                     type="submit"
                                     variant="raised"
-                                    disabled={this.state.submitted}
+                                    style={{
+                                        background: '#29487D',
+                                        color: '#fff'
+                                    }}
                                     size="normal"
                                 >Submit
                                 </Button>
