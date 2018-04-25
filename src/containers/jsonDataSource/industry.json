@@ -1,0 +1,286 @@
+[
+    {
+        "id": "DAC",
+        "sector_name": "Consumer Discretionary",
+        "industry_name": "Automobile Components"
+    },
+    {
+        "id": "DAU",
+        "industry_name": "Automobiles"
+    },
+    {
+        "id": "DDT",
+        "industry_name": "Distributors"
+    },
+    {
+        "id": "DDC",
+        "industry_name": "Diversified Consumer Services"
+    },
+    {
+        "id": "DHR",
+        "industry_name": "Hotels"
+    },
+    {
+        "id": "DHD",
+        "industry_name": "Household Durables"
+    },
+    {
+        "id": "DIC",
+        "industry_name": "Internet & Catalog Retail"
+    },
+    {
+        "id": "DLP",
+        "industry_name": "Leisure Products"
+    },
+    {
+        "id": "DMD",
+        "industry_name": "Media"
+    },
+    {
+        "id": "DMR",
+        "industry_name": "Multiline Retail"
+    },
+    {
+        "id": "DSR",
+        "industry_name": "Specialty Retail"
+    },
+    {
+        "id": "DTA",
+        "industry_name": "Textile"
+    },
+    {
+        "id": "SBV",
+        "sector_name": "Consumer Staples",
+        "industry_name": "Beverages"
+    },
+    {
+        "id": "SFS",
+        "industry_name": "Food & Staples Retailing"
+    },
+    {
+        "id": "SFP",
+        "industry_name": "Food Products"
+    },
+    {
+        "id": "SHP",
+        "industry_name": "Household Products"
+    },
+    {
+        "id": "SPP",
+        "industry_name": "Personal Products"
+    },
+    {
+        "id": "STB",
+        "industry_name": "Tobacco"
+    },
+    {
+        "id": "EEE",
+        "sector_name": "Energy",
+        "industry_name": "Energy Equipment & Services"
+    },
+    {
+        "id": "EOG",
+        "industry_name": "Oil",
+        "": " Gas & Consumable Fuels"
+    },
+    {
+        "id": "FBK",
+        "sector_name": "Financials",
+        "industry_name": "Banking"
+    },
+    {
+        "id": "FCM",
+        "industry_name": "Capital Markets"
+    },
+    {
+        "id": "FCF",
+        "industry_name": "Consumer Finance"
+    },
+    {
+        "id": "FDF",
+        "industry_name": "Diversified Financial Services"
+    },
+    {
+        "id": "FIN",
+        "industry_name": "Insurance"
+    },
+    {
+        "id": "FIT",
+        "industry_name": "Real Estate Investment Trusts (REITs)"
+    },
+    {
+        "id": "FMD",
+        "industry_name": "Real Estate Management & Development"
+    },
+    {
+        "id": "FTM",
+        "industry_name": "Thrifts & Mortgage Finance"
+    },
+    {
+        "id": "HBT",
+        "sector_name": "Health Care",
+        "industry_name": "Biotechnology"
+    },
+    {
+        "id": "HES",
+        "industry_name": "Health Care Equipment & Supplies"
+    },
+    {
+        "id": "HPS",
+        "industry_name": "Health Care Providers & Services"
+    },
+    {
+        "id": "HTC",
+        "industry_name": "Health Care Technology"
+    },
+    {
+        "id": "HLS",
+        "industry_name": "Life Sciences Tools & Services"
+    },
+    {
+        "id": "HPM",
+        "industry_name": "Pharmaceuticals"
+    },
+    {
+        "id": "IAD",
+        "sector_name": "Industrials",
+        "industry_name": "Aerospace & Defense"
+    },
+    {
+        "id": "IAF",
+        "industry_name": "Air Freight & Logistics"
+    },
+    {
+        "id": "IAL",
+        "industry_name": "Airlines"
+    },
+    {
+        "id": "IBP",
+        "industry_name": "Building Products"
+    },
+    {
+        "id": "ICS",
+        "industry_name": "Commercial Services & Supplies"
+    },
+    {
+        "id": "ICE",
+        "industry_name": "Construction & Engineering"
+    },
+    {
+        "id": "IEE",
+        "industry_name": "Electrical Equipment"
+    },
+    {
+        "id": "IIC",
+        "industry_name": "Industrial Conglomerates"
+    },
+    {
+        "id": "IMC",
+        "industry_name": "Machinery"
+    },
+    {
+        "id": "IMN",
+        "industry_name": "Marine"
+    },
+    {
+        "id": "IPS",
+        "industry_name": "Professional Services"
+    },
+    {
+        "id": "IRR",
+        "industry_name": "Road & Rail"
+    },
+    {
+        "id": "ITD",
+        "industry_name": "Trading Companies & Distributors"
+    },
+    {
+        "id": "ITI",
+        "industry_name": "Transportation Infrastructure"
+    },
+    {
+        "id": "TCE",
+        "sector_name": "Information Technology",
+        "industry_name": "Communications Equipment"
+    },
+    {
+        "id": "TEE",
+        "industry_name": "Electronic Equipment",
+        "": " Instruments & Components"
+    },
+    {
+        "id": "TIT",
+        "industry_name": "IT Services"
+    },
+    {
+        "id": "TIS",
+        "industry_name": "Internet Software & Services"
+    },
+    {
+        "id": "TSE",
+        "industry_name": "Semiconductors & Semiconductor Equipment"
+    },
+    {
+        "id": "TSW",
+        "industry_name": "Software"
+    },
+    {
+        "id": "TTH",
+        "industry_name": "Technology Hardware",
+        "": " Storage & Peripherals"
+    },
+    {
+        "id": "MCH",
+        "sector_name": "Materials",
+        "industry_name": "Chemicals"
+    },
+    {
+        "id": "MCM",
+        "industry_name": "Construction Materials"
+    },
+    {
+        "id": "MCP",
+        "industry_name": "Containers & Packaging"
+    },
+    {
+        "id": "MMM",
+        "industry_name": "Metals & Mining"
+    },
+    {
+        "id": "MPF",
+        "industry_name": "Paper & Forest Products"
+    },
+    {
+        "id": "LDT",
+        "sector_name": "Telecommunication Services",
+        "industry_name": "Diversified Telecommunication"
+    },
+    {
+        "id": "LWT",
+        "industry_name": "Wireless Telecommunication"
+    },
+    {
+        "id": "UEL",
+        "sector_name": "Utilities",
+        "industry_name": "Electric Utilities"
+    },
+    {
+        "id": "UGS",
+        "industry_name": "Gas Utilities"
+    },
+    {
+        "id": "UIP",
+        "industry_name": "Independent Power and Renewable Electricity Producers"
+    },
+    {
+        "id": "UMT",
+        "industry_name": "Multi-Utilities"
+    },
+    {
+        "id": "UWT",
+        "industry_name": "Water Utilities"
+    },
+    {
+        "id": ""
+    }
+]

@@ -1,14 +1,20 @@
 import React from 'react';
 import MenuItem from 'material-ui/Menu/MenuItem';
+import MenuList from 'material-ui/Menu/MenuList';
 import TextField from 'material-ui/TextField';
 import IntlMessages from 'util/IntlMessages';
 import citys from './jsonDataSource/province-ID.json';
 import locality from './jsonDataSource/locality-ID.json';
+import industry from './jsonDataSource/industry.json';
 import countries from './jsonDataSource/countries.json';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import { Link } from 'react-router-dom';
 import { TextValidator, ValidatorForm, SelectValidator, CheckboxValidatorElement } from 'react-material-ui-form-validator';
+import ListSubheader from 'material-ui/List/ListSubheader';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import Collapse from 'material-ui/transitions/Collapse';
+import Icon from 'material-ui/Icon';
 
 const currencies = [
     {
@@ -162,6 +168,7 @@ class TextFields extends React.Component {
         }
     }
     state = {
+        open: false,
         name: '',
         age: '',
         multiline: '',
@@ -231,7 +238,7 @@ class TextFields extends React.Component {
             repMobile: '+628155521198',
             officerName: 'Haris',
             officerNumber: '12345678910234500000',
-            industry: currencies[0].label,
+            industry: industry[0].industry_name,
             shipment: shipments[0].label,
             city: citys[0].capitalName_id,
             country: countries[75].name,
@@ -244,7 +251,11 @@ class TextFields extends React.Component {
 
     handleOnSubmit = () => {
         this.setState({ submitted: false })
+
     }
+    handleClick = () => {
+        this.setState({ open: !this.state.open });
+    };
 
     render() {
         return (
@@ -304,25 +315,34 @@ class TextFields extends React.Component {
                                     name="industry"
                                     validators={['required']}
                                     errorMessages={['this field is required']}
-
                                     id="industry"
-                                    select
                                     label="Industry"
                                     value={this.state.industry}
-                                    onChange={this.handleChange('industry')}
+                                    // onChange={this.handleChange('industry')}
                                     SelectProps={{}}
                                     margin="normal"
                                     fullWidth>
-                                    {currencies.map((industry) => (
-                                        <MenuItem key={industry.value} value={industry.label}>
-                                            {industry.label}
-                                        </MenuItem>
+                                    {industry.map((industry) => (
+                                        // <optgroup value={industry.industry_name} label={industry.sector_name} key={industry.value}>
+                                        //     <option>{industry.industry_name}</option>
+                                        // </optgroup>
+
+                                        <List>
+                                            <ListItem button onClick={this.handleClick}>
+                                                <ListItemText inset primary={industry.sector_name} />
+                                                {this.state.open ? <Icon color="action">+</Icon> : <Icon color="secondary">-</Icon>}
+                                            </ListItem>
+                                            <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+                                                <List component="div" disablePadding>
+                                                    <ListItemText inset primary={industry.industry_name} />
+                                                </List>
+                                            </Collapse>
+                                        </List>
                                     ))}
                                 </SelectValidator>
                             </div>
                         </div>
                         <div className="row">
-
                             <div className="col-md-6 col-12">
                                 <SelectValidator
                                     name="Shipment"
