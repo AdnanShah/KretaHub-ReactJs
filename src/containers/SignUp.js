@@ -6,6 +6,7 @@ import IntlMessages from 'util/IntlMessages';
 import citys from './jsonDataSource/province-ID.json';
 import locality from './jsonDataSource/locality-ID.json';
 import industry from './jsonDataSource/industry.json';
+import ind from './jsonDataSource/ind.json';
 import countries from './jsonDataSource/countries.json';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
@@ -318,26 +319,58 @@ class TextFields extends React.Component {
                                     id="industry"
                                     label="Industry"
                                     value={this.state.industry}
-                                    // onChange={this.handleChange('industry')}
+                                    onChange={this.handleChange('industry')}
                                     SelectProps={{}}
                                     margin="normal"
                                     fullWidth>
-                                    {industry.map((industry) => (
+                                    {ind.map((industry) => (
+
+
+                                        <MenuItem onClick={this.handleClick} value={industry.industry_name}>
+                                            {industry.sector_name}
+                                            {/* {this.state.open ? <i>+</i> : <i>-</i>} */}
+                                            <Collapse in={true} timeout="auto" unmountOnExit>
+                                                <li onClick={this.handleClick} value={industry.industry_name}>
+                                                    {industry.industry_name}
+                                                </li>
+                                                {/* <List>
+                                                    <ListItem>
+                                                        <ListItemText inset primary={industry.industry_name} />
+                                                    </ListItem>
+                                                </List> */}
+                                            </Collapse>
+                                        </MenuItem>
+
                                         // <optgroup value={industry.industry_name} label={industry.sector_name} key={industry.value}>
                                         //     <option>{industry.industry_name}</option>
                                         // </optgroup>
+                                        // <List>
+                                        //     <ListItem button onClick={this.handleClick}>
+                                        //         <ListItemText inset primary="Inbox" />
+                                        //         {this.state.open ? <Icon color="action">+</Icon> : <Icon color="action">-</Icon>}
+                                        //     </ListItem>
+                                        // <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+                                        //     <List component="div" disablePadding>
+                                        //         <ListItem button>
+                                        //             <ListItemText inset primary="Starred" />
+                                        //         </ListItem>
+                                        //     </List>
+                                        // </Collapse>
+                                        // </List>
 
-                                        <List>
-                                            <ListItem button onClick={this.handleClick}>
-                                                <ListItemText inset primary={industry.sector_name} />
-                                                {this.state.open ? <Icon color="action">+</Icon> : <Icon color="secondary">-</Icon>}
-                                            </ListItem>
-                                            <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-                                                <List component="div" disablePadding>
-                                                    <ListItemText inset primary={industry.industry_name} />
-                                                </List>
-                                            </Collapse>
-                                        </List>
+
+                                        // <List value={industry.name}>
+                                        //     <ListItem onClick={this.handleClick}>
+                                        //         <ListItemText primary={industry.stateId} />
+                                        //         {this.state.open ? <Icon color="action">+</Icon> : <Icon color="secondary">-</Icon>}
+                                        //     </ListItem>
+                                        //     <Collapse in={this.state.open}>
+                                        //         <List>
+                                        //             <ListItemText primary={industry.name} />
+                                        //         </List>
+                                        //     </Collapse>
+                                        // </List>
+
                                     ))}
                                 </SelectValidator>
                             </div>

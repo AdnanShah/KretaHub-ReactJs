@@ -8,6 +8,10 @@ import Grid from 'material-ui/Grid';
 import jsonData from './jsonDataSource/EmailTemplate.json';
 import { Link } from 'react-router-dom';
 import Button from 'material-ui/Button';
+import Avatar from 'material-ui/Avatar';
+import IntlMessages from 'util/IntlMessages';
+import IconButton from 'material-ui/IconButton';
+
 const divStyle = {
   width: '100%',
   height: '100%',
@@ -18,110 +22,179 @@ const divStyle = {
   position: 'relative'
 };
 const styles = theme => ({
-  root: theme
-    .mixins
-    .gutters({
-      paddingTop: 16,
-      paddingBottom: 16,
-      marginTop: theme.spacing.unit * 3,
-      width: '45%',
-      top: '50%',
-      left: '50%',
-      marginRight: '-50%',
-      transform: `translate(-50%, -50%)`,
-      position: 'absolute'
-    })
+  root: {
+    flexGrow: 1,
+    paddingTop: '10%',
+    paddingBottom: '10%',
+    marginTop: theme.spacing.unit * 2,
+    width: '50%',
+    top: '50%',
+    left: '45%',
+    marginRight: '-50%',
+    transform: `translate(-50%, -50%)`,
+    position: 'absolute'
+  },
+  paper: {
+    padding: theme.spacing.unit * 2,
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+
+  },
+  row: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  avatar: {
+    margin: 10,
+  },
+  bigAvatar: {
+    width: 60,
+    height: 60,
+  },
+  row: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+
+
 });
+
 const label = {
-  /* Other styling.. */
   textAlign: 'right',
-  clear: 'both',
-  float: 'left',
-  marginRight: '15px'
 }
 
 function PaperSheet(props) {
   const { classes } = props;
   return (
-    <div style={divStyle}>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <div className="">
-        <h2 style={{
-          color: 'white'
-        }} className="text-center">{jsonData[0].heading}</h2>
-        <Paper className={classes.root} elevation={4}>
-          <h1 className="h1 display-1 text-center">{jsonData[0].subHeading}
-          </h1>
-          <br />
-          <Typography component="p" style={{
-            fontWeight: 'bold'
-          }}>
-            Shipper Information
+
+    <Grid container>
+      <Grid item xs={12} sm={12}>
+        <div style={divStyle}>
+          <div className="container-fluid h-100 align-middle">
+            <div className="row h-100 justify-content-center align-items-center">
+              <form className={classes.root}>
+                <div >
+                  <div>
+                    <div className={classes.row}>
+                      <Avatar
+                        alt="Adelle Charles"
+                        src="kretahub-mock-icon.png"
+                        className={classes.bigAvatar}
+                      />
+                    </div>
+                    <Paper className="col-sm p-5 m-5">
+                      <h1 className="col h1 font-weight-bold display-1 text-center">
+                        {jsonData[0].heading}
+                      </h1>
+
+                      <h2 className="text-center">{jsonData[0].subHeading}
+                      </h2>
+                      <br />
+                      <Typography component="p" style={{
+                        fontWeight: 'bold'
+                      }}>
+                        Shipper Information
           </Typography>
-          <div class="form-group">
-            <label for="Student">Name:
+                      <div class="form-group">
+                        <label for="Student">Name:
             </label>
-            <label style={{
-              marginLeft: '20px'
-            }} name="Student">{jsonData[0].userName}</label>
-            <br />
-            <label for="Student">Email:
+                        <label style={{
+                          marginLeft: '20px'
+                        }} name="Student">{jsonData[0].userName}</label>
+                        <br />
+                        <label for="Student">Email:
             </label>
-            <label style={{
-              marginLeft: '20px'
-            }} name="Student">{jsonData[0].userEmail}</label>
+                        <label style={{
+                          marginLeft: '20px'
+                        }} name="Student">{jsonData[0].userEmail}</label>
+                      </div>
+
+                      <Typography component="label">
+                        {jsonData[0].conformNote}
+                      </Typography>
+                      <br />
+                      <Typography component="p">
+                        {jsonData[0].followUs}
+                      </Typography>
+                      <br />
+                    </Paper>
+                  </div>
+
+                </div>
+
+              </form>
+
+
+            </div>
+
           </div>
 
-          <Typography component="label">
-            {jsonData[0].conformNote}
-          </Typography>
-          <br />
-          <Typography component="p">
-            {jsonData[0].followUs}
-          </Typography>
-          <br />
-          <footer
-            className="text-center"
-            style={{
-              backgroundColor: '#F3F3F3',
-              alignContent: 'center'
-            }}>
-            <a
-              style={{
-                marginLeft: '5px',
-                color: '#20B0A8'
-              }}
-              href='www.raqamisolutions.com'>Facebook</a>
-            <a
-              style={{
-                marginLeft: '20px',
-                color: '#20B0A8'
-              }} href='www.raqamisolutions.com'>Instagram</a>
-            <a
-              style={{
-                marginLeft: '20px',
-                color: '#20B0A8'
-              }}
-              href='www.raqamisolutions.com'>Twitter</a>
-          </footer>
-        </Paper>
-      </div>
-      <div className="align-bottom" style={{
-        position: 'absolute', bottom: 0
-      }}>
-        <Link to="/pending" >
-          <Button variant="raised" color="default">
-            Next
+          <div className="container-fluid" style={{ position: 'relative', bottom: '10%' }}>
+            <div className="row">
+              <div className="col-lg-4 col-md-6 col-sm-6 offset-5">
+                <div className="text-center">
+                  <div className="app-social-block my-1 my-sm-3">
+                    <ul className="social-link ">
+                      <li>
+                        <IconButton className="icon "
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userFacebookSignIn();
+                          }}>
+                          <i className="zmdi zmdi-facebook" />
+                        </IconButton>
+                      </li>
+
+                      <li>
+                        <IconButton className="icon"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userTwitterSignIn();
+                          }}>
+                          <i className="zmdi zmdi-twitter" />
+                        </IconButton>
+                      </li>
+
+                      <li>
+                        <IconButton className="icon"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userGoogleSignIn();
+
+                          }}>
+                          <i className="zmdi zmdi-google-plus" />
+                        </IconButton>
+                      </li>
+
+                      <li>
+                        <IconButton className="icon"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userGithubSignIn();
+                          }}>
+                          <i className="zmdi zmdi-github" />
+                        </IconButton>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="align-bottom" style={{
+            position: 'absolute', bottom: 0
+          }}>
+            <Link to="/pending" >
+              <Button variant="raised" color="default">
+                Next
         </Button>
-        </Link>
-      </div>
-    </div>
+            </Link>
+          </div>
+        </div>
+      </Grid>
+    </Grid>
   );
 }
 
