@@ -1,5 +1,5 @@
 import React from 'react';
-import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
 import IntlMessages from 'util/IntlMessages';
@@ -8,8 +8,10 @@ import locality from './jsonDataSource/locality-ID.json';
 import countries from './jsonDataSource/countries.json';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
-import {Link} from 'react-router-dom';
- 
+import { Link } from 'react-router-dom';
+import Icon from 'material-ui/Icon';
+
+
 let id = 0;
 function createData(type, name, description, qty, unit, weight, length, width, height) {
     id += 1;
@@ -47,7 +49,7 @@ class PackingList extends React.Component {
     }
 
     handleNameChange = (evt) => {
-        this.setState({type: evt.target.value});
+        this.setState({ type: evt.target.value });
     }
 
     handlePickListNameChange = (idx) => (evt) => {
@@ -55,7 +57,7 @@ class PackingList extends React.Component {
             .state
             .PickLists
             .map((PickList, sidx) => {
-                if (idx !== sidx) 
+                if (idx !== sidx)
                     return PickList;
                 return {
                     ...PickList,
@@ -63,11 +65,11 @@ class PackingList extends React.Component {
                 };
             });
 
-        this.setState({PickLists: newPickLists});
+        this.setState({ PickLists: newPickLists });
     }
 
     handleSubmit = (evt) => {
-        const {type, PickLists} = this.state;
+        const { type, PickLists } = this.state;
         alert(`Incorporated: ${type} with ${PickLists.length} PickLists`);
     }
 
@@ -96,27 +98,11 @@ class PackingList extends React.Component {
     render() {
         return (
 
-            <div style={divStyle} className="container">
-                <br/>
+            <div style={divStyle} className="container-fluid">
+                <br />
                 <Paper>
 
-                    <h1 // className="text-center"
-                        style={{
-                        fontWeight: 'bold',
-                        color: '#000',
-                        fontFamily: 'sans-sarif',
-                        textAlign: 'center'
-                    }}>
-                        Packing List</h1>
-                    <h1 // className="text-center"
-                        style={{
-                        fontWeight: 'bold',
-                        color: '#3F51B5',
-                        fontFamily: 'sans-sarif',
-                        textAlign: 'center'
-                    }}>
-                        - - -</h1>
-
+                    <h1 className="text-center p-5">Packing List</h1>
                     <form noValidate autoComplete="off">
                         <div>
                             {this
@@ -124,17 +110,11 @@ class PackingList extends React.Component {
                                 .PickLists
                                 .map((PickList, idx) => (
 
-                                    <div className="">
-                                        <h2
-                                            style={{
-                                            background: '#4267B2',
-                                            color: '#fff',
-                                            textAlign: 'left',
-                                            fontFamily: 'sans-sarif'
-                                        }}>Container {`#${idx + 1}`}: 20RF</h2>
+                                    <div>
+                                        <h2 className="p-5">Container {`${idx + 1}`}: 20RF</h2>
 
                                         <div className="row">
-                                            <div className="col-8">
+                                            <div className="col-8 offset-1">
                                                 <Table>
                                                     <TableHead>
                                                         <TableRow>
@@ -146,16 +126,7 @@ class PackingList extends React.Component {
                                                             <TableCell numeric>Weight</TableCell>
                                                             <TableCell numeric>Size (Length)</TableCell>
                                                             <TableCell numeric>Size (Width)</TableCell>
-                                                            {/* <TableCell numeric>Size (Height)</TableCell> */}
-                                                            <TableCell>
-                                                                <Button
-                                                                    variant="raised"
-                                                                    style={{
-                                                                    background: '#29487D',
-                                                                    color: '#fff'
-                                                                }}>Remove</Button>
-                                                            </TableCell>
-
+                                                            <TableCell numeric>Size (Height)</TableCell>
                                                         </TableRow>
                                                     </TableHead>
                                                     <TableBody>
@@ -170,99 +141,14 @@ class PackingList extends React.Component {
                                                                     <TableCell numeric>{n.weight}</TableCell>
                                                                     <TableCell numeric>{n.length}</TableCell>
                                                                     <TableCell numeric>{n.width}</TableCell>
-                                                                    <TableCell>
-                                                                        <Button
-                                                                            variant="raised"
-                                                                            style={{
-                                                                            background: '#29487D',
-                                                                            color: '#fff'
-                                                                        }}>Add</Button>
-                                                                    </TableCell>
-                                                                </TableRow>
-                                                            );
-                                                        })}
-                                                    </TableBody>
-                                                </Table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            <br/>
-                            <div className="row align-items-center justify-content-center">
-                                <Link to="/mainthankyou">
-                                    <Button
-                                        variant="raised"
-                                        style={{
-                                        background: '#29487D',
-                                        color: '#fff'
-                                    }}>
-                                        FINISH BOOKING
-                                    </Button>
-                                </Link>
-
-                                <br/>
-                                <br/>
-                                <br/>
-                            </div>
-                        </div>
-                        <div>
-                            {this
-                                .state
-                                .PickLists
-                                .map((PickList, idx) => (
-
-                                    <div className="">
-                                        <h2
-                                            style={{
-                                            background: '#4267B2',
-                                            color: '#fff',
-                                            textAlign: 'left',
-                                            fontFamily: 'sans-sarif'
-                                        }}>Container {`#${idx + 1}`}: 20RF</h2>
-
-                                        <div className="row">
-                                            <div className="col-8">
-                                                <Table>
-                                                    <TableHead>
-                                                        <TableRow>
-                                                            <TableCell>Type</TableCell>
-                                                            <TableCell numeric>Name</TableCell>
-                                                            <TableCell numeric>Description</TableCell>
-                                                            <TableCell numeric>Qty</TableCell>
-                                                            <TableCell numeric>Unit</TableCell>
-                                                            <TableCell numeric>Weight</TableCell>
-                                                            <TableCell numeric>Size (Length)</TableCell>
-                                                            <TableCell numeric>Size (Width)</TableCell>
-                                                            {/* <TableCell numeric>Size (Height)</TableCell> */}
-                                                            <TableCell>
-                                                                <Button
-                                                                    variant="raised"
-                                                                    style={{
-                                                                    background: '#29487D',
-                                                                    color: '#fff'
-                                                                }}>Remove</Button>
-                                                            </TableCell>
-                                                        </TableRow>
-                                                    </TableHead>
-                                                    <TableBody>
-                                                        {data.map(n => {
-                                                            return (
-                                                                <TableRow key={n.id}>
-                                                                    <TableCell>{n.type}</TableCell>
-                                                                    <TableCell numeric>{n.name}</TableCell>
-                                                                    <TableCell numeric>{n.description}</TableCell>
-                                                                    <TableCell numeric>{n.qty}</TableCell>
-                                                                    <TableCell numeric>{n.unit}</TableCell>
-                                                                    <TableCell numeric>{n.weight}</TableCell>
-                                                                    <TableCell numeric>{n.length}</TableCell>
                                                                     <TableCell numeric>{n.width}</TableCell>
                                                                     <TableCell>
-                                                                        <Button
-                                                                            variant="raised"
-                                                                            style={{
-                                                                            background: '#29487D',
-                                                                            color: '#fff'
-                                                                        }}>Add</Button>
+                                                                        <Icon color="error">
+                                                                            add_circle
+                                                                            </Icon>
+                                                                        <Icon color="primary">
+                                                                            add_circle
+                                                                                 </Icon>
                                                                     </TableCell>
                                                                 </TableRow>
                                                             );
@@ -273,109 +159,22 @@ class PackingList extends React.Component {
                                         </div>
                                     </div>
                                 ))}
-                            <br/>
+                            <br />
                             <div className="row align-items-center justify-content-center">
                                 <Link to="/mainthankyou">
                                     <Button
                                         variant="raised"
                                         style={{
-                                        background: '#29487D',
-                                        color: '#fff'
-                                    }}>
+                                            background: '#29487D',
+                                            color: '#fff'
+                                        }}>
                                         FINISH BOOKING
                                     </Button>
                                 </Link>
 
-                                <br/>
-                                <br/>
-                                <br/>
-                            </div>
-                        </div>
-                        <div>
-                            {this
-                                .state
-                                .PickLists
-                                .map((PickList, idx) => (
-
-                                    <div className="">
-                                        <h2
-                                            style={{
-                                            background: '#4267B2',
-                                            color: '#fff',
-                                            textAlign: 'left',
-                                            fontFamily: 'sans-sarif'
-                                        }}>Container {`#${idx + 1}`}: 20RF</h2>
-
-                                        <div className="row">
-                                            <div className="col-8">
-                                                <Table>
-                                                    <TableHead>
-                                                        <TableRow>
-                                                            <TableCell>Type</TableCell>
-                                                            <TableCell numeric>Name</TableCell>
-                                                            <TableCell numeric>Description</TableCell>
-                                                            <TableCell numeric>Qty</TableCell>
-                                                            <TableCell numeric>Unit</TableCell>
-                                                            <TableCell numeric>Weight</TableCell>
-                                                            <TableCell numeric>Size (Length)</TableCell>
-                                                            <TableCell numeric>Size (Width)</TableCell>
-                                                            {/* <TableCell numeric>Size (Height)</TableCell> */}
-                                                            <TableCell>
-                                                                <Button
-                                                                    variant="raised"
-                                                                    style={{
-                                                                    background: '#29487D',
-                                                                    color: '#fff'
-                                                                }}>Remove</Button>
-                                                            </TableCell>
-
-                                                        </TableRow>
-                                                    </TableHead>
-                                                    <TableBody>
-                                                        {data.map(n => {
-                                                            return (
-                                                                <TableRow key={n.id}>
-                                                                    <TableCell>{n.type}</TableCell>
-                                                                    <TableCell numeric>{n.name}</TableCell>
-                                                                    <TableCell numeric>{n.description}</TableCell>
-                                                                    <TableCell numeric>{n.qty}</TableCell>
-                                                                    <TableCell numeric>{n.unit}</TableCell>
-                                                                    <TableCell numeric>{n.weight}</TableCell>
-                                                                    <TableCell numeric>{n.length}</TableCell>
-                                                                    <TableCell numeric>{n.width}</TableCell>
-                                                                    <TableCell>
-                                                                        <Button
-                                                                            variant="raised"
-                                                                            style={{
-                                                                            background: '#29487D',
-                                                                            color: '#fff'
-                                                                        }}>Add</Button>
-                                                                    </TableCell>
-                                                                </TableRow>
-                                                            );
-                                                        })}
-                                                    </TableBody>
-                                                </Table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            <br/>
-                            <div className="row align-items-center justify-content-center">
-                                <Link to="/mainthankyou">
-                                    <Button
-                                        variant="raised"
-                                        style={{
-                                        background: '#29487D',
-                                        color: '#fff'
-                                    }}>
-                                        FINISH BOOKING
-                                    </Button>
-                                </Link>
-
-                                <br/>
-                                <br/>
-                                <br/>
+                                <br />
+                                <br />
+                                <br />
                             </div>
                         </div>
                     </form>
