@@ -138,7 +138,7 @@ class FreightSearch extends React.Component {
       selectedUntilDate: new Date()
     };
   }
-  
+
   handleDateChange = date => {
     this.setState({ selectedDate: date });
   };
@@ -205,7 +205,7 @@ class FreightSearch extends React.Component {
       window.location.replace("default");
     }
 
-    // console.log(this.props.location.state.key);
+    console.log(this.props.location.state.key);
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;
     // console.log(this.state.currentDate);
@@ -357,7 +357,7 @@ class FreightSearch extends React.Component {
                       </label>
                       <DatePicker
                         keyboard
-                        value={this.state.selectedDate}
+                        value={this.props.location.state.key.selectedDate}
                         onChange={this.handleDateChange}
                         animateYearScrolling={false}
                         placeholder="10/10/2018"
@@ -374,7 +374,7 @@ class FreightSearch extends React.Component {
                       </label>
                       <DatePicker
                         keyboard
-                        value={this.state.selectedUntilDate}
+                        value={this.props.location.state.key.selectedUntilDate}
                         onChange={this.handleUntilDateChange}
                         animateYearScrolling={false}
                         placeholder="10/10/2018"

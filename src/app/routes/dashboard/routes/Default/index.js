@@ -97,13 +97,7 @@ const styles = theme => ({
 });
 class Default extends React.Component {
   handleChange = name => event => {
-    console.log("name", name, "event", event.target.value);
     this.setState({ [name]: event.target.value });
-  };
-  handleChange2 = name => event => {
-    console.log("name", name, "event", event.target.value);
-    this.setState({ country2: event.target.value });
-    console.log("name", this.state.name, this.state);
   };
   onOptionMenuSelect = event => {
     this.setState({ menuState: true, anchorEl: event.currentTarget });
@@ -217,7 +211,7 @@ class Default extends React.Component {
                       select
                       label="Select Station"
                       value={this.state.country2}
-                      onChange={this.handleChange2("country2")}
+                      onChange={this.handleChange("country2")}
                       SelectProps={{}}
                       helperText="Please Select Your Station"
                       margin="normal"
