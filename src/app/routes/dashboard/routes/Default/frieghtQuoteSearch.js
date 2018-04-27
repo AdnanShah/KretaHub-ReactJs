@@ -64,10 +64,10 @@ import Table, {
   TableHead,
   TableRow
 } from "material-ui/Table";
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 import { Link } from "react-router-dom";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import { DatePicker } from "material-ui-pickers";
 
 const label = {
   /* Other styling..*/
@@ -133,9 +133,18 @@ class FreightSearch extends React.Component {
       menuState: false,
       country1: "Algeria",
       country2: "Australia",
-      currentDate: yyyy + "-" + mm + "-" + dd
+      currentDate: yyyy + "-" + mm + "-" + dd,
+      selectedDate: new Date(),
+      selectedUntilDate: new Date()
     };
   }
+  
+  handleDateChange = date => {
+    this.setState({ selectedDate: date });
+  };
+  handleUntilDateChange = date => {
+    this.setState({ selectedUntilDate: date });
+  };
   columns = [
     {
       Header: "Estimated Time of Departure (ETD)",
@@ -193,7 +202,7 @@ class FreightSearch extends React.Component {
     try {
       this.props.location.state.key;
     } catch (err) {
-         window.location.replace("default")
+      window.location.replace("default");
     }
 
     // console.log(this.props.location.state.key);
@@ -346,14 +355,12 @@ class FreightSearch extends React.Component {
                       >
                         Departure/Arrival date:
                       </label>
-                      <TextField
-                        id="date"
-                        type="date"
-                        min={this.state.currentDate}
-                        defaultValue={this.state.currentDate}
-                        InputLabelProps={{
-                          shrink: true
-                        }}
+                      <DatePicker
+                        keyboard
+                        value={this.state.selectedDate}
+                        onChange={this.handleDateChange}
+                        animateYearScrolling={false}
+                        placeholder="10/10/2018"
                       />
                     </div>
                     <div className="col-6">
@@ -365,16 +372,12 @@ class FreightSearch extends React.Component {
                       >
                         Until:
                       </label>
-                      <TextField
-                        id="date"
-                        type="date"
-                        defaultValue="2018-05-08"
-                        style={{
-                          marginRight: "20px"
-                        }}
-                        InputLabelProps={{
-                          shrink: true
-                        }}
+                      <DatePicker
+                        keyboard
+                        value={this.state.selectedUntilDate}
+                        onChange={this.handleUntilDateChange}
+                        animateYearScrolling={false}
+                        placeholder="10/10/2018"
                       />
                       <br />
                       <br />
