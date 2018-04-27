@@ -106,9 +106,9 @@ class PackingList extends React.Component {
                               <TableCell numeric>Qty</TableCell>
                               <TableCell numeric>Unit*</TableCell>
                               <TableCell numeric>Weight</TableCell>
-                              <TableCell numeric>Size* (Length)</TableCell>
-                              <TableCell numeric>Size* (Width)</TableCell>
-                              <TableCell numeric>Size* (Height)</TableCell>
+                              <TableCell numeric>Size (Length)</TableCell>
+                              <TableCell numeric>Size (Width)</TableCell>
+                              <TableCell numeric>Size (Height)</TableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>
@@ -125,6 +125,7 @@ class PackingList extends React.Component {
                                   <TableCell numeric>{n.width}</TableCell>
                                   <TableCell numeric>{n.width}</TableCell>
                                   <Button
+                                    className='ml-1'
                                     variant="fab"
                                     mini
                                     color="secondary"
@@ -133,6 +134,7 @@ class PackingList extends React.Component {
                                     <Icon>add_circle</Icon>
                                   </Button>
                                   <Button
+                                    className='ml-1'
                                     variant="fab"
                                     mini
                                     color="primary"
@@ -178,9 +180,9 @@ class PackingList extends React.Component {
                               <TableCell numeric>Qty</TableCell>
                               <TableCell numeric>Unit*</TableCell>
                               <TableCell numeric>Weight</TableCell>
-                              <TableCell numeric>Size* (Length)</TableCell>
-                              <TableCell numeric>Size* (Width)</TableCell>
-                              <TableCell numeric>Size* (Height)</TableCell>
+                              <TableCell numeric>Size (Length)</TableCell>
+                              <TableCell numeric>Size (Width)</TableCell>
+                              <TableCell numeric>Size (Height)</TableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>
@@ -197,6 +199,7 @@ class PackingList extends React.Component {
                                   <TableCell numeric>{n.width}</TableCell>
                                   <TableCell numeric>{n.width}</TableCell>
                                   <Button
+                                    className='ml-1'
                                     variant="fab"
                                     mini
                                     color="secondary"
@@ -205,6 +208,7 @@ class PackingList extends React.Component {
                                     <Icon>add_circle</Icon>
                                   </Button>
                                   <Button
+                                    className='ml-1'
                                     variant="fab"
                                     mini
                                     color="primary"
@@ -250,9 +254,9 @@ class PackingList extends React.Component {
                               <TableCell numeric>Qty</TableCell>
                               <TableCell numeric>Unit*</TableCell>
                               <TableCell numeric>Weight</TableCell>
-                              <TableCell numeric>Size* (Length)</TableCell>
-                              <TableCell numeric>Size* (Width)</TableCell>
-                              <TableCell numeric>Size* (Height)</TableCell>
+                              <TableCell numeric>Size (Length)</TableCell>
+                              <TableCell numeric>Size (Width)</TableCell>
+                              <TableCell numeric>Size (Height)</TableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>
@@ -269,6 +273,7 @@ class PackingList extends React.Component {
                                   <TableCell numeric>{n.width}</TableCell>
                                   <TableCell numeric>{n.width}</TableCell>
                                   <Button
+                                    className='ml-1'
                                     variant="fab"
                                     mini
                                     color="secondary"
@@ -277,6 +282,7 @@ class PackingList extends React.Component {
                                     <Icon>add_circle</Icon>
                                   </Button>
                                   <Button
+                                    className='ml-1'
                                     variant="fab"
                                     mini
                                     color="primary"
