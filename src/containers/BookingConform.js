@@ -18,18 +18,13 @@ import 'react-table/react-table.css'
 
 const divStyle = {
   overflowY: 'scroll',
-  border: '1px solid red',
   width: '100%',
   float: 'center',
   height: '100%',
   position: 'relative',
   backgroundColor: "#fff",
-  valign: "top",
   backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  position: 'relative',
-  fontFamily: 'Sans-Sarif'
-
+  backgroundPosition: 'center'
 };
 const styles = theme => ({
   root: theme
