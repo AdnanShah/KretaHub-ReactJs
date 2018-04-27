@@ -21,6 +21,7 @@ import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
 import Collapse from "material-ui/transitions/Collapse";
 import Icon from "material-ui/Icon";
 import { withRouter } from "react-router-dom";
+import { stat } from "fs";
 
 const currencies = [
   {
@@ -65,6 +66,7 @@ class TextFields extends React.Component {
   };
   handleChangeCity = name => event => {
     this.setState({ [name]: event.target.value });
+    this.handleState();
   };
   onFileLoad = (e, file) => console.log(e.target.result, file.name);
 
@@ -243,7 +245,15 @@ class TextFields extends React.Component {
     this.setState({ open: !this.state.open });
   };
 
+  handleState = () => {
+    const result = locality.find(person => {
+      return person.name === this.state.city;
+    });
+    console.log("result", result.stateName);
+    this.setState({ State: result.stateName });
+  };
   render() {
+    console.log(state);
     return (
       <div style={divStyle} className="container-fluid">
         <br />
@@ -372,20 +382,21 @@ class TextFields extends React.Component {
                   select
                   label="City"
                   value={this.state.city}
-                  onChange={this.handleChange("city")}
+                  onChange={this.handleChangeCity("city")}
                   SelectProps={{}}
                   margin="normal"
                   fullWidth
                 >
                   {citys.map(city => (
-                    <MenuItem key={city.id} value={city.capitalName_id}>
-                      {city.capitalName_id}
+                    <MenuItem key={city.id} value={city.name}>
+                      {city.name}
                     </MenuItem>
                   ))}
                 </SelectValidator>
               </div>
               <div className="col-md-6 col-12">
                 <SelectValidator
+                  disabled
                   name="state"
                   validators={["required"]}
                   errorMessages={["this field is required"]}
@@ -398,11 +409,9 @@ class TextFields extends React.Component {
                   margin="normal"
                   fullWidth
                 >
-                  {locality.map(stateName => (
-                    <MenuItem key={stateName.id} value={stateName.name}>
-                      {stateName.name}
-                    </MenuItem>
-                  ))}
+                  <MenuItem value={this.state.State}>
+                    {this.state.State}
+                  </MenuItem>
                 </SelectValidator>
               </div>
               <div className="col-md-6 col-12">
