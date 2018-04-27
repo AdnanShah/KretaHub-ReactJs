@@ -74,7 +74,7 @@ function PaperSheet(props) {
       <div className="align-bottom" style={{
         position: 'absolute', bottom: 0
       }}>
-        <Link to="/bookingconform" >
+        <Link to="/orderconformation" >
           <Button variant="raised" color="default">
             Next
         </Button>

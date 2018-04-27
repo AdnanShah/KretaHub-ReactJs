@@ -341,16 +341,11 @@ class ComposedTextField extends React.Component {
             <h2>
               <u>{jsonData[0].companyName}</u>
             </h2>
-            <br/>
-            <br/>
-            <div>
               <Link to="/fullpayment" >
                 <Button variant="raised" color="default">
                   Next
                 </Button>
               </Link>
-            </div>
-            <br/>
             <br/>
           </Paper>
         </div>

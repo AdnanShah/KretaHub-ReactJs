@@ -1,56 +1,27 @@
 [
     {
-        "industry_name": "Automobile Components"
-    },
-    {
-        "industry_name": "Automobiles"
-    },
-    {
-        "industry_name": "Distributors"
-    },
-    {
-        "industry_name": "Diversified Consumer Services"
-    },
-    {
-        "industry_name": "Hotels"
-    },
-    {
-        "industry_name": "Household Durables"
-    },
-    {
-        "industry_name": "Internet & Catalog Retail"
-    },
-    {
-        "industry_name": "Leisure Products"
-    },
-    {
-        "industry_name": "Media"
-    },
-    {
-        "industry_name": "Multiline Retail"
-    },
-    {
-        "industry_name": "Specialty Retail"
-    },
-    {
-        "industry_name": "Textile"
-    },
-    {
-        "industry_name": "Beverages"
-    },
-    {
-        "industry_name": "Food & Staples Retailing"
-    },
-    {
-        "industry_name": "Food Products"
-    },
-    {
-        "industry_name": "Household Products"
-    },
-    {
-        "industry_name": "Personal Products"
-    },
-    {
-        "industry_name": "Tobacco"
+        "id": "DAC",
+        "sector_name": "Consumer Discretionary",
+        "industry_name": "Automobile Components",
+        "industries": [
+            "Automobile Components",
+            "Automobiles",
+            "Distributors",
+            "Diversified Consumer Services",
+            "Hotels",
+            "Household Durables",
+            "Internet & Catalog Retail",
+            "Leisure Products",
+            "Media",
+            "Multiline Retail",
+            "Specialty Retail",
+            "Textile",
+            "Beverages",
+            "Food & Staples Retailing",
+            "Food Products",
+            "Household Products",
+            "Personal Products",
+            "Tobacco"
+        ]
     }
 ]

@@ -1,7 +1,9 @@
 [
     {
+        "sector_name": "Consumer Discretionary"
+    },
+    {
         "id": "DAC",
-        "sector_name": "Consumer Discretionary",
         "industry_name": "Automobile Components"
     },
     {
@@ -49,8 +51,10 @@
         "industry_name": "Textile"
     },
     {
+        "sector_name": "Consumer Staples"
+    },
+    {
         "id": "SBV",
-        "sector_name": "Consumer Staples",
         "industry_name": "Beverages"
     },
     {
@@ -74,18 +78,25 @@
         "industry_name": "Tobacco"
     },
     {
+        "sector_name": "Energy"
+    },
+    {
         "id": "EEE",
-        "sector_name": "Energy",
         "industry_name": "Energy Equipment & Services"
     },
     {
         "id": "EOG",
-        "industry_name": "Oil",
-        "": " Gas & Consumable Fuels"
+        "industry_name": "Oil"
+    },
+    {
+        "id": "EOG",
+        "industry_name": " Gas & Consumable Fuels"
+    },
+    {
+        "sector_name": "Financials"
     },
     {
         "id": "FBK",
-        "sector_name": "Financials",
         "industry_name": "Banking"
     },
     {
@@ -117,8 +128,10 @@
         "industry_name": "Thrifts & Mortgage Finance"
     },
     {
+        "sector_name": "Health Care"
+    },
+    {
         "id": "HBT",
-        "sector_name": "Health Care",
         "industry_name": "Biotechnology"
     },
     {
@@ -142,8 +155,10 @@
         "industry_name": "Pharmaceuticals"
     },
     {
+        "sector_name": "Industrials"
+    },
+    {
         "id": "IAD",
-        "sector_name": "Industrials",
         "industry_name": "Aerospace & Defense"
     },
     {
@@ -199,14 +214,19 @@
         "industry_name": "Transportation Infrastructure"
     },
     {
+        "sector_name": "Information Technology"
+    },
+    {
         "id": "TCE",
-        "sector_name": "Information Technology",
         "industry_name": "Communications Equipment"
     },
     {
         "id": "TEE",
-        "industry_name": "Electronic Equipment",
-        "": " Instruments & Components"
+        "industry_name": "Electronic Equipment"
+    },
+    {
+        "id": "TEE",
+        "industry_name": " Instruments & Components"
     },
     {
         "id": "TIT",
@@ -226,12 +246,17 @@
     },
     {
         "id": "TTH",
-        "industry_name": "Technology Hardware",
-        "": " Storage & Peripherals"
+        "industry_name": "Technology Hardware"
+    },
+    {
+        "id": "TTH",
+        "industry_name": " Storage & Peripherals"
+    },
+    {
+        "sector_name": "Materials"
     },
     {
         "id": "MCH",
-        "sector_name": "Materials",
         "industry_name": "Chemicals"
     },
     {
@@ -251,8 +276,10 @@
         "industry_name": "Paper & Forest Products"
     },
     {
+        "sector_name": "Telecommunication Services"
+    },
+    {
         "id": "LDT",
-        "sector_name": "Telecommunication Services",
         "industry_name": "Diversified Telecommunication"
     },
     {
@@ -260,8 +287,10 @@
         "industry_name": "Wireless Telecommunication"
     },
     {
+        "sector_name": "Utilities"
+    },
+    {
         "id": "UEL",
-        "sector_name": "Utilities",
         "industry_name": "Electric Utilities"
     },
     {
@@ -279,8 +308,5 @@
     {
         "id": "UWT",
         "industry_name": "Water Utilities"
-    },
-    {
-        "id": ""
     }
 ]
