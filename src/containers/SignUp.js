@@ -20,6 +20,7 @@ import ListSubheader from "material-ui/List/ListSubheader";
 import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
 import Collapse from "material-ui/transitions/Collapse";
 import Icon from "material-ui/Icon";
+import { withRouter } from "react-router-dom";
 
 const currencies = [
   {
@@ -234,10 +235,9 @@ class TextFields extends React.Component {
     });
   };
 
-  handleOnSubmit = () => {
+  handleOnSubmit = e => {
     this.setState({ submitted: false });
-    console.log(this.state);
-    link("/signin");
+    this.props.history.push(`/thankyou`);
   };
   handleClick = () => {
     this.setState({ open: !this.state.open });
@@ -958,12 +958,7 @@ class TextFields extends React.Component {
                 </Button>
                 <br />
                 <br />
-                <Button
-                  onClick={this.handleOnSubmit}
-                  type="submit"
-                  variant="raised"
-                  size="normal"
-                >
+                <Button type="submit" variant="raised" size="normal">
                   Submit
                 </Button>
               </div>
