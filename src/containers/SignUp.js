@@ -112,13 +112,11 @@ class TextFields extends React.Component {
     this.setState({ [name]: event.target.value }, () => {
       this.handleState();
     });
-    // this.handleState();
   };
   handleState = () => {
     const result = locality.find(person => {
       return person.name === this.state.city;
     });
-    console.log("result", result.stateName);
     this.setState({ State: result.stateName });
   };
 
@@ -126,14 +124,12 @@ class TextFields extends React.Component {
     this.setState({ [name]: event.target.value }, () => {
       this.handleRepState();
     });
-    // this.handleState();
   };
 
   handleRepState = () => {
     const result = locality.find(person => {
       return person.name === this.state.repCity;
     });
-    console.log("result", result.stateName);
     this.setState({ repState: result.stateName });
   };
 
