@@ -22,6 +22,12 @@ import {
   userTwitterSignIn
 } from "actions/Auth";
 import Background from "./images/bg.jpg";
+import {
+  TextValidator,
+  ValidatorForm,
+  SelectValidator,
+  CheckboxValidatorElement
+} from "react-material-ui-form-validator";
 
 const divStyle = {
   width: "80%",
@@ -89,64 +95,74 @@ class SignIn extends React.Component {
               </div>
 
               <div className="app-login-form">
-                <form>
-                  <fieldset>
-                    <TextField
-                      label="Email"
-                      fullWidth
-                      onChange={this.handleEmail}
-                      value={this.state.email}
-                      margin="normal"
-                    />
-                    <TextField
-                      type="password"
-                      label={<IntlMessages id="appModule.password" />}
-                      fullWidth
-                      onChange={this.handlePassword}
-                      value={this.state.password}
-                      margin="normal"
-                    />
-                    <br />
-                    <div className="row">
-                      <div className="col">
-                        <div className="float-left">
-                          <Link to="/signup">Forgot password</Link>
+                <ValidatorForm onSubmit={this.handleOnSubmit} ref="form">
+                  <form>
+                    <fieldset>
+                      <TextValidator
+                        name="name"
+                        validators={["required", "isEmail"]}
+                        errorMessages={[
+                          "this field is required",
+                          "Invalid Email"
+                        ]}
+                        label="Email"
+                        fullWidth
+                        onChange={this.handleEmail}
+                        value={this.state.email}
+                        margin="normal"
+                      />
+                      <TextValidator
+                        name="name"
+                        validators={["required"]}
+                        errorMessages={["this field is required"]}
+                        type="password"
+                        label={<IntlMessages id="appModule.password" />}
+                        fullWidth
+                        onChange={this.handlePassword}
+                        value={this.state.password}
+                        margin="normal"
+                      />
+                      <br />
+                      <div className="row">
+                        <div className="col">
+                          <div className="float-left">
+                            <Link to="/signup">Forgot password</Link>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="mb-3 d-flex align-items-center justify-content-between">
-                      <Link to="/signup">
-                        <Button
-                          onClick={() => {
-                            
-                            // this
-                            //     .props
-                            //     .showAuthLoader();
-                            // this
-                            //     .props
-                            //     .userSignIn({ email, password });
-                          }}
-                          variant="raised"
-                          color="primary"
-                        >
-                          Log In
-                        </Button>
-                      </Link>
-                    </div>
-                    <div className="row">
-                      <div className="col-6">
-                        <div className="float-left">
-                          <p>No account yet?</p>
+                      <div className="mb-3 d-flex align-items-center justify-content-between">
+                        <Link to="/signup">
+                          <Button
+                            onClick={() => {
+                              // this
+                              //     .props
+                              //     .showAuthLoader();
+                              // this
+                              //     .props
+                              //     .userSignIn({ email, password });
+                            }}
+                            variant="raised"
+                            color="primary"
+                          >
+                            Log In
+                          </Button>
+                        </Link>
+                      </div>
+                      <div className="row">
+                        <div className="col-6">
+                          <div className="float-left">
+                            <p>No account yet?</p>
+                          </div>
+                        </div>
+                        <div className="col-6">
+                          <div className="float-right">
+                            <Link to="/signup">Sign Up</Link>
+                          </div>
                         </div>
                       </div>
-                      <div className="col-6">
-                        <div className="float-right">
-                          <Link to="/signup">Sign Up</Link>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                </form>
+                    </fieldset>
+                  </form>
+                </ValidatorForm>
               </div>
             </div>
           </div>

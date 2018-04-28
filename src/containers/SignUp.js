@@ -1,8 +1,6 @@
 import React from "react";
 import MenuItem from "material-ui/Menu/MenuItem";
-import MenuList from "material-ui/Menu/MenuList";
 import TextField from "material-ui/TextField";
-import IntlMessages from "util/IntlMessages";
 import citys from "./jsonDataSource/province-ID.json";
 import locality from "./jsonDataSource/locality-ID.json";
 import industry from "./jsonDataSource/industry.json";
@@ -16,31 +14,7 @@ import {
   SelectValidator,
   CheckboxValidatorElement
 } from "react-material-ui-form-validator";
-import ListSubheader from "material-ui/List/ListSubheader";
-import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
-import Collapse from "material-ui/transitions/Collapse";
-import Icon from "material-ui/Icon";
 import { withRouter } from "react-router-dom";
-import { stat } from "fs";
-
-const currencies = [
-  {
-    value: "USD",
-    label: "$"
-  },
-  {
-    value: "EUR",
-    label: "€"
-  },
-  {
-    value: "BTC",
-    label: "฿"
-  },
-  {
-    value: "JPY",
-    label: "¥"
-  }
-];
 
 const shipments = [
   {
@@ -57,112 +31,6 @@ const divStyle = {
 };
 
 class TextFields extends React.Component {
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
-
-  handleChangeCountry = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
-  handleChangeCity = name => event => {
-    this.setState({ [name]: event.target.value });
-    this.handleState();
-  };
-  onFileLoad = (e, file) => console.log(e.target.result, file.name);
-
-  handleNameChange = evt => {
-    this.setState({ name: evt.target.value });
-  };
-
-  handleRepresentativeNameChange = idx => evt => {
-    const newRepresentatives = this.state.Representatives.map(
-      (Representative, sidx) => {
-        if (idx !== sidx) return Representative;
-        return {
-          ...Representative,
-          name: evt.target.value
-        };
-      }
-    );
-
-    this.setState({ Representatives: newRepresentatives });
-  };
-
-  handleSubmit = evt => {
-    const { name, Representatives } = this.state;
-    alert(
-      `Incorporated: ${name} with ${Representatives.length} Representatives`
-    );
-  };
-
-  handleAddRepresentative = () => {
-    this.setState({
-      Representatives: this.state.Representatives.concat([
-        {
-          name: ""
-        }
-      ])
-    });
-  };
-
-  handleRemoveRepresentative = idx => () => {
-    this.setState({
-      Representatives: this.state.Representatives.filter(
-        (s, sidx) => idx !== sidx
-      )
-    });
-  };
-
-  handleNameChange = evt => {
-    this.setState({ name: evt.target.value });
-  };
-
-  handleOfficerNameChange = idx => evt => {
-    const newOfficers = this.state.Officers.map((Officer, sidx) => {
-      if (idx !== sidx) return Officer;
-      return {
-        ...Officer,
-        name: evt.target.value
-      };
-    });
-
-    this.setState({ Officers: newOfficers });
-  };
-
-  handleSubmit = evt => {
-    const { name, Officers } = this.state;
-    alert(`Incorporated: ${name} with ${Officers.length} Officers`);
-  };
-
-  handleAddOfficer = () => {
-    this.setState({
-      Officers: this.state.Officers.concat([
-        {
-          name: ""
-        }
-      ])
-    });
-  };
-
-  handleRemoveOfficer = idx => () => {
-    this.setState({
-      Officers: this.state.Officers.filter((s, sidx) => idx !== sidx)
-    });
-  };
-  _onChange = e => {
-    const file = this.refs.uploadImg.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      this.setState({ imageUrl: reader.result });
-    };
-    if (file) {
-      reader.readAsDataURL(file);
-      this.setState({ imageUrl: reader.result });
-    } else {
-      this.setState({ imageUrl: "" });
-    }
-  };
   state = {
     open: false,
     name: "",
@@ -237,14 +105,15 @@ class TextFields extends React.Component {
     });
   };
 
-  handleOnSubmit = e => {
-    this.setState({ submitted: false });
-    this.props.history.push(`/thankyou`);
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
   };
-  handleClick = () => {
-    this.setState({ open: !this.state.open });
+  handleChangeCity = name => event => {
+    this.setState({ [name]: event.target.value }, () => {
+      this.handleState();
+    });
+    // this.handleState();
   };
-
   handleState = () => {
     const result = locality.find(person => {
       return person.name === this.state.city;
@@ -252,8 +121,116 @@ class TextFields extends React.Component {
     console.log("result", result.stateName);
     this.setState({ State: result.stateName });
   };
+
+  handleChangeRepCity = name => event => {
+    this.setState({ [name]: event.target.value }, () => {
+      this.handleRepState();
+    });
+    // this.handleState();
+  };
+
+  handleRepState = () => {
+    const result = locality.find(person => {
+      return person.name === this.state.repCity;
+    });
+    console.log("result", result.stateName);
+    this.setState({ repState: result.stateName });
+  };
+
+  onFileLoad = (e, file) => console.log(e.target.result, file.name);
+
+  handleRepresentativeNameChange = idx => evt => {
+    const newRepresentatives = this.state.Representatives.map(
+      (Representative, sidx) => {
+        if (idx !== sidx) return Representative;
+        return {
+          ...Representative,
+          name: evt.target.value
+        };
+      }
+    );
+
+    this.setState({ Representatives: newRepresentatives });
+  };
+
+  handleSubmit = evt => {
+    const { name, Representatives } = this.state;
+    alert(
+      `Incorporated: ${name} with ${Representatives.length} Representatives`
+    );
+  };
+
+  handleAddRepresentative = () => {
+    this.setState({
+      Representatives: this.state.Representatives.concat([
+        {
+          name: ""
+        }
+      ])
+    });
+  };
+
+  handleRemoveRepresentative = idx => () => {
+    this.setState({
+      Representatives: this.state.Representatives.filter(
+        (s, sidx) => idx !== sidx
+      )
+    });
+  };
+
+  handleOfficerNameChange = idx => evt => {
+    const newOfficers = this.state.Officers.map((Officer, sidx) => {
+      if (idx !== sidx) return Officer;
+      return {
+        ...Officer,
+        name: evt.target.value
+      };
+    });
+
+    this.setState({ Officers: newOfficers });
+  };
+
+  handleSubmit = evt => {
+    const { name, Officers } = this.state;
+    alert(`Incorporated: ${name} with ${Officers.length} Officers`);
+  };
+
+  handleAddOfficer = () => {
+    this.setState({
+      Officers: this.state.Officers.concat([
+        {
+          name: ""
+        }
+      ])
+    });
+  };
+
+  handleRemoveOfficer = idx => () => {
+    this.setState({
+      Officers: this.state.Officers.filter((s, sidx) => idx !== sidx)
+    });
+  };
+  _onChange = e => {
+    const file = this.refs.uploadImg.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      this.setState({ imageUrl: reader.result });
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+      this.setState({ imageUrl: reader.result });
+    } else {
+      this.setState({ imageUrl: "" });
+    }
+  };
+
+  handleOnSubmit = e => {
+    this.setState({ submitted: false });
+    this.props.history.push(`/thankyou`);
+  };
+
   render() {
-    console.log(state);
     return (
       <div style={divStyle} className="container-fluid">
         <br />
@@ -387,7 +364,7 @@ class TextFields extends React.Component {
                   margin="normal"
                   fullWidth
                 >
-                  {citys.map(city => (
+                  {locality.map(city => (
                     <MenuItem key={city.id} value={city.name}>
                       {city.name}
                     </MenuItem>
@@ -404,7 +381,6 @@ class TextFields extends React.Component {
                   select
                   label="State"
                   value={this.state.State}
-                  onChange={this.handleChangeCountry("State")}
                   SelectProps={{}}
                   margin="normal"
                   fullWidth
@@ -636,21 +612,21 @@ class TextFields extends React.Component {
                   <div className="row">
                     <div className="col-md-6 col-12">
                       <SelectValidator
-                        name="refCountry"
+                        name="repCity"
                         validators={["required"]}
                         errorMessages={["this field is required"]}
-                        id="country"
+                        id="city"
                         select
-                        label="Country"
-                        value={this.state.refCountry}
-                        onChange={this.handleChangeCountry("refCountry")}
+                        label="City"
+                        value={this.state.repCity}
+                        onChange={this.handleChangeRepCity("repCity")}
                         SelectProps={{}}
                         margin="normal"
                         fullWidth
                       >
-                        {countries.map(countrie => (
-                          <MenuItem key={countrie.id} value={countrie.name}>
-                            {countrie.name}
+                        {locality.map(city => (
+                          <MenuItem key={city.id} value={city.name}>
+                            {city.name}
                           </MenuItem>
                         ))}
                       </SelectValidator>
@@ -658,6 +634,7 @@ class TextFields extends React.Component {
 
                     <div className="col-md-6 col-12">
                       <SelectValidator
+                        disabled
                         name="repState"
                         validators={["required"]}
                         errorMessages={["this field is required"]}
@@ -665,18 +642,16 @@ class TextFields extends React.Component {
                         select
                         label="State"
                         value={this.state.repState}
-                        onChange={this.handleChangeCountry("repState")}
                         SelectProps={{}}
                         margin="normal"
                         fullWidth
                       >
-                        {locality.map(stateName => (
-                          <MenuItem key={stateName.id} value={stateName.name}>
-                            {stateName.name}
-                          </MenuItem>
-                        ))}
+                        <MenuItem value={this.state.repState}>
+                          {this.state.repState}
+                        </MenuItem>
                       </SelectValidator>
                     </div>
+
                     <div className="col-md-6 col-12">
                       <TextValidator
                         name="repZipCode"
@@ -691,27 +666,29 @@ class TextFields extends React.Component {
                         fullWidth
                       />
                     </div>
+
                     <div className="col-md-6 col-12">
                       <SelectValidator
-                        name="repCity"
+                        name="refCountry"
                         validators={["required"]}
                         errorMessages={["this field is required"]}
-                        id="city"
+                        id="country"
                         select
-                        label="City"
-                        value={this.state.repCity}
-                        onChange={this.handleChange("repCity")}
+                        label="Country"
+                        value={this.state.refCountry}
+                        onChange={this.handleChange("refCountry")}
                         SelectProps={{}}
                         margin="normal"
                         fullWidth
                       >
-                        {citys.map(city => (
-                          <MenuItem key={city.id} value={city.capitalName_id}>
-                            {city.capitalName_id}
+                        {countries.map(countrie => (
+                          <MenuItem key={countrie.id} value={countrie.name}>
+                            {countrie.name}
                           </MenuItem>
                         ))}
                       </SelectValidator>
                     </div>
+
                     <div className="col-md-6 col-12">
                       <TextValidator
                         name="repPhone"
