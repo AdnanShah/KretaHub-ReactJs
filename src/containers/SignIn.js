@@ -54,6 +54,11 @@ class SignIn extends React.Component {
     };
   }
 
+  handleOnSubmit = e => {
+    this.setState({ submitted: false });
+    this.props.history.push(`/signup`);
+  };
+
   componentDidUpdate() {
     if (this.props.showMessage) {
       setTimeout(() => {
@@ -99,11 +104,11 @@ class SignIn extends React.Component {
                   <form>
                     <fieldset>
                       <TextValidator
-                        name="name"
+                        name="email"
                         validators={["required", "isEmail"]}
                         errorMessages={[
                           "this field is required",
-                          "Invalid Email"
+                          "email is not valid"
                         ]}
                         label="Email"
                         fullWidth
@@ -112,7 +117,7 @@ class SignIn extends React.Component {
                         margin="normal"
                       />
                       <TextValidator
-                        name="name"
+                        name="password"
                         validators={["required"]}
                         errorMessages={["this field is required"]}
                         type="password"
@@ -131,22 +136,9 @@ class SignIn extends React.Component {
                         </div>
                       </div>
                       <div className="mb-3 d-flex align-items-center justify-content-between">
-                        <Link to="/signup">
-                          <Button
-                            onClick={() => {
-                              // this
-                              //     .props
-                              //     .showAuthLoader();
-                              // this
-                              //     .props
-                              //     .userSignIn({ email, password });
-                            }}
-                            variant="raised"
-                            color="primary"
-                          >
-                            Log In
-                          </Button>
-                        </Link>
+                        <Button variant="raised" color="primary" type="submit">
+                          Log In
+                        </Button>
                       </div>
                       <div className="row">
                         <div className="col-6">
