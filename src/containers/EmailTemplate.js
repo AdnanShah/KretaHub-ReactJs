@@ -11,7 +11,7 @@ import Button from 'material-ui/Button';
 import Avatar from 'material-ui/Avatar';
 import IntlMessages from 'util/IntlMessages';
 import IconButton from 'material-ui/IconButton';
-
+import img from '../assets/images/kretahub-mock-icon.png';
 const divStyle = {
   width: '100%',
   height: '100%',
@@ -78,7 +78,7 @@ function PaperSheet(props) {
                     <div className={classes.row}>
                       <Avatar
                         alt="Adelle Charles"
-                        src="kretahub-mock-icon.png"
+                        src={img}
                         className={classes.bigAvatar}
                       />
                     </div>
