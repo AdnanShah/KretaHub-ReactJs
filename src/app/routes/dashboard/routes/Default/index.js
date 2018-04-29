@@ -201,11 +201,11 @@ class Default extends React.Component {
                 Departure/Arrival date:
               </label>
               <DatePicker
+                minDate={new Date()}
                 keyboard
                 value={this.state.selectedDate}
                 onChange={this.handleDateChange}
                 animateYearScrolling={false}
-                placeholder="10/10/2018"
               />
             </div>
             <div className="col-6">
@@ -218,9 +218,9 @@ class Default extends React.Component {
                 Until:
               </label>
               <DatePicker
+                disabled
                 keyboard
                 value={this.state.selectedUntilDate}
-                onChange={this.handleUntilDateChange}
                 animateYearScrolling={false}
               />
               <br />

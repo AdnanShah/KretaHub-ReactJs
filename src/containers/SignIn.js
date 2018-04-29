@@ -54,11 +54,6 @@ class SignIn extends React.Component {
     };
   }
 
-  handleOnSubmit = e => {
-    this.setState({ submitted: false });
-    this.props.history.push(`/signup`);
-  };
-
   componentDidUpdate() {
     if (this.props.showMessage) {
       setTimeout(() => {
@@ -71,6 +66,12 @@ class SignIn extends React.Component {
   }
   handleEmail = event => this.setState({ email: event.target.value });
   handlePassword = event => this.setState({ password: event.target.value });
+
+  handleOnSubmit = e => {
+    this.setState({ submitted: false });
+    this.props.history.push(`/app/dashboard/default`);
+  };
+
   render() {
     const { email, password } = this.state;
     const { showMessage, loader, alertMessage } = this.props;
@@ -104,11 +105,11 @@ class SignIn extends React.Component {
                   <form>
                     <fieldset>
                       <TextValidator
-                        name="email"
+                        name="name"
                         validators={["required", "isEmail"]}
                         errorMessages={[
                           "this field is required",
-                          "email is not valid"
+                          "Invalid Email"
                         ]}
                         label="Email"
                         fullWidth
@@ -117,7 +118,7 @@ class SignIn extends React.Component {
                         margin="normal"
                       />
                       <TextValidator
-                        name="password"
+                        name="name"
                         validators={["required"]}
                         errorMessages={["this field is required"]}
                         type="password"
@@ -136,7 +137,15 @@ class SignIn extends React.Component {
                         </div>
                       </div>
                       <div className="mb-3 d-flex align-items-center justify-content-between">
-                        <Button variant="raised" color="primary" type="submit">
+                        <Button
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userSignIn({ email, password });
+                          }}
+                          variant="raised"
+                          color="primary"
+                          type="submit"
+                        >
                           Log In
                         </Button>
                       </div>
