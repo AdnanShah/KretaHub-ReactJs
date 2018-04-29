@@ -405,7 +405,7 @@ class Freightdetail extends React.Component {
                             <br/>
                             <br/>
                             <div className="row align-items-center justify-content-center">
-                                <Link to="/packinglist">
+                                <Link to="/app/dashboard/packinglist">
                                     <Button
                                         variant="raised"
                                         style={{
