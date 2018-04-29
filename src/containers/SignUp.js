@@ -29,7 +29,6 @@ const shipments = [
 const divStyle = {
   overflowY: "auto"
 };
-
 class TextFields extends React.Component {
   state = {
     open: false,
@@ -271,6 +270,7 @@ class TextFields extends React.Component {
             <div className="row">
               <div className="col-md-6 col-12">
                 <TextValidator
+                  required
                   name="name"
                   validators={["required"]}
                   errorMessages={["this field is required"]}
@@ -284,6 +284,7 @@ class TextFields extends React.Component {
               </div>
               <div className="col-md-6 col-12">
                 <SelectValidator
+                  required
                   name="industry"
                   validators={["required"]}
                   errorMessages={["this field is required"]}
@@ -315,7 +316,8 @@ class TextFields extends React.Component {
                   errorMessages={["this field is required"]}
                   id="select-shipment"
                   select
-                  label="Shipment"
+                  label="Expected shipments"
+                  required
                   value={this.state.shipment}
                   onChange={this.handleChange("shipment")}
                   SelectProps={{}}
@@ -331,6 +333,7 @@ class TextFields extends React.Component {
               </div>
               <div className="col-md-6 col-12">
                 <TextValidator
+                  required
                   name="address"
                   validators={["required"]}
                   errorMessages={["this field is required"]}
@@ -348,6 +351,7 @@ class TextFields extends React.Component {
             <div className="row">
               <div className="col-md-6 col-12">
                 <SelectValidator
+                  required
                   name="city"
                   validators={["required"]}
                   errorMessages={["this field is required"]}
@@ -376,6 +380,7 @@ class TextFields extends React.Component {
                   id="state"
                   select
                   label="State"
+                  required
                   value={this.state.State}
                   SelectProps={{}}
                   margin="normal"
@@ -387,10 +392,7 @@ class TextFields extends React.Component {
                 </SelectValidator>
               </div>
               <div className="col-md-6 col-12">
-                <TextValidator
-                  name="Zip-Code"
-                  validators={["required"]}
-                  errorMessages={["this field is required"]}
+                <TextField
                   value={this.state.zipCode}
                   onChange={this.handleChange("zipCode")}
                   id="Zip-Code"
@@ -408,6 +410,7 @@ class TextFields extends React.Component {
                   id="countries"
                   select
                   label="Country"
+                  required
                   value={this.state.country}
                   onChange={this.handleChange("country")}
                   SelectProps={{}}
@@ -432,16 +435,14 @@ class TextFields extends React.Component {
                   onChange={this.handleChange("phone")}
                   id="Phone"
                   label="Phone"
+                  required
                   defaultValue="+62317482303"
                   margin="normal"
                   fullWidth
                 />
               </div>
               <div className="col-md-6 col-12">
-                <TextValidator
-                  name="Fax"
-                  validators={["required"]}
-                  errorMessages={["this field is required"]}
+                <TextField
                   id="fax"
                   value={this.state.fax}
                   onChange={this.handleChange("fax")}
@@ -462,6 +463,7 @@ class TextFields extends React.Component {
                   value={this.state.email}
                   onChange={this.handleChange("email")}
                   label="Email"
+                  required
                   margin="normal"
                   fullWidth
                 />
@@ -475,6 +477,7 @@ class TextFields extends React.Component {
                   value={this.state.npwpNumber}
                   onChange={this.handleChange("npwpNumber")}
                   label="NPWP Number"
+                  required
                   margin="normal"
                   fullWidth
                 />
@@ -484,7 +487,7 @@ class TextFields extends React.Component {
             <br />
             <div className="row">
               <div className="col-md-6 col-12">
-                <h3>NPWP Document</h3>
+                <h3>NPWP Document*</h3>
               </div>
               <div className="col-md-6 col-12">
                 <input
@@ -498,10 +501,7 @@ class TextFields extends React.Component {
             <br />
             <div className="row">
               <div className="col-md-6 col-12">
-                <TextValidator
-                  name="SIUPNumber"
-                  validators={["required"]}
-                  errorMessages={["this field is required"]}
+                <TextField
                   id="SIUPNumber"
                   value={this.state.suipNumber}
                   onChange={this.handleChange("suipNumber")}
@@ -511,10 +511,7 @@ class TextFields extends React.Component {
                 />
               </div>
               <div className="col-md-6 col-12">
-                <TextValidator
-                  name="SIUPExpirationDate"
-                  validators={["required"]}
-                  errorMessages={["this field is required"]}
+                <TextField
                   value={this.state.suipExpirationDate}
                   onChange={this.handleChange("suipExpirationDate")}
                   id="SIUPExpirationDate"
@@ -583,6 +580,7 @@ class TextFields extends React.Component {
                         errorMessages={["this field is required"]}
                         id="name"
                         label="Name"
+                        required
                         value={this.state.repName}
                         onChange={this.handleChange("repName")}
                         margin="normal"
@@ -596,6 +594,7 @@ class TextFields extends React.Component {
                         errorMessages={["this field is required"]}
                         id="address"
                         label="Address"
+                        required
                         multiline
                         rowsMax="6"
                         value={this.state.repAddress}
@@ -614,6 +613,7 @@ class TextFields extends React.Component {
                         id="city"
                         select
                         label="City"
+                        required
                         value={this.state.repCity}
                         onChange={this.handleChangeRepCity("repCity")}
                         SelectProps={{}}
@@ -637,6 +637,7 @@ class TextFields extends React.Component {
                         id="state"
                         select
                         label="State"
+                        required
                         value={this.state.repState}
                         SelectProps={{}}
                         margin="normal"
@@ -649,10 +650,7 @@ class TextFields extends React.Component {
                     </div>
 
                     <div className="col-md-6 col-12">
-                      <TextValidator
-                        name="repZipCode"
-                        validators={["required"]}
-                        errorMessages={["this field is required"]}
+                      <TextField
                         value={this.state.repZipCode}
                         onChange={this.handleChange("repZipCode")}
                         id="Zip-Code"
@@ -671,6 +669,7 @@ class TextFields extends React.Component {
                         id="country"
                         select
                         label="Country"
+                        required
                         value={this.state.refCountry}
                         onChange={this.handleChange("refCountry")}
                         SelectProps={{}}
@@ -694,16 +693,14 @@ class TextFields extends React.Component {
                         onChange={this.handleChange("repPhone")}
                         id="Phone"
                         label="Phone"
+                        required
                         defaultValue="+62317482303"
                         margin="normal"
                         fullWidth
                       />
                     </div>
                     <div className="col-md-6 col-12">
-                      <TextValidator
-                        name="repFax"
-                        validators={["required"]}
-                        errorMessages={["this field is required"]}
+                      <TextField
                         id="fax"
                         value={this.state.repFax}
                         onChange={this.handleChange("repFax")}
@@ -713,10 +710,7 @@ class TextFields extends React.Component {
                       />
                     </div>
                     <div className="col-md-12 col-12">
-                      <TextValidator
-                        name="Mobile"
-                        validators={["required"]}
-                        errorMessages={["this field is required"]}
+                      <TextField
                         id="mobile"
                         value={this.state.repMobile}
                         onChange={this.handleChange("repMobile")}
@@ -778,6 +772,7 @@ class TextFields extends React.Component {
                 <div className="row">
                   <div className="col">
                     <TextValidator
+                      required
                       name="Identity Name"
                       validators={["required"]}
                       errorMessages={["this field is required"]}
@@ -865,6 +860,8 @@ class TextFields extends React.Component {
                 <div className="row">
                   <div className="col-md-12 col-12">
                     <TextValidator
+                      required
+                      label="Identity Number"
                       name="IdentityNumber"
                       floatingLabelText="Password"
                       value={this.state.officerNumber}
@@ -886,6 +883,7 @@ class TextFields extends React.Component {
                     <div className="col">
                       <input
                         accept="image/*"
+                        required
                         id="raised-button-file"
                         multiple
                         type="file"

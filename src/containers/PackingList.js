@@ -5,16 +5,12 @@ import Table, {
   TableHead,
   TableRow
 } from "material-ui/Table";
-import MenuItem from "material-ui/Menu/MenuItem";
-import TextField from "material-ui/TextField";
-import IntlMessages from "util/IntlMessages";
-import citys from "./jsonDataSource/province-ID.json";
-import locality from "./jsonDataSource/locality-ID.json";
-import countries from "./jsonDataSource/countries.json";
 import Button from "material-ui/Button";
 import Paper from "material-ui/Paper";
 import { Link } from "react-router-dom";
 import Icon from "material-ui/Icon";
+import Close from 'material-ui-icons/Close';
+import Done from 'material-ui-icons/Done';
 
 let id = 0;
 function createData(
