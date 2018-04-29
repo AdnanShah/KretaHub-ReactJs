@@ -1,14 +1,14 @@
 [
-    {
-        "field": "Stasiun Keberangkatan",
-        "id": "1"
-    },
-    {
-        "field": "Stasiun Pasarturi Surabaya",
-        "id": "2"
-    },
-    {
-        "field": "Stasiun Solojebres Solo",
-        "id": "3"
-    }
+  {
+    "field": "Any Station",
+    "id": "1"
+  },
+  {
+    "field": "Sungai Lagoa - Jakarta",
+    "id": "2"
+  },
+  {
+    "field": "Kalimas - Surabaya",
+    "id": "3"
+  }
 ]
