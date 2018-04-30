@@ -278,232 +278,255 @@ class Default extends React.Component {
     );
   };
 
+  handleOnsubmit = () => {
+    this.state.makeData.forEach((item, index) => {
+      for (var key in item) {
+        if (item[key] == "") {
+          console.log("Container 1: 20RF is not Valid",item[key]);
+        } 
+        // console.log("Valid", item[key]);
+      }
+    });
+    this.state.makeData2.forEach((item, index) => {
+      for (var key in item) {
+        if (item[key] == "") {
+          console.log("Container 2: 20RF is not Valid",item[key]);
+        } 
+        // console.log("Valid", item[key]);
+      }
+    });
+    this.state.makeData3.forEach((item, index) => {
+      for (var key in item) {
+        if (item[key] == "") {
+          console.log("Container 3: 40GP is not Valid",item[key]);
+        } 
+        // console.log("Valid", item[key]);
+      }
+    });
+  };
+
   render() {
     return (
       <div className="container-fluid">
         <br />
-        <ValidatorForm onSubmit={this.handleOnSubmit} ref="form">
-          <form noValidate autoComplete="on">
-            <Paper>
-              <h1 className="text-center p-3">Packing List</h1>
-              <div className="container">
-                <h2 style={head} className="pl-2">
-                  Container 1: 20RF
-                </h2>
-                <ReactTable
-                  name="table1"
-                  className="-striped -highlight"
-                  sortable={false}
-                  defaultPageSize={2}
-                  data={this.state.makeData}
-                  columns={[
-                    {
-                      Header: `Type*`,
-                      accessor: "field1",
-                      Cell: this.renderEditable
-                    },
-                    {
-                      Header: "Name*",
-                      accessor: "field2",
-                      Cell: this.renderEditable
-                    },
-                    {
-                      Header: "Description*",
-                      accessor: "field3",
-                      Cell: this.renderEditable
-                    },
-                    {
-                      Header: "QTY*",
-                      accessor: "field4",
-                      Cell: this.renderEditable
-                    },
-                    {
-                      Header: "Unit*",
-                      accessor: "field5",
-                      Cell: this.renderEditable
-                    },
-                    {
-                      Header: "Weight*",
-                      accessor: "field6",
-                      Cell: this.renderEditable
-                    },
-                    {
-                      Header: "Length",
-                      accessor: "field7",
-                      Cell: this.renderEditable
-                    },
-                    {
-                      Header: "Width",
-                      accessor: "field8",
-                      Cell: this.renderEditable
-                    },
-                    {
-                      Header: "Height",
-                      accessor: "field9",
-                      Cell: this.renderEditable
-                    },
-                    {
-                      Header: "",
-                      accessor: "",
-                      Cell: this.handleRow,
-                      minWidth: 30
-                    }
-                  ]}
-                />
-              </div>
-              <br />
-              <div className="container">
-                <h2 style={head} className="pl-2">
-                  Container 2: 20RF
-                </h2>
-                <ReactTable
-                  className="-striped -highlight"
-                  sortable={false}
-                  defaultPageSize={2}
-                  data={this.state.makeData2}
-                  columns={[
-                    {
-                      Header: `Type*`,
-                      accessor: "field1",
-                      Cell: this.renderEditable2
-                    },
-                    {
-                      Header: "Name*",
-                      accessor: "field2",
-                      Cell: this.renderEditable2
-                    },
-                    {
-                      Header: "Description*",
-                      accessor: "field3",
-                      Cell: this.renderEditable2
-                    },
-                    {
-                      Header: "QTY*",
-                      accessor: "field4",
-                      Cell: this.renderEditable2
-                    },
+        <Paper>
+          <h1 className="text-center p-3">Packing List</h1>
+          <div className="container">
+            <h2 style={head} className="pl-2">
+              Container 1: 20RF
+            </h2>
+            <ReactTable
+              name="table1"
+              className="-striped -highlight"
+              sortable={false}
+              defaultPageSize={2}
+              data={this.state.makeData}
+              columns={[
+                {
+                  Header: `Type*`,
+                  accessor: "field1",
+                  Cell: this.renderEditable
+                },
+                {
+                  Header: "Name*",
+                  accessor: "field2",
+                  Cell: this.renderEditable
+                },
+                {
+                  Header: "Description*",
+                  accessor: "field3",
+                  Cell: this.renderEditable
+                },
+                {
+                  Header: "QTY*",
+                  accessor: "field4",
+                  Cell: this.renderEditable
+                },
+                {
+                  Header: "Unit*",
+                  accessor: "field5",
+                  Cell: this.renderEditable
+                },
+                {
+                  Header: "Weight*",
+                  accessor: "field6",
+                  Cell: this.renderEditable
+                },
+                {
+                  Header: "Length",
+                  accessor: "field7",
+                  Cell: this.renderEditable
+                },
+                {
+                  Header: "Width",
+                  accessor: "field8",
+                  Cell: this.renderEditable
+                },
+                {
+                  Header: "Height",
+                  accessor: "field9",
+                  Cell: this.renderEditable
+                },
+                {
+                  Header: "",
+                  accessor: "",
+                  Cell: this.handleRow,
+                  minWidth: 30
+                }
+              ]}
+            />
+          </div>
+          <br />
+          <div className="container">
+            <h2 style={head} className="pl-2">
+              Container 2: 20RF
+            </h2>
+            <ReactTable
+              className="-striped -highlight"
+              sortable={false}
+              defaultPageSize={2}
+              data={this.state.makeData2}
+              columns={[
+                {
+                  Header: `Type*`,
+                  accessor: "field1",
+                  Cell: this.renderEditable2
+                },
+                {
+                  Header: "Name*",
+                  accessor: "field2",
+                  Cell: this.renderEditable2
+                },
+                {
+                  Header: "Description*",
+                  accessor: "field3",
+                  Cell: this.renderEditable2
+                },
+                {
+                  Header: "QTY*",
+                  accessor: "field4",
+                  Cell: this.renderEditable2
+                },
 
-                    {
-                      Header: "Unit*",
-                      accessor: "field5",
-                      Cell: this.renderEditable2
-                    },
-                    {
-                      Header: "Weight*",
-                      accessor: "field6",
-                      Cell: this.renderEditable2
-                    },
-                    {
-                      Header: "Length",
-                      accessor: "field7",
-                      Cell: this.renderEditable2
-                    },
-                    {
-                      Header: "Width",
-                      accessor: "field8",
-                      Cell: this.renderEditable2
-                    },
-                    {
-                      Header: "Height",
-                      accessor: "field9",
-                      Cell: this.renderEditable2
-                    },
-                    {
-                      Header: "",
-                      accessor: "",
-                      Cell: this.handleRow2,
-                      minWidth: 30
-                    }
-                  ]}
-                />
-              </div>
-              <br />
-              <div className="container">
-                <h2 style={head} className="pl-2">
-                  Container 3: 40GP
-                </h2>
-                <ReactTable
-                  className="-striped -highlight"
-                  sortable={false}
-                  defaultPageSize={2}
-                  data={this.state.makeData3}
-                  columns={[
-                    {
-                      Header: `Type*`,
-                      accessor: "field1",
-                      Cell: this.renderEditable3
-                    },
-                    {
-                      Header: "Name*",
-                      accessor: "field2",
-                      Cell: this.renderEditable3
-                    },
-                    {
-                      Header: "Description*",
-                      accessor: "field3",
-                      Cell: this.renderEditable3
-                    },
-                    {
-                      Header: "QTY*",
-                      accessor: "field4",
-                      Cell: this.renderEditable3
-                    },
-                    {
-                      Header: "Unit*",
-                      accessor: "field5",
-                      Cell: this.renderEditable3
-                    },
-                    {
-                      Header: "Weight*",
-                      accessor: "field6",
-                      Cell: this.renderEditable3
-                    },
-                    {
-                      Header: "Length",
-                      accessor: "field7",
-                      Cell: this.renderEditable3
-                    },
-                    {
-                      Header: "Width",
-                      accessor: "field8",
-                      Cell: this.renderEditable3
-                    },
-                    {
-                      Header: "Height",
-                      accessor: "field9",
-                      Cell: this.renderEditable3
-                    },
-                    {
-                      Header: "",
-                      accessor: "",
-                      Cell: this.handleRow3,
-                      minWidth: 30
-                    }
-                  ]}
-                />
-              </div>
-              <br />
-              <div className="row align-items-center justify-content-center">
-                <Link to="/mainthankyou">
-                  <Button
-                    onClick={this.handleOnsubmit}
-                    variant="raised"
-                    style={{
-                      background: "#29487D",
-                      color: "#fff"
-                    }}
-                    component="span"
-                  >
-                    FINISH BOOKING
-                  </Button>
-                </Link>
-                <br />
-                <br />
-                <br />
-              </div>
-            </Paper>
-          </form>
-        </ValidatorForm>
+                {
+                  Header: "Unit*",
+                  accessor: "field5",
+                  Cell: this.renderEditable2
+                },
+                {
+                  Header: "Weight*",
+                  accessor: "field6",
+                  Cell: this.renderEditable2
+                },
+                {
+                  Header: "Length",
+                  accessor: "field7",
+                  Cell: this.renderEditable2
+                },
+                {
+                  Header: "Width",
+                  accessor: "field8",
+                  Cell: this.renderEditable2
+                },
+                {
+                  Header: "Height",
+                  accessor: "field9",
+                  Cell: this.renderEditable2
+                },
+                {
+                  Header: "",
+                  accessor: "",
+                  Cell: this.handleRow2,
+                  minWidth: 30
+                }
+              ]}
+            />
+          </div>
+          <br />
+          <div className="container">
+            <h2 style={head} className="pl-2">
+              Container 3: 40GP
+            </h2>
+            <ReactTable
+              className="-striped -highlight"
+              sortable={false}
+              defaultPageSize={2}
+              data={this.state.makeData3}
+              columns={[
+                {
+                  Header: `Type*`,
+                  accessor: "field1",
+                  Cell: this.renderEditable3
+                },
+                {
+                  Header: "Name*",
+                  accessor: "field2",
+                  Cell: this.renderEditable3
+                },
+                {
+                  Header: "Description*",
+                  accessor: "field3",
+                  Cell: this.renderEditable3
+                },
+                {
+                  Header: "QTY*",
+                  accessor: "field4",
+                  Cell: this.renderEditable3
+                },
+                {
+                  Header: "Unit*",
+                  accessor: "field5",
+                  Cell: this.renderEditable3
+                },
+                {
+                  Header: "Weight*",
+                  accessor: "field6",
+                  Cell: this.renderEditable3
+                },
+                {
+                  Header: "Length",
+                  accessor: "field7",
+                  Cell: this.renderEditable3
+                },
+                {
+                  Header: "Width",
+                  accessor: "field8",
+                  Cell: this.renderEditable3
+                },
+                {
+                  Header: "Height",
+                  accessor: "field9",
+                  Cell: this.renderEditable3
+                },
+                {
+                  Header: "",
+                  accessor: "",
+                  Cell: this.handleRow3,
+                  minWidth: 30
+                }
+              ]}
+            />
+          </div>
+          <br />
+          <div className="row align-items-center justify-content-center">
+            {/* <Link to="/mainthankyou"> */}
+            <Button
+              variant="raised"
+              style={{
+                background: "#29487D",
+                color: "#fff"
+              }}
+              component="span"
+              onClick={this.handleOnsubmit}
+            >
+              FINISH BOOKING
+            </Button>
+            {/* </Link> */}
+            <br />
+            <br />
+            <br />
+          </div>
+        </Paper>
       </div>
     );
   }

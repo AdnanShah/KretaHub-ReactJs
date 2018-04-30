@@ -84,6 +84,7 @@ class FreightSearch extends React.Component {
       Header: "",
       accessor: "age",
       Cell: ({ value }) => (
+       <div rowSpan={2}>
         <Link
           to={{
             pathname: "freightDetail"
@@ -100,6 +101,7 @@ class FreightSearch extends React.Component {
             Details
           </Button>
         </Link>
+        </div>
       )
     }
   ];
