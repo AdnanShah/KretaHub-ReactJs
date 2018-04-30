@@ -26,6 +26,8 @@ import {
   CheckboxValidatorElement
 } from "react-material-ui-form-validator";
 import { withRouter } from "react-router-dom";
+import Snackbar from "material-ui/Snackbar";
+import IconButton from "material-ui/IconButton";
 
 const styles = theme => ({
   container: {
@@ -43,6 +45,7 @@ class Default extends React.Component {
   constructor() {
     super();
     this.state = {
+      open: false,
       makeData: [
         {
           field1: "Non-DG",
@@ -282,24 +285,27 @@ class Default extends React.Component {
     this.state.makeData.forEach((item, index) => {
       for (var key in item) {
         if (item[key] == "") {
-          console.log("Container 1: 20RF is not Valid",item[key]);
-        } 
+          console.log("Container 1: 20RF is not Valid", item[key]);
+          this.setState({ open: !this.state.open });
+        }
         // console.log("Valid", item[key]);
       }
     });
     this.state.makeData2.forEach((item, index) => {
       for (var key in item) {
         if (item[key] == "") {
-          console.log("Container 2: 20RF is not Valid",item[key]);
-        } 
+          console.log("Container 2: 20RF is not Valid", item[key]);
+          this.setState({ open: !this.state.open });
+        }
         // console.log("Valid", item[key]);
       }
     });
     this.state.makeData3.forEach((item, index) => {
       for (var key in item) {
         if (item[key] == "") {
-          console.log("Container 3: 40GP is not Valid",item[key]);
-        } 
+          console.log("Container 3: 40GP is not Valid", item[key]);
+          this.setState({ open: !this.state.open });
+        }
         // console.log("Valid", item[key]);
       }
     });
@@ -527,6 +533,37 @@ class Default extends React.Component {
             <br />
           </div>
         </Paper>
+        <div>
+          <Snackbar
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left"
+            }}
+            open={this.state.open}
+            autoHideDuration={6000}
+            onClose={this.handleClose}
+            SnackbarContentProps={{
+              "aria-describedby": "message-id"
+            }}
+            message={<span id="message-id">Note archived</span>}
+            action={[
+              <Button
+                key="undo"
+                color="secondary"
+                size="small"
+                onClick={this.handleClose}
+              >
+                UNDO
+              </Button>,
+              <IconButton
+                key="close"
+                aria-label="Close"
+                color="inherit"
+                onClick={this.handleClose}
+              />
+            ]}
+          />
+        </div>
       </div>
     );
   }
