@@ -105,7 +105,7 @@ class SignIn extends React.Component {
                   <form>
                     <fieldset>
                       <TextValidator
-                        name="name"
+                        name="email"
                         validators={["required", "isEmail"]}
                         errorMessages={[
                           "this field is required",

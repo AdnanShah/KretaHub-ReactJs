@@ -376,7 +376,8 @@ class Freightdetail extends React.Component {
                                                 accessor: 'field5'
                                             }
                                         ]}
-                                            defaultPageSize={5}
+ 
+                                        defaultPageSize={5}
                                             className="-striped -highlight"/>
                                         <br/>
                                         <div className="row">
