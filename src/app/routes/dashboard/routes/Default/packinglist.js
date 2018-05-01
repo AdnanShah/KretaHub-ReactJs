@@ -46,6 +46,10 @@ class Default extends React.Component {
     super();
     this.state = {
       open: false,
+      checkData: true,
+      checkData2: true,
+      checkData3: true,
+      errorMessage: "Please fill in the fields",
       makeData: [
         {
           field1: "Non-DG",
@@ -286,29 +290,60 @@ class Default extends React.Component {
       for (var key in item) {
         if (item[key] == "") {
           console.log("Container 1: 20RF is not Valid", item[key]);
-          this.setState({ open: !this.state.open });
+          this.setState({ open: !this.state.open, checkData: false }, () => {
+            this.changeRoute();
+          });
+        } else {
+          this.setState({ open: true, checkData: true }, () => {
+            this.changeRoute();
+          });
         }
-        // console.log("Valid", item[key]);
       }
     });
+
     this.state.makeData2.forEach((item, index) => {
       for (var key in item) {
         if (item[key] == "") {
           console.log("Container 2: 20RF is not Valid", item[key]);
-          this.setState({ open: !this.state.open });
+          this.setState({ open: !this.state.open, checkData2: false }, () => {
+            this.changeRoute();
+          });
+        } else {
+          this.setState({ open: true, checkData2: true }, () => {
+            this.changeRoute();
+          });
         }
-        // console.log("Valid", item[key]);
       }
     });
+
     this.state.makeData3.forEach((item, index) => {
       for (var key in item) {
         if (item[key] == "") {
           console.log("Container 3: 40GP is not Valid", item[key]);
-          this.setState({ open: !this.state.open });
+          this.setState({ open: !this.state.open, checkData3: false }, () => {
+            this.changeRoute();
+          });
+        } else {
+          this.setState({ open: true, checkData3: true }, () => {
+            this.changeRoute();
+          });
         }
-        // console.log("Valid", item[key]);
       }
     });
+  };
+
+  changeRoute = () => {
+    if (
+      this.state.checkData === true &&
+      this.state.checkData2 === true &&
+      this.state.checkData3 === true
+    ) {
+      this.props.history.push("/mainthankyou");
+      console.log("asddasdad", this.state);
+    }
+  };
+  handleClose = () => {
+    this.setState({ open: false });
   };
 
   render() {
@@ -536,31 +571,26 @@ class Default extends React.Component {
         <div>
           <Snackbar
             anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left"
+              vertical: "top",
+              horizontal: "right"
             }}
             open={this.state.open}
-            autoHideDuration={6000}
+            autoHideDuration={1000}
             onClose={this.handleClose}
             SnackbarContentProps={{
               "aria-describedby": "message-id"
             }}
-            message={<span id="message-id">Note archived</span>}
+            message={<span id="message-id">{this.state.errorMessage}</span>}
             action={[
-              <Button
-                key="undo"
-                color="secondary"
-                size="small"
-                onClick={this.handleClose}
-              >
+              <Button key="undo" color="secondary" size="small" onClick={this.handleClose}>
                 UNDO
               </Button>,
-              <IconButton
+              <Icon
                 key="close"
                 aria-label="Close"
                 color="inherit"
                 onClick={this.handleClose}
-              />
+              >warning</Icon>
             ]}
           />
         </div>
