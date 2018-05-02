@@ -495,6 +495,7 @@ class Default extends React.Component {
               data={this.state.makeData3}
               columns={[
                 {
+                  sortable: false,
                   Header: `Type*`,
                   accessor: "field1",
                   Cell: this.renderEditable3
@@ -582,7 +583,12 @@ class Default extends React.Component {
             }}
             message={<span id="message-id">{this.state.errorMessage}</span>}
             action={[
-              <Button key="undo" color="secondary" size="small" onClick={this.handleClose}>
+              <Button
+                key="undo"
+                color="secondary"
+                size="small"
+                onClick={this.handleClose}
+              >
                 UNDO
               </Button>,
               <Icon
@@ -590,7 +596,9 @@ class Default extends React.Component {
                 aria-label="Close"
                 color="inherit"
                 onClick={this.handleClose}
-              >warning</Icon>
+              >
+                warning
+              </Icon>
             ]}
           />
         </div>

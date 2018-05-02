@@ -7,17 +7,10 @@ import IntlMessages from "util/IntlMessages";
 import MenuItem from "material-ui/Menu/MenuItem";
 import countries from "./jsonDataSource/countries.json";
 import stations from "./jsonDataSource/stations.json";
-import Table, {
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow
-} from "material-ui/Table";
 import { Link } from "react-router-dom";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import { DatePicker } from "material-ui-pickers";
-
 
 const styles = theme => ({
   container: {
@@ -65,6 +58,7 @@ class FreightSearch extends React.Component {
       accessor: "field5"
     },
     {
+      headerStyle: { background: "rgba(0, 0, 0, 0)" },
       Header: "Available Capacity",
       accessor: "field6"
     },
@@ -84,23 +78,23 @@ class FreightSearch extends React.Component {
       Header: "",
       accessor: "age",
       Cell: ({ value }) => (
-       <div rowSpan={2}>
-        <Link
-          to={{
-            pathname: "freightDetail"
-          }}
-        >
-          <Button
-            variant="raised"
-            style={{
-              background: "#29487D",
-              color: "#fff"
+        <div rowSpan={2}>
+          <Link
+            to={{
+              pathname: "freightDetail"
             }}
-            component="span"
           >
-            Details
-          </Button>
-        </Link>
+            <Button
+              variant="raised"
+              style={{
+                background: "#29487D",
+                color: "#fff"
+              }}
+              component="span"
+            >
+              Details
+            </Button>
+          </Link>
         </div>
       )
     }
@@ -248,7 +242,6 @@ class FreightSearch extends React.Component {
                       value={this.props.location.state.key.selectedDate}
                       onChange={this.handleDateChange}
                       animateYearScrolling={false}
-                      placeholder="10/10/2018"
                     />
                   </div>
                   <div className="col-6">
@@ -265,7 +258,6 @@ class FreightSearch extends React.Component {
                       value={this.props.location.state.key.selectedUntilDate}
                       onChange={this.handleUntilDateChange}
                       animateYearScrolling={false}
-                      placeholder="10/10/2018"
                     />
                     <br />
                     <br />
