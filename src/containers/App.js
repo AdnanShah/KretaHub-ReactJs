@@ -177,7 +177,7 @@ class App extends Component {
                          <RestrictedRoute path={`${match.url}app`} authUser={authUser} component={MainApp}/>
                         <Route path='/signin' component={SignIn}/>
                         <Route path='/signup' component={SignUp}/>
-                        <Route path='/thankYou' component={EmailTemplate}/>
+                        {/* <Route path='/thankYou' component={EmailTemplate}/> */}
                         <Route path='/pending' component={PendingTemplate}/>
                         <Route path='/approval' component={ApprovalTemplate}/>
                         <Route path='/mainthankyou' component={ThankYou}/>
@@ -191,6 +191,7 @@ class App extends Component {
                         <Route path='/orderpending' component={OrderPending}/>
                         <Route path='/fullpayment' component={FullPayment}/>
                         <Route path='/fullpaymentreceive' component={FullPaymentReceive}/>
+                        <Route path='/thankYou' component={() => window.location = 'https://assig-4b1ac.firebaseapp.com/'}/>
                     </div>
                 </IntlProvider>
             </MuiThemeProvider>
