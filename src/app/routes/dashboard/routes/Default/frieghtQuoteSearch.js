@@ -10,7 +10,9 @@ import stations from "./jsonDataSource/stations.json";
 import { Link } from "react-router-dom";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import moment from "moment";
 import { DatePicker } from "material-ui-pickers";
+import "./frieghtstyles.css";
 
 const styles = theme => ({
   container: {
@@ -29,7 +31,8 @@ class FreightSearch extends React.Component {
     super();
     this.state = {
       anchorEl: undefined,
-      menuState: false
+      menuState: false,
+      selectedDate: moment()
     };
   }
 
@@ -42,6 +45,10 @@ class FreightSearch extends React.Component {
   };
   handleRequestClose = () => {
     this.setState({ menuState: false });
+  };
+
+  handleDateChange = date => {
+    this.setState({ selectedDate: date });
   };
 
   columns = [
@@ -77,26 +84,59 @@ class FreightSearch extends React.Component {
     {
       Header: "",
       accessor: "age",
-      Cell: ({ value }) => (
-        <div rowSpan={2}>
-          <Link
-            to={{
-              pathname: "freightDetail"
+      Cell: row => (
+        <Link
+          to={{
+            pathname: "freightDetail"
+          }}
+          style={{
+            overflow: "hidden"
+          }}
+          id="links"
+        >
+          <Button
+            variant="raised"
+            style={{
+              width: "4em",
+              background: "#29487D",
+              color: "#fff",
+              marginLeft: "1.5em",
+              marginTop: row.index % 2 == 1 ? "-2.5em" : "auto",
+              marginBottom: row.index % 2 == 0 ? "-2.5em" : "auto"
             }}
+            component="span"
+            onClick={() => console.log("Value: ", row)}
           >
-            <Button
-              variant="raised"
-              style={{
-                background: "#29487D",
-                color: "#fff"
-              }}
-              component="span"
-            >
-              Details
-            </Button>
-          </Link>
-        </div>
+            Details
+          </Button>
+        </Link>
       )
+
+      // Cell: row => (
+      //   <div rowSpan={2}>
+      //     <Link
+      //       to={{
+      //         pathname: "freightDetail"
+      //       }}
+      //     >
+      //       <Button
+      //         variant="raised"
+      //         style={{
+      //           width: "4em",
+      //           background: "#29487D",
+      //           color: "#fff",
+      //           marginLeft: "1.5em",
+      //           marginTop: row.index % 2 == 1 ? "-2.5em" : "auto",
+      //           marginBottom: row.index % 2 == 0 ? "-2.5em" : "auto"
+      //         }}
+      //         component="span"
+      //         onClick={() => console.log("Value: ", row)}
+      //       >
+      //         Details
+      //       </Button>
+      //     </Link>
+      //   </div>
+      // )
     }
   ];
 
@@ -230,19 +270,35 @@ class FreightSearch extends React.Component {
                 <div className="row">
                   <div className="col-6">
                     <label
-                      style={{
-                        marginRight: "20px"
-                      }}
+                      style={
+                        {
+                          // marginRight: "20px"
+                        }
+                      }
                       for="Student"
                     >
                       Departure/Arrival date:
                     </label>
                     <DatePicker
+                      style={{
+                        width: 280,
+                      }}
+                      clearable
+                      container="inline"
+                      keyboard
+                      onChange={this.handleDateChange}
+                      animateYearScrolling={true}
+                      leftArrowIcon={<i className="zmdi zmdi-arrow-back" />}
+                      rightArrowIcon={<i className="zmdi zmdi-arrow-forward" />}
+                      value={this.props.location.state.key.selectedDate}
+                    />
+
+                    {/* <DatePicker
                       keyboard
                       value={this.props.location.state.key.selectedDate}
                       onChange={this.handleDateChange}
                       animateYearScrolling={false}
-                    />
+                    /> */}
                   </div>
                   <div className="col-6">
                     <label
@@ -285,7 +341,7 @@ class FreightSearch extends React.Component {
           <br />
           <br />
           <hr />
-          <ReactTable data={data} columns={this.columns} defaultPageSize={10} />
+          <ReactTable className="target-table -striped -highlight" data={data} columns={this.columns} defaultPageSize={10} />
         </div>
       </Paper>
     );

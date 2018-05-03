@@ -1,0 +1,15 @@
+div.target-table > div.rt-table > div.rt-tbody > div.rt-tr-group{
+  border-bottom: 0px;
+}
+.table-container{
+  padding-left: 15em; 
+  padding-right: 15em;
+  padding-top: 2em;
+}
+@media(max-width: 414px){
+  .table-container{
+      padding-left: 1em; 
+      padding-right: 1em;
+      padding-top: 2em;
+  }
+}
