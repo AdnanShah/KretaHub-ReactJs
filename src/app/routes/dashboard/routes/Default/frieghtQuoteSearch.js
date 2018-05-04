@@ -53,35 +53,42 @@ class FreightSearch extends React.Component {
 
   columns = [
     {
+      sortable: false,
       Header: "Estimated Time of Departure (ETD)",
       accessor: "field1"
     },
     {
+      sortable: false,
       Header: "Estimated Time of Arrival (ETA)",
       accessor: "field3"
     },
     {
+      sortable: false,
       Header: "Train",
       accessor: "field5"
     },
     {
-      headerStyle: { background: "rgba(0, 0, 0, 0)" },
+      sortable: false,
       Header: "Available Capacity",
       accessor: "field6"
     },
     {
+      sortable: false,
       Header: "Station-to-Station",
       accessor: "field7"
     },
     {
+      sortable: false,
       Header: "Door-to-Station",
-      accessor: "field7"
+      accessor: "field8"
     },
     {
+      sortable: false,
       Header: "Door-to-Door",
-      accessor: "field7"
+      accessor: "field9"
     },
     {
+      sortable: false,
       Header: "",
       accessor: "age",
       Cell: row => (
@@ -111,32 +118,6 @@ class FreightSearch extends React.Component {
           </Button>
         </Link>
       )
-
-      // Cell: row => (
-      //   <div rowSpan={2}>
-      //     <Link
-      //       to={{
-      //         pathname: "freightDetail"
-      //       }}
-      //     >
-      //       <Button
-      //         variant="raised"
-      //         style={{
-      //           width: "4em",
-      //           background: "#29487D",
-      //           color: "#fff",
-      //           marginLeft: "1.5em",
-      //           marginTop: row.index % 2 == 1 ? "-2.5em" : "auto",
-      //           marginBottom: row.index % 2 == 0 ? "-2.5em" : "auto"
-      //         }}
-      //         component="span"
-      //         onClick={() => console.log("Value: ", row)}
-      //       >
-      //         Details
-      //       </Button>
-      //     </Link>
-      //   </div>
-      // )
     }
   ];
 
@@ -281,7 +262,7 @@ class FreightSearch extends React.Component {
                     </label>
                     <DatePicker
                       style={{
-                        width: 280,
+                        width: 280
                       }}
                       clearable
                       container="inline"
@@ -341,7 +322,13 @@ class FreightSearch extends React.Component {
           <br />
           <br />
           <hr />
-          <ReactTable className="target-table -striped -highlight" data={data} columns={this.columns} defaultPageSize={10} />
+          <ReactTable
+            sortable={true}
+            className="target-table -striped -highlight"
+            data={data}
+            columns={this.columns}
+            defaultPageSize={10}
+          />
         </div>
       </Paper>
     );
