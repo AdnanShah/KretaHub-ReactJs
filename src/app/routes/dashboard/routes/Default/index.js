@@ -201,7 +201,7 @@ class Default extends React.Component {
                 Departure/Arrival date:
               </label>
               <DatePicker
-                minDate={new Date()}
+                disablePast
                 keyboard
                 value={this.state.selectedDate}
                 onChange={this.handleDateChange}

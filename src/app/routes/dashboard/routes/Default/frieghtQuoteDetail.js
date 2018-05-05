@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import IconButton from "material-ui/IconButton";
 import Paper from "material-ui/Paper";
 import TextField from "material-ui/TextField";
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
-import { DateTimePicker } from "material-ui-pickers";
+import { DateTimePicker, TimePicker, DatePicker } from "material-ui-pickers";
 import { Icon, InputAdornment } from "material-ui";
 
 const styles = theme => ({
@@ -72,11 +72,8 @@ class Freightdetail extends React.Component {
     }
     this.state = {
       anchorEl: undefined,
-      menuState: false,
-      country1: "Algeria",
-      country2: "Australia",
-      currentDate: yyyy + "-" + mm + "-" + dd,
       selectedDate: new Date(),
+      arrivalDate: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
       clearedDate: null,
 
       makeData: [
@@ -124,7 +121,19 @@ class Freightdetail extends React.Component {
     };
   }
   handleDateChange = date => {
-    this.setState({ selectedDate: date });
+    this.setState({ selectedDate: date }, this.untilDate);
+  };
+
+  untilDate = () => {
+    let tt = this.state.selectedDate;
+    let date = new Date(tt);
+    let newdate = new Date(date);
+    newdate.setDate(newdate.getDate() + 1);
+    let dd = newdate.getDate();
+    let mm = newdate.getMonth() + 1;
+    let y = newdate.getFullYear();
+    let someFormattedDate = mm + "/" + dd + "/" + y;
+    this.setState({ arrivalDate: someFormattedDate });
   };
 
   handleClearedDateChange = date => {
@@ -231,50 +240,24 @@ class Freightdetail extends React.Component {
 
                 <div className="row">
                   <label className="col-md-3 col-12" for="email">
-                    Estimated Departure Time:
+                    Closing time:<span className="text-danger">*</span>
                   </label>
                   <div className="col-md-3 col-12">
-                    <DateTimePicker
-                      keyboard
-                      onError={console.log}
-                      minDate={new Date("2018-01-01T00:00")}
-                      value={this.state.selectedDate}
-                      onChange={this.handleDateChange}
-                      format="YYYY/MM/DD hh:mm A"
-                      disableOpenOnEnter
-                      mask={[
-                        /\d/,
-                        /\d/,
-                        /\d/,
-                        /\d/,
-                        "/",
-                        /\d/,
-                        /\d/,
-                        "/",
-                        /\d/,
-                        /\d/,
-                        " ",
-                        /\d/,
-                        /\d/,
-                        ":",
-                        /\d/,
-                        /\d/,
-                        " ",
-                        /a|p/i,
-                        "M"
-                      ]}
-                    />
-
-                    {/* <input
-                      id="date"
-                      label="Date"
-                      type="date"
-                      defaultValue="2017-05-24"
-                      InputLabelProps={{
-                        shrink: true
-                      }}
-                    /> */}
+                    <div style={{ display: "inline-flex", width: "75%" }}>
+                      <DatePicker
+                        style={{ borderRight: "1px solid #3f51b5" }}
+                        value={this.state.selectedDate}
+                        onChange={this.handleDateChange}
+                        animateYearScrolling={false}
+                      />
+                      <TimePicker
+                        ampm={false}
+                        value={new Date(new Date().setHours(2, 0, 0, 0))}
+                        onChange={this.handleDateChange}
+                      />
+                    </div>
                   </div>
+
                   <label className="col-md-3 col-12" for="email">
                     Trip Length :
                   </label>
@@ -285,84 +268,41 @@ class Freightdetail extends React.Component {
 
                 <div className="row">
                   <label className="col-md-3 col-12" for="email">
-                    Actual Departure Time :
+                    Departure Time :
                   </label>
                   <div className="col-md-3 col-12">
-                    <DateTimePicker
-                      keyboard
-                      onError={console.log}
-                      minDate={new Date("2018-01-01T00:00")}
-                      value={this.state.selectedDate}
-                      onChange={this.handleDateChange}
-                      format="YYYY/MM/DD hh:mm A"
-                      disableOpenOnEnter
-                      mask={[
-                        /\d/,
-                        /\d/,
-                        /\d/,
-                        /\d/,
-                        "/",
-                        /\d/,
-                        /\d/,
-                        "/",
-                        /\d/,
-                        /\d/,
-                        " ",
-                        /\d/,
-                        /\d/,
-                        ":",
-                        /\d/,
-                        /\d/,
-                        " ",
-                        /a|p/i,
-                        "M"
-                      ]}
-                    />
+                    <div style={{ display: "inline-flex", width: "75%" }}>
+                      <DatePicker
+                        style={{ borderRight: "1px solid #3f51b5" }}
+                        value={this.state.selectedDate}
+                        onChange={this.handleDateChange}
+                        animateYearScrolling={false}
+                      />
+                      <TimePicker
+                        ampm={false}
+                        value={new Date(new Date().setHours(6, 0, 0, 0))}
+                        onChange={this.handleDateChange}
+                      />
+                    </div>
                   </div>
                   <label className="col-md-3 col-12" for="email">
-                    Estimated Arrival Time :
+                    Arrival Time :
                   </label>
-                  <div className="col-md-3 col-sm-3 col-lg-3 col-12">
-                    <DateTimePicker
-                      keyboard
-                      onError={console.log}
-                      minDate={new Date("2018-01-01T00:00")}
-                      value={this.state.selectedDate}
-                      onChange={this.handleDateChange}
-                      format="YYYY/MM/DD hh:mm A"
-                      disableOpenOnEnter
-                      mask={[
-                        /\d/,
-                        /\d/,
-                        /\d/,
-                        /\d/,
-                        "/",
-                        /\d/,
-                        /\d/,
-                        "/",
-                        /\d/,
-                        /\d/,
-                        " ",
-                        /\d/,
-                        /\d/,
-                        ":",
-                        /\d/,
-                        /\d/,
-                        " ",
-                        /a|p/i,
-                        "M"
-                      ]}
-                    />
 
-                    {/* <input
-                      id="date"
-                      label="Date"
-                      type="date"
-                      defaultValue="2018-04-21"
-                      InputLabelProps={{
-                        shrink: true
-                      }}
-                    /> */}
+                  <div className="col-md-3 col-12">
+                    <div style={{ display: "inline-flex", width: "75%" }}>
+                      <DatePicker
+                        style={{ borderRight: "1px solid #3f51b5" }}
+                        value={this.state.arrivalDate}
+                        onChange={this.handleDateChange}
+                        animateYearScrolling={false}
+                      />
+                      <TimePicker
+                        ampm={false}
+                        value={new Date(new Date().setHours(0, 0, 0, 0))}
+                        onChange={this.handleDateChange}
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -382,10 +322,10 @@ class Freightdetail extends React.Component {
                 </div>
 
                 <div className="row">
-                  <label className="col-md-4 col-12" for="email">
-                    Terms and Conditions:
+                  <label className="col-md-3 col-12" for="email">
+                    Terms and Conditions:<span className="text-danger">*</span>
                   </label>
-                  <div className="col-md-4 col-12">
+                  <div className="col-md-8 col-12">
                     <textarea
                       className="border border-primary rounded"
                       rows="3"
@@ -399,10 +339,10 @@ class Freightdetail extends React.Component {
                 </div>
 
                 <div className="row">
-                  <label className="col-md-4 col-12" for="email">
-                    Incoterm :
+                  <label className="col-md-3 col-12" for="email">
+                    Incoterm:<span className="text-danger">*</span>
                   </label>
-                  <div className="col-md-4 col-12">
+                  <div className="col-md-8 col-12">
                     <p className="border border-primary rounded">
                       {jsonData[0].line10}
                     </p>
