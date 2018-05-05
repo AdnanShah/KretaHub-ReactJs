@@ -231,6 +231,7 @@ class TextFields extends React.Component {
   };
 
   render() {
+    console.log("state",this.state);
     return (
       <div style={divStyle} className="container-fluid">
         <br />
