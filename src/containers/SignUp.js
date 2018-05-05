@@ -15,6 +15,7 @@ import {
   CheckboxValidatorElement
 } from "react-material-ui-form-validator";
 import { withRouter } from "react-router-dom";
+import { DatePicker } from "material-ui-pickers";
 
 const shipments = [
   {
@@ -69,7 +70,8 @@ class TextFields extends React.Component {
         name: ""
       }
     ],
-    submitted: true
+    submitted: true,
+    selectedDate: null
   };
 
   autoFill = () => {
@@ -223,6 +225,9 @@ class TextFields extends React.Component {
   handleOnSubmit = e => {
     this.setState({ submitted: false });
     this.props.history.push(`/thankYou`);
+  };
+  handleDateChange = date => {
+    this.setState({ selectedDate: date });
   };
 
   render() {
@@ -500,7 +505,7 @@ class TextFields extends React.Component {
             </div>
             <br />
             <div className="row">
-              <div className="col-md-6 col-12">
+              <div className="col-md-12 col-12">
                 <TextField
                   id="SIUPNumber"
                   value={this.state.suipNumber}
@@ -510,14 +515,17 @@ class TextFields extends React.Component {
                   fullWidth
                 />
               </div>
-              <div className="col-md-6 col-12">
-                <TextField
-                  value={this.state.suipExpirationDate}
-                  onChange={this.handleChange("suipExpirationDate")}
-                  id="SIUPExpirationDate"
+            </div>
+            <div className="d-flex justify-content-center text-center">
+              <div className="col-md-6 col-12 ">
+                <DatePicker
+                  disablePast
                   label="SIUP Expiration Date"
-                  margin="normal"
-                  fullWidth
+                  keyboard
+                  format="DD/MM/YYYY"
+                  value={this.state.selectedDate}
+                  onChange={this.handleDateChange}
+                  animateYearScrolling={false}
                 />
               </div>
             </div>
