@@ -63,11 +63,24 @@ class TextFields extends React.Component {
     refCountry: countries[75].name,
     officerNumber: "",
     officerName: "",
-    selected: "",
-    Representatives: [{ officerNumber: "" }],
+    Representatives: [
+      {
+        repName: "",
+        repAddress: "",
+        repCity: "",
+        repState: "",
+        repZipCode: "",
+        repPhone: "",
+        repFax: "",
+        repMobile: "",
+        refCountry: countries[75].name
+      }
+    ],
     Officers: [
       {
-        name: ""
+        name: "",
+        number: "",
+        selected: ""
       }
     ],
     submitted: true,
@@ -147,13 +160,9 @@ class TextFields extends React.Component {
       }
     );
 
-    this.setState({ Representatives: newRepresentatives });
-  };
-
-  handleSubmit = evt => {
-    const { name, Representatives } = this.state;
-    alert(
-      `Incorporated: ${name} with ${Representatives.length} Representatives`
+    this.setState(
+      { Representatives: newRepresentatives },
+      this.handleRepState()
     );
   };
 
@@ -161,7 +170,15 @@ class TextFields extends React.Component {
     this.setState({
       Representatives: this.state.Representatives.concat([
         {
-          name: ""
+          repName: "",
+          repAddress: "",
+          repCity: "",
+          repState: "",
+          repZipCode: "",
+          repPhone: "",
+          repFax: "",
+          repMobile: "",
+          refCountry: countries[75].name
         }
       ])
     });
@@ -230,8 +247,17 @@ class TextFields extends React.Component {
     this.setState({ selectedDate: date });
   };
 
+  handleOfficerChange = idx => evt => {
+    const newShareholders = this.state.Officers.map((shareholder, sidx) => {
+      if (idx !== sidx) return shareholder;
+      return { ...shareholder, name: evt.target.value };
+    });
+
+    this.setState({ Officer: newShareholders });
+  };
+
   render() {
-    console.log("state",this.state);
+    console.log("state", this.state);
     return (
       <div style={divStyle} className="container-fluid">
         <br />
@@ -590,8 +616,8 @@ class TextFields extends React.Component {
                         id="name"
                         label="Name"
                         required
-                        value={this.state.repName}
-                        onChange={this.handleChange("repName")}
+                        value={this.state.Representatives.repName}
+                        onChange={this.handleRepresentativeNameChange(idx)}
                         margin="normal"
                         fullWidth
                       />
@@ -606,8 +632,8 @@ class TextFields extends React.Component {
                         required
                         multiline
                         rowsMax="6"
-                        value={this.state.repAddress}
-                        onChange={this.handleChange("repAddress")}
+                        value={this.state.Representatives.repAddress}
+                        onChange={this.handleRepresentativeNameChange(idx)}
                         margin="normal"
                         fullWidth
                       />
@@ -625,6 +651,7 @@ class TextFields extends React.Component {
                         required
                         value={this.state.repCity}
                         onChange={this.handleChangeRepCity("repCity")}
+                        // onChange={this.handleRepresentativeNameChange(idx)}
                         SelectProps={{}}
                         margin="normal"
                         fullWidth
@@ -660,11 +687,10 @@ class TextFields extends React.Component {
 
                     <div className="col-md-6 col-12">
                       <TextField
-                        value={this.state.repZipCode}
-                        onChange={this.handleChange("repZipCode")}
+                        value={this.state.Representatives.repZipCode}
+                        onChange={this.handleRepresentativeNameChange(idx)}
                         id="Zip-Code"
                         label="Zip-Code"
-                        defaultValue="Zip-Code"
                         margin="normal"
                         fullWidth
                       />
@@ -680,7 +706,8 @@ class TextFields extends React.Component {
                         label="Country"
                         required
                         value={this.state.refCountry}
-                        onChange={this.handleChange("refCountry")}
+                        // onChange={this.handleChange("refCountry")}
+                        onChange={this.handleRepresentativeNameChange(idx)}
                         SelectProps={{}}
                         margin="normal"
                         fullWidth
@@ -698,12 +725,11 @@ class TextFields extends React.Component {
                         name="repPhone"
                         validators={["required"]}
                         errorMessages={["this field is required"]}
-                        value={this.state.repPhone}
-                        onChange={this.handleChange("repPhone")}
+                        value={this.state.Representatives.repPhone}
+                        onChange={this.handleRepresentativeNameChange(idx)}
                         id="Phone"
                         label="Phone"
                         required
-                        defaultValue="+62317482303"
                         margin="normal"
                         fullWidth
                       />
@@ -711,18 +737,18 @@ class TextFields extends React.Component {
                     <div className="col-md-6 col-12">
                       <TextField
                         id="fax"
-                        value={this.state.repFax}
-                        onChange={this.handleChange("repFax")}
+                        value={this.state.Representatives.repFax}
+                        onChange={this.handleRepresentativeNameChange(idx)}
                         label="Fax"
                         margin="normal"
                         fullWidth
                       />
                     </div>
-                    <div className="col-md-12 col-12">
+                    <div className="col-md-6 col-12">
                       <TextField
                         id="mobile"
-                        value={this.state.repMobile}
-                        onChange={this.handleChange("repMobile")}
+                        value={this.state.Representatives.repMobile}
+                        onChange={this.handleRepresentativeNameChange(idx)}
                         label="Mobile"
                         margin="normal"
                         fullWidth
@@ -787,8 +813,9 @@ class TextFields extends React.Component {
                       errorMessages={["this field is required"]}
                       id="officersName"
                       label="Officers Name"
-                      value={this.state.officerName}
-                      onChange={this.handleChange("officerName")}
+                      value={this.state.Officers.name}
+                      // onChange={this.handleChange("officerName")}
+                      onChange={this.handleOfficerChange(idx)}
                       margin="normal"
                       fullWidth
                     />
@@ -873,8 +900,8 @@ class TextFields extends React.Component {
                       label="Identity Number"
                       name="IdentityNumber"
                       floatingLabelText="Password"
-                      value={this.state.officerNumber}
-                      onChange={this.handleChange("officerNumber")}
+                      value={this.state.Officers.number}
+                      onChange={this.handleOfficerChange(idx)}
                       id="Identity Number"
                       margin="normal"
                       fullWidth
