@@ -92,7 +92,7 @@ body.ios-mobile-view-height {
 }
 
 div[tabindex="-1"] {
-  z-index: 1500 !important;
+  z-index: 0 !important;
 }
 
 .col-with-divider div[class*="col-"] {
