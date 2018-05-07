@@ -84,10 +84,32 @@ class TextFields extends React.Component {
       }
     ],
     submitted: true,
-    selectedDate: null
+    selectedDate: new Date()
   };
 
   autoFill = () => {
+    const newStateRepresentatives = this.state.Representatives.map(
+      (Representative, sidx) => {
+        if (sidx == 0) {
+          return {
+            ...Representative,
+            repName: "Benny Sukamto",
+            repAddress: "Kalianak Barat 57",
+            repCity: citys[0].capitalName_id,
+            repState: locality[0].name,
+            repZipCode: "10000",
+            repCountry: countries[75].name,
+            repPhone: "+62317482303",
+            repFax: "+62317290363",
+            repMobile: "+628155521198"
+
+            // ...Representative,
+            // [evt.target.name]: evt.target.value
+          };
+        }
+      }
+    );
+
     this.setState({
       submitted: false,
       name: "PT. IndoTech",
@@ -100,22 +122,14 @@ class TextFields extends React.Component {
       suipNumber: "503/8836.A/324.1.18/2018",
       suipExpirationDate: "2/27/2018",
       State: locality[0].name,
-      repName: "Benny Sukamto",
-      repAddress: "Kalianak Barat 57",
-      repCity: citys[0].capitalName_id,
-      repState: locality[0].name,
-      repZipCode: "10000",
-      repCountry: countries[75].name,
-      repPhone: "+62317482303",
-      repFax: "+62317290363",
-      repMobile: "+628155521198",
       officerName: "Haris",
       officerNumber: "12345678910234500000",
       industry: industry[1].industry_name,
       shipment: shipments[0].label,
       city: citys[0].capitalName_id,
       country: countries[75].name,
-      selected: "option1"
+      selected: "option1",
+      Representatives: newStateRepresentatives
     });
   };
 
@@ -140,30 +154,43 @@ class TextFields extends React.Component {
     });
   };
 
-  handleRepState = () => {
+  handleRepState = idx => {
     const result = locality.find(person => {
-      return person.name === this.state.repCity;
+      return person.name === this.state.Representatives[idx].repCity;
     });
-    this.setState({ repState: result.stateName });
+    this.state.Representatives[idx].repState = result.stateName;
+    this.setState({ repStateIdx: result.stateName });
   };
 
   onFileLoad = (e, file) => console.log(e.target.result, file.name);
 
+  handleRepresentativeCityChange = idx => evt => {
+    const newRepresentatives = this.state.Representatives.map(
+      (Representative, sidx) => {
+        if (idx !== sidx) return Representative;
+        return {
+          ...Representative,
+          [evt.target.name]: evt.target.value
+        };
+      }
+    );
+    this.setState({ Representatives: newRepresentatives }, () => {
+      this.handleRepState(idx);
+    });
+    console.log("newRepresentatives", newRepresentatives);
+  };
   handleRepresentativeNameChange = idx => evt => {
     const newRepresentatives = this.state.Representatives.map(
       (Representative, sidx) => {
         if (idx !== sidx) return Representative;
         return {
           ...Representative,
-          name: evt.target.value
+          [evt.target.name]: evt.target.value
         };
       }
     );
-
-    this.setState(
-      { Representatives: newRepresentatives },
-      this.handleRepState()
-    );
+    this.setState({ Representatives: newRepresentatives });
+    console.log("newRepresentatives", newRepresentatives);
   };
 
   handleAddRepresentative = () => {
@@ -649,9 +676,9 @@ class TextFields extends React.Component {
                         select
                         label="City"
                         required
-                        value={this.state.repCity}
-                        onChange={this.handleChangeRepCity("repCity")}
-                        // onChange={this.handleRepresentativeNameChange(idx)}
+                        value={Representative.repCity}
+                        // onChange={this.handleChangeRepCity("repCity")}
+                        onChange={this.handleRepresentativeCityChange(idx)}
                         SelectProps={{}}
                         margin="normal"
                         fullWidth
@@ -674,19 +701,22 @@ class TextFields extends React.Component {
                         select
                         label="State"
                         required
-                        value={this.state.repState}
+                        value={this.state.Representatives[idx].repState}
                         SelectProps={{}}
                         margin="normal"
                         fullWidth
                       >
-                        <MenuItem value={this.state.repState}>
-                          {this.state.repState}
+                        <MenuItem
+                          value={this.state.Representatives[idx].repState}
+                        >
+                          {this.state.Representatives[idx].repState}
                         </MenuItem>
                       </SelectValidator>
                     </div>
 
                     <div className="col-md-6 col-12">
                       <TextField
+                        name="Zip-Code"
                         value={this.state.Representatives.repZipCode}
                         onChange={this.handleRepresentativeNameChange(idx)}
                         id="Zip-Code"
@@ -705,7 +735,7 @@ class TextFields extends React.Component {
                         select
                         label="Country"
                         required
-                        value={this.state.refCountry}
+                        value={Representative.refCountry}
                         // onChange={this.handleChange("refCountry")}
                         onChange={this.handleRepresentativeNameChange(idx)}
                         SelectProps={{}}
@@ -736,6 +766,7 @@ class TextFields extends React.Component {
                     </div>
                     <div className="col-md-6 col-12">
                       <TextField
+                        name="Fax"
                         id="fax"
                         value={this.state.Representatives.repFax}
                         onChange={this.handleRepresentativeNameChange(idx)}
@@ -746,6 +777,7 @@ class TextFields extends React.Component {
                     </div>
                     <div className="col-md-6 col-12">
                       <TextField
+                        name="Mobile"
                         id="mobile"
                         value={this.state.Representatives.repMobile}
                         onChange={this.handleRepresentativeNameChange(idx)}
