@@ -87,7 +87,7 @@ const data = [
   createData("Total Price", null, null, null, " IDR 8,700,000 ")
 ];
 
-class ComposedTextField extends React.Component {
+class Pending extends React.Component {
   state = {
     name: "Composed TextField",
 
@@ -454,7 +454,7 @@ class ComposedTextField extends React.Component {
                 </div>
               </div>
             </div>
-            <Link to="/pendingpage">
+            <Link to="/bookingconform">
               <Button variant="raised" color="default">
                 Next
               </Button>
@@ -466,8 +466,8 @@ class ComposedTextField extends React.Component {
   }
 }
 
-ComposedTextField.propTypes = {
+Pending.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ComposedTextField);
+export default withStyles(styles)(Pending);

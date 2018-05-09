@@ -53,6 +53,7 @@ import PackingList from './PackingList'
 import OrderPending from './OrderPending'
 import FullPayment from './FullPayment'
 import FullPaymentReceive from './FullPaymentReceive'
+import Pending from './Pending'
 import {setInitUrl} from '../actions/Auth';
 
 const RestrictedRoute = ({component: Component, ...rest, authUser}) =>
@@ -181,6 +182,7 @@ class App extends Component {
                         <Route path='/pending' component={PendingTemplate}/>
                         <Route path='/approval' component={ApprovalTemplate}/>
                         <Route path='/mainthankyou' component={ThankYou}/>
+                        <Route path='/pendingpage' component={Pending}/>
                         <Route path='/bookingconform' component={BookingConform}/>
                         <Route path='/downpayment' component={DownPayment}/>
                         <Route path='/orderconformation' component={OrderConformation}/>
