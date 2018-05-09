@@ -1,48 +1,137 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <!--[if !mso]><!-->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--<![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title></title>
   <style type="text/css">
-.ReadMsgBody { width: 100%; background-color: #ffffff; }
-.ExternalClass { width: 100%; background-color: #ffffff; }
-.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
-html { width: 100%; }
-body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; font-family: 'Open Sans', Arial, Sans-serif !important; }
-table { border-spacing: 0; table-layout: fixed; margin: 0 auto; }
-table table table { table-layout: auto; }
-img { display: block !important; overflow: hidden !important; }
-.yshortcuts a { border-bottom: none !important; }
-a { color: #41B3D3; text-decoration: none; }
-img:hover { opacity:0.9 !important;}
-.textbutton a { font-family: 'open sans', arial, sans-serif !important;}
-.btn-link-1 a { color: #FFFFFF !important; }
-.btn-link-2 a { color: #4a4a4a !important; }
-td[class="hide"] { height: 5px !important; max-height: 5px !important; }
+    .ReadMsgBody {
+      width: 100%;
+      background-color: #ffffff;
+    }
 
-/*Responsive*/
-@media only screen and (max-width: 640px) {
-body { width: auto !important; font-family: 'Open Sans', Arial, Sans-serif !important; }
-table[class="table-inner"] { width: 90% !important; text-align: center !important; }
-*.table-full { width: 100%!important; max-width: 100%!important; text-align: center !important; } 
-/* image */
-img[class="img1"] { width: 100% !important; height: auto !important; }
-}
+    .ExternalClass {
+      width: 100%;
+      background-color: #ffffff;
+    }
 
-@media only screen and (max-width: 479px) {
-body { width: auto !important; font-family: 'Open Sans', Arial, Sans-serif !important; }
-table[class="table-inner"] { width: 90% !important; text-align: center !important;}
-*.table-full { width: 100%!important; max-width: 100%!important; text-align: center !important; } 
-/* image */
-img[class="img1"] { width: 100% !important; height: auto !important; }
-}
-</style>
+    .ExternalClass,
+    .ExternalClass p,
+    .ExternalClass span,
+    .ExternalClass font,
+    .ExternalClass td,
+    .ExternalClass div {
+      line-height: 100%;
+    }
+
+    html {
+      width: 100%;
+    }
+
+    body {
+      -webkit-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', Arial, Sans-serif !important;
+    }
+
+    table {
+      border-spacing: 0;
+      table-layout: fixed;
+      margin: 0 auto;
+    }
+
+    table table table {
+      table-layout: auto;
+    }
+
+    img {
+      display: block !important;
+      overflow: hidden !important;
+    }
+
+    .yshortcuts a {
+      border-bottom: none !important;
+    }
+
+    a {
+      color: #41B3D3;
+      text-decoration: none;
+    }
+
+    img:hover {
+      opacity: 0.9 !important;
+    }
+
+    .textbutton a {
+      font-family: 'open sans', arial, sans-serif !important;
+    }
+
+    .btn-link-1 a {
+      color: #FFFFFF !important;
+    }
+
+    .btn-link-2 a {
+      color: #4a4a4a !important;
+    }
+
+    td[class="hide"] {
+      height: 5px !important;
+      max-height: 5px !important;
+    }
+
+    /*Responsive*/
+
+    @media only screen and (max-width: 640px) {
+      body {
+        width: auto !important;
+        font-family: 'Open Sans', Arial, Sans-serif !important;
+      }
+      table[class="table-inner"] {
+        width: 90% !important;
+        text-align: center !important;
+      }
+      *.table-full {
+        width: 100%!important;
+        max-width: 100%!important;
+        text-align: center !important;
+      }
+      /* image */
+      img[class="img1"] {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+
+    @media only screen and (max-width: 479px) {
+      body {
+        width: auto !important;
+        font-family: 'Open Sans', Arial, Sans-serif !important;
+      }
+      table[class="table-inner"] {
+        width: 90% !important;
+        text-align: center !important;
+      }
+      *.table-full {
+        width: 100%!important;
+        max-width: 100%!important;
+        text-align: center !important;
+      }
+      /* image */
+      img[class="img1"] {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -62,7 +151,9 @@ img[class="img1"] { width: 100% !important; height: auto !important; }
                       </tr>
                       <!-- logo -->
                       <tr>
-                        <td align="center" style="line-height:0px;"><img style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/logo.png" alt="logo" /></td>
+                        <td align="center" style="line-height:0px;">
+                          <img class="img-thumbnail" style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/kretahub-mock-icon.png" alt="logo" />
+                        </td>
                       </tr>
                       <!-- end logo -->
                       <tr>
@@ -127,9 +218,14 @@ img[class="img1"] { width: 100% !important; height: auto !important; }
                       </tr>
                       <!-- address -->
                       <tr>
-                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;"> PO Box 16122 Collins Street
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
+                          PO Box 16122 Collins Street
                           <br /> West Victoria 8007 Australia
-                          <br /> Job number : <span style="color:#3b3b3b"> <strong>AB12345</strong> </span></td>
+                          <br /> Job number :
+                          <span style="color:#3b3b3b">
+                            <strong>AB12345</strong>
+                          </span>
+                        </td>
                       </tr>
                       <!-- end address -->
                       <tr>
@@ -157,6 +253,37 @@ img[class="img1"] { width: 100% !important; height: auto !important; }
           <!-- header -->
           <tr>
             <td>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+
               <table class="table-inner" width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td width="263" align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px; text-transform:uppercase;">description</td>
@@ -305,7 +432,8 @@ img[class="img1"] { width: 100% !important; height: auto !important; }
                 </tr>
                 <!-- content -->
                 <tr>
-                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;"> Envato is an ecosystem of sites to help you get creative. It includes Envato Market, the leading marketplace for images, themes, project files and creative assets. </td>
+                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;"> Envato is an ecosystem of sites to help you get creative. It includes Envato Market, the leading marketplace
+                    for images, themes, project files and creative assets. </td>
                 </tr>
                 <!-- end content -->
                 <tr>
@@ -335,7 +463,9 @@ img[class="img1"] { width: 100% !important; height: auto !important; }
                   <td align="center">
                     <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td align="center" style="line-height:0px;"><img style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/phone.png" alt="img" /></td>
+                        <td align="center" style="line-height:0px;">
+                          <img style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/phone.png" alt="img" />
+                        </td>
                         <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px; padding-left:15px;">+62 987 654 3210</td>
                       </tr>
                     </table>
@@ -356,7 +486,9 @@ img[class="img1"] { width: 100% !important; height: auto !important; }
                   <td align="center">
                     <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td align="center" style="line-height:0px;"><img style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/mail.png" alt="img" /></td>
+                        <td align="center" style="line-height:0px;">
+                          <img style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/mail.png" alt="img" />
+                        </td>
                         <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;padding-left: 15px;">koble@someone.com</td>
                       </tr>
                     </table>
@@ -377,7 +509,11 @@ img[class="img1"] { width: 100% !important; height: auto !important; }
                   <td align="center">
                     <table class="table-inner" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;"><a href="#">webversion</a> <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span> <a href="#">unsubscribe</a></td>
+                        <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
+                          <a href="#">webversion</a>
+                          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                          <a href="#">unsubscribe</a>
+                        </td>
                       </tr>
                     </table>
                   </td>

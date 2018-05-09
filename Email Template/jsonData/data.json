@@ -21,6 +21,15 @@ data = `[
         "heading": "Your Shipper Signup request has been approved. You can now get freight quotes and book your freight conveniently.",
         "subHeading": "and login using your email address and password, or click the button below.",
         "companyName": "KretaHub"
-    }
-
+    
+    },{
+        "heading": "Your Shipper Signup Request is Being Processed",
+        "subHeading": "Thank you for signing up as a shipper on KretaHub.",
+        "subHeading2": "Shipper Information",
+        "userName": "PT. Indotech",
+        "userEmail": "indotech@gmail.com",
+        "conformNote":
+          "We will notify you by email when your request has been approved.",
+        "followUs": "In the mean time, you can follow us on:"
+      }
     ]`;
