@@ -2,6 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--<![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title></title>
   <style type="text/css">
     .ReadMsgBody {
@@ -134,7 +136,9 @@
   </style>
 </head>
 
-<body>
+<body onload="loadUser()">
+  <div id="target">Loading...</div>
+  <script id="template" type="x-tmpl-mustache">
   <!-- header -->
   <table bgcolor="#f8f8f8" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -152,25 +156,13 @@
                       <!-- logo -->
                       <tr>
                         <td align="center" style="line-height:0px;">
-                          <img class="img-thumbnail" style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/kretahub-mock-icon.png" alt="logo" />
+                          <img class="img-thumbnail" style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/kretahub-mock-icon.png"
+                            alt="logo" />
                         </td>
                       </tr>
                       <!-- end logo -->
                       <tr>
                         <td height="40"></td>
-                      </tr>
-                      <!-- company name -->
-                      <tr>
-                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#FFFFFF; line-height:26px; font-weight: bold;">Koble Pty Ltd</td>
-                      </tr>
-                      <!-- end company name -->
-                      <tr>
-                        <td height="5"></td>
-                      </tr>
-                      <!-- address -->
-                      <tr>
-                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#FFFFFF; line-height:26px;"> 121 King Street, Melbourne
-                          <br /> Victoria 3000 Australia </td>
                       </tr>
                       <!-- end address -->
                       <tr>
@@ -190,7 +182,9 @@
                       </tr>
                       <!-- title -->
                       <tr>
-                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:38px; color:#3b3b3b; line-height:26px;">INVOICE</td>
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:38px; color:#3b3b3b; line-height:34px;">
+                          Your Order is Being Verified
+                        </td>
                       </tr>
                       <!-- end title -->
                       <tr>
@@ -210,7 +204,7 @@
                       </tr>
                       <!-- company name -->
                       <tr>
-                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px; font-weight: bold;">John doe</td>
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px; font-weight: bold;">{{main.subHeading2}}</td>
                       </tr>
                       <!-- end company name -->
                       <tr>
@@ -219,12 +213,7 @@
                       <!-- address -->
                       <tr>
                         <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
-                          PO Box 16122 Collins Street
-                          <br /> West Victoria 8007 Australia
-                          <br /> Job number :
-                          <span style="color:#3b3b3b">
-                            <strong>AB12345</strong>
-                          </span>
+                          {{main.subHeading1}}
                         </td>
                       </tr>
                       <!-- end address -->
@@ -241,117 +230,12 @@
       </td>
     </tr>
   </table>
-  <!-- end header -->
-  <!-- title -->
-  <table width="100%" align="center" bgcolor="#FFFFFF" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td align="center">
-        <table align="center" width="600" style="max-width:600px;" class="table-full" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td height="50"></td>
-          </tr>
-          <!-- header -->
-          <tr>
-            <td>
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <table class="table-inner" width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td width="263" align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px; text-transform:uppercase;">description</td>
-                  <td width="87" align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px; text-transform:uppercase;">PRICE</td>
-                  <td width="87" align="center" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px; text-transform:uppercase;">AMOUNT</td>
-                  <td width="87" align="right" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px; text-transform:uppercase;">TOTAL</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- end header -->
-          <tr>
-            <td height="10" style="border-bottom:3px solid #bcbcbc;"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-  <!-- end title -->
-  <!-- list -->
-  <table align="center" width="100%" bgcolor="#FFFFFF" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td align="center">
-        <table width="600" style="max-width: 600px;" class="table-full" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td height="35"></td>
-          </tr>
-          <tr>
-            <td align="center">
-              <table width="100%" class="table-inner" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td width="263" align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#3b3b3b; line-height:26px;  font-weight: bold;">Web design</td>
-                  <td width="87" align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#3b3b3b; line-height:26px;  font-weight: bold;">$25</td>
-                  <td width="87" align="center" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#3b3b3b; line-height:26px;  font-weight: bold;">18</td>
-                  <td width="87" align="right" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#3b3b3b; line-height:26px;  font-weight: bold;">$450</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td height="5" style="border-bottom:1px solid #ecf0f1;"></td>
-          </tr>
-          <tr>
-            <td height="5"></td>
-          </tr>
-          <!-- detail -->
-          <tr>
-            <td align="center">
-              <table class="table-inner" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:12px; color:#7f8c8d; line-height:26px;">Web Design and front end development.</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- end detail -->
-        </table>
-      </td>
-    </tr>
-  </table>
-  <!-- end list -->
-  <!-- total -->
   <table align="center" width="100%" bgcolor="#FFFFFF" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td align="center">
         <table width="600" class="table-full" style="max-width: 600px;" align="center" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td height="40" style="border-bottom:3px solid #3b3b3b;"></td>
+            <!-- <td height="40" style="border-bottom:3px solid #3b3b3b;"></td> -->
           </tr>
         </table>
         <table align="center" width="600" style="max-width: 600px;" class="table-full" border="0" cellspacing="0" cellpadding="0">
@@ -359,49 +243,7 @@
             <td height="15"></td>
           </tr>
           <tr>
-            <td align="center">
-              <table width="400" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td bgcolor="#f8f8f8" align="center">
-                    <table class="table-inner" align="center" width="90%" border="0" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td height="10"></td>
-                      </tr>
-                      <tr>
-                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:12px; color:#3b3b3b; line-height:26px; text-transform:uppercase;line-height:24px;">taxes / fees</td>
-                      </tr>
-                      <tr>
-                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:24px; color:#3b3b3b;  font-weight: bold;">+$50 USD</td>
-                      </tr>
-                      <tr>
-                        <td height="15"></td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-              <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-              <table width="200" class="table-full" border="0" align="right" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td align="center" bgcolor="#e1e6e7">
-                    <table class="table-inner" width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td height="10"></td>
-                      </tr>
-                      <tr>
-                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:12px; color:#3b3b3b; line-height:26px; text-transform:uppercase;line-height:24px;">Total</td>
-                      </tr>
-                      <tr>
-                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:24px; color:#3b3b3b;  font-weight: bold;">$1,150 USD</td>
-                      </tr>
-                      <tr>
-                        <td height="15"></td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            </td>
+
           </tr>
           <tr>
             <td height="15"></td>
@@ -419,34 +261,185 @@
           <tr>
             <td width="600" align="center">
               <table align="center" width="100%" class="table-inner" border="0" cellspacing="0" cellpadding="0">
-                <tr>
+                <!-- <tr>
                   <td height="40"></td>
-                </tr>
+                </tr> -->
                 <!-- title -->
-                <tr>
+                <!-- <tr>
                   <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Notes</td>
-                </tr>
+                </tr> -->
                 <!-- end title -->
-                <tr>
+                <!-- <tr>
                   <td height="5"></td>
-                </tr>
+                </tr> -->
                 <!-- content -->
                 <tr>
-                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;"> Envato is an ecosystem of sites to help you get creative. It includes Envato Market, the leading marketplace
-                    for images, themes, project files and creative assets. </td>
+                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; line-height:26px;">
+                    <div class="container">
+                      <div class="row" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
+                        <div class="col-3">
+                          Order:
+                        </div>
+                        <div class="col-3">
+                          #001
+                        </div>
+                      </div>
+                      <div class="row mt-3 mb-3">
+                        <div class="col-3">Shipper </div>
+                        <div class="col-3">{{main.shipper}}</div>
+                      </div>
+                      <div class="row">
+                        <label class="col-md-3 col-12">
+                          Departure :
+                        </label>
+                        <div class="col-md-3 col-12">
+                          <p>{{main.line1}}</p>
+                        </div>
+                        <label class="col-md-3 col-12">
+                          Arrival :
+                        </label>
+                        <div class="col-md-3 col-12">
+                          <p>{{main.line5}}</p>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <label class="col-md-3 col-12">
+                          Closing time:
+                          <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-md-3 col-12">
+                          <div style="display: 'inline-flex'; width: '65%' ">
+                            <span style="width:65%;border-right: 1px solid red;
+                            " class="span2" size="16">{{main.closingDate}}</span>
+                            <span>{{main.closingTime}}</span>
+                            
+                          </div>
+                        </div>
+
+                        <label class="col-md-3 col-12">
+                          Trip Length :
+                        </label>
+                        <div class="col-md-3 col-12">
+                          <p>{{main.line6}}</p>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <label class="col-md-3 col-12">
+                          Departure Time :
+                        </label>
+                        <div class="col-md-3 col-12">
+                          <div style="display: 'inline-flex'; width: '65%' ">
+                            <span style="width:65%;border-right: 1px solid red;
+                            " class="span2" size="16">{{main.departureDate}}</span>
+                            <span>{{main.departureTime}}</span>
+                            
+                          </div>
+                        </div>
+                        <label class="col-md-3 col-12">
+                          Arrival Time :
+                        </label>
+
+                        <div class="col-md-3 col-12">
+                          <div style="display: 'inline-flex'; width: '65%' ">
+                            <span style="width:65%;border-right: 1px solid red;
+                            " class="span2" size="16">{{main.arrivalDate}}</span>
+                            <span>{{main.arrivalTime}}</span>
+                            
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <label class="col-md-3 col-12">
+                          Train Name:
+                        </label>
+                        <div class="col-md-3 col-12">
+                          <p class="">{{main.line4}}</p>
+                        </div>
+                        <label class="col-md-3 col-12">
+                          Train Number :
+                        </label>
+                        <div class="col-md-3 col-12">
+                          <p class="">{{main.line8}}</p>
+                        </div>
+                      </div>
+
+                      <div class="row mb-2">
+                        <label class="col-md-4 col-12">
+                          Terms and Conditions:
+                        </label>
+                        <div class="col-md-8 col-12">
+                          <textarea disabled class="border border-primary rounded" rows="3" style="min-width: 100%">
+                          {{main.line9}}
+                          </textarea>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <label class="col-md-4 col-12">
+                          Incoterm:
+                          <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-md-8 col-12">
+                          <p disabled class="border border-primary rounded">
+                            {{main.line10}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </td>
                 </tr>
-                <!-- end content -->
-                <tr>
-                  <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
-                </tr>
-              </table>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Container type</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Qty</th>
+                      <th scope="col">Capacity</th>
+                      <th scope="col">Subtotal</th>
+                    </tr>
+                  </thead>
+                  {{#row}}
+                  <tbody>
+                    <tr>
+                      <td>{{field1}}</td>
+                      <td class="float-right">{{field2}}</td>
+                      <td >{{field3}}</td>
+                      <td>{{field4}}</td>
+                      <td class="float-right">{{field5}}</td>
+                    </tr>
+                  </tbody>
+                  {{/row}}
+                </table>
+
+          </tr>
+          <!-- end content -->
+          <tr>
+            <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Ancillary Price:
+              <span class="float-right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">{{main.price}}</span>
             </td>
           </tr>
-        </table>
-      </td>
+          <tr>
+            <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Total:
+              <span class="float-right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">{{main.total}}</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
+          </tr>
+          </table>
+          </td>
+    </tr>
+    </table>
+    </td>
     </tr>
   </table>
   <!-- end note -->
+
   <!-- footer -->
   <table align="center" width="100%" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0">
     <tr>
@@ -462,12 +455,6 @@
                 <tr>
                   <td align="center">
                     <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td align="center" style="line-height:0px;">
-                          <img style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/phone.png" alt="img" />
-                        </td>
-                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px; padding-left:15px;">+62 987 654 3210</td>
-                      </tr>
                     </table>
                   </td>
                 </tr>
@@ -481,15 +468,16 @@
               </table>
               <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
               <!--middle-->
-              <table width="180" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
+              <table width="180" class="table-full" align="right" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
                     <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" style="line-height:0px;">
-                          <img style="display:block;font-size:0px; border:0px; line-height:0px;" src="images/mail.png" alt="img" />
+                          <img style="display:block;font-size:0px; border:0px; line-height:0px;width:30px;" src="images/kretahub-mock-icon.png" alt="img"
+                          />
                         </td>
-                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;padding-left: 15px;">koble@someone.com</td>
+                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;padding-left: 15px;">KretaHub@someone.com</td>
                       </tr>
                     </table>
                   </td>
@@ -504,16 +492,16 @@
               </table>
               <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
               <!--right-->
-              <table width="180" class="table-full" align="right" border="0" cellpadding="0" cellspacing="0">
+              <table width="180" class="table-full" align="center" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
                     <table class="table-inner" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
+                        <!-- <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
                           <a href="#">webversion</a>
                           <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                           <a href="#">unsubscribe</a>
-                        </td>
+                        </td> -->
                       </tr>
                     </table>
                   </td>
@@ -530,6 +518,11 @@
     </tr>
   </table>
   <!-- end footer -->
+</script>
+  
 </body>
+<script src="js/jquery.js"></script>
+<script src="js/mustache.js"></script>
+<script src="js/orderpending.js"></script>
 
 </html>

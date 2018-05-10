@@ -281,8 +281,8 @@ class TextFields extends React.Component {
         <Header/>
         <br />
         <div className="mt-5">
-          <div class="form-row text-center">
-            <div class="col-12">
+          <div className="form-row text-center">
+            <div className="col-12">
               <Button
                 onClick={this.autoFill}
                 variant="raised"
