@@ -139,7 +139,6 @@
 <body onload="loadUser()">
   <div id="target">Loading...</div>
   <script id="template" type="x-tmpl-mustache">
-  
   <!-- header -->
   <table bgcolor="#f8f8f8" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -184,7 +183,7 @@
                       <!-- title -->
                       <tr>
                         <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:38px; color:#3b3b3b; line-height:34px;">
-                          Your Order is Being Verified
+                          Booking #0001 Accepted - Please Pay Down Payment
                         </td>
                       </tr>
                       <!-- end title -->
@@ -277,11 +276,61 @@
                 <tr>
                   <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; line-height:26px;">
                     <div class="container">
-                      <div class="row" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                        <div class="col-3">
+                        <div class="row">
+                            <label class="col-md-4 col-12">Order :</label>
+                            <div class="col-md-4 col-12">
+                                <p class="">{{main.field1}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 col-12">Order Total :</label>
+                            <div class="col-md-4 col-12">
+                                <p class="">{{main.field2}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 col-12">Minimum Down-Payment :</label>
+                            <div class="col-md-4 col-12">
+                                <p class="">{{main.field3}}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <u>Please make payment to :</u>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 col-12">Bank :</label>
+                            <div class="col-md-4 col-12">
+                                <p class="">{{main.field4}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 col-12">Account name :</label>
+                            <div class="col-md-4 col-12">
+                                <p class="">{{main.field5}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 col-12">Account number :</label>
+                            <div class="col-md-4 col-12">
+                                <p class="">{{main.field6}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 col-12">Branch :</label>
+                            <div class="col-md-4 col-12">
+                                <p class="">{{main.field7}}</p>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12 col-12">
+                                <u>Your order details are shown below htmlFor your reference :</u>
+                            </div>
+                        </div>
+                      <div class="row pl-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
+                        <div class="col-3 bg-dark text-light">
                           Order:
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 bg-dark text-light">
                           #001
                         </div>
                       </div>
@@ -430,13 +479,6 @@
             </td>
           </tr>
 
-          
-          <tr>
-              <td height="15" >
-                Best regards,
-                <br> KretaHub
-              </td>
-            </tr>
           <tr>
             <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
           </tr>
@@ -477,11 +519,16 @@
               </table>
               <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
               <!--middle-->
-              <table width="180" class="table-full" align="right" border="0" cellpadding="0" cellspacing="0">
+              <table width="100%" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td align="center">
-                    <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
-                      
+                  <td align="left">
+                    <table width="90%" align="left" border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="left">
+                            Best regards, <br/>
+                            KretaHub
+                        </td>
+                       </tr>
                     </table>
                   </td>
                 </tr>
@@ -499,13 +546,13 @@
                 <tr>
                   <td align="center">
                     <table class="table-inner" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
-                              <a href="#">kretahub</a>
-                              <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                              <a href="#">unsubscribe</a>
-                            </td>
-                          </tr>
+                      <tr>
+                         <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
+                            <a href="#">kretahub</a>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <a href="#">unsubscribe</a>
+                          </td>
+                      </tr>
                     </table>
                   </td>
                 </tr>
@@ -522,6 +569,7 @@
   </table>
   <!-- end footer -->
 </script>
+
 
 </body>
 <script src="js/jquery.js"></script>

@@ -138,7 +138,7 @@
 
 <body onload="loadUser()">
   <div id="target">Loading...</div>
-  <script id="template" type="x-tmpl-mustache">
+  <script id="template" type="x-tmpl-mustache">    
   
   <!-- header -->
   <table bgcolor="#f8f8f8" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -184,7 +184,7 @@
                       <!-- title -->
                       <tr>
                         <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:38px; color:#3b3b3b; line-height:34px;">
-                          Your Order is Being Verified
+                          Booking #0001 Confirmed
                         </td>
                       </tr>
                       <!-- end title -->
@@ -215,6 +215,16 @@
                       <tr>
                         <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
                           {{main.subHeading1}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
+                          {{main.subHeading3}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
+                          {{main.subHeading4}}
                         </td>
                       </tr>
                       <!-- end address -->
@@ -277,17 +287,21 @@
                 <tr>
                   <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; line-height:26px;">
                     <div class="container">
-                      <div class="row" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                        <div class="col-3">
+                      <div class="row pl-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
+                        <div class="col-3 bg-dark text-light">
                           Order:
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 bg-dark text-light">
                           #001
                         </div>
                       </div>
                       <div class="row mt-3 mb-3">
                         <div class="col-3">Shipper </div>
                         <div class="col-3">{{main.shipper}}</div>
+                      </div>
+                      <div class="row mt-3 mb-3">
+                        <div class="col-3">Carrier </div>
+                        <div class="col-6">{{main.carrier}}</div>
                       </div>
                       <div class="row">
                         <label class="col-md-3 col-12">
@@ -398,17 +412,17 @@
                   <thead>
                     <tr>
                       <th scope="col">Container type</th>
-                      <th scope="col">Price</th>
+                      <th scope="col">-</th>
                       <th scope="col">Qty</th>
                       <th scope="col">Capacity</th>
-                      <th scope="col">Subtotal</th>
+                      <th scope="col">-</th>
                     </tr>
                   </thead>
                   {{#row}}
                   <tbody>
                     <tr>
                       <td>{{field1}}</td>
-                      <td class="float-right">{{field2}}</td>
+                      <td class="float-right">{{}}</td>
                       <td>{{field3}}</td>
                       <td>{{field4}}</td>
                       <td class="float-right">{{field5}}</td>
@@ -417,26 +431,15 @@
                   {{/row}}
                 </table>
 
+                <tr>
+                  <td height="15" >
+                    Best regards,
+                    <br> KretaHub
+                  </td>
+                </tr>
           </tr>
           <!-- end content -->
-          <tr>
-            <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Ancillary Price:
-              <span class="float-right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">{{main.price}}</span>
-            </td>
-          </tr>
-          <tr>
-            <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Total:
-              <span class="float-right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">{{main.total}}</span>
-            </td>
-          </tr>
 
-          
-          <tr>
-              <td height="15" >
-                Best regards,
-                <br> KretaHub
-              </td>
-            </tr>
           <tr>
             <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
           </tr>
@@ -477,11 +480,17 @@
               </table>
               <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
               <!--middle-->
-              <table width="180" class="table-full" align="right" border="0" cellpadding="0" cellspacing="0">
+              <table width="100%" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td align="center">
-                    <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
-                      
+                  <td align="left">
+                    <table width="90%" align="left" border="0" cellpadding="0" cellspacing="0">
+                      <!-- <tr>
+                        <td align="center" style="line-height:0px;">
+                          <img style="display:block;font-size:0px; border:0px; line-height:0px;width:30px;" src="images/kretahub-mock-icon.png" alt="img"
+                          />
+                        </td>
+                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;padding-left: 15px;">KretaHub@someone.com</td>
+                      </tr> -->
                     </table>
                   </td>
                 </tr>
@@ -499,13 +508,13 @@
                 <tr>
                   <td align="center">
                     <table class="table-inner" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
-                              <a href="#">kretahub</a>
-                              <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                              <a href="#">unsubscribe</a>
-                            </td>
-                          </tr>
+                      <tr>
+                        <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
+                          <a href="#">kretahub</a>
+                          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                          <a href="#">unsubscribe</a>
+                        </td>
+                      </tr>
                     </table>
                   </td>
                 </tr>
@@ -522,10 +531,10 @@
   </table>
   <!-- end footer -->
 </script>
-
+  
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/mustache.js"></script>
-<script src="js/bookingconform.js"></script>
+<script src="js/deliverynotice.js"></script>
 
 </html>
