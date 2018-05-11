@@ -205,7 +205,6 @@ class ComposedTextField extends React.Component {
       <Paper>
         <div
           className="row m-0 p-5"
-       
           style={{
             background: "#eee"
           }}
@@ -434,9 +433,11 @@ class ComposedTextField extends React.Component {
             </div>
           </div>
         </div>
-        <a href="https://assignmenttablefabodiamond.firebaseapp.com/Order%20Pending.html">
-          Next
-        </a>
+        <Button variant="raised" className="m-2">
+          <a href="https://assignmenttablefabodiamond.firebaseapp.com/Order%20Pending.html">
+            Next
+          </a>
+        </Button>
       </Paper>
     );
   }

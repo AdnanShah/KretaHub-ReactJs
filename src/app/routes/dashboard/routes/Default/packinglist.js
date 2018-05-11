@@ -338,7 +338,7 @@ class Default extends React.Component {
       this.state.checkData2 === true &&
       this.state.checkData3 === true
     ) {
-      this.props.history.push("/mainthankyou");
+      this.props.history.push("/app/dashboard/mainthankyou");
       console.log("asddasdad", this.state);
     }
   };
