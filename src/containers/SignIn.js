@@ -71,6 +71,10 @@ class SignIn extends React.Component {
     this.setState({ submitted: false });
     this.props.history.push(`/app/dashboard/default`);
   };
+  
+  componentWillMount() {
+    document.title = 'Shipper LogIn - KretaHub'
+  }
 
   render() {
     const { email, password } = this.state;

@@ -207,6 +207,10 @@ class Freightdetail extends React.Component {
       />
     );
   };
+  componentWillMount() {
+    document.title = 'Frieght Quote Details - KretaHub'
+  }
+
 
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
@@ -354,6 +358,7 @@ class Freightdetail extends React.Component {
                 <div className="col-sm-12">
                   <div className="p-a">
                     <ReactTable
+                      showPagination={false}
                       data={this.state.makeData}
                       columns={[
                         {

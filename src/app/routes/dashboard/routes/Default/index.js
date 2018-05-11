@@ -91,6 +91,10 @@ class Default extends React.Component {
       );
     }
   };
+  
+  componentWillMount() {
+    document.title = 'Shipper Dashboard - KretaHub'
+  }
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;

@@ -273,6 +273,9 @@ class TextFields extends React.Component {
 
     this.setState({ Officers: newShareholders });
   };
+  componentWillMount() {
+    document.title = 'Shipper SignUp - KretaHub'
+  }
 
   render() {
     console.log("state", this.state);
@@ -819,8 +822,7 @@ class TextFields extends React.Component {
                         errorMessages={["this field is required"]}
                         id="officersName"
                         label="Officers Name"
-                        value={Officer.officerName}
-                        // onChange={this.handleChange("officerName")}
+                        value={this.state.Officers[idx].officerName}
                         onChange={this.handleOfficerChange(idx)}
                         margin="normal"
                         fullWidth

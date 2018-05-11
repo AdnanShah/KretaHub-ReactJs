@@ -345,6 +345,9 @@ class Default extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
+  componentWillMount() {
+    document.title = 'Shipper PackingList  - KretaHub'
+  }
 
   render() {
     return (
@@ -357,6 +360,7 @@ class Default extends React.Component {
               Container 1: 20RF
             </h2>
             <ReactTable
+              showPagination={false}
               name="table1"
               className="-striped -highlight"
               sortable={false}
@@ -423,6 +427,8 @@ class Default extends React.Component {
               Container 2: 20RF
             </h2>
             <ReactTable
+              showPagination={false}
+              eactTable
               className="-striped -highlight"
               sortable={false}
               defaultPageSize={2}
@@ -489,6 +495,7 @@ class Default extends React.Component {
               Container 3: 40GP
             </h2>
             <ReactTable
+              showPagination={false}
               className="-striped -highlight"
               sortable={false}
               defaultPageSize={2}

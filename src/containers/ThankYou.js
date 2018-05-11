@@ -216,6 +216,9 @@ class ComposedTextField extends React.Component {
     );
   };
 
+  componentWillMount() {
+    document.title = 'Shipper Order - KretaHub'
+  }
   render() {
     const { classes } = this.props;
 
@@ -454,11 +457,7 @@ class ComposedTextField extends React.Component {
                 </div>
               </div>
             </div>
-            <Link to="/pendingpage">
-              <Button variant="raised" color="default">
-                Next
-              </Button>
-            </Link>
+            <a href="https://assignmenttablefabodiamond.firebaseapp.com/">Next</a>
           </Paper>
         </div>
       </div>

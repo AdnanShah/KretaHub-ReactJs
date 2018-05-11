@@ -121,6 +121,10 @@ class FreightSearch extends React.Component {
     }
   ];
 
+  componentWillMount() {
+    document.title = 'Frieght Quote Search - KretaHub'
+  }
+
   render() {
     try {
       this.props.location.state.key;
