@@ -68,8 +68,8 @@ class TextFields extends React.Component {
     ],
     Officers: [
       {
-        name: "",
-        number: "",
+        officerName: "",
+        officerNumber: "",
         selected: ""
       }
     ],
@@ -210,18 +210,6 @@ class TextFields extends React.Component {
     });
   };
 
-  handleOfficerNameChange = idx => evt => {
-    const newOfficers = this.state.Officers.map((Officer, sidx) => {
-      if (idx !== sidx) return Officer;
-      return {
-        ...Officer,
-        name: evt.target.value
-      };
-    });
-
-    this.setState({ Officers: newOfficers });
-  };
-
   handleSubmit = evt => {
     const { name, Officers } = this.state;
     alert(`Incorporated: ${name} with ${Officers.length} Officers`);
@@ -270,18 +258,17 @@ class TextFields extends React.Component {
       if (idx !== sidx) return shareholder;
       return { ...shareholder, [evt.target.name]: evt.target.value };
     });
-
     this.setState({ Officers: newShareholders });
   };
   componentWillMount() {
-    document.title = 'Shipper SignUp - KretaHub'
+    document.title = "Shipper SignUp - KretaHub";
   }
 
   render() {
     console.log("state", this.state);
     return (
       <div style={divStyle} className="container-fluid">
-        <Header/>
+        <Header />
         <br />
         <div className="mt-5">
           <div className="form-row text-center">
@@ -598,17 +585,15 @@ class TextFields extends React.Component {
               <br />
               <br />
               <div>
-                <Paper>
-                  <h1
-                    style={{
-                      background: "#4267B2",
-                      color: "#fff",
-                      textAlign: "center"
-                    }}
-                  >
-                    Representatives
-                  </h1>
-                </Paper>
+                <h1
+                  style={{
+                    background: "#4267B2",
+                    color: "#fff",
+                    textAlign: "center"
+                  }}
+                >
+                  Representatives
+                </h1>
                 {this.state.Representatives.map((Representative, idx) => (
                   <div>
                     <h2>#{idx + 1}</h2>
@@ -801,164 +786,166 @@ class TextFields extends React.Component {
               </div>
               <br />
               <br />
-              <h1
-                style={{
-                  background: "#4267B2",
-                  color: "#fff",
-                  textAlign: "center"
-                }}
-              >
-                Officers
-              </h1>
-              {this.state.Officers.map((Officer, idx) => (
-                <div>
-                  <h2>#{idx + 1}</h2>
-                  <div className="row">
-                    <div className="col">
-                      <TextValidator
-                        required
-                        name="officerName"
-                        validators={["required"]}
-                        errorMessages={["this field is required"]}
-                        id="officersName"
-                        label="Officers Name"
-                        value={this.state.Officers[idx].officerName}
-                        onChange={this.handleOfficerChange(idx)}
-                        margin="normal"
-                        fullWidth
-                      />
-                    </div>
-                  </div>
-                  <br />
-                  <div className="row">
-                    <div className="col">
-                      <h3>Identity Type*</h3>
-                    </div>
-                    <div className="col">
-                      <div className="form-check form-check-inline">
-                        <label className="form-check-label">
-                          <input
-                            className="form-check-input"
-                            type="radio"
-                            name="selected"
-                            id="inlineRadio1"
-                            value="option1"
-                            defaultChecked={Officer.selected === "option1"}
-                            onChange={this.handleOfficerChange(idx)}
-                          />
-                          Citizen ID Card
-                        </label>
-                      </div>
-                      <div className="form-check form-check-inline">
-                        <label className="form-check-label">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="selected"
-                            id="inlineRadio2"
-                            value="option2"
-                            defaultChecked={Officer.selected === "option2"}
-                            onChange={this.handleOfficerChange(idx)}
-                          />
-                          Driver's License
-                        </label>
-                      </div>
-                      <div className="form-check form-check-inline disabled">
-                        <label className="form-check-label">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="selected"
-                            id="inlineRadio3"
-                            value="option3"
-                            defaultChecked={Officer.selected === "option3"}
-                            onChange={this.handleOfficerChange(idx)}
-                          />
-                          Residency Permit
-                        </label>
-                      </div>
-                      <div className="form-check form-check-inline disabled">
-                        <label className="form-check-label">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="selected"
-                            id="inlineRadio3"
-                            value="option4"
-                            defaultChecked={Officer.selected === "option4"}
-                            onChange={this.handleOfficerChange(idx)}
-                          />
-                          Passport
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-12 col-12">
-                      <TextValidator
-                        required
-                        label="Identity Number"
-                        name="officerNumber"
-                        value={Officer.officerNumber}
-                        onChange={this.handleOfficerChange(idx)}
-                        margin="normal"
-                        fullWidth
-                        validators={["required"]}
-                        errorMessages={["this field is required"]}
-                      />
-                    </div>
-                  </div>
-                  <br />
-                  <div className="d-flex justify-content-center text-center">
-                    <div
-                      style={{ padding: "5px", border: "1px solid #29487D" }}
-                    >
+              <div>
+                <h1
+                  style={{
+                    background: "#4267B2",
+                    color: "#fff",
+                    textAlign: "center"
+                  }}
+                >
+                  Officers
+                </h1>
+                {this.state.Officers.map((Officer, idx) => (
+                  <div>
+                    <h2>#{idx + 1}</h2>
+                    <div className="row">
                       <div className="col">
-                        <h3>Identity Document*</h3>
-                      </div>
-                      <div className="col">
-                        <input
-                          accept="image/*"
+                        <TextValidator
                           required
-                          id="raised-button-file"
-                          multiple
-                          type="file"
+                          name="officerName"
+                          validators={["required"]}
+                          errorMessages={["this field is required"]}
+                          id="officersName"
+                          label="Officers Name"
+                          value={Officer.officerName}
+                          onChange={this.handleOfficerChange(idx)}
+                          margin="normal"
+                          fullWidth
                         />
-                        <label htmlFor="raised-button-file">
-                          <Button
-                            variant="raised"
-                            style={{
-                              background: "#29487D",
-                              color: "#fff"
-                            }}
-                            component="span"
-                          >
-                            Upload
-                          </Button>
-                        </label>
+                      </div>
+                    </div>
+                    <br />
+                    <div className="row">
+                      <div className="col">
+                        <h3>Identity Type*</h3>
+                      </div>
+                      <div className="col">
+                        <div className="form-check form-check-inline">
+                          <label className="form-check-label">
+                            <input
+                              className="form-check-input"
+                              type="radio"
+                              name="selected"
+                              id="inlineRadio1"
+                              value="option1"
+                              defaultChecked={Officer.selected === "option1"}
+                              onChange={this.handleOfficerChange(idx)}
+                            />
+                            Citizen ID Card
+                          </label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                          <label className="form-check-label">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="selected"
+                              id="inlineRadio2"
+                              value="option2"
+                              defaultChecked={Officer.selected === "option2"}
+                              onChange={this.handleOfficerChange(idx)}
+                            />
+                            Driver's License
+                          </label>
+                        </div>
+                        <div className="form-check form-check-inline disabled">
+                          <label className="form-check-label">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="selected"
+                              id="inlineRadio3"
+                              value="option3"
+                              defaultChecked={Officer.selected === "option3"}
+                              onChange={this.handleOfficerChange(idx)}
+                            />
+                            Residency Permit
+                          </label>
+                        </div>
+                        <div className="form-check form-check-inline disabled">
+                          <label className="form-check-label">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="selected"
+                              id="inlineRadio3"
+                              value="option4"
+                              defaultChecked={Officer.selected === "option4"}
+                              onChange={this.handleOfficerChange(idx)}
+                            />
+                            Passport
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-12 col-12">
+                        <TextValidator
+                          required
+                          label="Identity Number"
+                          name="officerNumber"
+                          value={Officer.officerNumber}
+                          onChange={this.handleOfficerChange(idx)}
+                          margin="normal"
+                          fullWidth
+                          validators={["required"]}
+                          errorMessages={["this field is required"]}
+                        />
+                      </div>
+                    </div>
+                    <br />
+                    <div className="d-flex justify-content-center text-center">
+                      <div
+                        style={{ padding: "5px", border: "1px solid #29487D" }}
+                      >
+                        <div className="col">
+                          <h3>Identity Document*</h3>
+                        </div>
+                        <div className="col">
+                          <input
+                            accept="image/*"
+                            required
+                            id="raised-button-file"
+                            multiple
+                            type="file"
+                          />
+                          <label htmlFor="raised-button-file">
+                            <Button
+                              variant="raised"
+                              style={{
+                                background: "#29487D",
+                                color: "#fff"
+                              }}
+                              component="span"
+                            >
+                              Upload
+                            </Button>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <div class="form-row text-center">
+                      <div class="col-12">
+                        <Button
+                          type="button"
+                          onClick={this.handleRemoveOfficer(idx)}
+                          variant="raised"
+                          style={{
+                            background: "#29487D",
+                            color: "#fff"
+                          }}
+                          size="small"
+                        >
+                          Remove
+                        </Button>
                       </div>
                     </div>
                   </div>
-                  <br />
-                  <div class="form-row text-center">
-                    <div class="col-12">
-                      <Button
-                        type="button"
-                        onClick={this.handleRemoveOfficer(idx)}
-                        variant="raised"
-                        style={{
-                          background: "#29487D",
-                          color: "#fff"
-                        }}
-                        size="small"
-                      >
-                        Remove
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              <br />
+                ))}
+                <br />
+              </div>
               <div class="form-row  text-center">
                 <div class="col-12">
                   <Button
@@ -980,13 +967,10 @@ class TextFields extends React.Component {
                 </div>
                 <br />
                 <br />
-
                 <div>
-                  <Link to="/thankyou">
-                    <Button variant="raised" color="default">
-                      Next
-                    </Button>
-                  </Link>
+                  <a href="https://assignmenttablefabodiamond.firebaseapp.com/">
+                    Next
+                  </a>
                 </div>
                 <br />
                 <br />
