@@ -244,7 +244,7 @@ class ComposedTextField extends React.Component {
               </div>
               <div className="row">
                 <h2 className="col-md-12 col-12" htmlFor="email">
-                  <u>Your order details are shown below htmlFor your reference :</u>
+                  <u>Your order details are shown below your reference :</u>
                 </h2>
               </div>
 
