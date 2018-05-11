@@ -346,7 +346,7 @@ class Default extends React.Component {
     this.setState({ open: false });
   };
   componentWillMount() {
-    document.title = 'Shipper PackingList  - KretaHub'
+    document.title = "Shipper PackingList  - KretaHub";
   }
 
   render() {
@@ -361,6 +361,7 @@ class Default extends React.Component {
             </h2>
             <ReactTable
               showPagination={false}
+              sortable={false}
               name="table1"
               className="-striped -highlight"
               sortable={false}
@@ -428,7 +429,7 @@ class Default extends React.Component {
             </h2>
             <ReactTable
               showPagination={false}
-              eactTable
+              sortable={false}
               className="-striped -highlight"
               sortable={false}
               defaultPageSize={2}
@@ -496,6 +497,7 @@ class Default extends React.Component {
             </h2>
             <ReactTable
               showPagination={false}
+              sortable={false}
               className="-striped -highlight"
               sortable={false}
               defaultPageSize={2}

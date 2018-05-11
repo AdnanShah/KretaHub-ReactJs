@@ -208,9 +208,8 @@ class Freightdetail extends React.Component {
     );
   };
   componentWillMount() {
-    document.title = 'Frieght Quote Details - KretaHub'
+    document.title = "Frieght Quote Details - KretaHub";
   }
-
 
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
@@ -359,13 +358,9 @@ class Freightdetail extends React.Component {
                   <div className="p-a">
                     <ReactTable
                       showPagination={false}
+                      sortable={false}
                       data={this.state.makeData}
                       columns={[
-                        {
-                          Header: "#",
-                          accessor: "number",
-                          minWidth: 25
-                        },
                         {
                           Header: "Container type",
                           accessor: "field1",

@@ -327,7 +327,7 @@ class FreightSearch extends React.Component {
           <br />
           <hr />
           <ReactTable
-            sortable={true}
+            sortable={false}
             className="target-table -striped -highlight"
             data={data}
             columns={this.columns}

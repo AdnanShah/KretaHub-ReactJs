@@ -217,7 +217,7 @@ class ComposedTextField extends React.Component {
   };
 
   componentWillMount() {
-    document.title = 'Shipper Order - KretaHub'
+    document.title = "Shipper Order - KretaHub";
   }
   render() {
     const { classes } = this.props;
@@ -272,7 +272,7 @@ class ComposedTextField extends React.Component {
                 </label>
                 <div className="col-md-3 col-12">
                   <p>{jsonData[0].line1}</p>
-                </div>                
+                </div>
                 <label className="col-md-3 col-12" for="email">
                   Arrival :
                 </label>
@@ -398,14 +398,10 @@ class ComposedTextField extends React.Component {
               <div className="col-sm-12">
                 <div className="p-a">
                   <ReactTable
+                    sortable={false}
                     data={this.state.makeData}
                     showPagination={false}
                     columns={[
-                      {
-                        Header: "#",
-                        accessor: "number",
-                        minWidth: 25
-                      },
                       {
                         Header: "Container type",
                         accessor: "field1",
@@ -457,7 +453,9 @@ class ComposedTextField extends React.Component {
                 </div>
               </div>
             </div>
-            <a href="https://assignmenttablefabodiamond.firebaseapp.com/">Next</a>
+            <a href="https://assignmenttablefabodiamond.firebaseapp.com/">
+              Next
+            </a>
           </Paper>
         </div>
       </div>
