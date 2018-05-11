@@ -1,0 +1,48 @@
+[debug] [2018-05-10T17:47:14.056Z] ----------------------------------------------------------------------
+[debug] [2018-05-10T17:47:14.056Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\AdnanShah\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase init
+[debug] [2018-05-10T17:47:14.056Z] CLI Version:   3.18.4
+[debug] [2018-05-10T17:47:14.056Z] Platform:      win32
+[debug] [2018-05-10T17:47:14.056Z] Node Version:  v8.9.4
+[debug] [2018-05-10T17:47:14.056Z] Time:          Thu May 10 2018 10:47:14 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-05-10T17:47:14.056Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-10T17:47:14.134Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-05-10T17:47:14.134Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\Web\ngTaskJan\Jumbo
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[debug] [2018-05-10T18:09:25.015Z] ----------------------------------------------------------------------
+[debug] [2018-05-10T18:09:25.015Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\AdnanShah\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-05-10T18:09:25.015Z] CLI Version:   3.18.4
+[debug] [2018-05-10T18:09:25.015Z] Platform:      win32
+[debug] [2018-05-10T18:09:25.015Z] Node Version:  v8.9.4
+[debug] [2018-05-10T18:09:25.015Z] Time:          Thu May 10 2018 11:09:25 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-05-10T18:09:25.015Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-10T18:09:25.031Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-10T18:09:25.031Z] > authorizing via signed-in user
+[debug] [2018-05-10T18:09:25.031Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/project-7-9fe4b  
+  
+ Thu May 10 2018 11:09:25 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-05-10T18:09:31.226Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-10T18:09:31.226Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/project-7-9fe4b/tokens  
+  
+ Thu May 10 2018 11:09:31 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-05-10T18:09:32.551Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'project-7-9fe4b'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...

@@ -1,10 +1,19 @@
-(function() {
-  var mydata = JSON.parse(data);
-  document.getElementById("heading").innerHTML = mydata[1].heading;
-  document.getElementById("subHeading").innerHTML = mydata[1].subHeading;
-  document.getElementById("subHeading2").innerHTML = mydata[1].subHeading2;
-  document.getElementById("userName").innerHTML = mydata[1].userName;
-  document.getElementById("userEmail").innerHTML = mydata[1].userEmail;
-  document.getElementById("conformNote").innerHTML = mydata[1].conformNote;
-  document.getElementById("followUs").innerHTML = mydata[1].followUs;
-})();
+
+
+
+
+function loadUser() {
+  var template = $("#template").html();
+  Mustache.parse(template); // optional, speeds up future uses
+  var rendered = Mustache.render(template,
+    {
+        "main": {
+          "heading": " Your Shipper Signup Request is Being Processed",
+          "userName": "PT. Indotech",
+          "subHeading": "Thank you for signing up as a shipper on KretaHub.",
+          "subHeading2": "We will send you a follow-up email when your request has been approved.",
+          "followUs": "In the mean time, you can follow us on:",
+          "companyName": "KretaHub"
+      }});
+  $("#target").html(rendered);
+}

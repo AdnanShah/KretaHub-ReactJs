@@ -93,7 +93,10 @@
   </style>
 </head>
 
-<body>
+<body onload="loadUser()">
+  <div id="target">Loading...</div>
+  <script id="template" type="x-tmpl-mustache">
+    
   <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
       <td background="images/bg.jpg" bgcolor="#494c50" valign="top" style="background-size: cover; background-position: center;">
@@ -132,7 +135,9 @@
                     <table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
                       <!-- title -->
                       <tr>
-                        <td id='heading' align="center" style="font-family: 'Open Sans', Arial, sans-serif; font-size:36px; color:#3b3b3b; font-weight: bold; letter-spacing:1px;">Welcome to Koble</td>
+                        <td id='heading' align="center" style="font-family: 'Open Sans', Arial, sans-serif; font-size:36px; color:#3b3b3b; font-weight: bold; letter-spacing:1px;">
+                          Your Shipper Signup Request is Being Processed
+                        </td>
                       </tr>
                       <!-- end title -->
                       <tr>
@@ -149,7 +154,14 @@
                       </tr>
                       <tr>
                         <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:30px;">
-                          To:
+                      To:    {{main.userName}}
+                          <span id="userName" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:30px;">
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:30px;">
+                          {{main.subHeading}}
                           <span id="userName" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:30px;">
                           </span>
                         </td>
@@ -157,6 +169,7 @@
                       <!-- content -->
                       <tr>
                         <td id="subHeading" align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:30px;">
+                            {{main.subHeading2}}
                         </td>
                       </tr>
                       <!-- end content -->
@@ -204,8 +217,7 @@
                       <tr>
                         <td align="center" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d;">
                           <a href="#">In the mean time, you can follow us on:</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <!-- <a href="#">Unsubscribe</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-                          <!-- <a href="#">About us</a> -->
+                         
                         </td>
                       </tr>
                       <tr>
@@ -263,7 +275,7 @@
           <tr>
             <td id="followUs" align="center" style="font-family: 'Open Sans', Arial, 
               sans-serif; font-size:13px; color:#FFFFFF;">
-              <a href="./Approval.html">Next</a>
+              <a href="Approval.html">Next</a>
             </td>
           </tr>
           <!-- end copyright -->
@@ -276,9 +288,12 @@
       </td>
     </tr>
   </table>
+</script>
 </body>
 
-<script type="text/javascript" src="./jsonData/data.json"></script>
-<script type="text/javascript" src="./js/Pending.js"></script>
+
+<script src="js/jquery.js"></script>
+<script src="js/mustache.js"></script>
+<script src="js/pending.js"></script>
 
 </html>
