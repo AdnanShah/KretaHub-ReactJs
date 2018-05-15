@@ -193,6 +193,7 @@ class App extends Component {
                         <Route path='/orderpending' component={OrderPending}/>
                         <Route path='/fullpayment' component={FullPayment}/>
                         <Route path='/fullpaymentreceive' component={FullPaymentReceive}/>
+                        <Route path='/webthankyou' component={EmailTemplate}/>
                         <Route path='/thankYou' component={() => window.location = 'https://assig-4b1ac.firebaseapp.com/'}/>
                     </div>
                 </IntlProvider>
