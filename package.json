@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/icons": "^1.0.0-rc.0",
     "autosuggest-highlight": "^3.1.1",
     "babel-preset-stage-2": "^6.24.1",
     "bootstrap": "^4.0.0",

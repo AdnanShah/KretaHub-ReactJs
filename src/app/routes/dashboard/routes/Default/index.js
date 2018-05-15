@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 import Tour from "../../../../../components/Tour/index";
 import { DatePicker } from "material-ui-pickers";
 
+import Radio from "material-ui/Radio";
+
 const styles = theme => ({
   container: {
     display: "flex",
@@ -32,12 +34,12 @@ class Default extends React.Component {
     this.state = {
       anchorEl: undefined,
       menuState: false,
-      country1: "Algeria",
-      country2: "Australia",
+      country1: stations[1].field,
+      country2: stations[2].field,
       currentDate: yyyy + "-" + mm + "-" + dd,
-      radioButton: "radioButton2",
-      selectedDate: new Date(),
-      selectedUntilDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+      radioButton: "radioButton1",
+      selectedDate: new Date("March 20, 2018 11:13:00"),
+      selectedUntilDate: new Date("April 20, 2018 11:13:00")
     };
   }
   handleChange = name => event => {
@@ -91,9 +93,9 @@ class Default extends React.Component {
       );
     }
   };
-  
+
   componentWillMount() {
-    document.title = 'Shipper Dashboard - KretaHub'
+    document.title = "Shipper Dashboard - KretaHub";
   }
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
@@ -102,151 +104,134 @@ class Default extends React.Component {
     return (
       <Paper>
         <Tour />
-        <div className="container">
-          <div className="jr-card-header pt-3 px-4">
+        <div className="container-fluid">
+          <div className="jr-card-header pt-3">
+            <h1 className="freight-heading">Dashboard </h1>
+          </div>
+          <div className="jr-card-header pt-3">
             <h2 className="freight-heading">
               <IntlMessages id="Freight Quote Search" />
             </h2>
           </div>
           <div className="row">
-            <div className="col-6 destination">
-              <label for="departure">
-                Departure:
-                <TextField
-                  className="m-3"
-                  id="departure"
-                  select
-                  value={this.state.country1}
-                  onChange={this.handleChange("country1")}
-                  SelectProps={{}}
-                  margin="normal"
-                >
-                  {stations.map(countrie => (
-                    <MenuItem key={countrie.id} value={countrie.field}>
-                      {countrie.field}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </label>
-            </div>
-            <div className="col-6 origin">
-              <label for="arrival">
-                Arrival:
-                <TextField
-                  className="m-3"
-                  id="arrival"
-                  select
-                  value={this.state.country2}
-                  onChange={this.handleChange("country2")}
-                  SelectProps={{}}
-                  margin="normal"
-                >
-                  {stations.map(countrie => (
-                    <MenuItem key={countrie.id} value={countrie.field}>
-                      {countrie.field}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </label>
-            </div>
-          </div>
-          <br />
-          <div className="row">
-            <div className="col-12 freight-type" onChange={this.setRadioButton}>
-              <div id="group1">
-                <label
-                  style={{
-                    marginRight: "20px"
-                  }}
-                  for="Student"
-                >
-                  Freight type:
-                </label>
-                <label className="m-2" for="fcl">
-                  <input
-                    id="fcl"
-                    type="radio"
-                    value="radioButton1"
-                    name="radioButton"
-                    defaultChecked
-                  />
-                  FCL
-                </label>
-                <label className="m-2" for="lcl">
-                  <input
-                    id="lcl"
-                    type="radio"
-                    value="radioButton2"
-                    name="radioButton"
-                  />
-                  LCL
-                </label>
-                <label className="m-2" for="cargo">
-                  <input
-                    id="cargo"
-                    type="radio"
-                    value="radioButton3"
-                    name="radioButton"
-                  />
-                  General Cargo
-                </label>
-              </div>
-            </div>
-          </div>
-          <br />
-          <div className="row">
-            <div className="col-6">
-              <label
-                style={{
-                  marginRight: "20px"
-                }}
-                for="Student"
+            <div className="col-md-3 mt-3" style={{marginRight:'-5%'}}>Departure:</div>
+            <div className="col-md-4">
+              <TextField
+                id="departure"
+                select
+                value={this.state.country1}
+                onChange={this.handleChange("country1")}
+                SelectProps={{}}
+                margin="normal"
               >
-                Departure/Arrival date:
+                {stations.map((countrie, index) => (
+                  <MenuItem key={countrie.id} value={countrie.field}>
+                    {countrie.field}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </div>
+            <div className="col-md-1 mt-4">Arrival:</div>
+            <div className="col-md-4">
+              <TextField
+                className=""
+                id="arrival"
+                select
+                value={this.state.country2}
+                onChange={this.handleChange("country2")}
+                SelectProps={{}}
+                margin="normal"
+              >
+                {stations.map(countrie => (
+                  <MenuItem key={countrie.id} value={countrie.field}>
+                    {countrie.field}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-3 mt-3" style={{marginRight:'-7%'}}>
+              <label for="Student">Freight type:</label>
+            </div>
+            <div className="col-md">
+              <label className="m-0" for="fcl">
+                <Radio
+                  checked={this.state.radioButton === "radioButton1"}
+                  onChange={this.setRadioButton}
+                  aria-label="A"
+                  value="radioButton1"
+                  name="radioButton"
+                />
+                FCL
               </label>
+              <label className="" for="lcl">
+                <Radio
+                  checked={this.state.radioButton === "radioButton2"}
+                  onChange={this.setRadioButton}
+                  aria-label="A"
+                  value="radioButton2"
+                  name="radioButton"
+                />
+                LCL
+              </label>
+              <label className="" for="cargo">
+                <Radio
+                  checked={this.state.radioButton === "radioButton3"}
+                  onChange={this.setRadioButton}
+                  aria-label="A"
+                  value="radioButton3"
+                  name="radioButton"
+                />
+                General Cargo
+              </label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-3" style={{marginRight:'-5%'}}>
+              <label className="mt-3" for="Student">
+                Departure date / Arrival date:
+              </label>
+            </div>
+            <div className="col-md-4">
               <DatePicker
-                disablePast
                 keyboard
                 value={this.state.selectedDate}
                 onChange={this.handleDateChange}
                 animateYearScrolling={false}
               />
             </div>
-            <div className="col-6">
-              <label
-                style={{
-                  marginRight: "20px"
-                }}
-                for="Student"
-              >
+            <div className="col-md-1 mt-3">
+              <label className="" for="Student">
                 Until:
               </label>
+            </div>
+            <div className="col-md-3">
               <DatePicker
                 disabled
                 keyboard
                 value={this.state.selectedUntilDate}
                 animateYearScrolling={false}
               />
+            </div>
+          </div>
+          <div className="row mt-2">
+            <div className="col">
+              <Button
+                letiant="raised"
+                onClick={this.nextRoute}
+                style={{
+                  background: "#29487D",
+                  color: "#fff"
+                }}
+              >
+                Search
+              </Button>
+              <br />
               <br />
               <br />
             </div>
           </div>
-
-          <Button
-            letiant="raised"
-            onClick={this.nextRoute}
-            style={{
-              background: "#29487D",
-              color: "#fff"
-            }}
-            className="searchButton"
-            component="span"
-          >
-            Search
-          </Button>
-          <br />
-          <br />
-          <br />
         </div>
       </Paper>
     );
