@@ -14,6 +14,23 @@
 
   <title></title>
   <style type="text/css">
+    .table-css {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .td-css,
+    .th-css {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    .tr-css:nth-child(even) {
+      background-color: #dddddd;
+    }
+
     .ReadMsgBody {
       width: 100%;
       background-color: #ffffff;
@@ -102,8 +119,8 @@
         text-align: center !important;
       }
       *.table-full {
-        width: 100%!important;
-        max-width: 100%!important;
+        width: 100% !important;
+        max-width: 100% !important;
         text-align: center !important;
       }
       /* image */
@@ -123,8 +140,8 @@
         text-align: center !important;
       }
       *.table-full {
-        width: 100%!important;
-        max-width: 100%!important;
+        width: 100% !important;
+        max-width: 100% !important;
         text-align: center !important;
       }
       /* image */
@@ -139,7 +156,7 @@
 <body onload="loadUser()">
   <div id="target">Loading...</div>
   <script id="template" type="x-tmpl-mustache">
-  
+
   <!-- header -->
   <table bgcolor="#f8f8f8" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -394,29 +411,26 @@
 
                   </td>
                 </tr>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">Container type</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Qty</th>
-                      <th scope="col">Capacity</th>
-                      <th scope="col">Subtotal</th>
-                    </tr>
-                  </thead>
-                  {{#row}}
-                  <tbody>
-                    <tr>
-                      <td>{{field1}}</td>
-                      <td class="float-right">{{field2}}</td>
-                      <td>{{field3}}</td>
-                      <td>{{field4}}</td>
-                      <td class="float-right">{{field5}}</td>
-                    </tr>
-                  </tbody>
-                  {{/row}}
-                </table>
 
+                <table cellpadding="10" class="table-css">
+                  <tr class="tr-css">
+                    <th class="th-css">Container type</th>
+                    <th class="th-css">Price</th>
+                    <th class="th-css">Qty</th>
+                    <th class="th-css">Capacity</th>
+                    <th class="th-css">Subtotal</th>
+                  </tr>
+
+                  {{#row}}
+                  <tr class="tr-css">
+                    <td>{{field1}}</td>
+                    <td class="float-right">{{field2}}</td>
+                    <td>{{field3}}</td>
+                    <td>{{field4}}</td>
+                    <td class="float-right">{{field5}}</td>
+                  </tr>
+                  {{/row}}
+                  </table>
           </tr>
           <!-- end content -->
           <tr>
@@ -430,13 +444,13 @@
             </td>
           </tr>
 
-          
+
           <tr>
-              <td height="15" >
-                Best regards,
-                <br> KretaHub
-              </td>
-            </tr>
+            <td height="15">
+              Best regards,
+              <br> KretaHub
+            </td>
+          </tr>
           <tr>
             <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
           </tr>
@@ -481,7 +495,7 @@
                 <tr>
                   <td align="center">
                     <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
-                      
+
                     </table>
                   </td>
                 </tr>
@@ -499,13 +513,13 @@
                 <tr>
                   <td align="center">
                     <table class="table-inner" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
-                              <a href="#">kretahub</a>
-                              <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                              <a href="#">unsubscribe</a>
-                            </td>
-                          </tr>
+                      <tr>
+                        <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
+                          <a href="#">kretahub</a>
+                          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                          <a href="#">unsubscribe</a>
+                        </td>
+                      </tr>
                     </table>
                   </td>
                 </tr>
@@ -521,13 +535,13 @@
     </tr>
 
     <tr>
-        <td align="center">
-          <a href="carrier conform(ill).html">Next</a>
-        </td>
-      </tr>    
+      <td align="center">
+        <a href="carrier conform(ill).html">Next</a>
+      </td>
+    </tr>
   </table>
   <!-- end footer -->
-</script>
+  </script>
 
 </body>
 <script src="js/jquery.js"></script>

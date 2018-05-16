@@ -14,6 +14,23 @@
 
   <title></title>
   <style type="text/css">
+     .table-css {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .td-css,
+    .th-css {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    .tr-css:nth-child(even) {
+      background-color: #dddddd;
+    }
+
     .ReadMsgBody {
       width: 100%;
       background-color: #ffffff;
@@ -443,29 +460,29 @@
 
                   </td>
                 </tr>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">Container type</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Qty</th>
-                      <th scope="col">Capacity</th>
-                      <th scope="col">Subtotal</th>
-                    </tr>
-                  </thead>
-                  {{#row}}
-                  <tbody>
-                    <tr>
-                      <td>{{field1}}</td>
-                      <td class="float-right">{{field2}}</td>
-                      <td>{{field3}}</td>
-                      <td>{{field4}}</td>
-                      <td class="float-right">{{field5}}</td>
-                    </tr>
-                  </tbody>
-                  {{/row}}
-                </table>
+           
 
+                
+                <table cellpadding="10" class="table-css">
+                  <tr class="tr-css">
+                    <th class="th-css">Container type</th>
+                    <th class="th-css">Price</th>
+                    <th class="th-css">Qty</th>
+                    <th class="th-css">Capacity</th>
+                    <th class="th-css">Subtotal</th>
+                  </tr>
+
+                  {{#row}}
+                  <tr class="tr-css">
+                    <td>{{field1}}</td>
+                    <td class="float-right">{{field2}}</td>
+                    <td>{{field3}}</td>
+                    <td>{{field4}}</td>
+                    <td class="float-right">{{field5}}</td>
+                  </tr>
+                  {{/row}}
+                  </table>
+ 
           </tr>
           <!-- end content -->
           <tr>

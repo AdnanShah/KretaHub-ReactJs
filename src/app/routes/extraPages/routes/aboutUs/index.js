@@ -139,13 +139,6 @@ const AboutUs = ({match}) => {
                 styleName="text-center"
                 title={<IntlMessages id="sidebar.extraPages.aboutUs"/>}
             />
-            <section>
-                <OwlCarousel className="owl-theme mb-4" items={1} margin={20}>
-                    <Service service={services[0]}/>
-                    <Service service={services[1]}/>
-                    <Service service={services[2]}/>
-                </OwlCarousel>
-            </section>
 
 
             <OwlCarousel className="owl-theme mb-4" {...options1}>
