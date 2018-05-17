@@ -5,10 +5,11 @@ import asyncComponent from '../../../util/asyncComponent';
 const Dashboard = ({match}) => (
     <div className="app-wrapper">
         <Switch>
-            <Redirect exact from={`${match.url}/`} to={`${match.url}/default`}/>
+            <Redirect exact from={`${match.url}/`} to={`${match.url}/thankyou`}/>
             <Route path={`${match.url}/default`} component={asyncComponent(() => import('./routes/Default'))}/>
             <Route path={`${match.url}/freightSearch`} component={asyncComponent(() => import('./routes/Default/frieghtQuoteSearch'))}/>
             <Route path={`${match.url}/freightDetail`} component={asyncComponent(() => import('./routes/Default/frieghtQuoteDetail'))}/>
+            <Route path={`${match.url}/thankyou`} component={asyncComponent(() => import('./routes/Default/thankYou'))}/>
             <Route path={`${match.url}/packinglist`} component={asyncComponent(() => import('./routes/Default/packinglist'))}/>
             <Route path={`${match.url}/mainthankyou`} component={asyncComponent(() => import('./routes/Default/mainthankyou'))}/>
             <Route path={`${match.url}/eCommerce`} component={asyncComponent(() => import('./routes/ECommerce'))}/>
