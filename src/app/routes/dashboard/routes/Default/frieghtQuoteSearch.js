@@ -263,13 +263,12 @@ class FreightSearch extends React.Component {
               <div className="col">
                 <Button
                   letiant="raised"
-                  onClick={this.nextRoute}
                   style={{
                     background: "#29487D",
                     color: "#fff"
                   }}
                 >
-                  Search
+                  Change Search
                 </Button>
                 <br />
                 <br />

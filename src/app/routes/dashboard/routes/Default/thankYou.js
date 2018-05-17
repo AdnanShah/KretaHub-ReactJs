@@ -110,15 +110,10 @@ class Default extends React.Component {
         <br />
         <div className="row mt-2">
           <div className="col">
-            <Button
-              letiant="raised"
-              onClick={this.nextRoute}
-              style={{
-                background: "#29487D",
-                color: "#fff"
-              }}
-            >
-              Next
+            <Button variant="raised">
+              <a href="https://assignmenttablefabodiamond.firebaseapp.com/Pending.html">
+                Next
+              </a>
             </Button>
           </div>
         </div>
