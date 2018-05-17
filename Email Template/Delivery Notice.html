@@ -156,7 +156,7 @@
 <body onload="loadUser()">
   <div id="target">Loading...</div>
   <script id="template" type="x-tmpl-mustache">    
-  
+
   <!-- header -->
   <table bgcolor="#f8f8f8" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -303,129 +303,95 @@
                 <!-- content -->
                 <tr>
                   <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; line-height:26px;">
-                    <div class="container">
-                      <div class="row pl-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                        <div class="col-3 bg-dark text-light">
-                          Order:
-                        </div>
-                        <div class="col-3 bg-dark text-light">
-                          #001
-                        </div>
-                      </div>
-                      <div class="row mt-3 mb-3">
-                        <div class="col-3">Shipper </div>
-                        <div class="col-3">{{main.shipper}}</div>
-                      </div>
-                      <div class="row mt-3 mb-3">
-                        <div class="col-3">Carrier </div>
-                        <div class="col-6">{{main.carrier}}</div>
-                      </div>
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Departure :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p>{{main.line1}}</p>
-                        </div>
-                        <label class="col-md-3 col-12">
-                          Arrival :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p>{{main.line5}}</p>
-                        </div>
-                      </div>
+                    <td width="600" align="center">
+                      <table align="center" width="100%" class="table-inner" border-spacing="15px" cellspacing="0" cellpadding="0">
+                        <!-- order -->
+                        <tr>
+                          <table cellpadding="2%">
+                            <tr>
+                              <th>Order</th>
+                              <th>#001</th>
+                            </tr>
+                            <tr>
+                              <td>Shipper</td>
+                              <td>{{main.shipper}}</td>
+                            </tr>
+                            <tr>
+                              <td>Carrier</td>
+                              <td colspan="2">{{main.carrier}}</td>
+                            </tr>
+                            <tr>
+                              <td width="25%">Departure:</td>
+                              <td width="30%">{{main.line1}}</td>
+                              <td width="20%">Arrival:</td>
+                              <td width="25%">{{main.line5}} </td>
+                            </tr>
+                            <tr>
+                              <td>Closing time:
+                                <span style="color: #ff0000">*</span>
+                              </td>
+                              <td>
+                                <span style="width:65%;border-right: 1px solid red;
+                                    " class="span2" size="16">{{main.closingDate}}</span>
+                                <span>{{main.closingTime}}</span>
+                              </td>
+                              <td>Trip Length :</td>
+                              <td>{{main.line6}}</td>
+                            </tr>
+                            <tr>
+                              <td>Departure Time :
+                                <span style="color: #ff0000">*</span>
+                              </td>
+                              <td>
+                                <span style="width:65%;border-right: 1px solid red;
+                                    " class="span2" size="16">{{main.departureDate}}</span>
+                                <span>{{main.departureTime}}</span>
+                              </td>
+                              <td>Arrival Time :
+                                <span style="color: #ff0000">*</span>
+                              </td>
+                              <td>
+                                <span style="width:65%;border-right: 1px solid red;" size="16">
+                                  {{main.arrivalDate}}
+                                </span>
+                                <span>{{main.arrivalTime}}</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Train Name:</td>
+                              <td>
+                                {{main.line4}}
+                              </td>
+                              <td>Train Number:</td>
+                              <td>{{main.line8}}</td>
+                            </tr>
+                            <tr>
+                              <td>Terms and Conditions:</td>
+                              <td colspan="2">
+                                <p style="border: 1px solid black; padding:10% 0%">
+                                  {{main.line9}}
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Incoterm:
+                                <span style="color: #ff0000">*</span>
+                              </td>
+                              <td colspan="2">
+                                <p style="border: 1px solid black;padding: 2% 0%">
+                                  {{main.line10}}
+                                </p>
+                              </td>
+                            </tr>
 
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Closing time:
-                          <span class="text-danger">*</span>
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <div style="display: 'inline-flex'; width: '65%' ">
-                            <span style="width:65%;border-right: 1px solid red;
-                            " class="span2" size="16">{{main.closingDate}}</span>
-                            <span>{{main.closingTime}}</span>
-
-                          </div>
-                        </div>
-
-                        <label class="col-md-3 col-12">
-                          Trip Length :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p>{{main.line6}}</p>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Departure Time :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <div style="display: 'inline-flex'; width: '65%' ">
-                            <span style="width:65%;border-right: 1px solid red;
-                            " class="span2" size="16">{{main.departureDate}}</span>
-                            <span>{{main.departureTime}}</span>
-
-                          </div>
-                        </div>
-                        <label class="col-md-3 col-12">
-                          Arrival Time :
-                        </label>
-
-                        <div class="col-md-3 col-12">
-                          <div style="display: 'inline-flex'; width: '65%' ">
-                            <span style="width:65%;border-right: 1px solid red;
-                            " class="span2" size="16">{{main.arrivalDate}}</span>
-                            <span>{{main.arrivalTime}}</span>
-
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Train Name:
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p class="">{{main.line4}}</p>
-                        </div>
-                        <label class="col-md-3 col-12">
-                          Train Number :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p class="">{{main.line8}}</p>
-                        </div>
-                      </div>
-
-                      <div class="row mb-2">
-                        <label class="col-md-4 col-12">
-                          Terms and Conditions:
-                        </label>
-                        <div class="col-md-8 col-12">
-                          <div class="pl-1 border border-primary rounded" style="height: 100px;
-                          width: 100%;">
-                            {{main.line9}}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <label class="col-md-4 col-12">
-                          Incoterm:
-                          <span class="text-danger">*</span>
-                        </label>
-                        <div class="col-md-8 col-12">
-                          <p disabled class="border border-primary rounded">
-                            {{main.line10}}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                          </table>
+                        </tr>
+                        <!-- order -->
+                    </td>
 
                   </td>
                 </tr>
-   
+
                 <table cellpadding="10" class="table-css">
                   <tr class="tr-css">
                     <th class="th-css">Container type</th>
@@ -443,9 +409,9 @@
                     <td class="float-right">{{field5}}</td>
                   </tr>
                   {{/row}}
-                  </table>
+                </table>
                 <tr>
-                  <td height="15" >
+                  <td height="15">
                     Best regards,
                     <br> KretaHub
                   </td>
@@ -462,94 +428,94 @@
     </table>
     </td>
     </tr>
-  </table>
-  <!-- end note -->
+    </table>
+    <!-- end note -->
 
-  <!-- footer -->
-  <table align="center" width="100%" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0">
-    <tr>
-      <td align="center" style="border-bottom:10px solid #ecf0f1;">
-        <table width="600" style="max-width: 600px;" class="table-full" border="0" align="center" cellpadding="0" cellspacing="0">
-          <tr>
-            <td height="25"></td>
-          </tr>
-          <tr>
-            <td>
-              <!--left-->
-              <table width="180" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td align="center">
-                    <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
-                    </table>
-                  </td>
-                </tr>
-              </table>
-              <!--end left-->
-              <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-              <table width="25" align="left" border="0" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td height="15"></td>
-                </tr>
-              </table>
-              <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-              <!--middle-->
-              <table width="100%" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td align="left">
-                    <table width="90%" align="left" border="0" cellpadding="0" cellspacing="0">
-                      <!-- <tr>
+    <!-- footer -->
+    <table align="center" width="100%" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center" style="border-bottom:10px solid #ecf0f1;">
+          <table width="600" style="max-width: 600px;" class="table-full" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td height="25"></td>
+            </tr>
+            <tr>
+              <td>
+                <!--left-->
+                <table width="180" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center">
+                      <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!--end left-->
+                <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
+                <table width="25" align="left" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="15"></td>
+                  </tr>
+                </table>
+                <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
+                <!--middle-->
+                <table width="100%" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="left">
+                      <table width="90%" align="left" border="0" cellpadding="0" cellspacing="0">
+                        <!-- <tr>
                         <td align="center" style="line-height:0px;">
                           <img style="display:block;font-size:0px; border:0px; line-height:0px;width:30px;" src="images/kretahub-mock-icon.png" alt="img"
                           />
                         </td>
                         <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;padding-left: 15px;">KretaHub@someone.com</td>
                       </tr> -->
-                    </table>
-                  </td>
-                </tr>
-              </table>
-              <!--end middle-->
-              <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-              <table width="25" align="left" border="0" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td height="15"></td>
-                </tr>
-              </table>
-              <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-              <!--right-->
-              <table width="180" class="table-full" align="center" border="0" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td align="center">
-                    <table class="table-inner" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
-                          <a href="#">kretahub</a>
-                          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                          <a href="#">unsubscribe</a>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-              <!--end right-->
-            </td>
-          </tr>
-          <tr>
-            <td height="25"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <a href="ATA Notice.html">Next</a>
-    </td>
-    </tr>
-  </table>
-  
-  <!-- end footer -->
-</script>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!--end middle-->
+                <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
+                <table width="25" align="left" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="15"></td>
+                  </tr>
+                </table>
+                <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
+                <!--right-->
+                <table width="180" class="table-full" align="center" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center">
+                      <table class="table-inner" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
+                            <a href="#">kretahub</a>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <a href="#">unsubscribe</a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!--end right-->
+              </td>
+            </tr>
+            <tr>
+              <td height="25"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <a href="ATA Notice.html">Next</a>
+        </td>
+      </tr>
+    </table>
+
+    <!-- end footer -->
+    </script>
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/mustache.js"></script>
