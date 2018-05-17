@@ -11,7 +11,7 @@
 
   <title></title>
   <style type="text/css">
-     .table-css {
+    .table-css {
       font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 100%;
@@ -116,8 +116,8 @@
         text-align: center !important;
       }
       *.table-full {
-        width: 100%!important;
-        max-width: 100%!important;
+        width: 100% !important;
+        max-width: 100% !important;
         text-align: center !important;
       }
       /* image */
@@ -137,8 +137,8 @@
         text-align: center !important;
       }
       *.table-full {
-        width: 100%!important;
-        max-width: 100%!important;
+        width: 100% !important;
+        max-width: 100% !important;
         text-align: center !important;
       }
       /* image */
@@ -267,6 +267,7 @@
     </tr>
   </table>
   <!-- end total -->
+
   <!-- note -->
   <table align="center" width="100%" bgcolor="#FFFFFF" border="0" cellspacing="0" cellpadding="0">
     <tr>
@@ -275,232 +276,225 @@
           <tr>
             <td width="600" align="center">
               <table align="center" width="100%" class="table-inner" border="0" cellspacing="0" cellpadding="0">
-                <!-- <tr>
-                  <td height="40"></td>
-                </tr> -->
-                <!-- title -->
-                <!-- <tr>
-                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Notes</td>
-                </tr> -->
-                <!-- end title -->
-                <!-- <tr>
-                  <td height="5"></td>
-                </tr> -->
-                <!-- content -->
                 <tr>
-                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; line-height:26px;">
-                    <div class="container">
-                        <div class="row">
-                            <label class="col-md-4 col-12">Order :</label>
-                            <div class="col-md-4 col-12">
-                                <p class="">{{main.field1}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label class="col-md-4 col-12">Order Total :</label>
-                            <div class="col-md-4 col-12">
-                                <p class="">{{main.field2}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label class="col-md-4 col-12">Minimum Down-Payment :</label>
-                            <div class="col-md-4 col-12">
-                                <p class="">{{main.field3}}</p>
-                            </div>
-                        </div>
-                        <div>
-                            <u>Please make payment to :</u>
-                        </div>
-                        <div class="row">
-                            <label class="col-md-4 col-12">Bank :</label>
-                            <div class="col-md-4 col-12">
-                                <p class="">{{main.field4}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label class="col-md-4 col-12">Account name :</label>
-                            <div class="col-md-4 col-12">
-                                <p class="">{{main.field5}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label class="col-md-4 col-12">Account number :</label>
-                            <div class="col-md-4 col-12">
-                                <p class="">{{main.field6}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label class="col-md-4 col-12">Branch :</label>
-                            <div class="col-md-4 col-12">
-                                <p class="">{{main.field7}}</p>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-md-12 col-12">
-                                <u>Your order details are shown below htmlFor your reference :</u>
-                            </div>
-                        </div>
-                      <div class="row pl-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                        <div class="col-3 bg-dark text-light">
-                          Order:
-                        </div>
-                        <div class="col-3 bg-dark text-light">
-                          #001
-                        </div>
-                      </div>
-                      <div class="row mt-3 mb-3">
-                        <div class="col-3">Shipper </div>
-                        <div class="col-3">{{main.shipper}}</div>
-                      </div>
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Departure :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p>{{main.line1}}</p>
-                        </div>
-                        <label class="col-md-3 col-12">
-                          Arrival :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p>{{main.line5}}</p>
-                        </div>
-                      </div>
+                  <tr>
+                    <tr>
+                      <td align="left">
+                        <table align="center" width="100%" class="table-inner" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td align="left">
+                              Order:
+                            </td>
+                            <td align="left">
+                              {{main.field1}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="left">
+                              Order Total:
+                            </td>
+                            <td align="left">
+                              {{main.field2}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="left">
+                              Minimum Down-Payment:
+                            </td>
+                            <td align="left">
+                              {{main.field3}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" style="line-height:60px;">
+                              Please make payment to :
+                            </td>
+                          </tr>
 
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Closing time:
-                          <span class="text-danger">*</span>
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <div style="display: 'inline-flex'; width: '65%' ">
-                            <span style="width:65%;border-right: 1px solid red;
-                            " class="span2" size="16">{{main.closingDate}}</span>
-                            <span>{{main.closingTime}}</span>
+                          <tr>
+                            <td align="left">
+                              Bank:
+                            </td>
+                            <td align="left">
+                              {{main.field4}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="left">
+                              Account name :
+                            </td>
+                            <td align="left">
+                              {{main.field5}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="left">
+                              Account number :
+                            </td>
+                            <td align="left">
+                              {{main.field6}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="left">
+                              Branch :
+                            </td>
+                            <td align="left">
+                              {{main.field7}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" style="line-height:60px;">
+                              Your order details are shown below for your reference :
+                            </td>
 
-                          </div>
-                        </div>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
 
-                        <label class="col-md-3 col-12">
-                          Trip Length :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p>{{main.line6}}</p>
-                        </div>
-                      </div>
+                  </tr>
 
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Departure Time :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <div style="display: 'inline-flex'; width: '65%' ">
-                            <span style="width:65%;border-right: 1px solid red;
-                            " class="span2" size="16">{{main.departureDate}}</span>
-                            <span>{{main.departureTime}}</span>
+                  <table cellpadding="5%" cellspacing="15%">
+                    <tr>
+                      <th>Order</th>
+                      <th>#001</th>
+                    </tr>
+                    <tr>
+                      <td>Shipper</td>
+                      <td>{{main.shipper}}</td>
+                    </tr>
+                    <tr>
+                      <td>Carrier</td>
+                      <td colspan="2">{{main.carrier}}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Departure:</td>
+                      <td width="30%">{{main.line1}}</td>
+                      <td width="20%">Arrival:</td>
+                      <td width="25%">{{main.line5}} </td>
+                    </tr>
+                    <tr>
+                      <td>Closing time:
+                        <span style="color: #ff0000">*</span>
+                      </td>
+                      <td>
+                        <span style="width:65%;border-right: 1px solid red;
+                          " class="span2" size="16">{{main.closingDate}}</span>
+                        <span>{{main.closingTime}}</span>
+                      </td>
+                      <td>Trip Length :</td>
+                      <td>{{main.line6}}</td>
+                    </tr>
+                    <tr>
+                      <td>Departure Time :
+                        <span style="color: #ff0000">*</span>
+                      </td>
+                      <td>
+                        <span style="width:65%;border-right: 1px solid red;
+                          " class="span2" size="16">{{main.departureDate}}</span>
+                        <span>{{main.departureTime}}</span>
+                      </td>
+                      <td>Arrival Time :
+                        <span style="color: #ff0000">*</span>
+                      </td>
+                      <td>
+                        <span style="width:65%;border-right: 1px solid red;" size="16">
+                          {{main.arrivalDate}}
+                        </span>
+                        <span>{{main.arrivalTime}}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Train Name:</td>
+                      <td>
+                        {{main.line4}}
+                      </td>
+                      <td>Train Number:</td>
+                      <td>{{main.line8}}</td>
+                    </tr>
+                    <tr>
+                      <td>Terms and Conditions:</td>
+                      <td colspan="3">
+                        <p style="border: 1px solid black; height:55px">
+                          {{main.line9}}
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Incoterm:
+                        <span style="color: #ff0000">*</span>
+                      </td>
+                      <td colspan="2">
+                        <p style="border: 1px solid black;height:25px">
+                          {{main.line10}}
+                        </p>
+                      </td>
+                    </tr>
 
-                          </div>
-                        </div>
-                        <label class="col-md-3 col-12">
-                          Arrival Time :
-                        </label>
+                  </table>
+                  <!-- order -->
+                  <table cellpadding="10" class="table-css">
+                    <tr class="tr-css">
+                      <th class="th-css">Container type</th>
+                      <th class="th-css">Price</th>
+                      <th class="th-css">Qty</th>
+                      <th class="th-css">Capacity</th>
+                      <th class="th-css">Subtotal</th>
+                    </tr>
 
-                        <div class="col-md-3 col-12">
-                          <div style="display: 'inline-flex'; width: '65%' ">
-                            <span style="width:65%;border-right: 1px solid red;
-                            " class="span2" size="16">{{main.arrivalDate}}</span>
-                            <span>{{main.arrivalTime}}</span>
+                    {{#row}}
+                    <tr class="tr-css">
+                      <td>{{field1}}</td>
+                      <td class="float-right">{{field2}}</td>
+                      <td>{{field3}}</td>
+                      <td>{{field4}}</td>
+                      <td class="float-right">{{field5}}</td>
+                    </tr>
+                    {{/row}}
+                  </table>
+                </tr>
+                <!-- end content -->
+                <tr>
+                  <tr>
+                    <td align="left">
+                      <table align="center" width="100%" class="table-inner" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">
+                            Ancillary Price:
+                          </td>
+                          <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">
+                            {{main.price}}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">
+                            Total:
+                          </td>
+                          <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">
+                            {{main.total}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-                          </div>
-                        </div>
-                      </div>
+                </tr>
 
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Train Name:
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p class="">{{main.line4}}</p>
-                        </div>
-                        <label class="col-md-3 col-12">
-                          Train Number :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p class="">{{main.line8}}</p>
-                        </div>
-                      </div>
-
-                      <div class="row mb-2">
-                        <label class="col-md-4 col-12">
-                          Terms and Conditions:
-                        </label>
-                        <div class="col-md-8 col-12">
-                          <div class="pl-1 border border-primary rounded" style="height: 100px;
-                          width: 100%;">
-                            {{main.line9}}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <label class="col-md-4 col-12">
-                          Incoterm:
-                          <span class="text-danger">*</span>
-                        </label>
-                        <div class="col-md-8 col-12">
-                          <p disabled class="border border-primary rounded">
-                            {{main.line10}}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
+                <tr>
+                  <td height="15">
+                    Best regards,
+                    <br> KretaHub
                   </td>
                 </tr>
-           
-
-                
-                <table cellpadding="10" class="table-css">
-                  <tr class="tr-css">
-                    <th class="th-css">Container type</th>
-                    <th class="th-css">Price</th>
-                    <th class="th-css">Qty</th>
-                    <th class="th-css">Capacity</th>
-                    <th class="th-css">Subtotal</th>
-                  </tr>
-
-                  {{#row}}
-                  <tr class="tr-css">
-                    <td>{{field1}}</td>
-                    <td class="float-right">{{field2}}</td>
-                    <td>{{field3}}</td>
-                    <td>{{field4}}</td>
-                    <td class="float-right">{{field5}}</td>
-                  </tr>
-                  {{/row}}
-                  </table>
- 
-          </tr>
-          <!-- end content -->
-          <tr>
-            <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Ancillary Price:
-              <span class="float-right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">{{main.price}}</span>
+                <tr>
+                  <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
+                </tr>
+              </table>
             </td>
           </tr>
-          <tr>
-            <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Total:
-              <span class="float-right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">{{main.total}}</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
-          </tr>
-          </table>
-          </td>
-    </tr>
-    </table>
-    </td>
+        </table>
+      </td>
     </tr>
   </table>
   <!-- end note -->
@@ -539,10 +533,10 @@
                     <table width="90%" align="left" border="0" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="left">
-                            Best regards, <br/>
-                            KretaHub
+                          Best regards,
+                          <br/> KretaHub
                         </td>
-                       </tr>
+                      </tr>
                     </table>
                   </td>
                 </tr>
@@ -561,11 +555,11 @@
                   <td align="center">
                     <table class="table-inner" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
                       <tr>
-                         <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
-                            <a href="#">kretahub</a>
-                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                            <a href="#">unsubscribe</a>
-                          </td>
+                        <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
+                          <a href="#">kretahub</a>
+                          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                          <a href="#">unsubscribe</a>
+                        </td>
                       </tr>
                     </table>
                   </td>
@@ -580,16 +574,16 @@
         </table>
       </td>
     </tr>
-    
-  <tr>
+
+    <tr>
       <td align="center">
         <a href="Down Payment.html">Next</a>
       </td>
     </tr>
-  
+
   </table>
   <!-- end footer -->
-</script>
+  </script>
 
 </body>
 <script src="js/jquery.js"></script>

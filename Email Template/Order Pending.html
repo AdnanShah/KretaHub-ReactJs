@@ -152,7 +152,7 @@
 
 <body onload="loadUser()">
   <div id="target">Loading...</div>
-  <!-- <script id="template" type="x-tmpl-mustache"> -->
+  <script id="template" type="x-tmpl-mustache">
 
   <!-- header -->
   <table bgcolor="#f8f8f8" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -276,186 +276,147 @@
           <tr>
             <td width="600" align="center">
               <table align="center" width="100%" class="table-inner" border="0" cellspacing="0" cellpadding="0">
-                <!-- <tr>
-                  <td height="40"></td>
-                </tr> -->
-                <!-- title -->
-                <!-- <tr>
-                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Notes</td>
-                </tr> -->
-                <!-- end title -->
-                <!-- <tr>
-                  <td height="5"></td>
-                </tr> -->
-                <!-- content -->
                 <tr>
-                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; line-height:26px;">
-                    <div class="container">
-                      <div class="row" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                        <div class="col-3">
-                          Order:
-                        </div>
-                        <div class="col-3">
-                          #001
-                        </div>
-                      </div>
-                      <div class="row mt-3 mb-3">
-                        <div class="col-3">Shipper </div>
-                        <div class="col-3">{{main.shipper}}</div>
-                      </div>
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Departure :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p>{{main.line1}}</p>
-                        </div>
-                        <label class="col-md-3 col-12">
-                          Arrival :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p>{{main.line5}}</p>
-                        </div>
-                      </div>
+                  <table cellpadding="5%" cellspacing="15%">
+                    <tr>
+                      <th>Order</th>
+                      <th>#001</th>
+                    </tr>
+                    <tr>
+                      <td>Shipper</td>
+                      <td>{{main.shipper}}</td>
+                    </tr>
+                    <tr>
+                      <td>Carrier</td>
+                      <td colspan="2">{{main.carrier}}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Departure:</td>
+                      <td width="30%">{{main.line1}}</td>
+                      <td width="20%">Arrival:</td>
+                      <td width="25%">{{main.line5}} </td>
+                    </tr>
+                    <tr>
+                      <td>Closing time:
+                        <span style="color: #ff0000">*</span>
+                      </td>
+                      <td>
+                        <span style="width:65%;border-right: 1px solid red;
+                          " class="span2" size="16">{{main.closingDate}}</span>
+                        <span>{{main.closingTime}}</span>
+                      </td>
+                      <td>Trip Length :</td>
+                      <td>{{main.line6}}</td>
+                    </tr>
+                    <tr>
+                      <td>Departure Time :
+                        <span style="color: #ff0000">*</span>
+                      </td>
+                      <td>
+                        <span style="width:65%;border-right: 1px solid red;
+                          " class="span2" size="16">{{main.departureDate}}</span>
+                        <span>{{main.departureTime}}</span>
+                      </td>
+                      <td>Arrival Time :
+                        <span style="color: #ff0000">*</span>
+                      </td>
+                      <td>
+                        <span style="width:65%;border-right: 1px solid red;" size="16">
+                          {{main.arrivalDate}}
+                        </span>
+                        <span>{{main.arrivalTime}}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Train Name:</td>
+                      <td>
+                        {{main.line4}}
+                      </td>
+                      <td>Train Number:</td>
+                      <td>{{main.line8}}</td>
+                    </tr>
+                    <tr>
+                      <td>Terms and Conditions:</td>
+                      <td colspan="3">
+                        <p style="border: 1px solid black; height:55px">
+                          {{main.line9}}
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Incoterm:
+                        <span style="color: #ff0000">*</span>
+                      </td>
+                      <td colspan="2">
+                        <p style="border: 1px solid black;height:25px">
+                          {{main.line10}}
+                        </p>
+                      </td>
+                    </tr>
 
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Closing time:
-                          <span class="text-danger">*</span>
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <div style="display: 'inline-flex'; width: '65%' ">
-                            <span style="width:65%;border-right: 1px solid red;
-                            " class="span2" size="16">{{main.closingDate}}</span>
-                            <span>{{main.closingTime}}</span>
+                  </table>
+                  <!-- order -->
+                  <table cellpadding="10" class="table-css">
+                    <tr class="tr-css">
+                      <th class="th-css">Container type</th>
+                      <th class="th-css">Price</th>
+                      <th class="th-css">Qty</th>
+                      <th class="th-css">Capacity</th>
+                      <th class="th-css">Subtotal</th>
+                    </tr>
 
-                          </div>
-                        </div>
+                    {{#row}}
+                    <tr class="tr-css">
+                      <td>{{field1}}</td>
+                      <td class="float-right">{{field2}}</td>
+                      <td>{{field3}}</td>
+                      <td>{{field4}}</td>
+                      <td class="float-right">{{field5}}</td>
+                    </tr>
+                    {{/row}}
+                  </table>
+                </tr>
+                <!-- end content -->
+                <tr>
+                  <tr>
+                    <td align="left">
+                      <table align="center" width="100%" class="table-inner" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">
+                            Ancillary Price:
+                          </td>
+                          <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">
+                            {{main.price}}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">
+                            Total:
+                          </td>
+                          <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">
+                            {{main.total}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-                        <label class="col-md-3 col-12">
-                          Trip Length :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p>{{main.line6}}</p>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Departure Time :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <div style="display: 'inline-flex'; width: '65%' ">
-                            <span style="width:65%;border-right: 1px solid red;
-                            " class="span2" size="16">{{main.departureDate}}</span>
-                            <span>{{main.departureTime}}</span>
-
-                          </div>
-                        </div>
-                        <label class="col-md-3 col-12">
-                          Arrival Time :
-                        </label>
-
-                        <div class="col-md-3 col-12">
-                          <div style="display: 'inline-flex'; width: '65%' ">
-                            <span style="width:65%;border-right: 1px solid red;
-                            " class="span2" size="16">{{main.arrivalDate}}</span>
-                            <span>{{main.arrivalTime}}</span>
-
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <label class="col-md-3 col-12">
-                          Train Name:
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p class="">{{main.line4}}</p>
-                        </div>
-                        <label class="col-md-3 col-12">
-                          Train Number :
-                        </label>
-                        <div class="col-md-3 col-12">
-                          <p class="">{{main.line8}}</p>
-                        </div>
-                      </div>
-
-                      <div class="row mb-2">
-                        <label class="col-md-4 col-12">
-                          Terms and Conditions:
-                        </label>
-                        <div class="col-md-8 col-12">
-                          <div class="pl-1 border border-primary rounded" style="height: 100px;
-                          width: 100%;">
-                            {{main.line9}}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <label class="col-md-4 col-12">
-                          Incoterm:
-                          <span class="text-danger">*</span>
-                        </label>
-                        <div class="col-md-8 col-12">
-                          <p disabled class="border border-primary rounded">
-                            {{main.line10}}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                  </td>
                 </tr>
 
-                <table cellpadding="10" class="table-css">
-                  <tr class="tr-css">
-                    <th class="th-css">Container type</th>
-                    <th class="th-css">Price</th>
-                    <th class="th-css">Qty</th>
-                    <th class="th-css">Capacity</th>
-                    <th class="th-css">Subtotal</th>
-                  </tr>
-
-                  {{#row}}
-                  <tr class="tr-css">
-                    <td>{{field1}}</td>
-                    <td class="float-right">{{field2}}</td>
-                    <td>{{field3}}</td>
-                    <td>{{field4}}</td>
-                    <td class="float-right">{{field5}}</td>
-                  </tr>
-                  {{/row}}
-                  </table>
-          </tr>
-          <!-- end content -->
-          <tr>
-            <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Ancillary Price:
-              <span class="float-right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">{{main.price}}</span>
+                <tr>
+                  <td height="15">
+                    Best regards,
+                    <br> KretaHub
+                  </td>
+                </tr>
+                <tr>
+                  <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
+                </tr>
+              </table>
             </td>
           </tr>
-          <tr>
-            <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">Total:
-              <span class="float-right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;  font-weight: bold; text-transform:uppercase">{{main.total}}</span>
-            </td>
-          </tr>
-
-
-          <tr>
-            <td height="15">
-              Best regards,
-              <br> KretaHub
-            </td>
-          </tr>
-          <tr>
-            <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
-          </tr>
-          </table>
-          </td>
-    </tr>
-    </table>
-    </td>
+        </table>
+      </td>
     </tr>
   </table>
   <!-- end note -->
