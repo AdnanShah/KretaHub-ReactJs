@@ -223,9 +223,9 @@ class Default extends React.Component {
             </div>
             <div className="col-md-3">
               <DatePicker
-                disabled
                 keyboard
                 value={this.state.selectedUntilDate}
+                onChange={this.handleUntilDateChange}
                 animateYearScrolling={false}
               />
             </div>

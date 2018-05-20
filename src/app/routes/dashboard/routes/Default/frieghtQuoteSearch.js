@@ -27,18 +27,33 @@ const styles = theme => ({
     width: 200
   }
 });
+var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
 
 class FreightSearch extends React.Component {
   constructor() {
     super();
     this.state = {
-      selectedDate: moment()
+      country1: stations[1].field,
+      country2: stations[2].field,
+      radioButton: "radioButton1",
+      selectedDate: new Date("March 20, 2018 11:13:00"),
+      selectedUntilDate: new Date("April 20, 2018 11:13:00")
     };
   }
-
   handleChange = name => event => {
-    console.log("name", name, "event", event.target.value);
-    this.setState({ [name]: event.target.value });
+    this.setState({ [name]: event.target.value }, this.handleStation);
   };
   onOptionMenuSelect = event => {
     this.setState({ menuState: true, anchorEl: event.currentTarget });
@@ -48,8 +63,60 @@ class FreightSearch extends React.Component {
   };
 
   handleDateChange = date => {
-    this.setState({ selectedDate: date });
-    // this.requiredDateFormate();
+    // let date = new Date(date);
+    let newdate = new Date(date);
+    newdate.setDate(newdate.getDate());
+    let dd = newdate.getDate();
+    let mm = month[newdate.getMonth()];
+    let y = newdate.getFullYear();
+    let someFormattedDate = mm + " " + dd + "  " + y;
+
+    this.setState(
+      { selectedDate: someFormattedDate }
+      //   , () => {
+      //   this.untilDate();
+      // }
+    );
+  };
+
+  untilDate = () => {
+    let tt = this.state.selectedDate;
+    let date = new Date(tt);
+    let newdate = new Date(date);
+    newdate.setDate(newdate.getDate() + 30);
+    let dd = newdate.getDate();
+    let mm = month[newdate.getMonth() + 1];
+    let y = newdate.getFullYear();
+    let someFormattedDate = mm + " " + dd + " " + y;
+    this.setState({ selectedUntilDate: someFormattedDate });
+  };
+
+  handleUntilDateChange = date => {
+    this.setState({ selectedUntilDate: date });
+  };
+
+  onChange = date => {
+    console.log(date);
+    this.setState({ date });
+  };
+  nextRoute = () => {
+    this.props.history.push({
+      pathname: "freightSearch",
+      state: {
+        key: this.state
+      }
+    });
+  };
+  setRadioButton = event => {
+    this.setState({ radioButton: event.target.value });
+  };
+  handleStation = () => {
+    if (this.state.country1 === this.state.country2) {
+      this.setState(
+        { country1: "", country2: "" },
+        alert("Must be different stations")
+      );
+    }
   };
 
   columns = [
@@ -133,8 +200,6 @@ class FreightSearch extends React.Component {
     }
 
     console.log(this.props.location.state.key);
-    const { anchorEl, menuState, currentDate } = this.state;
-    const { classes } = this.props;
     console.log("this.state", this.state);
 
     return (
@@ -142,7 +207,12 @@ class FreightSearch extends React.Component {
         <div className="container">
           <div className="container-fluid">
             <div className="jr-card-header pt-3">
-              <h2 className="freight-heading">Freight Quote Search </h2>
+              <h1 className="freight-heading">Dashboard </h1>
+            </div>
+            <div className="jr-card-header pt-3">
+              <h2 className="freight-heading">
+                <IntlMessages id="Freight Quote Search" />
+              </h2>
             </div>
             <div className="row">
               <div className="col-md-3 mt-3" style={{ marginRight: "-5%" }}>
@@ -152,7 +222,7 @@ class FreightSearch extends React.Component {
                 <TextField
                   id="departure"
                   select
-                  value={this.props.location.state.key.country1}
+                  value={this.state.country1}
                   onChange={this.handleChange("country1")}
                   SelectProps={{}}
                   margin="normal"
@@ -170,7 +240,7 @@ class FreightSearch extends React.Component {
                   className=""
                   id="arrival"
                   select
-                  value={this.props.location.state.key.country2}
+                  value={this.state.country2}
                   onChange={this.handleChange("country2")}
                   SelectProps={{}}
                   margin="normal"
@@ -190,10 +260,7 @@ class FreightSearch extends React.Component {
               <div className="col-md">
                 <label className="m-0" for="fcl">
                   <Radio
-                    checked={
-                      this.props.location.state.key.radioButton ===
-                      "radioButton1"
-                    }
+                    checked={this.state.radioButton === "radioButton1"}
                     onChange={this.setRadioButton}
                     aria-label="A"
                     value="radioButton1"
@@ -203,10 +270,7 @@ class FreightSearch extends React.Component {
                 </label>
                 <label className="" for="lcl">
                   <Radio
-                    checked={
-                      this.props.location.state.key.radioButton ===
-                      "radioButton2"
-                    }
+                    checked={this.state.radioButton === "radioButton2"}
                     onChange={this.setRadioButton}
                     aria-label="A"
                     value="radioButton2"
@@ -216,10 +280,7 @@ class FreightSearch extends React.Component {
                 </label>
                 <label className="" for="cargo">
                   <Radio
-                    checked={
-                      this.props.location.state.key.radioButton ===
-                      "radioButton3"
-                    }
+                    checked={this.state.radioButton === "radioButton3"}
                     onChange={this.setRadioButton}
                     aria-label="A"
                     value="radioButton3"
@@ -238,7 +299,7 @@ class FreightSearch extends React.Component {
               <div className="col-md-4">
                 <DatePicker
                   keyboard
-                  value={this.props.location.state.key.selectedDate}
+                  value={this.state.selectedDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
                 />
@@ -251,7 +312,8 @@ class FreightSearch extends React.Component {
               <div className="col-md-3">
                 <DatePicker
                   keyboard
-                  value={this.props.location.state.key.selectedUntilDate}
+                  value={this.state.selectedUntilDate}
+                  onChange={this.handleUntilDateChange}
                   animateYearScrolling={false}
                 />
               </div>
@@ -259,11 +321,8 @@ class FreightSearch extends React.Component {
             <div className="row mt-2">
               <div className="col">
                 <Button
-                  onClick={searchData(
-                    this.state.someFormattedDate,
-                    this.state.someFormattedDate
-                  )}
                   letiant="raised"
+                  onClick={this.nextRoute}
                   style={{
                     background: "#29487D",
                     color: "#fff"
@@ -277,21 +336,20 @@ class FreightSearch extends React.Component {
               </div>
             </div>
           </div>
-
           <br />
           <br />
           <hr />
           <ReactTable
             data={searchData(
-              this.props.location.state.key.selectedDate,
-              // this.props.location.state.key.selectedUntilDate
-              "March 21  2018"
+              this.state.selectedDate,
+              this.state.selectedUntilDate
+              // "March 21  2018"
             )}
             sortable={false}
             className="target-table -striped -highlight"
             // data={data}
             columns={this.columns}
-            defaultPageSize={10}
+            defaultPageSize={20}
           />
         </div>
       </Paper>

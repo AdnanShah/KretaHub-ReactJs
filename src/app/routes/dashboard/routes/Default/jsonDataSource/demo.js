@@ -1,0 +1,70 @@
+{
+    field1: "March 27  2018",
+    field2: "",
+    field3: "March 28  2018",
+    field4: "",
+    field5: "KA Maju Cepat",
+    field6: "20RF/20TK/20GP: 10",
+    field7: "IDR 2,200,000",
+    field8: "IDR 3,740,000",
+    field9: "IDR 4,840,000"
+  },
+  {
+    fieldx: "March 27  2018",
+    field1: "06:00 WIB 00:00 WIB",
+    field2: "",
+    field3: "00:00 WIB",
+    field6: "40RF/40GP: 5 40RF/40GP: 5",
+    field4: "",
+    field5: "107",
+    field7: "IDR 4,200,000",
+    field8: "IDR 6,150,000",
+    field9: "IDR 7,350,000"
+  },
+  {
+    field1: "March 27  2018",
+    field2: "",
+    field3: "March 28  2018",
+    field4: "",
+    field5: "KA Maju Cepat",
+    field6: "20RF/20TK/20GP: 10",
+    field7: "IDR 2,200,000",
+    field8: "IDR 3,740,000",
+    field9: "IDR 4,840,000"
+  },
+  {
+    fieldx: "March 27  2018",
+    field1: "09:45 WIB 03:45 WIB",
+    field2: "",
+    field3: "108 40RF/40GP: 5",
+    field4: "",
+    field6: "40RF/40GP: 5",
+    field5: "108",
+    field7: "IDR 4,200,000",
+    field8: "IDR 6,150,000",
+    field9: "IDR 7,350,000"
+  },
+  {
+    field1: "March 27  2018",
+    field2: "",
+    field3: "March 28  2018",
+    field4: "",
+    field5: "KA Maju Cepat",
+    field6: "20RF/20TK/20GP: 8",
+    field7: "IDR 3,100,000",
+    field8: "",
+    field9: ""
+  },
+  {
+    fieldx: "March 27  2018",
+    field1: "13:00 WIB",
+    field2: "",
+    field3: "07:00 WIB",
+    field4: "",
+    field6: "40RF/40GP: 4",
+    field5: "201",
+    field7: "",
+    field8: "",
+    field9: "IDR 5,150,000"
+  },
+  
