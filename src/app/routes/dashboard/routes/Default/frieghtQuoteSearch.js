@@ -42,19 +42,22 @@ month[10] = "November";
 month[11] = "December";
 
 class FreightSearch extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      // country1: stations[1].field,
-      country1: props.country1,
+      country1: stations[1].field,
       country2: stations[2].field,
+      error: false,
       radioButton: "radioButton1",
       selectedDate: new Date("March 20, 2018 11:13:00"),
       selectedUntilDate: new Date("April 20, 2018 11:13:00")
     };
   }
   handleChange = name => event => {
-    this.setState({ [name]: event.target.value }, this.handleStation);
+    this.setState(
+      { [name]: event.target.value, error: false },
+      this.handleStation
+    );
   };
   onOptionMenuSelect = event => {
     this.setState({ menuState: true, anchorEl: event.currentTarget });
@@ -112,11 +115,17 @@ class FreightSearch extends React.Component {
     this.setState({ radioButton: event.target.value });
   };
   handleStation = () => {
-    if (this.state.country1 === this.state.country2) {
-      this.setState(
-        { country1: "", country2: "" },
-        alert("Must be different stations")
-      );
+    if (
+      (this.state.country1 === stations[1].field &&
+        this.state.country2 === stations[1].field) ||
+      (this.state.country1 === stations[2].field &&
+        this.state.country2 === stations[2].field)
+    ) {
+      this.setState({
+        country1: "",
+        country2: "",
+        error: !this.state.error
+      });
     }
   };
 
@@ -253,6 +262,9 @@ class FreightSearch extends React.Component {
                     </MenuItem>
                   ))}
                 </TextField>
+                <h4 className="text-danger">
+                  {this.state.error ? "Must be different stations" : ""}
+                </h4>
               </div>
             </div>
             <div className="row">
