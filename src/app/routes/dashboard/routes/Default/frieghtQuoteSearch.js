@@ -1,6 +1,6 @@
 import React from "react";
 import Paper from "material-ui/Paper";
-import data from "./jsonDataSource/tabledata.json";
+import { data, searchData } from "./jsonDataSource/tabledata.js";
 import TextField from "material-ui/TextField";
 import Button from "material-ui/Button";
 import IntlMessages from "util/IntlMessages";
@@ -32,8 +32,6 @@ class FreightSearch extends React.Component {
   constructor() {
     super();
     this.state = {
-      anchorEl: undefined,
-      menuState: false,
       selectedDate: moment()
     };
   }
@@ -51,6 +49,7 @@ class FreightSearch extends React.Component {
 
   handleDateChange = date => {
     this.setState({ selectedDate: date });
+    // this.requiredDateFormate();
   };
 
   columns = [
@@ -126,7 +125,6 @@ class FreightSearch extends React.Component {
   componentWillMount() {
     document.title = "Frieght Quote Search - KretaHub";
   }
-
   render() {
     try {
       this.props.location.state.key;
@@ -134,10 +132,10 @@ class FreightSearch extends React.Component {
       window.location.replace("default");
     }
 
-    // console.log(this.props.location.state.key);
+    console.log(this.props.location.state.key);
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;
-    // console.log(this.state.currentDate);
+    console.log("this.state", this.state);
 
     return (
       <Paper>
@@ -252,7 +250,6 @@ class FreightSearch extends React.Component {
               </div>
               <div className="col-md-3">
                 <DatePicker
-                  disabled
                   keyboard
                   value={this.props.location.state.key.selectedUntilDate}
                   animateYearScrolling={false}
@@ -262,6 +259,10 @@ class FreightSearch extends React.Component {
             <div className="row mt-2">
               <div className="col">
                 <Button
+                  onClick={searchData(
+                    this.state.someFormattedDate,
+                    this.state.someFormattedDate
+                  )}
                   letiant="raised"
                   style={{
                     background: "#29487D",
@@ -281,9 +282,14 @@ class FreightSearch extends React.Component {
           <br />
           <hr />
           <ReactTable
+            data={searchData(
+              this.props.location.state.key.selectedDate,
+              // this.props.location.state.key.selectedUntilDate
+              "March 21  2018"
+            )}
             sortable={false}
             className="target-table -striped -highlight"
-            data={data}
+            // data={data}
             columns={this.columns}
             defaultPageSize={10}
           />

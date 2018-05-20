@@ -9,7 +9,7 @@ import DateFormatInput from "material-ui-next-datepicker";
 import { Link } from "react-router-dom";
 import Tour from "../../../../../components/Tour/index";
 import { DatePicker } from "material-ui-pickers";
-
+import FreightSearch from "./frieghtQuoteSearch";
 import Radio from "material-ui/Radio";
 
 const styles = theme => ({
@@ -18,25 +18,26 @@ const styles = theme => ({
     flexWrap: "wrap"
   }
 });
+var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
+
 class Default extends React.Component {
   constructor() {
     super();
-    let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1; //January is 0!
-    let yyyy = today.getFullYear();
-    if (dd < 10) {
-      dd = "0" + dd;
-    }
-    if (mm < 10) {
-      mm = "0" + mm;
-    }
     this.state = {
-      anchorEl: undefined,
-      menuState: false,
       country1: stations[1].field,
       country2: stations[2].field,
-      currentDate: yyyy + "-" + mm + "-" + dd,
       radioButton: "radioButton1",
       selectedDate: new Date("March 20, 2018 11:13:00"),
       selectedUntilDate: new Date("April 20, 2018 11:13:00")
@@ -53,19 +54,31 @@ class Default extends React.Component {
   };
 
   handleDateChange = date => {
-    this.setState({ selectedDate: date }, this.untilDate);
+    // let date = new Date(date);
+    let newdate = new Date(date);
+    newdate.setDate(newdate.getDate());
+    let dd = newdate.getDate();
+    let mm = month[newdate.getMonth()];
+    let y = newdate.getFullYear();
+    let someFormattedDate = mm + " " + dd + "  " + y;
+
+    this.setState({ selectedDate: someFormattedDate }, () => {
+      this.untilDate();
+    });
   };
+
   untilDate = () => {
     let tt = this.state.selectedDate;
     let date = new Date(tt);
     let newdate = new Date(date);
     newdate.setDate(newdate.getDate() + 30);
     let dd = newdate.getDate();
-    let mm = newdate.getMonth() + 1;
+    let mm = month[newdate.getMonth() + 1];
     let y = newdate.getFullYear();
-    let someFormattedDate = mm + "/" + dd + "/" + y;
+    let someFormattedDate = mm + " " + dd + " " + y;
     this.setState({ selectedUntilDate: someFormattedDate });
   };
+
   handleUntilDateChange = date => {
     this.setState({ selectedUntilDate: date });
   };
@@ -114,7 +127,9 @@ class Default extends React.Component {
             </h2>
           </div>
           <div className="row">
-            <div className="col-md-3 mt-3" style={{marginRight:'-5%'}}>Departure:</div>
+            <div className="col-md-3 mt-3" style={{ marginRight: "-5%" }}>
+              Departure:
+            </div>
             <div className="col-md-4">
               <TextField
                 id="departure"
@@ -151,7 +166,7 @@ class Default extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-3 mt-3" style={{marginRight:'-7%'}}>
+            <div className="col-md-3 mt-3" style={{ marginRight: "-7%" }}>
               <label for="Student">Freight type:</label>
             </div>
             <div className="col-md">
@@ -188,7 +203,7 @@ class Default extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-3" style={{marginRight:'-5%'}}>
+            <div className="col-md-3" style={{ marginRight: "-5%" }}>
               <label className="mt-3" for="Student">
                 Departure date / Arrival date:
               </label>
