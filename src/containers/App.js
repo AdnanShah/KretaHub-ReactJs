@@ -194,7 +194,7 @@ class App extends Component {
                         <Route path='/fullpayment' component={FullPayment}/>
                         <Route path='/fullpaymentreceive' component={FullPaymentReceive}/>
                         <Route path='/webthankyou' component={EmailTemplate}/>
-                        <Route path='/thankYou' component={() => window.location = 'https://assig-4b1ac.firebaseapp.com/'}/>
+                        <Route path='/thankYou' component={() => window.location = 'https://project-7-9fe4b.firebaseapp.com/#/app/dashboard/thankyou'}/>
                     </div>
                 </IntlProvider>
             </MuiThemeProvider>

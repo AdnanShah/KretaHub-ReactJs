@@ -968,7 +968,7 @@ class TextFields extends React.Component {
                 <br />
                 <br />
                 <div>
-                  <a href="https://assignmenttablefabodiamond.firebaseapp.com/">
+                  <a href="https://project-7-9fe4b.firebaseapp.com/#/app/dashboard/thankyou">
                     Next
                   </a>
                 </div>

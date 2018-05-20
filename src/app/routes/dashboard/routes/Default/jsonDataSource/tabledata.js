@@ -27,25 +27,31 @@ export const searchData = (start, end) => {
   let endDate = handleDateChange(end);
   console.log("startDate", startDate);
   console.log("endDate", endDate);
-
-  // let i = data.indexOf((item, i) => {
-  //   if (item.field1 == startDate && item.field3 == endDate) {
+  // return data.filter((item, i) => {
+  //   if (
+  //     (item.field1 == startDate || item.field3 == endDate) ||
+  //     item.fieldx == startDate
+  //   ) {
   //     return item;
   //   }
   // });
 
-  // console.log("i", i);
+  // var newArray = [];
+  // for (var i = 0, len = data.length; i < len; i++) {
+  //   if (data[i].field1 == startDate) {
+  //     newArray.push(data[i]);
+  //     newArray.push(data[++i]);
+  //   }
+  // }
+  // console.log(newArray);
+  // return newArray;
 
-  return data.filter((item, i) => {
-    if (
-      (item.field1 == startDate && item.field3 == endDate) ||
-      item.fieldx == startDate
-    ) {
-      return item;
-    } else {
-      // return item;
-    }
-  });
+  let s = data.findIndex(x => x.field1 == startDate);
+  let e = data.findIndex(x => x.fieldx == endDate);
+  let ee = e + 1;
+  let res = data.slice(s, ee);
+  console.log("s,e", s, e);
+  return res;
 };
 
 export const data = [
@@ -187,18 +193,6 @@ export const data = [
     field8: "",
     field9: "IDR 5,150,000"
   },
-
-  {
-    field1: "March 23  2018",
-    field2: "",
-    field3: "March 24  2018",
-    field4: "",
-    field5: "KA Maju Cepat",
-    field6: "20RF/20TK/20GP: 10",
-    field7: "IDR 2,200,000",
-    field8: "IDR 3,740,000",
-    field9: "IDR 4,840,000"
-  },
   {
     field1: "March 22  2018",
     field2: "",
@@ -267,18 +261,6 @@ export const data = [
     field7: "",
     field8: "",
     field9: "IDR 5,150,000"
-  },
-  {
-    fieldx: "March 23  2018",
-    field1: "06:00 WIB",
-    field2: "",
-    field3: " 00:00 WIB",
-    field6: "40RF/40GP: 5",
-    field4: "",
-    field5: "107",
-    field7: "IDR 4,200,000",
-    field8: "IDR 6,150,000",
-    field9: "IDR 7,350,000"
   },
   {
     field1: "March 23  2018",

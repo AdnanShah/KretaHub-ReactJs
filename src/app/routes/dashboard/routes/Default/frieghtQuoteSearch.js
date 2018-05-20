@@ -42,10 +42,11 @@ month[10] = "November";
 month[11] = "December";
 
 class FreightSearch extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      country1: stations[1].field,
+      // country1: stations[1].field,
+      country1: props.country1,
       country2: stations[2].field,
       radioButton: "radioButton1",
       selectedDate: new Date("March 20, 2018 11:13:00"),
@@ -199,8 +200,9 @@ class FreightSearch extends React.Component {
       window.location.replace("default");
     }
 
-    console.log(this.props.location.state.key);
-    console.log("this.state", this.state);
+    // console.log(this.props.location.state.key);
+    // console.log("this.state", this.state);
+    console.log("this.props", this.props);
 
     return (
       <Paper>
@@ -336,6 +338,7 @@ class FreightSearch extends React.Component {
               </div>
             </div>
           </div>
+
           <br />
           <br />
           <hr />
