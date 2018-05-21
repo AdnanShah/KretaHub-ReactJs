@@ -247,7 +247,7 @@ class TextFields extends React.Component {
 
   handleOnSubmit = e => {
     this.setState({ submitted: false });
-    this.props.history.push(`/thankYou`);
+    this.props.history.push(`/webthankYou`);
   };
   handleDateChange = date => {
     this.setState({ selectedDate: date });
