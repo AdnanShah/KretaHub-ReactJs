@@ -20,6 +20,7 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 import { DateTimePicker, TimePicker, DatePicker } from "material-ui-pickers";
 import { Icon, InputAdornment } from "material-ui";
+import Snackbar from "material-ui/Snackbar";
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -69,15 +70,15 @@ const data = [
 class ComposedTextField extends React.Component {
   state = {
     name: "Composed TextField",
-
+    total: 0,
     makeData: [
       {
         field1: "20RF",
         field2: "IDR 2,200,000",
         field6: "2200000",
-        field3: "2",
+        field3: "",
         field4: "of 10",
-        field5: 4400000
+        field5: 0
       },
       {
         field1: "20TK",
@@ -107,9 +108,9 @@ class ComposedTextField extends React.Component {
         field1: "40GP",
         field2: "IDR 4,200,000",
         field6: "4200000",
-        field3: "1",
+        field3: "",
         field4: "of 5",
-        field5: 4200000
+        field5: 0
       }
     ]
   };
@@ -151,14 +152,10 @@ class ComposedTextField extends React.Component {
   };
 
   calculateTotal = () => {
-    const data = this.state.makeData;
-    let total = 0;
-    data.forEach(d => {
-      total += d.field5;
-    });
-    return total + 100000;
+    return `IDR:${(this.state.total + 100000)
+      .toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
   };
-
   saveData = () => {
     const { state } = this;
     this.props.saveInvoice(state);
@@ -172,21 +169,29 @@ class ComposedTextField extends React.Component {
     this.setState({ due });
   };
   renderEditable = cellInfo => {
-    // console.log("cellInfo", cellInfo.index, cellInfo.column.id);
+    console.log("cellInfo", cellInfo.index, cellInfo.column.id);
     return (
       <div
-        style={{
-          backgroundColor: "#fafafa"
-        }}
+        style={{ backgroundColor: "#fafafa" }}
         contentEditable
         suppressContentEditableWarning
         onBlur={e => {
           const makeData = [...this.state.makeData];
-          // console.log(makeData);
+          console.log(makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-          makeData[cellInfo.index].field5 =
-            makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
-          this.setState({ makeData });
+          if (makeData[cellInfo.index].field3 <= 20) {
+            let t =
+              makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
+            let tt = `IDR:${t
+              .toString()
+              .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
+            makeData[cellInfo.index].field5 = tt;
+            this.setState({ makeData, total: t });
+          } else {
+            this.setState({ open: true }, () => {
+              console.log("this.state", this.state);
+            });
+          }
         }}
         dangerouslySetInnerHTML={{
           __html: this.state.makeData[cellInfo.index][cellInfo.column.id]
@@ -268,12 +273,14 @@ class ComposedTextField extends React.Component {
             <div className="col-md-3 col-12">
               <div style={{ display: "inline-flex", width: "95%" }}>
                 <DatePicker
+                  disabled
                   style={{ borderRight: "1px solid #dee2e6" }}
                   value={this.state.selectedDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
                 />
                 <TimePicker
+                  disabled
                   ampm={false}
                   value={new Date(new Date().setHours(2, 0, 0, 0))}
                   onChange={this.handleDateChange}
@@ -296,12 +303,14 @@ class ComposedTextField extends React.Component {
             <div className="col-md-3 col-12">
               <div style={{ display: "inline-flex", width: "95%" }}>
                 <DatePicker
+                  disabled
                   style={{ borderRight: "1px solid #dee2e6" }}
                   value={this.state.selectedDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
                 />
                 <TimePicker
+                  disabled
                   ampm={false}
                   value={new Date(new Date().setHours(6, 0, 0, 0))}
                   onChange={this.handleDateChange}
@@ -315,12 +324,14 @@ class ComposedTextField extends React.Component {
             <div className="col-md-3 col-12">
               <div style={{ display: "inline-flex", width: "95%" }}>
                 <DatePicker
+                  disabled
                   style={{ borderRight: "1px solid #dee2e6" }}
                   value={this.state.arrivalDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
                 />
                 <TimePicker
+                  disabled
                   ampm={false}
                   value={new Date(new Date().setHours(0, 0, 0, 0))}
                   onChange={this.handleDateChange}
@@ -378,9 +389,9 @@ class ComposedTextField extends React.Component {
           <div className="col-sm-12">
             <div className="p-a">
               <ReactTable
+                showPagination={false}
                 sortable={false}
                 data={this.state.makeData}
-                showPagination={false}
                 columns={[
                   {
                     Header: "Container type",
@@ -394,7 +405,8 @@ class ComposedTextField extends React.Component {
                   {
                     Header: "QTY",
                     accessor: "field3",
-                    Cell: this.renderEditable
+                    Cell: this.renderEditable,
+                    className: "text-right"
                   },
                   {
                     Header: "Capacity",
@@ -403,12 +415,14 @@ class ComposedTextField extends React.Component {
                   },
                   {
                     Header: "Subtotal",
-                    accessor: "field5"
+                    accessor: "field5",
+                    className: "text-right"
                   }
                 ]}
                 defaultPageSize={5}
                 className="-striped -highlight"
               />
+
               <br />
               <div className="row">
                 <div className="col-6">
@@ -438,6 +452,33 @@ class ComposedTextField extends React.Component {
             Next
           </a>
         </Button>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right"
+          }}
+          open={this.state.open}
+          autoHideDuration={6000}
+          onClose={this.handleClose}
+          ContentProps={{
+            "aria-describedby": "message-id"
+          }}
+          message={
+            <span id="message-id">Qty cannot exceed capacity of 20.</span>
+          }
+          action={[
+            <Button
+              key="undo"
+              color="secondary"
+              size="small"
+              onClick={() => {
+                this.setState({ open: false });
+              }}
+            >
+              Close
+            </Button>
+          ]}
+        />
       </Paper>
     );
   }
