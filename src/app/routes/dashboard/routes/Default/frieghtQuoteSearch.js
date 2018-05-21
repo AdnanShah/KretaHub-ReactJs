@@ -42,15 +42,26 @@ month[10] = "November";
 month[11] = "December";
 
 class FreightSearch extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      country1: stations[1].field,
-      country2: stations[2].field,
+      country1: props.location.state
+        ? props.location.state.key.country1
+        : stations[1].field,
+      country2: props.location.state
+        ? props.location.state.key.country2
+        : stations[2].field,
       error: false,
-      radioButton: "radioButton1",
-      selectedDate: new Date("March 20, 2018 11:13:00"),
-      selectedUntilDate: new Date("April 20, 2018 11:13:00")
+      radioButton: props.location.state
+        ? props.location.state.key.radioButton
+        : "radioButton1",
+      selectedDate: props.location.state
+        ? props.location.state.key.selectedDate
+        : "",
+      selectedUntilDate: props.location.state
+        ? props.location.state.key.selectedUntilDate
+        : "",
+      searchData: []
     };
   }
   handleChange = name => event => {
@@ -122,8 +133,8 @@ class FreightSearch extends React.Component {
         this.state.country2 === stations[2].field)
     ) {
       this.setState({
-        country1: "",
-        country2: "",
+        country1: stations[0].field,
+        country2: stations[0].field,
         error: !this.state.error
       });
     }
@@ -202,20 +213,43 @@ class FreightSearch extends React.Component {
   componentWillMount() {
     document.title = "Frieght Quote Search - KretaHub";
   }
+  componentDidMount() {
+    this.setState({
+      searchData: searchData(
+        this.props.location.state
+          ? this.props.location.state.key.selectedDate
+          : this.setState({
+              selectedDate: new Date("March 20, 2018 11:13:00")
+            }),
+        this.props.location.state
+          ? this.props.location.state.key.selectedUntilDate
+          : this.setState({
+              selectedUntilDate: new Date("March 25, 2018 11:13:00")
+            })
+      )
+    });
+  }
+  handleDateTable = () => {
+    this.setState({
+      searchData: searchData(
+        this.state.selectedDate,
+        this.state.selectedUntilDate
+        // "March 21  2018"
+      )
+    });
+  };
+  componentWillReceiveProps(nextProps) {
+    this.setState({ country1: this.props.location.state.key.country1 });
+    console.log("country1", country1, nextProps);
+  }
   render() {
-    try {
-      this.props.location.state.key;
-    } catch (err) {
-      window.location.replace("default");
-    }
-
     // console.log(this.props.location.state.key);
     // console.log("this.state", this.state);
     console.log("this.props", this.props);
 
     return (
       <Paper>
-        <div className="container">
+        <div className="">
           <div className="container-fluid">
             <div className="jr-card-header pt-3">
               <h1 className="freight-heading">Dashboard </h1>
@@ -336,7 +370,7 @@ class FreightSearch extends React.Component {
               <div className="col">
                 <Button
                   letiant="raised"
-                  onClick={this.nextRoute}
+                  onClick={this.handleDateTable}
                   style={{
                     background: "#29487D",
                     color: "#fff"
@@ -355,11 +389,7 @@ class FreightSearch extends React.Component {
           <br />
           <hr />
           <ReactTable
-            data={searchData(
-              this.state.selectedDate,
-              this.state.selectedUntilDate
-              // "March 21  2018"
-            )}
+            data={this.state.searchData}
             sortable={false}
             className="target-table -striped -highlight"
             // data={data}

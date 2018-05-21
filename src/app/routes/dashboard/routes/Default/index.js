@@ -111,19 +111,21 @@ class Default extends React.Component {
         this.state.country2 === stations[2].field)
     ) {
       this.setState({
-        country1: "",
-        country2: "",
+        country1: stations[0].field,
+        country2: stations[0].field,
         error: !this.state.error
       });
     }
   };
   componentWillMount() {
     document.title = "Shipper Dashboard - KretaHub";
+    console.log(this.props);
   }
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;
     console.log(this.state);
+    console.log(this.props);
     return (
       <Paper>
         <Tour />

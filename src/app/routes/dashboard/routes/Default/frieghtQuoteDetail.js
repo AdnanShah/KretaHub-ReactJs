@@ -8,9 +8,10 @@ import jsonData from "./jsonDataSource/ATANotice.json";
 import { Link } from "react-router-dom";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-
+import Radio from "material-ui/Radio";
 import { DateTimePicker, TimePicker, DatePicker } from "material-ui-pickers";
 import { Icon, InputAdornment } from "material-ui";
+import Snackbar from "material-ui/Snackbar";
 
 const styles = theme => ({
   container: {
@@ -75,13 +76,15 @@ class Freightdetail extends React.Component {
       selectedDate: new Date(),
       arrivalDate: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
       clearedDate: null,
-
+      radioButton: "radioButton1",
+      total: 0,
+      open: false,
       makeData: [
         {
           field1: "20RF",
           field2: "IDR 2,200,000",
           field6: "2200000",
-          field3: "2",
+          field3: "",
           field4: "of 10",
           field5: 0
         },
@@ -113,7 +116,7 @@ class Freightdetail extends React.Component {
           field1: "40GP",
           field2: "IDR 4,200,000",
           field6: "4200000",
-          field3: "1",
+          field3: "",
           field4: "of 5",
           field5: 0
         }
@@ -166,22 +169,15 @@ class Freightdetail extends React.Component {
   };
 
   calculateTotal = () => {
-    const data = this.state.makeData;
-    let total = 0;
-    data.forEach(d => {
-      total += d.field5;
-    });
-    return total + 100000;
+    return `IDR:${(this.state.total + 100000)
+      .toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
   };
 
   saveData = () => {
     const { state } = this;
     this.props.saveInvoice(state);
   };
-
-  //   handleDateChange = date => {
-  //     this.setState({ date });
-  //   };
 
   handleDueChange = due => {
     this.setState({ due });
@@ -197,9 +193,19 @@ class Freightdetail extends React.Component {
           const makeData = [...this.state.makeData];
           console.log(makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-          makeData[cellInfo.index].field5 =
-            makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
-          this.setState({ makeData });
+          if (makeData[cellInfo.index].field3 <= 20) {
+            let t =
+              makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
+            let tt = `IDR:${t
+              .toString()
+              .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
+            makeData[cellInfo.index].field5 = tt;
+            this.setState({ makeData, total: t });
+          } else {
+            this.setState({ open: true }, () => {
+              console.log("this.state", this.state);
+            });
+          }
         }}
         dangerouslySetInnerHTML={{
           __html: this.state.makeData[cellInfo.index][cellInfo.column.id]
@@ -210,7 +216,9 @@ class Freightdetail extends React.Component {
   componentWillMount() {
     document.title = "Frieght Quote Details - KretaHub";
   }
-
+  setRadioButton = event => {
+    this.setState({ radioButton: event.target.value });
+  };
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;
@@ -220,7 +228,7 @@ class Freightdetail extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col">
-              <div className="jr-card-header pt-3 px-4">
+              <div className="jr-card-header pt-3 px-2">
                 <h2>
                   <IntlMessages id="Freight Quote Details" />
                 </h2>
@@ -243,17 +251,19 @@ class Freightdetail extends React.Component {
 
                 <div className="row">
                   <label className="col-md-3 col-12" for="email">
-                    Closing time:<span className="text-danger">*</span>
+                    Closing time:
                   </label>
                   <div className="col-md-3 col-12">
                     <div style={{ display: "inline-flex", width: "75%" }}>
                       <DatePicker
+                        disabled
                         style={{ borderRight: "1px solid #3f51b5" }}
                         value={this.state.selectedDate}
                         onChange={this.handleDateChange}
                         animateYearScrolling={false}
                       />
                       <TimePicker
+                        disabled
                         ampm={false}
                         value={new Date(new Date().setHours(2, 0, 0, 0))}
                         onChange={this.handleDateChange}
@@ -276,12 +286,14 @@ class Freightdetail extends React.Component {
                   <div className="col-md-3 col-12">
                     <div style={{ display: "inline-flex", width: "75%" }}>
                       <DatePicker
+                        disabled
                         style={{ borderRight: "1px solid #3f51b5" }}
                         value={this.state.selectedDate}
                         onChange={this.handleDateChange}
                         animateYearScrolling={false}
                       />
                       <TimePicker
+                        disabled
                         ampm={false}
                         value={new Date(new Date().setHours(6, 0, 0, 0))}
                         onChange={this.handleDateChange}
@@ -295,12 +307,14 @@ class Freightdetail extends React.Component {
                   <div className="col-md-3 col-12">
                     <div style={{ display: "inline-flex", width: "75%" }}>
                       <DatePicker
+                        disabled
                         style={{ borderRight: "1px solid #3f51b5" }}
                         value={this.state.arrivalDate}
                         onChange={this.handleDateChange}
                         animateYearScrolling={false}
                       />
                       <TimePicker
+                        disabled
                         ampm={false}
                         value={new Date(new Date().setHours(0, 0, 0, 0))}
                         onChange={this.handleDateChange}
@@ -326,7 +340,7 @@ class Freightdetail extends React.Component {
 
                 <div className="row">
                   <label className="col-md-3 col-12" for="email">
-                    Terms and Conditions:<span className="text-danger">*</span>
+                    Terms and Conditions:
                   </label>
                   <div className="col-md-8 col-12">
                     <textarea
@@ -335,20 +349,46 @@ class Freightdetail extends React.Component {
                       style={{
                         minWidth: "100%"
                       }}
-                    >
-                      {jsonData[0].line9}
-                    </textarea>
+                    />
                   </div>
                 </div>
 
+                <h2>Book This Schedule</h2>
                 <div className="row">
-                  <label className="col-md-3 col-12" for="email">
-                    Incoterm:<span className="text-danger">*</span>
-                  </label>
-                  <div className="col-md-8 col-12">
-                    <p className="border border-primary rounded">
-                      {jsonData[0].line10}
-                    </p>
+                  <div className="col-md-3 mt-3" style={{ marginRight: "-2%" }}>
+                    <label for="Student">Incoterm:</label>
+                  </div>
+                  <div className="col-md">
+                    <label className="m-0" for="fcl">
+                      <Radio
+                        checked={this.state.radioButton === "radioButton1"}
+                        onChange={this.setRadioButton}
+                        aria-label="A"
+                        value="radioButton1"
+                        name="radioButton"
+                      />
+                      Station-to-Station
+                    </label>
+                    <label className="" for="lcl">
+                      <Radio
+                        checked={this.state.radioButton === "radioButton2"}
+                        onChange={this.setRadioButton}
+                        aria-label="A"
+                        value="radioButton2"
+                        name="radioButton"
+                      />
+                      Door-to-Station
+                    </label>
+                    <label className="" for="cargo">
+                      <Radio
+                        checked={this.state.radioButton === "radioButton3"}
+                        onChange={this.setRadioButton}
+                        aria-label="A"
+                        value="radioButton3"
+                        name="radioButton"
+                      />
+                      Door-to-Door
+                    </label>
                   </div>
                 </div>
               </div>
@@ -373,7 +413,8 @@ class Freightdetail extends React.Component {
                         {
                           Header: "QTY",
                           accessor: "field3",
-                          Cell: this.renderEditable
+                          Cell: this.renderEditable,
+                          className: "text-right"
                         },
                         {
                           Header: "Capacity",
@@ -382,7 +423,8 @@ class Freightdetail extends React.Component {
                         },
                         {
                           Header: "Subtotal",
-                          accessor: "field5"
+                          accessor: "field5",
+                          className: "text-right"
                         }
                       ]}
                       defaultPageSize={5}
@@ -434,6 +476,30 @@ class Freightdetail extends React.Component {
             </div>
           </div>
         </div>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right"
+          }}
+          open={this.state.open}
+          autoHideDuration={6000}
+          onClose={this.handleClose}
+          ContentProps={{
+            "aria-describedby": "message-id"
+          }}
+          message={<span id="message-id">Qty cannot exceed capacity of 20.</span>}
+          action={[
+            <Button
+              key="undo"
+              color="secondary"
+              size="small"
+              onClick={()=>{this.setState({open:false})}}
+            >
+              Close
+            </Button>
+          
+          ]}
+        />
       </Paper>
     );
   }
