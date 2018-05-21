@@ -51,7 +51,11 @@ export const searchData = (start, end) => {
   let ee = e + 1;
   let res = data.slice(s, ee);
   console.log("s,e", s, e);
-  return res;
+  if (e === -1) {
+    return data;
+  } else {
+    return res;
+  }
 };
 
 export const data = [
