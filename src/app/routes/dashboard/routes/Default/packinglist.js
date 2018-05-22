@@ -55,48 +55,46 @@ class Default extends React.Component {
       makeData: [
         {
           field1: "",
-          field2: "Rice",
-          field3: "Rice",
-          field4: "1",
-          field5: "bags",
-          field6: "1000 kg",
-          field7: "2 m",
-          field8: "1 m",
-          field9: "2.5 m"
+          field2: "",
+          field3: "",
+          field4: "",
+          field5: "",
+          field6: "",
+          field7: "",
+          field8: "",
+          field9: ""
         }
       ],
       makeData2: [
         {
           field1: "",
-          field2: "Rice",
-          field3: "Rice",
-          field4: "1",
-          field5: "bags",
-          field6: "1000 kg",
-          field7: "2 m",
-          field8: "1 m",
-          field9: "2.5 m"
+          field2: "",
+          field3: "",
+          field4: "",
+          field5: "",
+          field6: "",
+          field7: "",
+          field8: "",
+          field9: ""
         }
       ],
       makeData3: [
         {
           field1: "",
-          field2: "Rice",
-          field3: "Rice",
-          field4: "1",
-          field5: "bags",
-          field6: "1000 kg",
-          field7: "2 m",
-          field8: "1 m",
-          field9: "2.5 m"
+          field2: "",
+          field3: "",
+          field4: "",
+          field5: "",
+          field6: "",
+          field7: "",
+          field8: "",
+          field9: ""
         }
       ]
     };
   }
 
   renderEditable = cellInfo => {
-    // console.log("cellInfo", cellInfo.index, cellInfo.column.id);
-
     return (
       <div
         style={{ backgroundColor: "#fff" }}
@@ -427,7 +425,7 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="Non-DG">Rice</MenuItem>
+                        <MenuItem value="Non-DG" />
                       </Select>
                     </span>
                   )
@@ -443,7 +441,7 @@ class Default extends React.Component {
                   accessor: "field4",
                   Cell: row => (
                     <input
-                      className="text-right"
+                      className="text-right float-left"
                       style={{
                         border: "none",
                         width: "100%",
@@ -481,10 +479,10 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
@@ -499,14 +497,15 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
-                      />m x
+                      />
+                      <span className="float-right">m x</span>
                     </span>
                   )
                 },
@@ -517,14 +516,16 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
-                      />m x
+                      />
+
+                      <span className="float-right">m x</span>
                     </span>
                   )
                 },
@@ -535,14 +536,16 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
-                      />m
+                      />
+
+                      <span className="float-right">m </span>
                     </span>
                   )
                 },
@@ -606,7 +609,7 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="rice">Rice</MenuItem>
+                        <MenuItem value="rice" />
                       </Select>
                     </span>
                   )
@@ -622,7 +625,7 @@ class Default extends React.Component {
                   accessor: "field4",
                   Cell: row => (
                     <input
-                      className="text-right"
+                      className="text-right float-left"
                       style={{
                         border: "none",
                         width: "100%",
@@ -661,10 +664,10 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
@@ -679,14 +682,15 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
-                      />m x
+                      />
+                      <span className="float-right">m x</span>
                     </span>
                   )
                 },
@@ -697,14 +701,15 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
-                      />m x
+                      />
+                      <span className="float-right">m x</span>
                     </span>
                   )
                 },
@@ -715,14 +720,16 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
-                      />m
+                      />
+
+                      <span className="float-right">m </span>
                     </span>
                   )
                 },
@@ -787,7 +794,7 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="rice">Rice</MenuItem>
+                        <MenuItem value="rice" />
                       </Select>
                     </span>
                   )
@@ -803,7 +810,7 @@ class Default extends React.Component {
                   accessor: "field4",
                   Cell: row => (
                     <input
-                      className="text-right"
+                      className="text-right float-left"
                       style={{
                         border: "none",
                         width: "100%",
@@ -841,10 +848,10 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
@@ -859,14 +866,15 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
-                      />m x
+                      />
+                      <span className="float-right">m x</span>
                     </span>
                   )
                 },
@@ -877,14 +885,15 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
-                      />m x
+                      />
+                      <span className="float-right">m x</span>
                     </span>
                   )
                 },
@@ -895,14 +904,16 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
-                        className="text-right"
+                        className="text-right float-left"
                         style={{
                           border: "none",
-                          width: "50%",
+                          width: "70%",
                           lineHeight: "80%"
                         }}
                         type="number"
-                      />m
+                      />
+
+                      <span className="float-right">m </span>
                     </span>
                   )
                 },
