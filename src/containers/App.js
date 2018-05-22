@@ -160,7 +160,7 @@ class App extends Component {
             if (authUser === null) {
                 return ( <Redirect to={'/signin'}/> );
             } else if (initURL === '' || initURL === '/' || initURL === '/signin') {
-                return ( <Redirect to={'/app/dashboard/thankyou'}/> );
+                return ( <Redirect to={'/app/dashboard/default'}/> );
             } else {
                 return ( <Redirect to={initURL}/> );
             }
@@ -178,7 +178,6 @@ class App extends Component {
                          <RestrictedRoute path={`${match.url}app`} authUser={authUser} component={MainApp}/>
                         <Route path='/signin' component={SignIn}/>
                         <Route path='/signup' component={SignUp}/>
-                        {/* <Route path='/thankYou' component={EmailTemplate}/> */}
                         <Route path='/pending' component={PendingTemplate}/>
                         <Route path='/approval' component={ApprovalTemplate}/>
                         <Route path='/mainthankyou' component={ThankYou}/>

@@ -28,6 +28,7 @@ import {
 import { withRouter } from "react-router-dom";
 import Snackbar from "material-ui/Snackbar";
 import IconButton from "material-ui/IconButton";
+import Select from "material-ui/Select";
 
 const styles = theme => ({
   container: {
@@ -45,6 +46,7 @@ class Default extends React.Component {
   constructor() {
     super();
     this.state = {
+      type: "",
       open: false,
       checkData: true,
       checkData2: true,
@@ -52,7 +54,7 @@ class Default extends React.Component {
       errorMessage: "Please fill in the fields",
       makeData: [
         {
-          field1: "Non-DG",
+          field1: "",
           field2: "Rice",
           field3: "Rice",
           field4: "1",
@@ -65,7 +67,7 @@ class Default extends React.Component {
       ],
       makeData2: [
         {
-          field1: "Non-DG",
+          field1: "",
           field2: "Rice",
           field3: "Rice",
           field4: "1",
@@ -78,7 +80,7 @@ class Default extends React.Component {
       ],
       makeData3: [
         {
-          field1: "Non-DG",
+          field1: "",
           field2: "Rice",
           field3: "Rice",
           field4: "1",
@@ -348,8 +350,27 @@ class Default extends React.Component {
   componentWillMount() {
     document.title = "Shipper PackingList  - KretaHub";
   }
+  handleChange = cellInfo => event => {
+    console.log("rowrow", cellInfo);
+    const makeData = [...this.state.makeData];
+    makeData[cellInfo.index][cellInfo.column.id] = event.target.value;
+    this.setState({ makeData });
+  };
+  handleChange2 = cellInfo => event => {
+    console.log("rowrow", cellInfo);
+    const makeData2 = [...this.state.makeData2];
+    makeData2[cellInfo.index][cellInfo.column.id] = event.target.value;
+    this.setState({ makeData2 });
+  };
+  handleChange3 = cellInfo => event => {
+    console.log("rowrow", cellInfo);
+    const makeData3 = [...this.state.makeData3];
+    makeData3[cellInfo.index][cellInfo.column.id] = event.target.value;
+    this.setState({ makeData3 });
+  };
 
   render() {
+    console.log("this.state", this.state);
     return (
       <div className="container-fluid">
         <br />
@@ -371,12 +392,45 @@ class Default extends React.Component {
                 {
                   Header: `Type*`,
                   accessor: "field1",
-                  Cell: this.renderEditable
+
+                  Cell: row => (
+                    <span>
+                      <Select
+                        value={this.state.makeData[row.index].field1}
+                        onChange={this.handleChange(row)}
+                        inputProps={{
+                          name: "type",
+                          id: "type"
+                        }}
+                      >
+                        <MenuItem value="" name="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="Non-DG">Non-DG</MenuItem>
+                      </Select>
+                    </span>
+                  )
                 },
                 {
                   Header: "Name*",
                   accessor: "field2",
-                  Cell: this.renderEditable
+                  Cell: row => (
+                    <span>
+                      <Select
+                        value={this.state.makeData[row.index].field2}
+                        onChange={this.handleChange(row)}
+                        inputProps={{
+                          name: "type",
+                          id: "type"
+                        }}
+                      >
+                        <MenuItem value="" name="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="Non-DG">Rice</MenuItem>
+                      </Select>
+                    </span>
+                  )
                 },
                 {
                   Header: "Description*",
@@ -385,33 +439,112 @@ class Default extends React.Component {
                 },
                 {
                   Header: "QTY*",
+                  className: "text-right",
                   accessor: "field4",
-                  Cell: this.renderEditable
+                  Cell: row => (
+                    <input
+                      className="text-right"
+                      style={{
+                        border: "none",
+                        width: "100%",
+                        lineHeight: "80%"
+                      }}
+                      type="number"
+                    />
+                  )
                 },
                 {
                   Header: "Unit*",
                   accessor: "field5",
-                  Cell: this.renderEditable
+                  Cell: row => (
+                    <span>
+                      <Select
+                        value={this.state.makeData[row.index].field5}
+                        onChange={this.handleChange(row)}
+                        inputProps={{
+                          name: "type",
+                          id: "type"
+                        }}
+                      >
+                        <MenuItem value="" name="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="Non-DG">bags</MenuItem>
+                      </Select>
+                    </span>
+                  )
                 },
                 {
                   Header: "Weight*",
+                  className: "text-right",
                   accessor: "field6",
-                  Cell: this.renderEditable
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />kg
+                    </span>
+                  )
                 },
                 {
                   Header: "Length",
+                  className: "text-right",
                   accessor: "field7",
-                  Cell: this.renderEditable
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />m x
+                    </span>
+                  )
                 },
                 {
                   Header: "Width",
+                  className: "text-right",
                   accessor: "field8",
-                  Cell: this.renderEditable
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />m x
+                    </span>
+                  )
                 },
                 {
                   Header: "Height",
+                  className: "text-right",
                   accessor: "field9",
-                  Cell: this.renderEditable
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />m
+                    </span>
+                  )
                 },
                 {
                   Header: "",
@@ -438,12 +571,45 @@ class Default extends React.Component {
                 {
                   Header: `Type*`,
                   accessor: "field1",
-                  Cell: this.renderEditable2
+
+                  Cell: row => (
+                    <span>
+                      <Select
+                        value={this.state.makeData2[row.index].field1}
+                        onChange={this.handleChange2(row)}
+                        inputProps={{
+                          name: "type",
+                          id: "type"
+                        }}
+                      >
+                        <MenuItem value="" name="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="Non-DG">Non-DG</MenuItem>
+                      </Select>
+                    </span>
+                  )
                 },
                 {
                   Header: "Name*",
                   accessor: "field2",
-                  Cell: this.renderEditable2
+                  Cell: row => (
+                    <span>
+                      <Select
+                        value={this.state.makeData2[row.index].field2}
+                        onChange={this.handleChange2(row)}
+                        inputProps={{
+                          name: "type",
+                          id: "type"
+                        }}
+                      >
+                        <MenuItem value="" name="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="rice">Rice</MenuItem>
+                      </Select>
+                    </span>
+                  )
                 },
                 {
                   Header: "Description*",
@@ -452,34 +618,113 @@ class Default extends React.Component {
                 },
                 {
                   Header: "QTY*",
+                  className: "text-right",
                   accessor: "field4",
-                  Cell: this.renderEditable2
+                  Cell: row => (
+                    <input
+                      className="text-right"
+                      style={{
+                        border: "none",
+                        width: "100%",
+                        lineHeight: "80%"
+                      }}
+                      type="number"
+                    />
+                  )
                 },
 
                 {
                   Header: "Unit*",
                   accessor: "field5",
-                  Cell: this.renderEditable2
+                  Cell: row => (
+                    <span>
+                      <Select
+                        value={this.state.makeData2[row.index].field5}
+                        onChange={this.handleChange2(row)}
+                        inputProps={{
+                          name: "type",
+                          id: "type"
+                        }}
+                      >
+                        <MenuItem value="" name="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="Non-DG">bags</MenuItem>
+                      </Select>
+                    </span>
+                  )
                 },
                 {
                   Header: "Weight*",
+                  className: "text-right",
                   accessor: "field6",
-                  Cell: this.renderEditable2
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />kg
+                    </span>
+                  )
                 },
                 {
                   Header: "Length",
+                  className: "text-right",
                   accessor: "field7",
-                  Cell: this.renderEditable2
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />m x
+                    </span>
+                  )
                 },
                 {
                   Header: "Width",
+                  className: "text-right",
                   accessor: "field8",
-                  Cell: this.renderEditable2
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />m x
+                    </span>
+                  )
                 },
                 {
                   Header: "Height",
+                  className: "text-right",
                   accessor: "field9",
-                  Cell: this.renderEditable2
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />m
+                    </span>
+                  )
                 },
                 {
                   Header: "",
@@ -507,12 +752,45 @@ class Default extends React.Component {
                   sortable: false,
                   Header: `Type*`,
                   accessor: "field1",
-                  Cell: this.renderEditable3
+
+                  Cell: row => (
+                    <span>
+                      <Select
+                        value={this.state.makeData3[row.index].field1}
+                        onChange={this.handleChange3(row)}
+                        inputProps={{
+                          name: "type",
+                          id: "type"
+                        }}
+                      >
+                        <MenuItem value="" name="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="Non-DG">Non-DG</MenuItem>
+                      </Select>
+                    </span>
+                  )
                 },
                 {
                   Header: "Name*",
                   accessor: "field2",
-                  Cell: this.renderEditable3
+                  Cell: row => (
+                    <span>
+                      <Select
+                        value={this.state.makeData3[row.index].field2}
+                        onChange={this.handleChange3(row)}
+                        inputProps={{
+                          name: "type",
+                          id: "type"
+                        }}
+                      >
+                        <MenuItem value="" name="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="rice">Rice</MenuItem>
+                      </Select>
+                    </span>
+                  )
                 },
                 {
                   Header: "Description*",
@@ -521,33 +799,112 @@ class Default extends React.Component {
                 },
                 {
                   Header: "QTY*",
+                  className: "text-right",
                   accessor: "field4",
-                  Cell: this.renderEditable3
+                  Cell: row => (
+                    <input
+                      className="text-right"
+                      style={{
+                        border: "none",
+                        width: "100%",
+                        lineHeight: "80%"
+                      }}
+                      type="number"
+                    />
+                  )
                 },
                 {
                   Header: "Unit*",
                   accessor: "field5",
-                  Cell: this.renderEditable3
+                  Cell: row => (
+                    <span>
+                      <Select
+                        value={this.state.makeData3[row.index].field5}
+                        onChange={this.handleChange3(row)}
+                        inputProps={{
+                          name: "type",
+                          id: "type"
+                        }}
+                      >
+                        <MenuItem value="" name="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="Non-DG">bags</MenuItem>
+                      </Select>
+                    </span>
+                  )
                 },
                 {
                   Header: "Weight*",
+                  className: "text-right",
                   accessor: "field6",
-                  Cell: this.renderEditable3
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />kg
+                    </span>
+                  )
                 },
                 {
                   Header: "Length",
+                  className: "text-right",
                   accessor: "field7",
-                  Cell: this.renderEditable3
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />m x
+                    </span>
+                  )
                 },
                 {
                   Header: "Width",
+                  className: "text-right",
                   accessor: "field8",
-                  Cell: this.renderEditable3
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />m x
+                    </span>
+                  )
                 },
                 {
                   Header: "Height",
+                  className: "text-right",
                   accessor: "field9",
-                  Cell: this.renderEditable3
+                  Cell: row => (
+                    <span>
+                      <input
+                        className="text-right"
+                        style={{
+                          border: "none",
+                          width: "50%",
+                          lineHeight: "80%"
+                        }}
+                        type="number"
+                      />m
+                    </span>
+                  )
                 },
                 {
                   Header: "",
