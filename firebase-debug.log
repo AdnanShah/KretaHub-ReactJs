@@ -1,0 +1,35 @@
+[debug] [2018-05-23T17:34:26.253Z] ----------------------------------------------------------------------
+[debug] [2018-05-23T17:34:26.256Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\AdnanShah\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-05-23T17:34:26.256Z] CLI Version:   3.18.4
+[debug] [2018-05-23T17:34:26.256Z] Platform:      win32
+[debug] [2018-05-23T17:34:26.256Z] Node Version:  v8.9.4
+[debug] [2018-05-23T17:34:26.256Z] Time:          Wed May 23 2018 10:34:26 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-05-23T17:34:26.256Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-23T17:34:26.272Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-23T17:34:26.272Z] > authorizing via signed-in user
+[debug] [2018-05-23T17:34:26.274Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-05-23T17:34:26.275Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/rfWf_5kQWWrX7e2Rkl0ukslGoHKHXYo9dqBlC-yrmwTkeY-Rl0ulFa-4cSvmHN48',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed May 23 2018 10:34:26 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-05-23T17:34:26.754Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-23T17:34:26.827Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/project-7-9fe4b  
+  
+ Wed May 23 2018 10:34:26 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-05-23T17:34:28.223Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-23T17:34:28.226Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/project-7-9fe4b/tokens  
+  
+ Wed May 23 2018 10:34:28 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-05-23T17:34:29.186Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'project-7-9fe4b'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2018-05-23T17:34:46.108Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/project-7-9fe4b/uploads/-LDBZ6ySYSf8G3tAJ4H-?fileCount=1540&message=  
+  
+ Wed May 23 2018 10:34:46 GMT-0700 (Pacific Daylight Time)
