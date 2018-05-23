@@ -333,14 +333,13 @@ class Default extends React.Component {
   };
 
   changeRoute = () => {
-    if (
-      this.state.checkData === true &&
-      this.state.checkData2 === true &&
-      this.state.checkData3 === true
-    ) {
+    // if (
+    //   this.state.checkData === true &&
+    //   this.state.checkData2 === true &&
+    //   this.state.checkData3 === true
+    // ) {
       this.props.history.push("/app/dashboard/mainthankyou");
-      console.log("asddasdad", this.state);
-    }
+    // }
   };
   handleClose = () => {
     this.setState({ open: false });
@@ -936,7 +935,7 @@ class Default extends React.Component {
                 color: "#fff"
               }}
               component="span"
-              onClick={this.handleOnsubmit}
+              onClick={this.changeRoute}
             >
               FINISH BOOKING
             </Button>
@@ -946,7 +945,7 @@ class Default extends React.Component {
             <br />
           </div>
         </Paper>
-        <div>
+        {/* <div>
           <Snackbar
             anchorOrigin={{
               vertical: "top",
@@ -978,7 +977,7 @@ class Default extends React.Component {
               </Icon>
             ]}
           />
-        </div>
+        </div> */}
       </div>
     );
   }
