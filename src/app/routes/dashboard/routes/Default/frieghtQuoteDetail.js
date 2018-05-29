@@ -12,6 +12,7 @@ import Radio from "material-ui/Radio";
 import { DateTimePicker, TimePicker, DatePicker } from "material-ui-pickers";
 import { Icon, InputAdornment } from "material-ui";
 import Snackbar from "material-ui/Snackbar";
+import { classNames } from "classnames";
 
 const styles = theme => ({
   container: {
@@ -256,6 +257,7 @@ class Freightdetail extends React.Component {
                   <div className="col-md-3 col-12">
                     <div style={{ display: "inline-flex", width: "75%" }}>
                       <DatePicker
+                        format="MMMM DD, YYYY"
                         disabled
                         style={{ borderRight: "1px solid #3f51b5" }}
                         value={this.state.selectedDate}
@@ -287,6 +289,7 @@ class Freightdetail extends React.Component {
                     <div style={{ display: "inline-flex", width: "75%" }}>
                       <DatePicker
                         disabled
+                        format="MMMM DD, YYYY"
                         style={{ borderRight: "1px solid #3f51b5" }}
                         value={this.state.selectedDate}
                         onChange={this.handleDateChange}
@@ -305,20 +308,23 @@ class Freightdetail extends React.Component {
                   </label>
 
                   <div className="col-md-3 col-12">
-                    <div style={{ display: "inline-flex", width: "75%" }}>
+                    <div style={{ display: "inline-flex", width: "85%" }}>
                       <DatePicker
                         disabled
+                        format="MMMM DD, YYYY"
                         style={{ borderRight: "1px solid #3f51b5" }}
                         value={this.state.arrivalDate}
                         onChange={this.handleDateChange}
                         animateYearScrolling={false}
                       />
+                      {/* <span className="float-right"> */}
                       <TimePicker
                         disabled
                         ampm={false}
                         value={new Date(new Date().setHours(0, 0, 0, 0))}
                         onChange={this.handleDateChange}
                       />
+                      {/* </span> */}
                     </div>
                   </div>
                 </div>
@@ -487,17 +493,20 @@ class Freightdetail extends React.Component {
           ContentProps={{
             "aria-describedby": "message-id"
           }}
-          message={<span id="message-id">Qty cannot exceed capacity of 20.</span>}
+          message={
+            <span id="message-id">Qty cannot exceed capacity of 20.</span>
+          }
           action={[
             <Button
               key="undo"
               color="secondary"
               size="small"
-              onClick={()=>{this.setState({open:false})}}
+              onClick={() => {
+                this.setState({ open: false });
+              }}
             >
               Close
             </Button>
-          
           ]}
         />
       </Paper>

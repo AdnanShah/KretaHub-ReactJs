@@ -226,6 +226,7 @@ class Default extends React.Component {
             </div>
             <div className="col-md-4">
               <DatePicker
+                format="MMMM DD, YYYY"
                 keyboard
                 value={this.state.selectedDate}
                 onChange={this.handleDateChange}
@@ -239,6 +240,7 @@ class Default extends React.Component {
             </div>
             <div className="col-md-3">
               <DatePicker
+                format="MMMM DD, YYYY"
                 keyboard
                 value={this.state.selectedUntilDate}
                 onChange={this.handleUntilDateChange}

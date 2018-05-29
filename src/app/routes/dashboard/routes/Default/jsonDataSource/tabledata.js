@@ -50,9 +50,13 @@ export const searchData = (start, end) => {
   let e = data.findIndex(x => x.fieldx == endDate);
   let ee = e + 1;
   let res = data.slice(s, ee);
-  console.log("s,e", s, e);
-  if (e === -1) {
+  // console.log("s,e", s, e);
+  if (e === -1 && s === -1) {
+    return data;
+  } else if (e === -1) {
     return data.slice(s);
+  } else if (s === -1) {
+    return data;
   } else {
     return res;
   }
