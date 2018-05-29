@@ -76,9 +76,9 @@ class ComposedTextField extends React.Component {
         field1: "20RF",
         field2: "IDR 2,200,000",
         field6: "2200000",
-        field3: "",
+        field3: "2",
         field4: "of 10",
-        field5: 0
+        field5: "IDR 4,400,000"
       },
       {
         field1: "20TK",
@@ -86,7 +86,7 @@ class ComposedTextField extends React.Component {
         field6: "2200000",
         field3: "",
         field4: "of 10",
-        field5: 0
+        field5: ""
       },
       {
         field1: "20GP",
@@ -94,7 +94,7 @@ class ComposedTextField extends React.Component {
         field6: "2200000",
         field3: "",
         field4: "of 10",
-        field5: 0
+        field5: ""
       },
       {
         field1: "40RF",
@@ -102,15 +102,15 @@ class ComposedTextField extends React.Component {
         field6: "4200000",
         field3: "",
         field4: "of 5",
-        field5: 0
+        field5: ""
       },
       {
         field1: "40GP",
         field2: "IDR 4,200,000",
         field6: "4200000",
-        field3: "",
+        field3: "1",
         field4: "of 5",
-        field5: 0
+        field5: "IDR 4,200,000"
       }
     ]
   };
@@ -151,11 +151,6 @@ class ComposedTextField extends React.Component {
     }));
   };
 
-  calculateTotal = () => {
-    return `IDR:${(this.state.total + 100000)
-      .toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
-  };
   saveData = () => {
     const { state } = this;
     this.props.saveInvoice(state);
@@ -268,23 +263,26 @@ class ComposedTextField extends React.Component {
 
           <div className="row">
             <label className="col-md-3 col-12" for="email">
-              Closing time:<span className="text-danger">*</span>
+              Closing time:
             </label>
             <div className="col-md-3 col-12">
-              <div style={{ display: "inline-flex", width: "95%" }}>
-                <DatePicker
+              <div style={{ display: "inline-flex", width: "100%" }}>
+                <div style={{width:'45%',borderRight: '1px solid #eee'}}>Mar 20, 2018</div>
+                <div className="pl-1">02:00</div>
+
+                {/* <DatePicker
                   disabled
                   style={{ borderRight: "1px solid #dee2e6" }}
                   value={this.state.selectedDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
-                />
-                <TimePicker
+                /> */}
+                {/* <TimePicker
                   disabled
                   ampm={false}
                   value={new Date(new Date().setHours(2, 0, 0, 0))}
                   onChange={this.handleDateChange}
-                />
+                /> */}
               </div>
             </div>
 
@@ -302,7 +300,10 @@ class ComposedTextField extends React.Component {
             </label>
             <div className="col-md-3 col-12">
               <div style={{ display: "inline-flex", width: "95%" }}>
-                <DatePicker
+              <div style={{width:'45%',borderRight: '1px solid #eee'}}>Mar 20, 2018</div>
+                <div className="pl-5">06:00</div>
+
+                {/* <DatePicker
                   disabled
                   style={{ borderRight: "1px solid #dee2e6" }}
                   value={this.state.selectedDate}
@@ -314,7 +315,7 @@ class ComposedTextField extends React.Component {
                   ampm={false}
                   value={new Date(new Date().setHours(6, 0, 0, 0))}
                   onChange={this.handleDateChange}
-                />
+                /> */}
               </div>
             </div>
             <label className="col-md-3 col-12" for="email">
@@ -323,7 +324,10 @@ class ComposedTextField extends React.Component {
 
             <div className="col-md-3 col-12">
               <div style={{ display: "inline-flex", width: "95%" }}>
-                <DatePicker
+              <div style={{width:'45%',borderRight: '1px solid #eee'}}>Mar 21, 2018</div>
+                <div className="pl-5 text-rght">0:00</div>
+
+                {/* <DatePicker
                   disabled
                   style={{ borderRight: "1px solid #dee2e6" }}
                   value={this.state.arrivalDate}
@@ -334,8 +338,8 @@ class ComposedTextField extends React.Component {
                   disabled
                   ampm={false}
                   value={new Date(new Date().setHours(0, 0, 0, 0))}
-                  onChange={this.handleDateChange}
-                />
+                  onChange={this.handleDateChange} */}
+                {/* /> */}
               </div>
             </div>
           </div>
@@ -375,7 +379,7 @@ class ComposedTextField extends React.Component {
 
           <div className="row">
             <label className="col-md-3 col-12" for="email">
-              Incoterm:<span className="text-danger">*</span>
+              Incoterm:
             </label>
             <div className="col-md-8 col-12">
               <p disabled className="border border-primary rounded">
@@ -405,7 +409,6 @@ class ComposedTextField extends React.Component {
                   {
                     Header: "QTY",
                     accessor: "field3",
-                    Cell: this.renderEditable,
                     className: "text-right"
                   },
                   {
@@ -440,7 +443,7 @@ class ComposedTextField extends React.Component {
                 </div>
                 <div className="col-6 float-right">
                   <div className="float-right">
-                    <h1>{this.calculateTotal()}</h1>
+                    <h1>IDR 8,700,000</h1>
                   </div>
                 </div>
               </div>

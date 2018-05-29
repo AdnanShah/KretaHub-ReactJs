@@ -29,7 +29,7 @@ class UserInfo extends React.Component {
                 }}
                     alt='...'
                     src={require('./indotech.png')}
-                    className="user-avatar "
+                    className="user-avatar"
                 />
                 <div className="user-detail">
                     <h4 className="user-name" onClick={this.handleClick}>{userData[0].username}<i

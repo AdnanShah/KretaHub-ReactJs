@@ -21,7 +21,7 @@ class Tour extends React.PureComponent {
                     title: 'Your profile',
                     text: 'Click here to view or edit your profile, change settings, and log out.',
                     textAlign: 'center',
-                    selector: '.app-sidebar-content',
+                    selector: '.user-avatar .user-detail',
                     position: 'left',
                     isFixed: true
                 }, {
