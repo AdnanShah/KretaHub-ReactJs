@@ -260,29 +260,26 @@ class ComposedTextField extends React.Component {
               <p>{jsonData[0].line5}</p>
             </div>
           </div>
-
           <div className="row">
             <label className="col-md-3 col-12" for="email">
               Closing time:
             </label>
             <div className="col-md-3 col-12">
-              <div style={{ display: "inline-flex", width: "100%" }}>
-                <div style={{width:'45%',borderRight: '1px solid #eee'}}>Mar 20, 2018</div>
-                <div className="pl-1">02:00</div>
-
-                {/* <DatePicker
+              <div style={{ display: "inline-flex", width: "85%" }}>
+                <DatePicker
+                  format="MMMM DD, YYYY"
                   disabled
-                  style={{ borderRight: "1px solid #dee2e6" }}
+                  style={{ borderRight: "1px solid #3f51b5" }}
                   value={this.state.selectedDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
-                /> */}
-                {/* <TimePicker
+                />
+                <TimePicker
                   disabled
                   ampm={false}
                   value={new Date(new Date().setHours(2, 0, 0, 0))}
                   onChange={this.handleDateChange}
-                /> */}
+                />
               </div>
             </div>
 
@@ -290,7 +287,7 @@ class ComposedTextField extends React.Component {
               Trip Length :
             </label>
             <div className="col-md-3 col-12">
-              <p>{jsonData[0].line6}</p>
+              <p className="">{jsonData[0].line6}</p>
             </div>
           </div>
 
@@ -299,13 +296,11 @@ class ComposedTextField extends React.Component {
               Departure Time :
             </label>
             <div className="col-md-3 col-12">
-              <div style={{ display: "inline-flex", width: "95%" }}>
-              <div style={{width:'45%',borderRight: '1px solid #eee'}}>Mar 20, 2018</div>
-                <div className="pl-5">06:00</div>
-
-                {/* <DatePicker
+              <div style={{ display: "inline-flex", width: "85%" }}>
+                <DatePicker
                   disabled
-                  style={{ borderRight: "1px solid #dee2e6" }}
+                  format="MMMM DD, YYYY"
+                  style={{ borderRight: "1px solid #3f51b5" }}
                   value={this.state.selectedDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
@@ -315,7 +310,7 @@ class ComposedTextField extends React.Component {
                   ampm={false}
                   value={new Date(new Date().setHours(6, 0, 0, 0))}
                   onChange={this.handleDateChange}
-                /> */}
+                />
               </div>
             </div>
             <label className="col-md-3 col-12" for="email">
@@ -323,13 +318,11 @@ class ComposedTextField extends React.Component {
             </label>
 
             <div className="col-md-3 col-12">
-              <div style={{ display: "inline-flex", width: "95%" }}>
-              <div style={{width:'45%',borderRight: '1px solid #eee'}}>Mar 21, 2018</div>
-                <div className="pl-5 text-rght">0:00</div>
-
-                {/* <DatePicker
+              <div style={{ display: "inline-flex", width: "85%" }}>
+                <DatePicker
                   disabled
-                  style={{ borderRight: "1px solid #dee2e6" }}
+                  format="MMMM DD, YYYY"
+                  style={{ borderRight: "1px solid #3f51b5" }}
                   value={this.state.arrivalDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
@@ -338,8 +331,8 @@ class ComposedTextField extends React.Component {
                   disabled
                   ampm={false}
                   value={new Date(new Date().setHours(0, 0, 0, 0))}
-                  onChange={this.handleDateChange} */}
-                {/* /> */}
+                  onChange={this.handleDateChange}
+                />
               </div>
             </div>
           </div>

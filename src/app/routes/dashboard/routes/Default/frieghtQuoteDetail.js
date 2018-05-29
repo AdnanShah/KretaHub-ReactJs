@@ -255,7 +255,7 @@ class Freightdetail extends React.Component {
                     Closing time:
                   </label>
                   <div className="col-md-3 col-12">
-                    <div style={{ display: "inline-flex", width: "75%" }}>
+                    <div style={{ display: "inline-flex", width: "85%" }}>
                       <DatePicker
                         format="MMMM DD, YYYY"
                         disabled
@@ -286,7 +286,7 @@ class Freightdetail extends React.Component {
                     Departure Time :
                   </label>
                   <div className="col-md-3 col-12">
-                    <div style={{ display: "inline-flex", width: "75%" }}>
+                    <div style={{ display: "inline-flex", width: "85%" }}>
                       <DatePicker
                         disabled
                         format="MMMM DD, YYYY"
@@ -317,14 +317,12 @@ class Freightdetail extends React.Component {
                         onChange={this.handleDateChange}
                         animateYearScrolling={false}
                       />
-                      {/* <span className="float-right"> */}
                       <TimePicker
                         disabled
                         ampm={false}
                         value={new Date(new Date().setHours(0, 0, 0, 0))}
                         onChange={this.handleDateChange}
                       />
-                      {/* </span> */}
                     </div>
                   </div>
                 </div>
