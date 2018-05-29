@@ -40,8 +40,8 @@ class Default extends React.Component {
       country2: stations[2].field,
       error: false,
       radioButton: "radioButton1",
-      selectedDate: new Date("March 20, 2018 11:13:00"),
-      selectedUntilDate: new Date("April 20, 2018 11:13:00")
+      selectedDate: new Date(),
+      selectedUntilDate: new Date()
     };
   }
   handleChange = name => event => {
@@ -118,14 +118,15 @@ class Default extends React.Component {
     }
   };
   componentWillMount() {
+    this.untilDate();
     document.title = "Shipper Dashboard - KretaHub";
-    console.log(this.props);
+    // console.log(this.props);
   }
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;
-    console.log(this.state);
-    console.log(this.props);
+    // console.log(this.state);
+    // console.log(this.props);
     return (
       <Paper>
         <Tour />
