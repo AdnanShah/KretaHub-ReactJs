@@ -54,6 +54,7 @@ import OrderPending from './OrderPending'
 import FullPayment from './FullPayment'
 import FullPaymentReceive from './FullPaymentReceive'
 import Pending from './Pending'
+import FreightArrived from './Freight Arrived'
 import {setInitUrl} from '../actions/Auth';
 
 const RestrictedRoute = ({component: Component, ...rest, authUser}) =>
@@ -193,6 +194,7 @@ class App extends Component {
                         <Route path='/fullpayment' component={FullPayment}/>
                         <Route path='/fullpaymentreceive' component={FullPaymentReceive}/>
                         <Route path='/thankyou' component={EmailTemplate}/>
+                        <Route path='/freightarrived' component={FreightArrived}/>
                         {/* <Route path='/thankYou' component={() => window.location = 'https://project-7-9fe4b.firebaseapp.com/#/app/dashboard/thankyou'}/> */}
                     </div>
                 </IntlProvider>
