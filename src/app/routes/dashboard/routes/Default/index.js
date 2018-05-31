@@ -140,7 +140,10 @@ class Default extends React.Component {
             </h2>
           </div>
           <div className="row">
-            <div className="col-md-3 mt-3" style={{ marginRight: "-5%" }}>
+            <div
+              className="col-md-3 mt-3 origin"
+              style={{ marginRight: "-5%" }}
+            >
               Departure:
             </div>
             <div className="col-md-4">
@@ -159,7 +162,7 @@ class Default extends React.Component {
                 ))}
               </TextField>
             </div>
-            <div className="col-md-1 mt-4">Arrival:</div>
+            <div className="col-md-1 mt-4 destination">Arrival:</div>
             <div className="col-md-4">
               <TextField
                 className=""
@@ -181,7 +184,7 @@ class Default extends React.Component {
               </h4>
             </div>
           </div>
-          <div className="row">
+          <div className="row freight-type">
             <div className="col-md-3 mt-3" style={{ marginRight: "-7%" }}>
               <label for="Student">Freight type:</label>
             </div>
@@ -249,23 +252,23 @@ class Default extends React.Component {
             </div>
           </div>
           <div className="row mt-2">
-            <div className="col">
-              <Button
-                letiant="raised"
-                onClick={this.nextRoute}
-                style={{
-                  background: "#29487D",
-                  color: "#fff"
-                }}
-              >
-                Search
-              </Button>
-              <br />
-              <br />
-              <br />
+            <div className="col-2">
+              <div className=" searchButton">
+                <Button
+                  letiant="raised"
+                  onClick={this.nextRoute}
+                  style={{
+                    background: "#29487D",
+                    color: "#fff"
+                  }}
+                >
+                  Search
+                </Button>
+              </div>
             </div>
           </div>
         </div>
+        <br />
       </Paper>
     );
   }

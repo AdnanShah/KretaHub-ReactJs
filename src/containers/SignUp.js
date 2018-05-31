@@ -44,8 +44,6 @@ class TextFields extends React.Component {
     imageUrl: "",
     phone: "",
     countries: countries[75].name,
-    awayMessageText: "",
-    awayMessage: "xyz",
     fax: "",
     email: "",
     npwpNumber: "",
@@ -249,6 +247,12 @@ class TextFields extends React.Component {
     this.setState({ submitted: false });
     this.props.history.push(`/thankyou`);
   };
+  handleScroll = errors => {
+    console.log(errors);
+    document
+      .getElementsByName(errors[0].props.name)[0]
+      .scrollIntoView({ behavior: "smooth" });
+  };
   handleDateChange = date => {
     this.setState({ selectedDate: date });
   };
@@ -256,7 +260,10 @@ class TextFields extends React.Component {
   handleOfficerChange = idx => evt => {
     const newShareholders = this.state.Officers.map((shareholder, sidx) => {
       if (idx !== sidx) return shareholder;
-      return { ...shareholder, [evt.target.name]: evt.target.value };
+      return {
+        ...shareholder,
+        [evt.target.name]: evt.target.value
+      };
     });
     this.setState({ Officers: newShareholders });
   };
@@ -265,7 +272,7 @@ class TextFields extends React.Component {
   }
 
   render() {
-    console.log("state", this.state);
+    // console.log("state", this.refs);
     return (
       <div style={divStyle} className="container-fluid">
         <Header />
@@ -287,7 +294,11 @@ class TextFields extends React.Component {
             </div>
           </div>
 
-          <ValidatorForm onSubmit={this.handleOnSubmit} ref="form">
+          <ValidatorForm
+            onSubmit={this.handleOnSubmit}
+            ref="form"
+            onError={this.handleScroll}
+          >
             <form noValidate autoComplete="on">
               <div className="row">
                 <div className="col-md-6 col-12">
@@ -968,7 +979,7 @@ class TextFields extends React.Component {
                 <br />
                 <br />
                 <div>
-                  <a href="https://project-7-9fe4b.firebaseapp.com/#/app/dashboard/thankyou">
+                  <a href="https://assignmenttablefabodiamond.firebaseapp.com/Pending.html">
                     Next
                   </a>
                 </div>
