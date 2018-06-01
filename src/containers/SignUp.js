@@ -53,22 +53,22 @@ class TextFields extends React.Component {
     country: countries[75].name,
     Representatives: [
       {
-        repName: "",
-        repAddress: "",
-        repCity: "",
+        repName0: "",
+        repAddress0: "",
+        repCity0: "",
         repState: "",
         repZipCode: "",
-        repPhone: "",
+        repPhone0: "",
         repFax: "",
         repMobile: "",
-        repCountry: countries[75].name
+        repCountry0: countries[75].name
       }
     ],
     Officers: [
       {
-        officerName: "",
-        officerNumber: "",
-        selected: ""
+        officerName0: "",
+        officerNumber0: "",
+        selected0: ""
       }
     ],
     submitted: true,
@@ -79,13 +79,13 @@ class TextFields extends React.Component {
     const newItems = this.state.Representatives.map((item, id) => {
       if (id == 0)
         return {
-          repName: "Benny Sukamto",
-          repAddress: "Kalianak Barat 57",
-          repCity: citys[0].capitalName_id,
+          repName0: "Benny Sukamto",
+          repAddress0: "Kalianak Barat 57",
+          repCity0: citys[0].capitalName_id,
           repState: locality[0].name,
           repZipCode: "10000",
-          repCountry: countries[75].name,
-          repPhone: "+62317482303",
+          repCountry0: countries[75].name,
+          repPhone0: "+62317482303",
           repFax: "+62317290363",
           repMobile: "+628155521198"
         };
@@ -94,9 +94,9 @@ class TextFields extends React.Component {
     const officerItems = this.state.Officers.map((item, id) => {
       if (id == 0)
         return {
-          officerName: "Haris",
-          officerNumber: "12345678910234500000",
-          selected: "option1"
+          officerName0: "Haris",
+          officerNumber0: "12345678910234500000",
+          selected0: "option1"
         };
       return item;
     });
@@ -139,13 +139,14 @@ class TextFields extends React.Component {
 
   handleChangeRepCity = name => event => {
     this.setState({ [name]: event.target.value }, () => {
-      this.handleRepState();
+      this.handleRepState(event);
     });
   };
 
-  handleRepState = idx => {
+  handleRepState = (idx,evt) => {
+    console.log("event.target.value", evt.target.value);
     const result = locality.find(person => {
-      return person.name === this.state.Representatives[idx].repCity;
+      return person.name === evt.target.value;
     });
     this.state.Representatives[idx].repState = result.stateName;
     this.setState({ repStateIdx: result.stateName });
@@ -164,7 +165,7 @@ class TextFields extends React.Component {
       }
     );
     this.setState({ Representatives: newRepresentatives }, () => {
-      this.handleRepState(idx);
+      this.handleRepState(idx,evt);
     });
     console.log("newRepresentatives", newRepresentatives);
   };
@@ -272,7 +273,7 @@ class TextFields extends React.Component {
   }
 
   render() {
-    // console.log("state", this.refs);
+    console.log("state", this.state);
     return (
       <div style={divStyle} className="container-fluid">
         <Header />
@@ -612,13 +613,13 @@ class TextFields extends React.Component {
                     <div className="row">
                       <div className="col-md-6 col-12">
                         <TextValidator
-                          name="repName"
+                          name={`repName${idx}`}
+                          value={Representative["repName" + idx]}
                           validators={["required"]}
                           errorMessages={["this field is required"]}
                           id="name"
                           label="Name"
                           required
-                          value={Representative.repName}
                           onChange={this.handleRepresentativeNameChange(idx)}
                           margin="normal"
                           fullWidth
@@ -626,7 +627,8 @@ class TextFields extends React.Component {
                       </div>
                       <div className="col-md-6 col-12">
                         <TextValidator
-                          name="repAddress"
+                          name={`repAddress${idx}`}
+                          value={Representative["repAddress" + idx]}
                           validators={["required"]}
                           errorMessages={["this field is required"]}
                           id="address"
@@ -634,7 +636,6 @@ class TextFields extends React.Component {
                           required
                           multiline
                           rowsMax="6"
-                          value={Representative.repAddress}
                           onChange={this.handleRepresentativeNameChange(idx)}
                           margin="normal"
                           fullWidth
@@ -644,14 +645,14 @@ class TextFields extends React.Component {
                     <div className="row">
                       <div className="col-md-6 col-12">
                         <SelectValidator
-                          name="repCity"
+                          name={`repCity${idx}`}
+                          value={Representative["repCity" + idx] || ""}
                           validators={["required"]}
                           errorMessages={["this field is required"]}
                           id="city"
                           select
                           label="City"
                           required
-                          value={Representative.repCity}
                           onChange={this.handleRepresentativeCityChange(idx)}
                           SelectProps={{}}
                           margin="normal"
@@ -702,14 +703,14 @@ class TextFields extends React.Component {
 
                       <div className="col-md-6 col-12">
                         <SelectValidator
-                          name="repCountry"
+                          name={`repCountry${idx}`}
+                          value={Representative["repCountry" + idx] || ""}
                           validators={["required"]}
                           errorMessages={["this field is required"]}
                           id="country"
                           select
                           label="Country"
                           required
-                          value={this.state.Representatives[idx].repCountry}
                           onChange={this.handleRepresentativeNameChange(idx)}
                           SelectProps={{}}
                           margin="normal"
@@ -725,10 +726,10 @@ class TextFields extends React.Component {
 
                       <div className="col-md-6 col-12">
                         <TextValidator
-                          name="repPhone"
+                          name={`repPhone${idx}`}
+                          value={Representative["repPhone" + idx]}
                           validators={["required"]}
                           errorMessages={["this field is required"]}
-                          value={Representative.repPhone}
                           onChange={this.handleRepresentativeNameChange(idx)}
                           id="Phone"
                           label="Phone"
@@ -814,12 +815,12 @@ class TextFields extends React.Component {
                       <div className="col">
                         <TextValidator
                           required
-                          name="officerName"
+                          name={`officerName${idx}`}
+                          value={Officer["officerName" + idx]}
                           validators={["required"]}
                           errorMessages={["this field is required"]}
                           id="officersName"
                           label="Officers Name"
-                          value={Officer.officerName}
                           onChange={this.handleOfficerChange(idx)}
                           margin="normal"
                           fullWidth
@@ -837,10 +838,12 @@ class TextFields extends React.Component {
                             <input
                               className="form-check-input"
                               type="radio"
-                              name="selected"
                               id="inlineRadio1"
                               value="option1"
-                              defaultChecked={Officer.selected === "option1"}
+                              name={`selected${idx}`}
+                              defaultChecked={
+                                Officer["selected" + idx] === "option1"
+                              }
                               onChange={this.handleOfficerChange(idx)}
                             />
                             Citizen ID Card
@@ -851,10 +854,12 @@ class TextFields extends React.Component {
                             <input
                               class="form-check-input"
                               type="radio"
-                              name="selected"
                               id="inlineRadio2"
                               value="option2"
-                              defaultChecked={Officer.selected === "option2"}
+                              name={`selected${idx}`}
+                              defaultChecked={
+                                Officer["selected" + idx] === "option2"
+                              }
                               onChange={this.handleOfficerChange(idx)}
                             />
                             Driver's License
@@ -865,10 +870,12 @@ class TextFields extends React.Component {
                             <input
                               class="form-check-input"
                               type="radio"
-                              name="selected"
                               id="inlineRadio3"
                               value="option3"
-                              defaultChecked={Officer.selected === "option3"}
+                              name={`selected${idx}`}
+                              defaultChecked={
+                                Officer["selected" + idx] === "option3"
+                              }
                               onChange={this.handleOfficerChange(idx)}
                             />
                             Residency Permit
@@ -879,10 +886,12 @@ class TextFields extends React.Component {
                             <input
                               class="form-check-input"
                               type="radio"
-                              name="selected"
                               id="inlineRadio3"
                               value="option4"
-                              defaultChecked={Officer.selected === "option4"}
+                              name={`selected${idx}`}
+                              defaultChecked={
+                                Officer["selected" + idx] === "option4"
+                              }
                               onChange={this.handleOfficerChange(idx)}
                             />
                             Passport
@@ -895,8 +904,8 @@ class TextFields extends React.Component {
                         <TextValidator
                           required
                           label="Identity Number"
-                          name="officerNumber"
-                          value={Officer.officerNumber}
+                          name={`officerNumber${idx}`}
+                          value={Officer["officerNumber" + idx]}
                           onChange={this.handleOfficerChange(idx)}
                           margin="normal"
                           fullWidth
