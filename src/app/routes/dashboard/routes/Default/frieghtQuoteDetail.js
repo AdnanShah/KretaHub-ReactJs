@@ -80,7 +80,50 @@ class Freightdetail extends React.Component {
       radioButton: "radioButton1",
       total: 0,
       open: false,
+      autoFill: false,
       makeData: [
+        {
+          field1: "20RF",
+          field2: "IDR 2,200,000",
+          field6: "2200000",
+          field3: "2",
+          field4: "of 10",
+          field5: "IDR 4,400,000"
+        },
+        {
+          field1: "20TK",
+          field2: "IDR 2,200,000",
+          field6: "2200000",
+          field3: "",
+          field4: "of 10",
+          field5: 0
+        },
+        {
+          field1: "20GP",
+          field2: "IDR 2,200,000",
+          field6: "2200000",
+          field3: "",
+          field4: "of 10",
+          field5: 0
+        },
+        {
+          field1: "40RF",
+          field2: "IDR 4,200,000",
+          field6: "4200000",
+          field3: "",
+          field4: "of 5",
+          field5: 0
+        },
+        {
+          field1: "40GP",
+          field2: "IDR 4,200,000",
+          field6: "4200000",
+          field3: "1",
+          field4: "of 5",
+          field5: "IDR 4,200,000"
+        }
+      ],
+      makeData2: [
         {
           field1: "20RF",
           field2: "IDR 2,200,000",
@@ -214,16 +257,51 @@ class Freightdetail extends React.Component {
       />
     );
   };
+  renderEditable2 = cellInfo => {
+    console.log("cellInfo", cellInfo.index, cellInfo.column.id);
+    return (
+      <div
+        style={{ backgroundColor: "#fafafa" }}
+        contentEditable
+        suppressContentEditableWarning
+        onBlur={e => {
+          const makeData = [...this.state.makeData2];
+          console.log(makeData);
+          makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+          if (makeData[cellInfo.index].field3 <= 20) {
+            let t =
+              makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
+            let tt = `IDR:${t
+              .toString()
+              .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
+            makeData[cellInfo.index].field5 = tt;
+            this.setState({ makeData2: makeData, total: t });
+          } else {
+            this.setState({ open: true }, () => {
+              console.log("this.state", this.state);
+            });
+          }
+        }}
+        dangerouslySetInnerHTML={{
+          __html: this.state.makeData[cellInfo.index][cellInfo.column.id]
+        }}
+      />
+    );
+  };
   componentWillMount() {
     document.title = "Frieght Quote Details - KretaHub";
+    this.calculateTotal();
   }
   setRadioButton = event => {
     this.setState({ radioButton: event.target.value });
   };
+  handleAutofill = () => {
+    this.setState({ autoFill: !this.state.autoFill });
+  };
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;
-    console.log(this.state.currentDate);
+    console.log(this.state);
     return (
       <Paper>
         <div className="container">
@@ -400,10 +478,15 @@ class Freightdetail extends React.Component {
               <div className="table-responsive-material">
                 <div className="col-sm-12">
                   <div className="p-a">
+                    <Button onClick={this.handleAutofill}>Autofill</Button>
                     <ReactTable
                       showPagination={false}
                       sortable={false}
-                      data={this.state.makeData}
+                      data={
+                        this.state.autoFill === false
+                          ? this.state.makeData2
+                          : this.state.makeData
+                      }
                       columns={[
                         {
                           Header: "Container type",
@@ -417,7 +500,10 @@ class Freightdetail extends React.Component {
                         {
                           Header: "QTY",
                           accessor: "field3",
-                          Cell: this.renderEditable,
+                          Cell:
+                            this.state.autoFill === false
+                              ? this.renderEditable2
+                              : this.renderEditable,
                           className: "text-right"
                         },
                         {
@@ -451,7 +537,12 @@ class Freightdetail extends React.Component {
                       </div>
                       <div className="col-6 float-right">
                         <div className="float-right">
-                          <h1>{this.calculateTotal()}</h1>
+                          <h1>
+                            {this.state.autoFill === true &&
+                            this.state.total == 0
+                              ? "IDR 8,700,000"
+                              : this.calculateTotal()}
+                          </h1>
                         </div>
                       </div>
                     </div>
