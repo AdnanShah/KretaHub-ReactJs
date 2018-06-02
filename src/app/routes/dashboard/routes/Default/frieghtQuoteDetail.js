@@ -307,10 +307,24 @@ class Freightdetail extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col">
-              <div className="jr-card-header pt-3 px-2">
-                <h2>
+              <div className=" row jr-card-header pt-3 px-2">
+                <h2 className="col" >
                   <IntlMessages id="Freight Quote Details" />
-                </h2>
+                  </h2>
+                  <Button
+                  className="float-right col-1"
+                  variant="raised"
+                  style={{
+                    background: "#29487D",
+                    color: "#fff"
+                  }}
+                  component="span"
+                  onClick={this.handleAutofill}
+                >
+                  Autofill
+                </Button>
+              
+                
               </div>
               <div className="container">
                 <div className="row">
@@ -478,7 +492,6 @@ class Freightdetail extends React.Component {
               <div className="table-responsive-material">
                 <div className="col-sm-12">
                   <div className="p-a">
-                    <Button onClick={this.handleAutofill}>Autofill</Button>
                     <ReactTable
                       showPagination={false}
                       sortable={false}
