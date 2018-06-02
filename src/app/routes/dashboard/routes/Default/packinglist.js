@@ -138,23 +138,29 @@ class Default extends React.Component {
   };
 
   handleRow = cellInfo => {
-    console.log(cellInfo, cellInfo.column.id);
-    return (
-      <div>
-        <Icon
-          color="error"
-          onClick={() => {
-            this.deleteRow(cellInfo.index);
-          }}
-        >
-          delete
-        </Icon>
-        <br />
-        <Icon color="primary" onClick={this.addRow}>
-          add_circle
-        </Icon>
-      </div>
-    );
+    // console.log(cellInfo);
+    if (cellInfo.index == this.state.makeData.length - 1) {
+      return (
+        <div>
+          <Icon color="primary" onClick={this.addRow}>
+            add_circle
+          </Icon>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Icon
+            color="error"
+            onClick={() => {
+              this.deleteRow(cellInfo.index);
+            }}
+          >
+            delete
+          </Icon>
+        </div>
+      );
+    }
   };
   renderEditable2 = cellInfo => {
     // console.log("cellInfo", cellInfo.index, cellInfo.column.id);
@@ -202,23 +208,29 @@ class Default extends React.Component {
   };
 
   handleRow2 = cellInfo => {
-    console.log(cellInfo, cellInfo.column.id);
-    return (
-      <div>
-        <Icon
-          color="error"
-          onClick={() => {
-            this.deleteRow2(cellInfo.index);
-          }}
-        >
-          delete
-        </Icon>
-        <br />
-        <Icon color="primary" onClick={this.addRow2}>
-          add_circle
-        </Icon>
-      </div>
-    );
+    // console.log(cellInfo, cellInfo.column.id);
+    if (cellInfo.index == this.state.makeData2.length - 1) {
+      return (
+        <div>
+          <Icon color="primary" onClick={this.addRow2}>
+            add_circle
+          </Icon>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Icon
+            color="error"
+            onClick={() => {
+              this.deleteRow2(cellInfo.index);
+            }}
+          >
+            delete
+          </Icon>
+        </div>
+      );
+    }
   };
   renderEditable3 = cellInfo => {
     // console.log("cellInfo", cellInfo.index, cellInfo.column.id);
@@ -266,23 +278,29 @@ class Default extends React.Component {
   };
 
   handleRow3 = cellInfo => {
-    console.log(cellInfo, cellInfo.column.id);
-    return (
-      <div>
-        <Icon
-          color="error"
-          onClick={() => {
-            this.deleteRow3(cellInfo.index);
-          }}
-        >
-          delete
-        </Icon>
-        <br />
-        <Icon color="primary" onClick={this.addRow3}>
-          add_circle
-        </Icon>
-      </div>
-    );
+    // console.log(cellInfo, cellInfo.column.id);
+    if (cellInfo.index == this.state.makeData3.length - 1) {
+      return (
+        <div>
+          <Icon color="primary" onClick={this.addRow3}>
+            add_circle
+          </Icon>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Icon
+            color="error"
+            onClick={() => {
+              this.deleteRow3(cellInfo.index);
+            }}
+          >
+            delete
+          </Icon>
+        </div>
+      );
+    }
   };
 
   handleOnsubmit = () => {
@@ -338,7 +356,7 @@ class Default extends React.Component {
     //   this.state.checkData2 === true &&
     //   this.state.checkData3 === true
     // ) {
-      this.props.history.push("/app/dashboard/mainthankyou");
+    this.props.history.push("/app/dashboard/mainthankyou");
     // }
   };
   handleClose = () => {
@@ -348,16 +366,19 @@ class Default extends React.Component {
     document.title = "Shipper PackingList  - KretaHub";
   }
   handleChange = cellInfo => event => {
-    console.log("rowrow", cellInfo);
+    console.log("rowrow", cellInfo, event.target.value);
     const makeData = [...this.state.makeData];
     makeData[cellInfo.index][cellInfo.column.id] = event.target.value;
-    this.setState({ makeData });
+    this.setState({ makeData }, () => {
+      console.log(this.state.makeData);
+    });
   };
   handleChange2 = cellInfo => event => {
     console.log("rowrow", cellInfo);
     const makeData2 = [...this.state.makeData2];
     makeData2[cellInfo.index][cellInfo.column.id] = event.target.value;
     this.setState({ makeData2 });
+  
   };
   handleChange3 = cellInfo => event => {
     console.log("rowrow", cellInfo);
@@ -365,7 +386,66 @@ class Default extends React.Component {
     makeData3[cellInfo.index][cellInfo.column.id] = event.target.value;
     this.setState({ makeData3 });
   };
-
+  autofillTable1 = () => {
+    const makeData = this.state.makeData.map((item, id) => {
+      if (id == 0)
+        return {
+          field1: "Non-DG",
+          field2: "Rice",
+          field3: "Rice",
+          field4: "1",
+          field5: "bags",
+          field6: "1000",
+          field7: "2",
+          field8: "1",
+          field9: "2.5"
+        };
+      return item;
+    });
+    this.setState({
+      makeData
+    });
+  };
+  autofillTable2 = () => {
+    const makeData2 = this.state.makeData2.map((item, id) => {
+      if (id == 0)
+        return {
+          field1: "Non-DG",
+          field2: "Rice",
+          field3: "Rice",
+          field4: "1",
+          field5: "bags",
+          field6: "1000",
+          field7: "2",
+          field8: "1",
+          field9: "2.5"
+        };
+      return item;
+    });
+    this.setState({
+      makeData2
+    });
+  };
+  autofillTable3 = () => {
+    const makeData3 = this.state.makeData3.map((item, id) => {
+      if (id == 0)
+        return {
+          field1: "Non-DG",
+          field2: "Rice",
+          field3: "Rice",
+          field4: "1",
+          field5: "bags",
+          field6: "1000",
+          field7: "2",
+          field8: "1",
+          field9: "2.5"
+        };
+      return item;
+    });
+    this.setState({
+      makeData3
+    });
+  };
   render() {
     console.log("this.state", this.state);
     return (
@@ -377,12 +457,12 @@ class Default extends React.Component {
             <h2 style={head} className="pl-2">
               Container 1: 20RF
             </h2>
+            <Button onClick={this.autofillTable1}>Autofill</Button>
             <ReactTable
-              showPagination={false}
+              showPagination={this.state.makeData.length > 2 ? true : false}
               sortable={false}
               name="table1"
               className="-striped -highlight"
-              sortable={false}
               defaultPageSize={2}
               data={this.state.makeData}
               columns={[
@@ -424,7 +504,7 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="rice">Rice</MenuItem>
+                        <MenuItem value="Rice">Rice</MenuItem>
                       </Select>
                     </span>
                   )
@@ -432,7 +512,17 @@ class Default extends React.Component {
                 {
                   Header: "Description*",
                   accessor: "field3",
-                  Cell: this.renderEditable
+                  Cell: row => (
+                    <input
+                      onChange={this.handleChange(row)}
+                      value={this.state.makeData[row.index].field3}
+                      style={{
+                        border: "none",
+                        width: "100%",
+                        lineHeight: "80%"
+                      }}
+                    />
+                  )
                 },
                 {
                   Header: "QTY*",
@@ -440,6 +530,8 @@ class Default extends React.Component {
                   accessor: "field4",
                   Cell: row => (
                     <input
+                      onChange={this.handleChange(row)}
+                      value={this.state.makeData[row.index].field4}
                       className="text-right float-left"
                       style={{
                         border: "none",
@@ -466,7 +558,11 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="Non-DG">bags</MenuItem>
+                        <MenuItem value="bags">bags</MenuItem>
+
+                        <MenuItem value="KARUNG">KARUNG</MenuItem>
+                        <MenuItem value="DUS">DUS</MenuItem>
+                        <MenuItem value="GALON">GALON</MenuItem>
                       </Select>
                     </span>
                   )
@@ -478,6 +574,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange(row)}
+                        value={this.state.makeData[row.index].field6}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -496,6 +594,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange(row)}
+                        value={this.state.makeData[row.index].field7}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -515,6 +615,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange(row)}
+                        value={this.state.makeData[row.index].field8}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -535,6 +637,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange(row)}
+                        value={this.state.makeData[row.index].field9}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -562,11 +666,12 @@ class Default extends React.Component {
             <h2 style={head} className="pl-2">
               Container 2: 20RF
             </h2>
+            <Button onClick={this.autofillTable2}>Autofill</Button>
             <ReactTable
-              showPagination={false}
+              showPagination={this.state.makeData2.length > 2 ? true : false}
               sortable={false}
+              name="table1"
               className="-striped -highlight"
-              sortable={false}
               defaultPageSize={2}
               data={this.state.makeData2}
               columns={[
@@ -608,7 +713,7 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="rice">Rice</MenuItem>
+                        <MenuItem value="Rice">Rice</MenuItem>
                       </Select>
                     </span>
                   )
@@ -616,7 +721,17 @@ class Default extends React.Component {
                 {
                   Header: "Description*",
                   accessor: "field3",
-                  Cell: this.renderEditable2
+                  Cell: row => (
+                    <input
+                      onChange={this.handleChange2(row)}
+                      value={this.state.makeData2[row.index].field3}
+                      style={{
+                        border: "none",
+                        width: "100%",
+                        lineHeight: "80%"
+                      }}
+                    />
+                  )
                 },
                 {
                   Header: "QTY*",
@@ -624,6 +739,8 @@ class Default extends React.Component {
                   accessor: "field4",
                   Cell: row => (
                     <input
+                      onChange={this.handleChange2(row)}
+                      value={this.state.makeData2[row.index].field4}
                       className="text-right float-left"
                       style={{
                         border: "none",
@@ -634,7 +751,6 @@ class Default extends React.Component {
                     />
                   )
                 },
-
                 {
                   Header: "Unit*",
                   accessor: "field5",
@@ -651,7 +767,11 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="Non-DG">bags</MenuItem>
+                        <MenuItem value="bags">bags</MenuItem>
+
+                        <MenuItem value="KARUNG">KARUNG</MenuItem>
+                        <MenuItem value="DUS">DUS</MenuItem>
+                        <MenuItem value="GALON">GALON</MenuItem>
                       </Select>
                     </span>
                   )
@@ -663,6 +783,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange2(row)}
+                        value={this.state.makeData2[row.index].field6}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -681,6 +803,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange2(row)}
+                        value={this.state.makeData2[row.index].field7}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -700,6 +824,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange2(row)}
+                        value={this.state.makeData2[row.index].field8}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -708,6 +834,7 @@ class Default extends React.Component {
                         }}
                         type="number"
                       />
+
                       <span className="float-right">m x</span>
                     </span>
                   )
@@ -719,6 +846,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange2(row)}
+                        value={this.state.makeData2[row.index].field9}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -746,16 +875,16 @@ class Default extends React.Component {
             <h2 style={head} className="pl-2">
               Container 3: 40GP
             </h2>
+            <Button onClick={this.autofillTable3}>Autofill</Button>
             <ReactTable
-              showPagination={false}
+              showPagination={this.state.makeData3.length > 2 ? true : false}
               sortable={false}
+              name="table1"
               className="-striped -highlight"
-              sortable={false}
               defaultPageSize={2}
               data={this.state.makeData3}
               columns={[
                 {
-                  sortable: false,
                   Header: `Type*`,
                   accessor: "field1",
 
@@ -793,7 +922,7 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="rice">Rice</MenuItem>
+                        <MenuItem value="Rice">Rice</MenuItem>
                       </Select>
                     </span>
                   )
@@ -801,7 +930,17 @@ class Default extends React.Component {
                 {
                   Header: "Description*",
                   accessor: "field3",
-                  Cell: this.renderEditable3
+                  Cell: row => (
+                    <input
+                      onChange={this.handleChange3(row)}
+                      value={this.state.makeData3[row.index].field3}
+                      style={{
+                        border: "none",
+                        width: "100%",
+                        lineHeight: "80%"
+                      }}
+                    />
+                  )
                 },
                 {
                   Header: "QTY*",
@@ -809,6 +948,8 @@ class Default extends React.Component {
                   accessor: "field4",
                   Cell: row => (
                     <input
+                      onChange={this.handleChange3(row)}
+                      value={this.state.makeData3[row.index].field4}
                       className="text-right float-left"
                       style={{
                         border: "none",
@@ -835,7 +976,11 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="Non-DG">bags</MenuItem>
+                        <MenuItem value="bags">bags</MenuItem>
+
+                        <MenuItem value="KARUNG">KARUNG</MenuItem>
+                        <MenuItem value="DUS">DUS</MenuItem>
+                        <MenuItem value="GALON">GALON</MenuItem>
                       </Select>
                     </span>
                   )
@@ -847,6 +992,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange3(row)}
+                        value={this.state.makeData3[row.index].field6}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -865,6 +1012,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange3(row)}
+                        value={this.state.makeData3[row.index].field7}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -884,6 +1033,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange3(row)}
+                        value={this.state.makeData3[row.index].field8}
                         className="text-right float-left"
                         style={{
                           border: "none",
@@ -892,6 +1043,7 @@ class Default extends React.Component {
                         }}
                         type="number"
                       />
+
                       <span className="float-right">m x</span>
                     </span>
                   )
@@ -903,6 +1055,8 @@ class Default extends React.Component {
                   Cell: row => (
                     <span>
                       <input
+                        onChange={this.handleChange3(row)}
+                        value={this.state.makeData3[row.index].field9}
                         className="text-right float-left"
                         style={{
                           border: "none",
