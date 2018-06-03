@@ -30,11 +30,11 @@ function loadUser() {
             "price":'IDR 100,000',         
             "total":'IDR 8,700,000',   
             "closingTime": "02:00",
-            "closingDate": "'Mar 20, 2018",
+            "closingDate": "Mar 20, 2018",
             "departureTime": "06:00",
-            "departureDate": "'Mar 20, 2018",
+            "departureDate": "Mar 20, 2018",
             "arrivalTime": "00:00",
-            "arrivalDate": "'Mar 21, 2018"
+            "arrivalDate": "Mar 21, 2018"
               
           },
           "row": [{
