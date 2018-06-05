@@ -15,7 +15,7 @@ import { DatePicker } from "material-ui-pickers";
 import "./frieghtstyles.css";
 
 import Radio from "material-ui/Radio";
-
+var depDate = [{ field: "Departure date " }, { field: "Arrival date" }];
 const styles = theme => ({
   container: {
     display: "flex",
@@ -61,7 +61,8 @@ class FreightSearch extends React.Component {
       selectedUntilDate: props.location.state
         ? props.location.state.key.selectedUntilDate
         : "",
-      searchData: []
+      searchData: [],
+      depDate: props.location.state ? props.location.state.key.depDate : ""
     };
   }
   handleChange = name => event => {
@@ -339,10 +340,22 @@ class FreightSearch extends React.Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-3" style={{ marginRight: "-5%" }}>
-                <label className="mt-3" for="Student">
-                  Departure date / Arrival date:
-                </label>
+              <div
+                className="col-md-3"
+                style={{ marginRight: "-5%", marginTop: "-1.5%" }}
+              >
+                <TextField
+                  name="depDate"
+                  select
+                  value={this.state.depDate}
+                  onChange={this.handleChange("depDate")}
+                  SelectProps={{}}
+                  margin="normal"
+                >
+                  {depDate.map(depDate => (
+                    <MenuItem value={depDate.field}>{depDate.field}</MenuItem>
+                  ))}
+                </TextField>
               </div>
               <div className="col-md-4">
                 <DatePicker

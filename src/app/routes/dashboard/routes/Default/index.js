@@ -18,6 +18,7 @@ const styles = theme => ({
     flexWrap: "wrap"
   }
 });
+var depDate = [{ field: "Departure date " }, { field: "Arrival date" }];
 var month = new Array();
 month[0] = "January";
 month[1] = "February";
@@ -41,7 +42,8 @@ class Default extends React.Component {
       error: false,
       radioButton: "radioButton1",
       selectedDate: new Date(),
-      selectedUntilDate: new Date()
+      selectedUntilDate: new Date(),
+      depDate: depDate[0].field
     };
   }
   handleChange = name => event => {
@@ -222,10 +224,22 @@ class Default extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-3" style={{ marginRight: "-5%" }}>
-              <label className="mt-3" for="Student">
-                Departure date / Arrival date:
-              </label>
+            <div
+              className="col-md-3"
+              style={{ marginRight: "-5%", marginTop: "-1.5%" }}
+            >
+              <TextField
+                name="depDate"
+                select
+                value={this.state.depDate}
+                onChange={this.handleChange("depDate")}
+                SelectProps={{}}
+                margin="normal"
+              >
+                {depDate.map(depDate => (
+                  <MenuItem value={depDate.field}>{depDate.field}</MenuItem>
+                ))}
+              </TextField>
             </div>
             <div className="col-md-4">
               <DatePicker
