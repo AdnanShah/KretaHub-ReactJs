@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { DatePicker } from "material-ui-pickers";
 import IconButton from "material-ui/IconButton";
 import Background from "./images/bg.jpg";
-
+import logo from "./kretahub-mock-icon.png";
 import Radio from "material-ui/Radio";
 const divStyle = {
   width: "100%",
@@ -39,6 +39,7 @@ class EmailTemplate extends React.Component {
       <div style={divStyle}>
         <div className="container-fluid h-100 align-middle">
           <div className="row h-100 justify-content-center align-items-center flex-column ">
+            <img src={logo} width="40px" className="mb-2" />
             <Paper>
               <div className="container-fluid">
                 <div className="font-weight-bold pt-3 text-center">
@@ -65,62 +66,65 @@ class EmailTemplate extends React.Component {
               <div style={{ backgroundColor: "#a1a1a1" }} className="mt-2">
                 <div className="row">
                   <div className="col-6 mx-auto">
-                    <div className="text-center text-white">
+                    {/* <div className="text-center text-white">
                       In the mean time, you can follow us on:
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-4 mx-auto">
-                    <div className="text-center">
-                      <div className="app-social-block">
-                        <ul className="social-link p-1 ">
-                          <li>
-                            <IconButton
-                              className="icon "
-                              onClick={() => {
-                                this.props.showAuthLoader();
-                                this.props.userFacebookSignIn();
-                              }}
-                            >
-                              <i className="zmdi zmdi-facebook" />
-                            </IconButton>
-                          </li>
-                          <li>
-                            <IconButton
-                              className="icon "
-                              onClick={() => {
-                                this.props.showAuthLoader();
-                                this.props.userInstagramSignIn();
-                              }}
-                            >
-                              <i className="zmdi zmdi-instagram" />
-                            </IconButton>
-                          </li>
-
-                          <li>
-                            <IconButton
-                              className="icon"
-                              onClick={() => {
-                                this.props.showAuthLoader();
-                                this.props.userTwitterSignIn();
-                              }}
-                            >
-                              <i className="zmdi zmdi-twitter" />
-                            </IconButton>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
             </Paper>
+            <div className="row mt-2">
+              <div className="col mx-auto text-light">
+                <div className="text-center">
+                  <div className="">
+                    <ul className="social-link p-1">
+                      <li>
+                        <IconButton
+                          color="inherit"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userFacebookSignIn();
+                          }}
+                        >
+                          <i className="zmdi zmdi-facebook" />
+                        </IconButton>
+                      </li>
+                      <li>
+                        <IconButton
+                          color="inherit"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userTwitterSignIn();
+                          }}
+                        >
+                          <i className="zmdi zmdi-twitter" />
+                        </IconButton>
+                      </li>
+                      <li>
+                        <IconButton
+                          color="inherit"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userInstagramSignIn();
+                          }}
+                        >
+                          <i className="zmdi zmdi-instagram" />
+                        </IconButton>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="row">
-              <div className="col mt-5">
-                  <a className="text-success" href="https://assignmenttablefabodiamond.firebaseapp.com/Pending.html">
-                    Next
-                  </a>
+              <div className="col mt-2">
+                <a
+                  className="text-success"
+                  href="https://assignmenttablefabodiamond.firebaseapp.com/Pending.html"
+                >
+                  Next
+                </a>
               </div>
             </div>
           </div>

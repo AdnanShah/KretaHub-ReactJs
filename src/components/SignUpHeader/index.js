@@ -16,9 +16,9 @@ class Header extends React.Component {
       <AppBar className="app-main-header mb-5">
         <Toolbar className="app-toolbar" disableGutters={false}>
           
-          {/* <Link className="app-logo" to="/">
+          <Link className="app-logo" to="/">
             <img src={logo} alt="Jambo" title="Jambo" />
-          </Link> */}
+          </Link>
 
           <h1
             className="mx-auto"

@@ -27,11 +27,11 @@ function loadUser() {
           "price":'IDR 100,000',         
           "total":'IDR 8,700,000',   
           "closingTime": "02:00",
-          "closingDate": "'Mar 20, 2018",
+          "closingDate": "Mar 20, 2018",
           "departureTime": "06:00",
-          "departureDate": "'Mar 20, 2018",
+          "departureDate": "Mar 20, 2018",
           "arrivalTime": "00:00",
-          "arrivalDate": "'Mar 21, 2018"
+          "arrivalDate": "Mar 21, 2018"
             
         },
         "row": [{
@@ -40,7 +40,7 @@ function loadUser() {
           "field6": "2200000",
           "field3": "2",
           "field4": "of 10",
-          "field5": "'IDR 4,400,000"
+          "field5": "IDR 4,400,000"
         },
          {
           "field1": "20TK",
@@ -72,7 +72,7 @@ function loadUser() {
           "field6": "4200000",
           "field3": "1",
           "field4": "of 5",
-          "field5": "'IDR 4,200,000"
+          "field5": "IDR 4,200,000"
         }
     ]});
   $("#target").html(rendered);
