@@ -87,24 +87,21 @@ class FreightSearch extends React.Component {
     let y = newdate.getFullYear();
     let someFormattedDate = mm + " " + dd + "  " + y;
 
-    this.setState(
-      { selectedDate: someFormattedDate }
-        , () => {
-        this.untilDate();
-      }
-    );
+    this.setState({ selectedDate: new Date(date) }, () => {
+      this.untilDate();
+    });
   };
 
   untilDate = () => {
     let tt = this.state.selectedDate;
     let date = new Date(tt);
     let newdate = new Date(date);
-    newdate.setDate(newdate.getDate() + 30);
-    let dd = newdate.getDate();
-    let mm = month[newdate.getMonth() + 1];
-    let y = newdate.getFullYear();
-    let someFormattedDate = mm + " " + dd + " " + y;
-    this.setState({ selectedUntilDate: someFormattedDate });
+    let untilDate = newdate.setDate(newdate.getDate() + 30);
+    // let dd = newdate.getDate();
+    // let mm = month[newdate.getMonth() + 1];
+    // let y = newdate.getFullYear();
+    // let someFormattedDate = mm + " " + dd + " " + y;
+    this.setState({ selectedUntilDate: untilDate });
   };
 
   handleUntilDateChange = date => {
@@ -244,7 +241,7 @@ class FreightSearch extends React.Component {
     console.log("country1", country1, nextProps);
   }
   render() {
-    // console.log(this.props.location.state.key);
+    console.log(this.props.location.state.key);
     console.log("this.state", this.state);
     // console.log("this.props", this.props);
 
