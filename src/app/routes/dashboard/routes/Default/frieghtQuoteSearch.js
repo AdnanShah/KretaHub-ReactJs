@@ -162,17 +162,20 @@ class FreightSearch extends React.Component {
     {
       sortable: false,
       Header: "Station-to-Station",
-      accessor: "field7"
+      accessor: "field7",
+      className: "text-right"
     },
     {
       sortable: false,
       Header: "Door-to-Station",
-      accessor: "field8"
+      accessor: "field8",
+      className: "text-right"
     },
     {
       sortable: false,
       Header: "Door-to-Door",
-      accessor: "field9"
+      accessor: "field9",
+      className: "text-right"
     },
     {
       sortable: false,
@@ -209,7 +212,7 @@ class FreightSearch extends React.Component {
   ];
 
   componentWillMount() {
-    document.title = "Frieght Quote Search - KretaHub";
+    document.title = "Freight Quote Search - KretaHub";
   }
   componentDidMount() {
     this.setState({

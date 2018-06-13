@@ -289,7 +289,7 @@ class Freightdetail extends React.Component {
     );
   };
   componentWillMount() {
-    document.title = "Frieght Quote Details - KretaHub";
+    document.title = "Freight Quote Details - KretaHub";
     this.calculateTotal();
   }
   setRadioButton = event => {
