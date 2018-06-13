@@ -22,28 +22,142 @@ var handleDateChange = date => {
   return someFormattedDate;
 };
 
-export const searchData = (start, end) => {
-  let startDate = handleDateChange(start);
-  let endDate = handleDateChange(end);
-  console.log("startDate", startDate);
-  console.log("endDate", endDate);
-
-  let s = data.findIndex(x => x.field1 == startDate);
-  let e = data.findIndex(x => x.fieldx == endDate);
-  let ee = e + 5;
-  let res = data.slice(s, ee);
-  // console.log("s,e", s, e);
-  // if (e === -1 && s === -1) {
-  //   return data;
-  // } else
-  //  if (e === -1) {
-  //   return data.slice(s);
-  // } else if (s === -1) {
-  //   return data;
-  // } else {
-  return res;
-  // }
+var handleNextDate = date => {
+  let newdate = new Date(date);
+  newdate.setDate(newdate.getDate());
+  let dd = newdate.getDate() + 1;
+  let mm = month[newdate.getMonth()];
+  let y = newdate.getFullYear();
+  let someFormattedDate = mm + " " + dd + "  " + y;
+  return someFormattedDate;
 };
+
+var getDates = function(startDate, endDate) {
+  var dates = [],
+    currentDate = startDate,
+    addDays = function(days) {
+      var date = new Date(this.valueOf());
+      date.setDate(date.getDate() + days);
+      return date;
+    };
+  while (currentDate <= endDate) {
+    dates.push(currentDate);
+    currentDate = addDays.call(currentDate, 1);
+  }
+  return dates;
+};
+
+export const searchData = (start, end) => {
+  let dates = getDates(start, end);
+  console.log(dates, "dates");
+  let datesArr = [];
+  let arr = [];
+
+  dates.forEach(date => {
+    let startDate = handleDateChange(date);
+    datesArr.push(startDate);
+    demoData.forEach((data, i) => {
+      let res = Object.assign({}, data);
+      if (i % 2 === 0) {
+        res.field1 = startDate;
+      }
+      console.log("data", res, "data.field1", res.field1);
+      // return res;
+      return arr.push(res);
+    });
+  });
+  console.log("datesArr", ...datesArr);
+
+  // let startDate = handleDateChange(start);
+  // // let endDate = handleNextDate(start);
+  // for (let i = 0; i < datesArr.length; i++) {
+  //   let nextDate = datesArr[i];
+  //   for (let j = 0; j < demoData.length; j++) {
+  //     // console.log("a demoData[j]", demoData[j]);
+  //     let a = i;
+  //     if (j % 2 == 0) {
+  //       demoData[j].field1 = nextDate;
+  //       arr.concat(demoData[j]);
+  //       // console.log("demoData[j]", demoData[j], demoData[j].field1, arr);
+  //       console.log("Target", ...demoData, " Data", nextDate);
+  //     }
+  //   }
+  // }
+  console.log("arr", arr);
+  return arr;
+};
+
+export const demoData = [
+  {
+    field1: "March 20  2018",
+    field2: "",
+    field3: "March 21  2018",
+    field4: "",
+    field5: "KA Maju Cepat",
+    field6: "20RF/20TK/20GP: 10",
+    field7: "IDR 2,200,000",
+    field8: "IDR 3,740,000",
+    field9: "IDR 4,840,000"
+  },
+  {
+    fieldx: "March 20  2018",
+    field1: "06:00 WIB 00:00 WIB",
+    field2: "",
+    field3: "00:00 WIB",
+    field6: "40RF/40GP: 5 40RF/40GP: 5",
+    field4: "",
+    field5: "107",
+    field7: "IDR 4,200,000",
+    field8: "IDR 6,150,000",
+    field9: "IDR 7,350,000"
+  },
+  {
+    field1: "March 20  2018",
+    field2: "",
+    field3: "March 21  2018",
+    field4: "",
+    field5: "KA Maju Cepat",
+    field6: "20RF/20TK/20GP: 10",
+    field7: "IDR 2,200,000",
+    field8: "IDR 3,740,000",
+    field9: "IDR 4,840,000"
+  },
+  {
+    fieldx: "March 20  2018",
+    field1: "09:45 WIB 03:45 WIB",
+    field2: "",
+    field3: "108 40RF/40GP: 5",
+    field4: "",
+    field6: "40RF/40GP: 5",
+    field5: "108",
+    field7: "IDR 4,200,000",
+    field8: "IDR 6,150,000",
+    field9: "IDR 7,350,000"
+  },
+  {
+    field1: "March 20  2018",
+    field2: "",
+    field3: "March 21  2018",
+    field4: "",
+    field5: "KA Maju Cepat",
+    field6: "20RF/20TK/20GP: 8",
+    field7: "IDR 3,100,000",
+    field8: "",
+    field9: ""
+  },
+  {
+    fieldx: "March 20  2018",
+    field1: "13:00 WIB",
+    field2: "",
+    field3: "07:00 WIB",
+    field4: "",
+    field6: "40RF/40GP: 4",
+    field5: "201",
+    field7: "",
+    field8: "",
+    field9: "IDR 5,150,000"
+  }
+];
 
 export const data = [
   {
