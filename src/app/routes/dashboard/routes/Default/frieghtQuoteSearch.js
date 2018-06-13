@@ -89,9 +89,9 @@ class FreightSearch extends React.Component {
 
     this.setState(
       { selectedDate: someFormattedDate }
-      //   , () => {
-      //   this.untilDate();
-      // }
+        , () => {
+        this.untilDate();
+      }
     );
   };
 
@@ -220,12 +220,12 @@ class FreightSearch extends React.Component {
         this.props.location.state
           ? this.props.location.state.key.selectedDate
           : this.setState({
-              selectedDate: new Date("March 20, 2018 11:13:00")
+              selectedDate: new Date()
             }),
         this.props.location.state
           ? this.props.location.state.key.selectedUntilDate
           : this.setState({
-              selectedUntilDate: new Date("March 25, 2018 11:13:00")
+              selectedUntilDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
             })
       )
     });
@@ -245,8 +245,8 @@ class FreightSearch extends React.Component {
   }
   render() {
     // console.log(this.props.location.state.key);
-    // console.log("this.state", this.state);
-    console.log("this.props", this.props);
+    console.log("this.state", this.state);
+    // console.log("this.props", this.props);
 
     return (
       <Paper>

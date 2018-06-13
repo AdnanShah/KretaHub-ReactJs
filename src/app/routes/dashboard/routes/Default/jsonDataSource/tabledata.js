@@ -55,11 +55,13 @@ export const searchData = (start, end) => {
 
   dates.forEach(date => {
     let startDate = handleDateChange(date);
+    let nextDate = handleNextDate(date);
     datesArr.push(startDate);
     demoData.forEach((data, i) => {
       let res = Object.assign({}, data);
       if (i % 2 === 0) {
         res.field1 = startDate;
+        res.field3 = nextDate;
       }
       console.log("data", res, "data.field1", res.field1);
       // return res;
