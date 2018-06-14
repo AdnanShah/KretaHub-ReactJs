@@ -4,8 +4,8 @@
 /node_modules
 /dist
 
-/components
-/actions
+/src/components
+/src/actions
 
 # testing
 /coverage
