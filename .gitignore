@@ -4,14 +4,14 @@
 /node_modules
 /dist
 
+/components
+/actions
+
 # testing
 /coverage
 
 # production
 /build
-
-# production
-/dist
 
 # misc
 .DS_Store
