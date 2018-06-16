@@ -1,4 +1,7 @@
-# ![React + Material-UI Example App](project-logo.png)
+# ![React + Material-UI Example App](<p align="center">
+  <a href="https://material-ui.com/" rel="noopener" target="_blank"><img width="200" src="/static/brand.png" alt="Material-UI logo"></a></p>
+</p>
+)
 
 > ### React + Material-UI codebase containing real world shipping app.
 
