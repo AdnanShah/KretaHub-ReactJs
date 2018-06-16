@@ -1,6 +1,6 @@
-![React Intro](http://i.imgur.com/yH3JkIH.png)
+![React Intro](http://i.imgur.com/yH3JkIH.png) (public/brand.png)
 
-# ![React + Material-UI Example App](public/brand.png)
+# ![React + Material-UI Example App]
 
 > ### React + Material-UI codebase containing real world shipping app.
 
