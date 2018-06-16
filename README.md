@@ -1,4 +1,7 @@
-![React Intro](http://i.imgur.com/yH3JkIH.png) (public/brand.png)
+![React Intro](http://i.imgur.com/yH3JkIH.png)
+<p align="center">
+  <a href="https://material-ui.com/" rel="noopener" target="_blank"><img width="200" src="/public/brand.png" alt="Material-UI logo"></a></p>
+</p>
 
 # ![React + Material-UI Example App]
 
