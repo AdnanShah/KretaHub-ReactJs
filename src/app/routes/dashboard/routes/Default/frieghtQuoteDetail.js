@@ -213,7 +213,7 @@ class Freightdetail extends React.Component {
   };
 
   calculateTotal = () => {
-    return `IDR:${(this.state.total + 100000)
+    return `IDR ${(this.state.total + 100000)
       .toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
   };
@@ -308,10 +308,10 @@ class Freightdetail extends React.Component {
           <div className="row">
             <div className="col">
               <div className=" row jr-card-header pt-3 px-2">
-                <h2 className="col" >
+                <h2 className="col">
                   <IntlMessages id="Freight Quote Details" />
-                  </h2>
-                  <Button
+                </h2>
+                <Button
                   className="float-right col-1"
                   variant="raised"
                   style={{
@@ -323,8 +323,6 @@ class Freightdetail extends React.Component {
                 >
                   Autofill
                 </Button>
-              
-                
               </div>
               <div className="container">
                 <div className="row">
