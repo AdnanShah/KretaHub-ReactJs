@@ -227,7 +227,7 @@ class Freightdetail extends React.Component {
     this.setState({ due });
   };
   renderEditable = cellInfo => {
-    console.log("cellInfo", cellInfo.index, cellInfo.column.id);
+    // console.log("cellInfo", cellInfo.index, cellInfo.column.id);
     return (
       <div
         style={{ backgroundColor: "#fafafa" }}
@@ -235,12 +235,12 @@ class Freightdetail extends React.Component {
         suppressContentEditableWarning
         onBlur={e => {
           const makeData = [...this.state.makeData];
-          console.log(makeData);
+          console.log("makeData", makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
           if (makeData[cellInfo.index].field3 <= 20) {
             let t =
               makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
-            let tt = `IDR:${t
+            let tt = `IDR ${t
               .toString()
               .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
             makeData[cellInfo.index].field5 = tt;
@@ -258,7 +258,7 @@ class Freightdetail extends React.Component {
     );
   };
   renderEditable2 = cellInfo => {
-    console.log("cellInfo", cellInfo.index, cellInfo.column.id);
+    // console.log("cellInfo", cellInfo.index, cellInfo.column.id);
     return (
       <div
         style={{ backgroundColor: "#fafafa" }}
@@ -266,12 +266,12 @@ class Freightdetail extends React.Component {
         suppressContentEditableWarning
         onBlur={e => {
           const makeData = [...this.state.makeData2];
-          console.log(makeData);
+          console.log("makeData", makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
           if (makeData[cellInfo.index].field3 <= 20) {
             let t =
               makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
-            let tt = `IDR:${t
+            let tt = `IDR ${t
               .toString()
               .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
             makeData[cellInfo.index].field5 = tt;
@@ -283,7 +283,7 @@ class Freightdetail extends React.Component {
           }
         }}
         dangerouslySetInnerHTML={{
-          __html: this.state.makeData[cellInfo.index][cellInfo.column.id]
+          __html: this.state.makeData2[cellInfo.index][cellInfo.column.id]
         }}
       />
     );
@@ -511,11 +511,12 @@ class Freightdetail extends React.Component {
                         {
                           Header: "QTY",
                           accessor: "field3",
+                          className: "text-right",
+
                           Cell:
                             this.state.autoFill === false
                               ? this.renderEditable2
-                              : this.renderEditable,
-                          className: "text-right"
+                              : this.renderEditable
                         },
                         {
                           Header: "Capacity",
