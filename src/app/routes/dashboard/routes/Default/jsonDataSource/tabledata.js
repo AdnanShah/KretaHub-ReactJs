@@ -103,7 +103,7 @@ export const demoData = [
   },
   {
     fieldx: "March 20  2018",
-    field1: "06:00 WIB 00:00 WIB",
+    field1: "06:00 WIB",
     field2: "",
     field3: "00:00 WIB",
     field6: "40RF/40GP: 5 40RF/40GP: 5",
@@ -126,9 +126,9 @@ export const demoData = [
   },
   {
     fieldx: "March 20  2018",
-    field1: "09:45 WIB 03:45 WIB",
+    field1: "09:45 WIB",
     field2: "",
-    field3: "108 40RF/40GP: 5",
+    field3: "03:45 WIB",
     field4: "",
     field6: "40RF/40GP: 5",
     field5: "108",
