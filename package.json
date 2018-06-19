@@ -69,7 +69,7 @@
     "react-swipeable-views": "^0.12.8",
     "react-table": "^6.8.0",
     "react-text-mask": "^5.0.2",
-    "reactstrap": "next",
+    "reactstrap": "^6.1.0",
     "recharts": "^1.0.0-alpha.7",
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
