@@ -46,24 +46,34 @@ class FreightSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      country1: props.location.state
-        ? props.location.state.key.country1
-        : stations[1].field,
-      country2: props.location.state
-        ? props.location.state.key.country2
-        : stations[2].field,
+      country1:
+        props.location.state.key == null
+          ? stations[1].field
+          : props.location.state.key.country1,
+
+      country2:
+        props.location.state.key == null
+          ? stations[2].field
+          : props.location.state.key.country2,
+
       error: false,
-      radioButton: props.location.state
-        ? props.location.state.key.radioButton
-        : "radioButton1",
-      selectedDate: props.location.state
-        ? props.location.state.key.selectedDate
-        : "",
-      selectedUntilDate: props.location.state
-        ? props.location.state.key.selectedUntilDate
-        : "",
+      radioButton:
+        props.location.state.key == null
+          ? "radioButton1"
+          : props.location.state.key.radioButton,
+
+      selectedDate:
+        props.location.state.key == null
+          ? ""
+          : props.location.state.key.selectedDate,
+
+      selectedUntilDate:
+        props.location.state.key == null
+          ? ""
+          : props.location.state.key.selectedUntilDate,
       searchData: [],
-      depDate: props.location.state ? props.location.state.key.depDate : ""
+      depDate:
+        props.location.state.key == null ? "" : props.location.state.key.depDate
     };
   }
   handleChange = name => event => {
