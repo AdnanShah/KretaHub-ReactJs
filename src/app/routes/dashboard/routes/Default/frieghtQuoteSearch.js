@@ -15,6 +15,7 @@ import { DatePicker } from "material-ui-pickers";
 import "./frieghtstyles.css";
 
 import Radio from "material-ui/Radio";
+import style from "./../../../charts/routes/radial/Components/style";
 var depDate = [{ field: "Departure date " }, { field: "Arrival date" }];
 const styles = theme => ({
   container: {
@@ -141,12 +142,24 @@ class FreightSearch extends React.Component {
   columns = [
     {
       sortable: false,
-      Header: "Estimated Time of Departure (ETD)",
+      Header: () => {
+        return (
+          <span>
+            Estimated Time<br /> of Departure<br /> (ETD)
+          </span>
+        );
+      },
       accessor: "field1"
     },
     {
       sortable: false,
-      Header: "Estimated Time of Arrival (ETA)",
+      Header: () => {
+        return (
+          <span>
+            Estimated Time<br /> of Arrival (ETA)
+          </span>
+        );
+      },
       accessor: "field3"
     },
     {
