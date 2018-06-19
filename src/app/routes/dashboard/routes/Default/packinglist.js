@@ -484,6 +484,7 @@ class Default extends React.Component {
                           <em>None</em>
                         </MenuItem>
                         <MenuItem value="Non-DG">Non-DG</MenuItem>
+                        <MenuItem value="DG">DG</MenuItem>
                       </Select>
                     </span>
                   )
@@ -693,6 +694,7 @@ class Default extends React.Component {
                           <em>None</em>
                         </MenuItem>
                         <MenuItem value="Non-DG">Non-DG</MenuItem>
+                        <MenuItem value="DG">DG</MenuItem>
                       </Select>
                     </span>
                   )
@@ -902,6 +904,7 @@ class Default extends React.Component {
                           <em>None</em>
                         </MenuItem>
                         <MenuItem value="Non-DG">Non-DG</MenuItem>
+                        <MenuItem value="DG">DG</MenuItem>
                       </Select>
                     </span>
                   )
