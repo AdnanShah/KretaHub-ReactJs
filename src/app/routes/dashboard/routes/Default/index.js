@@ -63,11 +63,11 @@ class Default extends React.Component {
   handleDateChange = date => {
     // let date = new Date(date);
     let newdate = new Date(date);
-    newdate.setDate(newdate.getDate());
-    let dd = newdate.getDate();
-    let mm = month[newdate.getMonth()];
-    let y = newdate.getFullYear();
-    let someFormattedDate = mm + " " + dd + "  " + y;
+    let someFormattedDate = newdate.setDate(newdate.getDate());
+    // let dd = newdate.getDate();
+    // let mm = month[newdate.getMonth()];
+    // let y = newdate.getFullYear();
+    // let someFormattedDate = mm + " " + dd + "  " + y;
 
     this.setState({ selectedDate: someFormattedDate }, () => {
       this.untilDate();
@@ -78,11 +78,11 @@ class Default extends React.Component {
     let tt = this.state.selectedDate;
     let date = new Date(tt);
     let newdate = new Date(date);
-    newdate.setDate(newdate.getDate() + 30);
-    let dd = newdate.getDate();
-    let mm = month[newdate.getMonth() + 1];
-    let y = newdate.getFullYear();
-    let someFormattedDate = mm + " " + dd + " " + y;
+    let someFormattedDate = newdate.setDate(newdate.getDate() + 30);
+    // let dd = newdate.getDate();
+    // let mm = month[newdate.getMonth() + 1];
+    // let y = newdate.getFullYear();
+    // let someFormattedDate = mm + " " + dd + " " + y;
     this.setState({ selectedUntilDate: someFormattedDate });
   };
 

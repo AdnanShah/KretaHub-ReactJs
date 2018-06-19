@@ -87,24 +87,21 @@ class FreightSearch extends React.Component {
     let y = newdate.getFullYear();
     let someFormattedDate = mm + " " + dd + "  " + y;
 
-    this.setState(
-      { selectedDate: someFormattedDate }
-      //   , () => {
-      //   this.untilDate();
-      // }
-    );
+    this.setState({ selectedDate: new Date(date) }, () => {
+      this.untilDate();
+    });
   };
 
   untilDate = () => {
     let tt = this.state.selectedDate;
     let date = new Date(tt);
     let newdate = new Date(date);
-    newdate.setDate(newdate.getDate() + 30);
-    let dd = newdate.getDate();
-    let mm = month[newdate.getMonth() + 1];
-    let y = newdate.getFullYear();
-    let someFormattedDate = mm + " " + dd + " " + y;
-    this.setState({ selectedUntilDate: someFormattedDate });
+    let untilDate = newdate.setDate(newdate.getDate() + 30);
+    // let dd = newdate.getDate();
+    // let mm = month[newdate.getMonth() + 1];
+    // let y = newdate.getFullYear();
+    // let someFormattedDate = mm + " " + dd + " " + y;
+    this.setState({ selectedUntilDate: untilDate });
   };
 
   handleUntilDateChange = date => {
@@ -165,17 +162,20 @@ class FreightSearch extends React.Component {
     {
       sortable: false,
       Header: "Station-to-Station",
-      accessor: "field7"
+      accessor: "field7",
+      className: "text-right"
     },
     {
       sortable: false,
       Header: "Door-to-Station",
-      accessor: "field8"
+      accessor: "field8",
+      className: "text-right"
     },
     {
       sortable: false,
       Header: "Door-to-Door",
-      accessor: "field9"
+      accessor: "field9",
+      className: "text-right"
     },
     {
       sortable: false,
@@ -212,7 +212,7 @@ class FreightSearch extends React.Component {
   ];
 
   componentWillMount() {
-    document.title = "Frieght Quote Search - KretaHub";
+    document.title = "Freight Quote Search - KretaHub";
   }
   componentDidMount() {
     this.setState({
@@ -220,12 +220,12 @@ class FreightSearch extends React.Component {
         this.props.location.state
           ? this.props.location.state.key.selectedDate
           : this.setState({
-              selectedDate: new Date("March 20, 2018 11:13:00")
+              selectedDate: new Date()
             }),
         this.props.location.state
           ? this.props.location.state.key.selectedUntilDate
           : this.setState({
-              selectedUntilDate: new Date("March 25, 2018 11:13:00")
+              selectedUntilDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
             })
       )
     });
@@ -244,9 +244,9 @@ class FreightSearch extends React.Component {
     console.log("country1", country1, nextProps);
   }
   render() {
-    // console.log(this.props.location.state.key);
-    // console.log("this.state", this.state);
-    console.log("this.props", this.props);
+    console.log(this.props.location.state.key);
+    console.log("this.state", this.state);
+    // console.log("this.props", this.props);
 
     return (
       <Paper>
