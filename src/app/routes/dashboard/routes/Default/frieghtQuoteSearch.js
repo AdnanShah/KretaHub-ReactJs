@@ -48,34 +48,34 @@ class FreightSearch extends React.Component {
     super(props);
     this.state = {
       country1:
-        props.location.state.key == null
+        props.location.state == null
           ? stations[1].field
           : props.location.state.key.country1,
 
       country2:
-        props.location.state.key == null
+        props.location.state == null
           ? stations[2].field
           : props.location.state.key.country2,
 
       error: false,
       radioButton:
-        props.location.state.key == null
+        props.location.state == null
           ? "radioButton1"
           : props.location.state.key.radioButton,
 
       selectedDate:
-        props.location.state.key == null
+        props.location.state == null
           ? ""
           : props.location.state.key.selectedDate,
 
       selectedUntilDate:
-        props.location.state.key == null
+        props.location.state == null
           ? ""
           : props.location.state.key.selectedUntilDate,
       searchData: [],
       depDate:
-        props.location.state.key == null
-          ? ""
+        props.location.state == null
+          ? depDate[0].field
           : props.location.state.key.depDate,
       open: false
     };
@@ -278,7 +278,7 @@ class FreightSearch extends React.Component {
     console.log("country1", country1, nextProps);
   }
   render() {
-    console.log(this.props.location.state.key);
+    // console.log(this.props.location.state.key);
     console.log("this.state", this.state);
     // console.log("this.props", this.props);
 
