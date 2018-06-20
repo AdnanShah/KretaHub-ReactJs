@@ -52,7 +52,7 @@ export const searchData = (start, end) => {
   let nextDate = handleNextDate(end);
   var d1 = Date.parse(startDate);
   var d2 = Date.parse(nextDate);
-  if (d1 < d2) {
+  if (d1 < d2 && d1 != d2) {
     let dates = getDates(start, end);
     console.log(startDate, nextDate, "dates");
     let datesArr = [];

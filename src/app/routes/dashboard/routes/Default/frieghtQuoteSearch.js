@@ -267,7 +267,8 @@ class FreightSearch extends React.Component {
         )
       },
       () => {
-        this.state.searchData === undefined
+        this.state.searchData === undefined ||
+        this.state.searchData.length === 0
           ? this.setState({ open: !this.state.open })
           : "";
       }
