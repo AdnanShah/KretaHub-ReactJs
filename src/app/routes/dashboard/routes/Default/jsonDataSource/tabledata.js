@@ -48,45 +48,32 @@ var getDates = function(startDate, endDate) {
 };
 
 export const searchData = (start, end) => {
-  let dates = getDates(start, end);
-  console.log(dates, "dates");
-  let datesArr = [];
-  let arr = [];
+  let startDate = handleDateChange(start);
+  let nextDate = handleNextDate(end);
+  var d1 = Date.parse(startDate);
+  var d2 = Date.parse(nextDate);
+  if (d1 < d2) {
+    let dates = getDates(start, end);
+    console.log(startDate, nextDate, "dates");
+    let datesArr = [];
+    let arr = [];
 
-  dates.forEach(date => {
-    let startDate = handleDateChange(date);
-    let nextDate = handleNextDate(date);
-    datesArr.push(startDate);
-    demoData.forEach((data, i) => {
-      let res = Object.assign({}, data);
-      if (i % 2 === 0) {
-        res.field1 = startDate;
-        res.field3 = nextDate;
-      }
-      console.log("data", res, "data.field1", res.field1);
-      // return res;
-      return arr.push(res);
+    dates.forEach(date => {
+      let startDate = handleDateChange(date);
+      let nextDate = handleNextDate(date);
+      datesArr.push(startDate);
+      demoData.forEach((data, i) => {
+        let res = Object.assign({}, data);
+        if (i % 2 === 0) {
+          res.field1 = startDate;
+          res.field3 = nextDate;
+        }
+        return arr.push(res);
+      });
     });
-  });
-  console.log("datesArr", ...datesArr);
-
-  // let startDate = handleDateChange(start);
-  // // let endDate = handleNextDate(start);
-  // for (let i = 0; i < datesArr.length; i++) {
-  //   let nextDate = datesArr[i];
-  //   for (let j = 0; j < demoData.length; j++) {
-  //     // console.log("a demoData[j]", demoData[j]);
-  //     let a = i;
-  //     if (j % 2 == 0) {
-  //       demoData[j].field1 = nextDate;
-  //       arr.concat(demoData[j]);
-  //       // console.log("demoData[j]", demoData[j], demoData[j].field1, arr);
-  //       console.log("Target", ...demoData, " Data", nextDate);
-  //     }
-  //   }
-  // }
-  console.log("arr", arr);
-  return arr;
+    return arr;
+  }
+  // alert("Error! Until date must be greater than departure date.");
 };
 
 export const demoData = [

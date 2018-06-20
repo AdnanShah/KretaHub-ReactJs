@@ -13,6 +13,7 @@ import "react-table/react-table.css";
 import moment from "moment";
 import { DatePicker } from "material-ui-pickers";
 import "./frieghtstyles.css";
+import Snackbar from "material-ui/Snackbar";
 
 import Radio from "material-ui/Radio";
 import style from "./../../../charts/routes/radial/Components/style";
@@ -73,7 +74,10 @@ class FreightSearch extends React.Component {
           : props.location.state.key.selectedUntilDate,
       searchData: [],
       depDate:
-        props.location.state.key == null ? "" : props.location.state.key.depDate
+        props.location.state.key == null
+          ? ""
+          : props.location.state.key.depDate,
+      open: false
     };
   }
   handleChange = name => event => {
@@ -254,13 +258,20 @@ class FreightSearch extends React.Component {
     });
   }
   handleDateTable = () => {
-    this.setState({
-      searchData: searchData(
-        this.state.selectedDate,
-        this.state.selectedUntilDate
-        // "March 21  2018"
-      )
-    });
+    this.setState(
+      {
+        searchData: searchData(
+          this.state.selectedDate,
+          this.state.selectedUntilDate
+          // "March 21  2018"
+        )
+      },
+      () => {
+        this.state.searchData === undefined
+          ? this.setState({ open: !this.state.open })
+          : "";
+      }
+    );
   };
   componentWillReceiveProps(nextProps) {
     this.setState({ country1: this.props.location.state.key.country1 });
@@ -435,6 +446,35 @@ class FreightSearch extends React.Component {
             defaultPageSize={20}
           />
         </div>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right"
+          }}
+          open={this.state.open}
+          autoHideDuration={6000}
+          onClose={this.handleClose}
+          ContentProps={{
+            "aria-describedby": "message-id"
+          }}
+          message={
+            <span id="message-id">
+              Until date must be grater than Departure/Arrival date.
+            </span>
+          }
+          action={[
+            <Button
+              key="undo"
+              color="secondary"
+              size="small"
+              onClick={() => {
+                this.setState({ open: false });
+              }}
+            >
+              Close
+            </Button>
+          ]}
+        />
       </Paper>
     );
   }
