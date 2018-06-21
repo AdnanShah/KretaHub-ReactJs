@@ -577,9 +577,6 @@ class Default extends React.Component {
                           id: "type"
                         }}
                       >
-                        <MenuItem value="" name="">
-                          <em>None</em>
-                        </MenuItem>
                         <MenuItem value="Non-DG">Non-DG</MenuItem>
                         <MenuItem value="DG">DG</MenuItem>
                       </Select>
@@ -599,9 +596,6 @@ class Default extends React.Component {
                           id: "type"
                         }}
                       >
-                        <MenuItem value="" name="">
-                          <em>None</em>
-                        </MenuItem>
                         {this.goods.map(good => {
                           return <MenuItem value={good}>{good}</MenuItem>;
                         })}
@@ -784,9 +778,6 @@ class Default extends React.Component {
                           id: "type"
                         }}
                       >
-                        <MenuItem value="" name="">
-                          <em>None</em>
-                        </MenuItem>
                         <MenuItem value="Non-DG">Non-DG</MenuItem>
                         <MenuItem value="DG">DG</MenuItem>
                       </Select>
@@ -806,9 +797,6 @@ class Default extends React.Component {
                           id: "type"
                         }}
                       >
-                        <MenuItem value="" name="">
-                          <em>None</em>
-                        </MenuItem>
                         {this.goods.map(good => {
                           return <MenuItem value={good}>{good}</MenuItem>;
                         })}
@@ -991,9 +979,6 @@ class Default extends React.Component {
                           id: "type"
                         }}
                       >
-                        <MenuItem value="" name="">
-                          <em>None</em>
-                        </MenuItem>
                         <MenuItem value="Non-DG">Non-DG</MenuItem>
                         <MenuItem value="DG">DG</MenuItem>
                       </Select>
@@ -1013,9 +998,6 @@ class Default extends React.Component {
                           id: "type"
                         }}
                       >
-                        <MenuItem value="" name="">
-                          <em>None</em>
-                        </MenuItem>
                         {this.goods.map(good => {
                           return <MenuItem value={good}>{good}</MenuItem>;
                         })}
