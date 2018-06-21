@@ -51,7 +51,7 @@ class FreightArrived extends React.Component {
                 <div className="row">
                   <div className="col-6 mx-auto">
                     <div className="text-center text-white">
-                      In the mean time, you can follow us on:
+                      Freight arrived at Point-of-Loading
                     </div>
                   </div>
                 </div>
@@ -99,7 +99,12 @@ class FreightArrived extends React.Component {
               </div>
             </div>
             <div className="row">
-              <div className="p-1">
+              <p className="text-light">
+                Copyright &#169; 2018 KretaHub. All rights reserved.
+              </p>
+            </div>
+            <div className="row">
+              <div className="">
                 <a
                   className="text-success"
                   href="https://assignmenttablefabodiamond.firebaseapp.com/ATA Notice.html"
@@ -108,7 +113,6 @@ class FreightArrived extends React.Component {
                 </a>
               </div>
             </div>
-
           </div>
         </div>
       </div>
