@@ -18,7 +18,7 @@ var handleDateChange = date => {
   let dd = newdate.getDate();
   let mm = month[newdate.getMonth()];
   let y = newdate.getFullYear();
-  let someFormattedDate = mm + " " + dd + "," + y;
+  let someFormattedDate = mm + " " + dd + ", " + y;
   return someFormattedDate;
 };
 
@@ -28,7 +28,7 @@ var handleNextDate = date => {
   let dd = newdate.getDate() + 1;
   let mm = month[newdate.getMonth()];
   let y = newdate.getFullYear();
-  let someFormattedDate = mm + " " + dd + "," + y;
+  let someFormattedDate = mm + " " + dd + ", " + y;
   return someFormattedDate;
 };
 
