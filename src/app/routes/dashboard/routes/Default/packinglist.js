@@ -102,7 +102,7 @@ class Default extends React.Component {
         suppressContentEditableWarning
         onBlur={e => {
           const makeData = [...this.state.makeData];
-          console.log(makeData);
+          // console.log(makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
           // makeData[cellInfo.index].field5 =
           //   makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
@@ -307,7 +307,7 @@ class Default extends React.Component {
     this.state.makeData.forEach((item, index) => {
       for (var key in item) {
         if (item[key] == "") {
-          console.log("Container 1: 20RF is not Valid", item[key]);
+          // console.log("Container 1: 20RF is not Valid", item[key]);
           this.setState({ open: !this.state.open, checkData: false }, () => {
             this.changeRoute();
           });
@@ -322,7 +322,7 @@ class Default extends React.Component {
     this.state.makeData2.forEach((item, index) => {
       for (var key in item) {
         if (item[key] == "") {
-          console.log("Container 2: 20RF is not Valid", item[key]);
+          // console.log("Container 2: 20RF is not Valid", item[key]);
           this.setState({ open: !this.state.open, checkData2: false }, () => {
             this.changeRoute();
           });
@@ -337,7 +337,7 @@ class Default extends React.Component {
     this.state.makeData3.forEach((item, index) => {
       for (var key in item) {
         if (item[key] == "") {
-          console.log("Container 3: 40GP is not Valid", item[key]);
+          // console.log("Container 3: 40GP is not Valid", item[key]);
           this.setState({ open: !this.state.open, checkData3: false }, () => {
             this.changeRoute();
           });
@@ -366,21 +366,21 @@ class Default extends React.Component {
     document.title = "Shipper PackingList  - KretaHub";
   }
   handleChange = cellInfo => event => {
-    console.log("rowrow", cellInfo, event.target.value);
+    // console.log("rowrow", cellInfo, event.target.value);
     const makeData = [...this.state.makeData];
     makeData[cellInfo.index][cellInfo.column.id] = event.target.value;
     this.setState({ makeData }, () => {
-      console.log(this.state.makeData);
+      // console.log(this.state.makeData);
     });
   };
   handleChange2 = cellInfo => event => {
-    console.log("rowrow", cellInfo);
+    // console.log("rowrow", cellInfo);
     const makeData2 = [...this.state.makeData2];
     makeData2[cellInfo.index][cellInfo.column.id] = event.target.value;
     this.setState({ makeData2 });
   };
   handleChange3 = cellInfo => event => {
-    console.log("rowrow", cellInfo);
+    // console.log("rowrow", cellInfo);
     const makeData3 = [...this.state.makeData3];
     makeData3[cellInfo.index][cellInfo.column.id] = event.target.value;
     this.setState({ makeData3 });

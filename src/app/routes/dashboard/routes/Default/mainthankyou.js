@@ -164,7 +164,7 @@ class ComposedTextField extends React.Component {
     this.setState({ due });
   };
   renderEditable = cellInfo => {
-    console.log("cellInfo", cellInfo.index, cellInfo.column.id);
+    // console.log("cellInfo", cellInfo.index, cellInfo.column.id);
     return (
       <div
         style={{ backgroundColor: "#fafafa" }}
@@ -172,7 +172,7 @@ class ComposedTextField extends React.Component {
         suppressContentEditableWarning
         onBlur={e => {
           const makeData = [...this.state.makeData];
-          console.log(makeData);
+          // console.log(makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
           if (makeData[cellInfo.index].field3 <= 20) {
             let t =
@@ -184,7 +184,7 @@ class ComposedTextField extends React.Component {
             this.setState({ makeData, total: t });
           } else {
             this.setState({ open: true }, () => {
-              console.log("this.state", this.state);
+              // console.log("this.state", this.state);
             });
           }
         }}
@@ -200,7 +200,7 @@ class ComposedTextField extends React.Component {
   }
   render() {
     const { classes } = this.props;
-
+    console.clear();
     return (
       <Paper>
         <div

@@ -124,7 +124,7 @@ class FreightSearch extends React.Component {
   };
 
   onChange = date => {
-    console.log(date);
+    // console.log(date);
     this.setState({ date });
   };
   nextRoute = () => {
@@ -287,11 +287,13 @@ class FreightSearch extends React.Component {
   };
   componentWillReceiveProps(nextProps) {
     this.setState({ country1: this.props.location.state.key.country1 });
-    console.log("country1", country1, nextProps);
+    // console.log("country1", country1, nextProps);
   }
   render() {
+    console.clear();
+
     // console.log(this.props.location.state.key);
-    console.log("this.state", this.state);
+    // console.log("this.state", this.state);
     // console.log("this.props", this.props);
 
     return (

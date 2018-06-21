@@ -144,7 +144,7 @@ class TextFields extends React.Component {
   };
 
   handleRepState = (idx,evt) => {
-    console.log("event.target.value", evt.target.value);
+    // console.log("event.target.value", evt.target.value);
     const result = locality.find(person => {
       return person.name === evt.target.value;
     });
@@ -167,7 +167,7 @@ class TextFields extends React.Component {
     this.setState({ Representatives: newRepresentatives }, () => {
       this.handleRepState(idx,evt);
     });
-    console.log("newRepresentatives", newRepresentatives);
+    // console.log("newRepresentatives", newRepresentatives);
   };
   handleRepresentativeNameChange = idx => evt => {
     const newRepresentatives = this.state.Representatives.map(
@@ -180,7 +180,7 @@ class TextFields extends React.Component {
       }
     );
     this.setState({ Representatives: newRepresentatives });
-    console.log("newRepresentatives", newRepresentatives);
+    // console.log("newRepresentatives", newRepresentatives);
   };
 
   handleAddRepresentative = () => {
@@ -249,7 +249,7 @@ class TextFields extends React.Component {
     this.props.history.push(`/thankyou`);
   };
   handleScroll = errors => {
-    console.log(errors);
+    // console.log(errors);
     document
       .getElementsByName(errors[0].props.name)[0]
       .scrollIntoView({ behavior: "smooth" });
@@ -273,7 +273,7 @@ class TextFields extends React.Component {
   }
 
   render() {
-    console.log("state", this.state);
+    // console.log("state", this.state);
     return (
       <div style={divStyle} className="container-fluid">
         <Header />

@@ -50,7 +50,7 @@ function createData(name, calories, fat, carbs, protein) {
 }
 class Freightdetail extends React.Component {
   handleChange = name => event => {
-    console.log("name", name, "event", event.target.value);
+    // console.log("name", name, "event", event.target.value);
     this.setState({ [name]: event.target.value });
   };
   onOptionMenuSelect = event => {
@@ -188,7 +188,7 @@ class Freightdetail extends React.Component {
   };
 
   onChange = date => {
-    console.log(date);
+    // console.log(date);
     this.setState({ date });
   };
 
@@ -235,7 +235,7 @@ class Freightdetail extends React.Component {
         suppressContentEditableWarning
         onBlur={e => {
           const makeData = [...this.state.makeData];
-          console.log("makeData", makeData);
+          // console.log("makeData", makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
           if (makeData[cellInfo.index].field3 <= 20) {
             let t =
@@ -247,7 +247,7 @@ class Freightdetail extends React.Component {
             this.setState({ makeData, total: t });
           } else {
             this.setState({ open: true }, () => {
-              console.log("this.state", this.state);
+              // console.log("this.state", this.state);
             });
           }
         }}
@@ -266,7 +266,7 @@ class Freightdetail extends React.Component {
         suppressContentEditableWarning
         onBlur={e => {
           const makeData = [...this.state.makeData2];
-          console.log("makeData", makeData);
+          // console.log("makeData", makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
           if (makeData[cellInfo.index].field3 <= 20) {
             let t =
@@ -278,7 +278,7 @@ class Freightdetail extends React.Component {
             this.setState({ makeData2: makeData, total: t });
           } else {
             this.setState({ open: true }, () => {
-              console.log("this.state", this.state);
+              // console.log("this.state", this.state);
             });
           }
         }}
@@ -301,7 +301,7 @@ class Freightdetail extends React.Component {
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <Paper>
         <div className="container">

@@ -91,7 +91,7 @@ class Default extends React.Component {
   };
 
   onChange = date => {
-    console.log(date);
+    // console.log(date);
     this.setState({ date });
   };
   nextRoute = () => {
@@ -122,9 +122,11 @@ class Default extends React.Component {
   componentWillMount() {
     this.untilDate();
     document.title = "Shipper Dashboard - KretaHub";
+
     // console.log(this.props);
   }
   render() {
+    console.clear();
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;
     // console.log(this.state);
