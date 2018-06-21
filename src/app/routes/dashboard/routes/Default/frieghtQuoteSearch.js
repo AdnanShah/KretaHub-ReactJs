@@ -152,7 +152,6 @@ class FreightSearch extends React.Component {
       });
     }
   };
-
   columns = [
     {
       sortable: false,
@@ -184,13 +183,25 @@ class FreightSearch extends React.Component {
     {
       sortable: false,
       Header: "Available Capacity",
-      accessor: "field6"
+      accessor: "field6",
+      style: { overflow: "unset" },
+      width: 195
     },
     {
+      style: { overflow: "unset" },
+
       sortable: false,
-      Header: "Station-to-Station",
+      Header: () => {
+        return (
+          <span>
+            Station-to-<br />
+            Station
+          </span>
+        );
+      },
       accessor: "field7",
-      className: "text-right"
+      className: "text-right",
+      width: 105
     },
     {
       sortable: false,

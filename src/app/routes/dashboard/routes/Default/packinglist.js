@@ -378,7 +378,6 @@ class Default extends React.Component {
     const makeData2 = [...this.state.makeData2];
     makeData2[cellInfo.index][cellInfo.column.id] = event.target.value;
     this.setState({ makeData2 });
-  
   };
   handleChange3 = cellInfo => event => {
     console.log("rowrow", cellInfo);
@@ -446,8 +445,106 @@ class Default extends React.Component {
       makeData3
     });
   };
+  goods = [
+    "Rice",
+    "Iron",
+    "Coke",
+    "Sugar",
+    "Salt",
+    "Grain",
+    "Ferro",
+    "Klinger",
+    "Fuel",
+    "Kerozene",
+    "Heavy machines/vehicles",
+    "Fruits",
+    "Wood",
+    "Liquid bulk goods",
+    "Solid bulk goods",
+    "Large freight containers",
+    "Other freight containers",
+    "Palletised goods",
+    "Pre-slung goods",
+    "Mobile self-propelled units",
+    "Other mobile units",
+    "Other cargo not elsewhere specified"
+  ];
+  units = [
+    "bag",
+    "board feet",
+    "bale",
+    "bottle",
+    "box",
+    "hundred",
+    "cubic centimeter",
+    "cubic feet",
+    "curie",
+    "cylinder",
+    "centimeter",
+    "can",
+    "case",
+    "carton",
+    "hundred weight",
+    "cubic yard",
+    "diameter",
+    "drum",
+    "dewar",
+    "day",
+    "dozen",
+    "each",
+    "feet",
+    "gallon",
+    "gram",
+    "grain",
+    "gross",
+    "hour",
+    "inch",
+    "jar",
+    "kilogram",
+    "kit",
+    "lambda",
+    "pound",
+    "linear feet",
+    "length",
+    "liter",
+    "lot",
+    "linear yard",
+    "thousand",
+    "milligram",
+    "milliliter",
+    "millimeter",
+    "minute",
+    "month",
+    "micron",
+    "meter",
+    "omega",
+    "ounce",
+    "package",
+    "piece",
+    "page",
+    "package",
+    "pail",
+    "pair",
+    "pint",
+    "quarter",
+    "quart",
+    "rod",
+    "roll",
+    "ream",
+    "square feet",
+    "sheet",
+    "set",
+    "square yard",
+    "tube",
+    "transaction",
+    "unit",
+    "vial",
+    "week",
+    "yard",
+    "year"
+  ];
   render() {
-    console.log("this.state", this.state);
+    // console.log("this.state", this.state);
     return (
       <div className="container-fluid">
         <br />
@@ -505,7 +602,9 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="Rice">Rice</MenuItem>
+                        {this.goods.map(good => {
+                          return <MenuItem value={good}>{good}</MenuItem>;
+                        })}
                       </Select>
                     </span>
                   )
@@ -556,14 +655,9 @@ class Default extends React.Component {
                           id: "type"
                         }}
                       >
-                        <MenuItem value="" name="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value="bags">bags</MenuItem>
-
-                        <MenuItem value="KARUNG">KARUNG</MenuItem>
-                        <MenuItem value="DUS">DUS</MenuItem>
-                        <MenuItem value="GALON">GALON</MenuItem>
+                        {this.units.map(good => {
+                          return <MenuItem value={good}>{good}</MenuItem>;
+                        })}
                       </Select>
                     </span>
                   )
@@ -715,7 +809,9 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="Rice">Rice</MenuItem>
+                        {this.goods.map(good => {
+                          return <MenuItem value={good}>{good}</MenuItem>;
+                        })}
                       </Select>
                     </span>
                   )
@@ -766,14 +862,9 @@ class Default extends React.Component {
                           id: "type"
                         }}
                       >
-                        <MenuItem value="" name="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value="bags">bags</MenuItem>
-
-                        <MenuItem value="KARUNG">KARUNG</MenuItem>
-                        <MenuItem value="DUS">DUS</MenuItem>
-                        <MenuItem value="GALON">GALON</MenuItem>
+                        {this.units.map(good => {
+                          return <MenuItem value={good}>{good}</MenuItem>;
+                        })}
                       </Select>
                     </span>
                   )
@@ -925,7 +1016,9 @@ class Default extends React.Component {
                         <MenuItem value="" name="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value="Rice">Rice</MenuItem>
+                        {this.goods.map(good => {
+                          return <MenuItem value={good}>{good}</MenuItem>;
+                        })}
                       </Select>
                     </span>
                   )
@@ -976,14 +1069,9 @@ class Default extends React.Component {
                           id: "type"
                         }}
                       >
-                        <MenuItem value="" name="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value="bags">bags</MenuItem>
-
-                        <MenuItem value="KARUNG">KARUNG</MenuItem>
-                        <MenuItem value="DUS">DUS</MenuItem>
-                        <MenuItem value="GALON">GALON</MenuItem>
+                        {this.units.map(good => {
+                          return <MenuItem value={good}>{good}</MenuItem>;
+                        })}
                       </Select>
                     </span>
                   )
