@@ -12,6 +12,7 @@ import Background from "./images/bg.jpg";
 
 import logo from "./kretahub-mock-icon.png";
 import Radio from "material-ui/Radio";
+import style from "./../app/routes/charts/routes/radial/Components/style";
 const divStyle = {
   overflowY: "auto",
   fontSize: "14px",
@@ -42,7 +43,7 @@ class FreightArrived extends React.Component {
       <div style={divStyle}>
         <div className="container-fluid h-100 align-middle">
           <div className="row h-120 justify-content-center align-items-center d-flex flex-column ">
-            <Paper>
+            <Paper style={{ marginTop: "5%" }}>
               <div className="container-fluid">
                 <div className="font-weight-bold pt-3 text-center">
                   <img src={logo} />
@@ -108,7 +109,7 @@ class FreightArrived extends React.Component {
             <div className="row">
               <div className="">
                 <a
-                  className="text-success"
+                  className="text-success mb-5"
                   href="https://assignmenttablefabodiamond.firebaseapp.com/ATA Notice.html"
                 >
                   Next
