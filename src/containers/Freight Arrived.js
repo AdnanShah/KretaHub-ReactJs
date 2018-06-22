@@ -13,6 +13,8 @@ import Background from "./images/bg.jpg";
 import logo from "./kretahub-mock-icon.png";
 import Radio from "material-ui/Radio";
 const divStyle = {
+  overflowY: "auto",
+  fontSize: "14px",
   width: "100%",
   height: "100%",
   backgroundColor: "#494c50",
