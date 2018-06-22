@@ -556,11 +556,12 @@ class Default extends React.Component {
             </h2>
             <Button onClick={this.autofillTable1}>Autofill</Button>
             <ReactTable
-              showPagination={this.state.makeData.length > 2 ? true : false}
               sortable={false}
               name="table1"
               className="-striped -highlight"
-              defaultPageSize={2}
+              defaultPageSize={this.state.makeData.length}
+              key={this.state.makeData.length}
+              showPagination={false}
               data={this.state.makeData}
               columns={[
                 {
@@ -693,7 +694,7 @@ class Default extends React.Component {
                         }}
                         type="number"
                       />
-                      <span className="float-right">m x</span>
+                      <span className="float-right">x</span>
                     </span>
                   )
                 },
@@ -715,7 +716,7 @@ class Default extends React.Component {
                         type="number"
                       />
 
-                      <span className="float-right">m x</span>
+                      <span className="float-right">x</span>
                     </span>
                   )
                 },
@@ -757,11 +758,12 @@ class Default extends React.Component {
             </h2>
             <Button onClick={this.autofillTable2}>Autofill</Button>
             <ReactTable
-              showPagination={this.state.makeData2.length > 2 ? true : false}
               sortable={false}
               name="table1"
               className="-striped -highlight"
-              defaultPageSize={2}
+              defaultPageSize={this.state.makeData2.length}
+              key={this.state.makeData2.length}
+              showPagination={false}
               data={this.state.makeData2}
               columns={[
                 {
@@ -894,7 +896,7 @@ class Default extends React.Component {
                         }}
                         type="number"
                       />
-                      <span className="float-right">m x</span>
+                      <span className="float-right">x</span>
                     </span>
                   )
                 },
@@ -916,7 +918,7 @@ class Default extends React.Component {
                         type="number"
                       />
 
-                      <span className="float-right">m x</span>
+                      <span className="float-right">x</span>
                     </span>
                   )
                 },
@@ -958,11 +960,12 @@ class Default extends React.Component {
             </h2>
             <Button onClick={this.autofillTable3}>Autofill</Button>
             <ReactTable
-              showPagination={this.state.makeData3.length > 2 ? true : false}
               sortable={false}
               name="table1"
               className="-striped -highlight"
-              defaultPageSize={2}
+              defaultPageSize={this.state.makeData3.length}
+              key={this.state.makeData3.length}
+              showPagination={false}
               data={this.state.makeData3}
               columns={[
                 {
@@ -1095,7 +1098,7 @@ class Default extends React.Component {
                         }}
                         type="number"
                       />
-                      <span className="float-right">m x</span>
+                      <span className="float-right">x</span>
                     </span>
                   )
                 },
@@ -1117,7 +1120,7 @@ class Default extends React.Component {
                         type="number"
                       />
 
-                      <span className="float-right">m x</span>
+                      <span className="float-right">x</span>
                     </span>
                   )
                 },
