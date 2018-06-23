@@ -18,6 +18,7 @@ import { withRouter } from "react-router-dom";
 import { DatePicker } from "material-ui-pickers";
 import Footer from "../components/Footer";
 import Header from "../components/SignUpHeader";
+import IntegrationReactSelect from "./ReactSelect";
 const shipments = [
   {
     value: "1",
@@ -143,7 +144,7 @@ class TextFields extends React.Component {
     });
   };
 
-  handleRepState = (idx,evt) => {
+  handleRepState = (idx, evt) => {
     // console.log("event.target.value", evt.target.value);
     const result = locality.find(person => {
       return person.name === evt.target.value;
@@ -165,7 +166,7 @@ class TextFields extends React.Component {
       }
     );
     this.setState({ Representatives: newRepresentatives }, () => {
-      this.handleRepState(idx,evt);
+      this.handleRepState(idx, evt);
     });
     // console.log("newRepresentatives", newRepresentatives);
   };
@@ -273,7 +274,7 @@ class TextFields extends React.Component {
   }
 
   render() {
-    // console.log("state", this.state);
+    console.log("state", this.state);
     return (
       <div style={divStyle} className="container-fluid">
         <Header />
@@ -294,7 +295,6 @@ class TextFields extends React.Component {
               </Button>
             </div>
           </div>
-
           <ValidatorForm
             onSubmit={this.handleOnSubmit}
             ref="form"
@@ -382,8 +382,14 @@ class TextFields extends React.Component {
                   />
                 </div>
               </div>
+
               <div className="row">
-                <div className="col-md-6 col-12">
+                <div className="col-md-12 col-12">
+                  <IntegrationReactSelect value={this.state.city}/>
+                </div>
+              </div>
+              <div className="row">
+                {/* <div className="col-md-6 col-12">
                   <SelectValidator
                     required
                     name="city"
@@ -424,7 +430,7 @@ class TextFields extends React.Component {
                       {this.state.State}
                     </MenuItem>
                   </SelectValidator>
-                </div>
+                </div> */}
                 <div className="col-md-6 col-12">
                   <TextField
                     value={this.state.zipCode}

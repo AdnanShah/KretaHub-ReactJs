@@ -55,6 +55,7 @@ import FullPayment from './FullPayment'
 import FullPaymentReceive from './FullPaymentReceive'
 import Pending from './Pending'
 import FreightArrived from './Freight Arrived'
+import ReactSelect from './ReactSelect'
 import {setInitUrl} from '../actions/Auth';
 
 const RestrictedRoute = ({component: Component, ...rest, authUser}) =>
@@ -177,6 +178,7 @@ class App extends Component {
                 
                     <div className="app-main">
                          <RestrictedRoute path={`${match.url}app`} authUser={authUser} component={MainApp}/>
+                        <Route path='/reactselect' component={ReactSelect}/>
                         <Route path='/signin' component={SignIn}/>
                         <Route path='/signup' component={SignUp}/>
                         <Route path='/pending' component={PendingTemplate}/>
