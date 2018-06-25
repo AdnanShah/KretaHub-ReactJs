@@ -1000,9 +1000,9 @@ class TextFields extends React.Component {
                 <br />
                 <br />
                 <div>
-                  <a href="https://assignmenttablefabodiamond.firebaseapp.com/Pending.html">
-                    Next
-                  </a>
+                  <Button type="submit" variant="raised" size="normal">
+                    <Link to="/thankyou">Next</Link>
+                  </Button>
                 </div>
                 <br />
                 <br />
