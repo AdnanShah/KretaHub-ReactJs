@@ -15,6 +15,7 @@ import Chip from "material-ui/Chip";
 import Select from "react-select";
 import "react-select/dist/react-select.css";
 import locality from "./jsonDataSource/locality-ID.json";
+import Icon from "material-ui/Icon";
 
 // const suggestions = [
 //   { label: 'Afghanistan' },
@@ -92,9 +93,22 @@ function SelectWrapped(props) {
       optionComponent={Option}
       noResultsText={<Typography>{"No results found"}</Typography>}
       arrowRenderer={arrowProps => {
-        return arrowProps.isOpen ? "asd" : "ArrowDropDownIcon ";
+        return arrowProps.isOpen ? (
+          <Icon>arrow_drop_up</Icon>
+        ) : (
+          <Icon>arrow_drop_down</Icon>
+        );
       }}
-      //   clearRenderer={() => <ClearIcon />}
+      // clearRenderer={() => (
+      //   <Icon
+      //     color="error"
+      //     onClick={() => {
+      //       this.deleteRow(cellInfo.index);
+      //     }}
+      //   >
+      //     delete
+      //   </Icon>
+      // )}
       valueComponent={valueProps => {
         const { value, children, onRemove } = valueProps;
 
@@ -110,7 +124,7 @@ function SelectWrapped(props) {
               tabIndex={-1}
               label={children}
               className={classes.chip}
-              //   deleteIcon={<CancelIcon onTouchEnd={onDelete} />}
+              // deleteIcon={<CancelIcon onTouchEnd={onDelete} />}
               onDelete={onDelete}
             />
           );
@@ -133,10 +147,6 @@ const styles = theme => ({
   chip: {
     margin: theme.spacing.unit / 4
   },
-  // We had to use a lot of global selectors in order to style react-select.
-  // We are waiting on https://github.com/JedWatson/react-select/issues/1679
-  // to provide a much better implementation.
-  // Also, we had to reset the default style injected by the library.
   "@global": {
     ".Select-control": {
       display: "flex",
@@ -255,7 +265,8 @@ class IntegrationReactSelect extends React.Component {
     const result = locality.find(person => {
       return person.name === this.state.single;
     });
-    this.setState({ State: result.stateName });
+    console.log("result", result);
+    this.setState({ State: result !== undefined ? result.stateName : " " });
   };
 
   render() {
@@ -265,14 +276,14 @@ class IntegrationReactSelect extends React.Component {
 
     return (
       // <div className={classes.root}>
-      <div className="row">
+      <div className="row mt-4 mb-2">
         <div className="col-md-6 col-12">
           <Input
             fullWidth
             inputComponent={SelectWrapped}
             value={this.state.single}
             onChange={this.handleChangeCity("single")}
-            placeholder="Search a country (start with a)"
+            placeholder="City"
             id="react-select-single"
             inputProps={{
               classes,
@@ -282,16 +293,17 @@ class IntegrationReactSelect extends React.Component {
               options: suggestions
             }}
           />
-          </div>
-          <div className="col-md-6 col-12">
-            <Input
-              id="react-select-single"
-              fullWidth
-              disabled
-              value={this.state.State}
-            />
-          </div>
         </div>
+        <div className="col-md-6 col-12">
+          <Input
+            placeholder="State"
+            id="react-select-single"
+            fullWidth
+            disabled
+            value={this.state.State}
+          />
+        </div>
+      </div>
       // </div>
       // </div>
     );

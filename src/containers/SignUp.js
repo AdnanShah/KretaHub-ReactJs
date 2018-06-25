@@ -385,7 +385,7 @@ class TextFields extends React.Component {
 
               <div className="row">
                 <div className="col-md-12 col-12">
-                  <IntegrationReactSelect value={this.state.city}/>
+                  <IntegrationReactSelect value={this.state.city} />
                 </div>
               </div>
               <div className="row">
@@ -649,7 +649,13 @@ class TextFields extends React.Component {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col-md-6 col-12">
+                      <div className="col-md-12 col-12">
+                        <IntegrationReactSelect value={this.state.city} />
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      {/* <div className="col-md-6 col-12">
                         <SelectValidator
                           name={`repCity${idx}`}
                           value={Representative["repCity" + idx] || ""}
@@ -693,7 +699,7 @@ class TextFields extends React.Component {
                             {this.state.Representatives[idx].repState}
                           </MenuItem>
                         </SelectValidator>
-                      </div>
+                      </div> */}
 
                       <div className="col-md-6 col-12">
                         <TextField
