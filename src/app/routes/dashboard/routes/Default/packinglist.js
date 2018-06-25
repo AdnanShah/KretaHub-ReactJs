@@ -3,6 +3,7 @@ import Paper from "material-ui/Paper";
 import Button from "material-ui/Button";
 import { Link } from "react-router-dom";
 import Row from "./rows";
+// import mainthankyou from "./thankYou";
 
 const styles = theme => ({
   container: {
@@ -49,19 +50,21 @@ class Default extends React.Component {
           </div>
           <br />
           <div className="row align-items-center justify-content-center">
-            {/* <Link to="/mainthankyou"> */}
-            <Button
-              variant="raised"
-              style={{
-                background: "#29487D",
-                color: "#fff"
-              }}
-              component="span"
-              onClick={this.changeRoute}
-            >
-              FINISH BOOKING
-            </Button>
-            {/* </Link> */}
+            {/* <a href="https://project-7-9fe4b.firebaseapp.com/Email/Order%20Pending.html"> */}
+            <Link to="/app/dashboard/mainthankyou">
+              <Button
+                variant="raised"
+                style={{
+                  background: "#29487D",
+                  color: "#fff"
+                }}
+                component="span"
+                onClick={this.changeRoute}
+              >
+                FINISH BOOKING
+              </Button>
+            </Link>
+            {/* </a> */}
             <br />
             <br />
             <br />

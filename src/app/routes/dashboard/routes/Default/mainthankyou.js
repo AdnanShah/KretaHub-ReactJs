@@ -444,7 +444,7 @@ class ComposedTextField extends React.Component {
           </div>
         </div>
         <Button variant="raised" className="m-2">
-          <a href="https://assignmenttablefabodiamond.firebaseapp.com/Order%20Pending.html">
+          <a href="https://project-7-9fe4b.firebaseapp.com/Email/Order%20Pending.html">
             Next
           </a>
         </Button>

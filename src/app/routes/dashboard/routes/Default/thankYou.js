@@ -111,7 +111,9 @@ class Default extends React.Component {
         <div className="row mt-2">
           <div className="col">
             <Button variant="raised">
-              <a href="https://assignmenttablefabodiamond.firebaseapp.com/Pending.html">
+              <a href=
+              "https://project-7-9fe4b.firebaseapp.com/Email/Pending.html"
+              >
                 Next
               </a>
             </Button>
