@@ -244,13 +244,15 @@ const styles = theme => ({
 });
 
 class IntegrationReactSelect extends React.Component {
-  state = {
-    single: null,
-    multi: null,
-    multiLabel: null,
-    State: null
-  };
-
+  constructor(props) {
+    super();
+    this.state = {
+      single: null,
+      multi: null,
+      multiLabel: null,
+      State: ""
+    };
+  }
   handleChange = name => value => {
     this.setState({
       [name]: value
@@ -276,8 +278,8 @@ class IntegrationReactSelect extends React.Component {
 
     return (
       // <div className={classes.root}>
-      <div className="row mt-4 mb-2">
-        <div className="col-md-6 col-12">
+      <div className="row">
+        <div className="col-md-6 col-12 mt-4 mb-2">
           <Input
             fullWidth
             inputComponent={SelectWrapped}
@@ -294,11 +296,11 @@ class IntegrationReactSelect extends React.Component {
             }}
           />
         </div>
-        <div className="col-md-6 col-12">
-          <Input
-            placeholder="State"
-            id="react-select-single"
+        <div className="col-md-6 col-12 mt-2">
+          <TextField
+            label="State"
             fullWidth
+            name="State"
             disabled
             value={this.state.State}
           />
