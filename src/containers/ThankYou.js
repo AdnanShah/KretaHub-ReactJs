@@ -453,7 +453,7 @@ class ComposedTextField extends React.Component {
                 </div>
               </div>
             </div>
-            <a href="https://assignmenttablefabodiamond.firebaseapp.com/Order%20Pending.html">
+            <a href="https://project-7-9fe4b.firebaseapp.com/Email/Pending.html">
               Next
             </a>
           </Paper>

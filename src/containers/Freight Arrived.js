@@ -11,8 +11,8 @@ import IconButton from "material-ui/IconButton";
 import Background from "./images/bg.jpg";
 
 import logo from "./kretahub-mock-icon.png";
+import point from "../../public/point.png";
 import Radio from "material-ui/Radio";
-import style from "./../app/routes/charts/routes/radial/Components/style";
 const divStyle = {
   overflowY: "auto",
   fontSize: "14px",
@@ -43,25 +43,75 @@ class FreightArrived extends React.Component {
       <div style={divStyle}>
         <div className="container-fluid h-100 align-middle">
           <div className="row h-120 justify-content-center align-items-center d-flex flex-column ">
-            <Paper style={{ marginTop: "5%" }}>
+            <Paper style={{ marginTop: "5%", width: "600px", height: "585px" }}>
               <div className="container-fluid">
                 <div className="font-weight-bold pt-3 text-center">
-                  <img src={logo} />
+                  <h1 className="page-header" style={{ fontSize: "36px" }}>
+                    <b> Freight Arrived</b>
+                  </h1>
+                  <hr
+                    style={{
+                      width: "35px",
+                      height: "2px",
+                      backgroundColor: "#21b6ae"
+                    }}
+                  />
+                  <img
+                    className="mt-5"
+                    style={{ width: "256px", height: "256px" }}
+                    src={logo}
+                  />
                 </div>
               </div>
-
-              <div style={{ backgroundColor: "#a1a1a1" }} className="mt-2">
+              <div className="mt-5">
                 <div className="row">
                   <div className="col-6 mx-auto">
                     <div className="text-center text-white">
+                      <Button
+                        style={{
+                          borderRadius: 35,
+                          backgroundColor: "#21b6ae",
+                          padding: "18px 36px",
+                          fontSize: "18px",
+                          fontWeight: "bold"
+                        }}
+                        // variant="contained"
+                      >
+                        <Link to="/signin" className="text-white">
+                          KretaHub
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* <div style={{ height: "1px" }} /> */}
+
+              <div
+                style={{
+                  backgroundColor: "#a1a1a1"
+                }}
+                className="mt-5"
+              >
+                <div className="row">
+                  <div className="col-6 mx-auto">
+                    <div
+                      className="text-center text-white"
+                      style={{ lineHeight: "30px" }}
+                    >
                       Freight arrived at Point-of-Loading
                     </div>
                   </div>
                 </div>
               </div>
             </Paper>
+            <img
+              // className="mt-5"
+              style={{ width: "42px", height: "22px" }}
+              src={point}
+            />
 
-            <div className="row">
+            <div className="row mt-5">
               <div className="col-md-12 col-sm-12 mx-auto">
                 <ul className="social-link ">
                   <li>
