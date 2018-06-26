@@ -77,7 +77,7 @@ class FreightArrived extends React.Component {
                         }}
                         // variant="contained"
                       >
-                        <Link to="/signin" className="text-white">
+                        <Link to="/signup" className="text-white">
                           KretaHub
                         </Link>
                       </Button>

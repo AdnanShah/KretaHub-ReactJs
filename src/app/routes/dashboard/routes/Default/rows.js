@@ -355,7 +355,7 @@ class Row extends React.Component {
             {
               Header: "Name*",
               accessor: "field2",
-
+              minWidth: 80,
               Cell: row => (
                 <span>
                   <Select
@@ -380,27 +380,12 @@ class Row extends React.Component {
                       className="text-right float-left"
                       style={{
                         border: "none",
-                        width: "100%",
+                        width: "80%",
                         lineHeight: "80%"
                       }}
                       type="number"
                     />
-                  </div>
-                </span>
-              )
-            },
-            {
-              Header: "",
-              accessor: "field2",
-              Cell: row => (
-                <span className="">
-                  <div>{/* asdasd */}</div>
-                  <br />
-                  <div
-                    style={{ marginTop: "35px" }}
-                    className="text-right float-left"
-                  >
-                    kg
+                    <span>kg</span>
                   </div>
                 </span>
               )
@@ -425,11 +410,13 @@ class Row extends React.Component {
                     style={{ display: "flex", flexDirection: "row" }}
                     className="mt-3"
                   >
-                    <div>Size(Length x Width x Height)</div>
+                    <div>Size(Length &times; Width &times; Height)</div>
                     <div className="ml-3">
                       <input
                         // onChange={this.handleChange(row)}
                         // value={this.state.makeData[row.index].field3}
+                        className="text-right float-left"
+                        type="number"
                         style={{
                           border: "none",
                           width: "100%",
@@ -437,7 +424,7 @@ class Row extends React.Component {
                         }}
                       />
                     </div>
-                    <div className="ml-3">m x</div>
+                    <div className="ml-3">m &times;</div>
                   </div>
                 </span>
               )
@@ -502,11 +489,13 @@ class Row extends React.Component {
                     style={{ display: "flex", flexDirection: "row" }}
                     className="mt-3"
                   >
-                    <div>m x</div>
+                    <div>m &times;</div>
                     <div className="ml-3">
                       <input
                         // onChange={this.handleChange(row)}
                         // value={this.state.makeData[row.index].field5}
+                        className="text-right float-left"
+                        type="number"
                         style={{
                           border: "none",
                           width: "100%",

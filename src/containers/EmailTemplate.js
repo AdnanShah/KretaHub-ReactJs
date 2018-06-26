@@ -121,7 +121,7 @@ class EmailTemplate extends React.Component {
               <div className="col mt-2">
                 <a
                   className="text-success"
-                  href="https://assignmenttablefabodiamond.firebaseapp.com/Pending.html"
+                  href="https://project-7-9fe4b.firebaseapp.com/Email/Pending.html"
                 >
                   Next
                 </a>
