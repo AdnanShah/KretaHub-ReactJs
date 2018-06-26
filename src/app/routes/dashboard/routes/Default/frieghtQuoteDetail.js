@@ -347,9 +347,9 @@ class Freightdetail extends React.Component {
                   <div className="col-md-3 col-12">
                     <div style={{ display: "inline-flex", width: "85%" }}>
                       <DatePicker
+                        style={{ width: 250 }}
                         format="MMMM DD, YYYY"
                         disabled
-                        style={{ borderRight: "1px solid #3f51b5" }}
                         value={this.state.selectedDate}
                         onChange={this.handleDateChange}
                         animateYearScrolling={false}
@@ -378,9 +378,9 @@ class Freightdetail extends React.Component {
                   <div className="col-md-3 col-12">
                     <div style={{ display: "inline-flex", width: "85%" }}>
                       <DatePicker
+                        style={{ width: 250 }}
                         disabled
                         format="MMMM DD, YYYY"
-                        style={{ borderRight: "1px solid #3f51b5" }}
                         value={this.state.selectedDate}
                         onChange={this.handleDateChange}
                         animateYearScrolling={false}
@@ -400,9 +400,9 @@ class Freightdetail extends React.Component {
                   <div className="col-md-3 col-12">
                     <div style={{ display: "inline-flex", width: "85%" }}>
                       <DatePicker
+                        style={{ width: 250 }}
                         disabled
                         format="MMMM DD, YYYY"
-                        style={{ borderRight: "1px solid #3f51b5" }}
                         value={this.state.arrivalDate}
                         onChange={this.handleDateChange}
                         animateYearScrolling={false}

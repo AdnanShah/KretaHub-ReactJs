@@ -269,7 +269,7 @@ class ComposedTextField extends React.Component {
                 <DatePicker
                   format="MMMM DD, YYYY"
                   disabled
-                  style={{ borderRight: "1px solid #3f51b5" }}
+                  style={{ width: 250 }}
                   value={this.state.selectedDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
@@ -300,7 +300,7 @@ class ComposedTextField extends React.Component {
                 <DatePicker
                   disabled
                   format="MMMM DD, YYYY"
-                  style={{ borderRight: "1px solid #3f51b5" }}
+                  style={{ width: 250 }}
                   value={this.state.selectedDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
@@ -322,7 +322,7 @@ class ComposedTextField extends React.Component {
                 <DatePicker
                   disabled
                   format="MMMM DD, YYYY"
-                  style={{ borderRight: "1px solid #3f51b5" }}
+                  style={{ width: 250 }}
                   value={this.state.arrivalDate}
                   onChange={this.handleDateChange}
                   animateYearScrolling={false}
