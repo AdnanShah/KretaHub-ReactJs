@@ -93,7 +93,7 @@ export const demoData = [
     field1: "06:00 WIB",
     field2: "",
     field3: "00:00 WIB",
-    field6: "40RF/40GP: 5 40RF/40GP: 5",
+    field6: "40RF/40GP: 5",
     field4: "",
     field5: "107",
     field7: "IDR 4,200,000",
