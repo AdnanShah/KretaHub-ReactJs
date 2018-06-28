@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="./images/kretahub-mock-icon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!--[if !mso]><!-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--<![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title></title>
+  <style type="text/css">
+    .table-css {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .td-css,
+    .th-css {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    .tr-css:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    .ReadMsgBody {
+      width: 100%;
+      background-color: #ffffff;
+    }
+
+    .ExternalClass {
+      width: 100%;
+      background-color: #ffffff;
+    }
+
+    .ExternalClass,
+    .ExternalClass p,
+    .ExternalClass span,
+    .ExternalClass font,
+    .ExternalClass td,
+    .ExternalClass div {
+      line-height: 100%;
+    }
+
+    html {
+      width: 100%;
+    }
+
+    body {
+      -webkit-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', Arial, Sans-serif !important;
+    }
+
+    table {
+      border-spacing: 0;
+      table-layout: fixed;
+      margin: 0 auto;
+    }
+
+    table table table {
+      table-layout: auto;
+    }
+
+    img {
+      display: block !important;
+      overflow: hidden !important;
+    }
+
+    .yshortcuts a {
+      border-bottom: none !important;
+    }
+
+    a {
+      color: #41B3D3;
+      text-decoration: none;
+    }
+
+    img:hover {
+      opacity: 0.9 !important;
+    }
+
+    .textbutton a {
+      font-family: 'open sans', arial, sans-serif !important;
+    }
+
+    .btn-link-1 a {
+      color: #FFFFFF !important;
+    }
+
+    .btn-link-2 a {
+      color: #4a4a4a !important;
+    }
+
+    td[class="hide"] {
+      height: 5px !important;
+      max-height: 5px !important;
+    }
+
+    /*Responsive*/
+
+    @media only screen and (max-width: 640px) {
+      body {
+        width: auto !important;
+        font-family: 'Open Sans', Arial, Sans-serif !important;
+      }
+      table[class="table-inner"] {
+        width: 90% !important;
+        text-align: center !important;
+      }
+      *.table-full {
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+      }
+      /* image */
+      img[class="img1"] {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+
+    @media only screen and (max-width: 479px) {
+      body {
+        width: auto !important;
+        font-family: 'Open Sans', Arial, Sans-serif !important;
+      }
+      table[class="table-inner"] {
+        width: 90% !important;
+        text-align: center !important;
+      }
+      *.table-full {
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+      }
+      /* image */
+      img[class="img1"] {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+  </style>
+
+</head>
+
+<body onload="loadUser()">
+  <div id="target">Loading...</div>
+  <script id="template" type="x-tmpl-mustache">    
+
+  <!-- header -->
+  <table bgcolor="#f8f8f8" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td align="center">
+        <table width="600" style="max-width: 600px" class="table-full" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td align="center">
+              <table width="200" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td bgcolor="#607e9d" align="center">
+                    <table width="80%" class="table-inner" border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td height="50"></td>
+                      </tr>
+                      <!-- logo -->
+                      <tr>
+                        <td align="center" style="line-height:0px;">
+                          <img style=" height:200px;width:200px;display:block;font-size:0px; border:0px; line-height:0px;" src="images/kretahub-mock-icon.png"
+                            alt="logo" />
+                        </td>
+                      </tr>
+                      <!-- end logo -->
+                      <tr>
+                        <td height="40"></td>
+                      </tr>
+                      <!-- end address -->
+                      <tr>
+                        <td height="25"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
+              <table width="400" class="table-full" border="0" align="right" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+                    <table width="90%" class="table-inner" border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td height="50"></td>
+                      </tr>
+                      <!-- title -->
+                      <tr>
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:38px; color:#3b3b3b; line-height:34px;">
+                          Delivery Notice for Booking #0001
+                        </td>
+                      </tr>
+                      <!-- end title -->
+                      <tr>
+                        <td height="25"></td>
+                      </tr>
+                      <tr>
+                        <td align="right">
+                          <table align="right" width="50" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td bgcolor="#ff646a" height="3" style="line-height:0px; font-size:0px;">&nbsp;</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="15"></td>
+                      </tr>
+                      <!-- company name -->
+                      <tr>
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3b3b3b; line-height:26px;">{{main.subHeading2}}</td>
+                      </tr>
+                      <!-- end company name -->
+                      <tr>
+                        <td height="5"></td>
+                      </tr>
+                      <!-- address -->
+                      <tr>
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
+                          {{main.subHeading1}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
+                          {{main.subHeading3}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
+                          {{main.subHeading4}}
+                        </td>
+                      </tr>
+                      <!-- end address -->
+                      <tr>
+                        <td height="25"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table align="center" width="100%" bgcolor="#FFFFFF" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        <table width="600" class="table-full" style="max-width: 600px;" align="center" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <!-- <td height="40" style="border-bottom:3px solid #3b3b3b;"></td> -->
+          </tr>
+        </table>
+        <table align="center" width="600" style="max-width: 600px;" class="table-full" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="15"></td>
+          </tr>
+          <tr>
+
+          </tr>
+          <tr>
+            <td height="15"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <!-- end total -->
+  <!-- note -->
+  <table align="center" width="100%" bgcolor="#FFFFFF" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        <table align="center" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="650" align="center">
+              <table align="center" width="100%" class="table-inner" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; line-height:26px;">
+                    <td width="650" align="center">
+                      <table align="center" width="100%" class="table-inner" border-spacing="15px" cellspacing="0" cellpadding="0">
+                        <!-- order -->
+                        <tr>
+                            <table cellpadding="5%" cellspacing="15%">
+                              <tr>
+                                <th>Order</th>
+                                <th>#001</th>
+                              </tr>
+                              <tr>
+                                <td>Shipper</td>
+                                <td>{{main.shipper}}</td>
+                              </tr>
+                              <tr>
+                                <td>Carrier</td>
+                                <td colspan="2">{{main.carrier}}</td>
+                              </tr>
+                              <tr>
+                                <td width="25%">Departure:</td>
+                                <td width="30%">{{main.line1}}</td>
+                                <td width="20%">Arrival:</td>
+                                <td width="25%">{{main.line5}} </td>
+                              </tr>
+                              <tr>
+                                <td>Closing time:
+                                  
+                                </td>
+                                <td>
+                                  <span style="width:65%;
+                                  " class="span2" size="16">{{main.closingDate}}</span>
+                                  <span>{{main.closingTime}}</span>
+                                </td>
+                                <td>Trip Length :</td>
+                                <td>{{main.line6}}</td>
+                              </tr>
+                              <tr>
+                                <td>Departure Time :
+                                  
+                                </td>
+                                <td>
+                                  <span style="width:65%;
+                                  " class="span2" size="16">{{main.departureDate}}</span>
+                                  <span>{{main.departureTime}}</span>
+                                </td>
+                                <td>Arrival Time :
+                                  
+                                </td>
+                                <td>
+                                  <span style="width:65%;" size="16">
+                                    {{main.arrivalDate}}
+                                  </span>
+                                  <span>{{main.arrivalTime}}</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Train Name:</td>
+                                <td>
+                                  {{main.line4}}
+                                </td>
+                                <td>Train Number:</td>
+                                <td>{{main.line8}}</td>
+                              </tr>
+                              <tr>
+                                <td>Terms and Conditions:</td>
+                                <td colspan="3">
+                                  <p style="border: 1px solid black; height:55px">
+                                    {{main.line9}}
+                                  </p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Incoterm:
+                                  
+                                </td>
+                                <td colspan="2">
+                                  <p style="border: 1px solid black;height:25px">
+                                    {{main.line10}}
+                                  </p>
+                                </td>
+                              </tr>
+          
+                            </table>
+                          </tr>
+                          <!-- order -->
+                      </td>
+                      </td>
+                    </tr>
+                    
+                <table cellpadding="10" class="table-css">
+                  <tr class="tr-css">
+                    <th class="th-css">Container type</th>
+                    <th class="th-css">-</th>
+                    <th class="th-css">Qty</th>
+                    <th class="th-css">Capacity</th>
+                    <th class="th-css">-</th>
+                  </tr>
+                  {{#row}}
+                  <tr class="tr-css">
+                    <td>{{field1}}</td>
+                    <td class="float-right">{{}}</td>
+                    <td>{{field3}}</td>
+                    <td>{{field4}}</td>
+                    <td class="float-right">{{field5}}</td>
+                  </tr>
+                  {{/row}}
+                </table>
+                <tr>
+                  <td height="15">
+                    Best regards,
+                    <br> KretaHub
+                  </td>
+                </tr>
+          </tr>
+          <!-- end content -->
+
+          <tr>
+            <td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
+          </tr>
+          </table>
+          </td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+    <!-- end note -->
+
+    <!-- footer -->
+    <table align="center" width="100%" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center" style="border-bottom:10px solid #ecf0f1;">
+          <table width="600" style="max-width: 600px;" class="table-full" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td height="25"></td>
+            </tr>
+            <tr>
+              <td>
+                <!--left-->
+                <table width="180" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center">
+                      <table width="90%" align="center" border="0" cellpadding="0" cellspacing="0">
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!--end left-->
+                <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
+                <table width="25" align="left" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="15"></td>
+                  </tr>
+                </table>
+                <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
+                <!--middle-->
+                <table width="100%" class="table-full" align="left" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="left">
+                      <table width="90%" align="left" border="0" cellpadding="0" cellspacing="0">
+                        <!-- <tr>
+                        <td align="center" style="line-height:0px;">
+                          <img style="display:block;font-size:0px; border:0px; line-height:0px;width:30px;" src="images/kretahub-mock-icon.png" alt="img"
+                          />
+                        </td>
+                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;padding-left: 15px;">KretaHub@someone.com</td>
+                      </tr> -->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!--end middle-->
+                <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
+                <table width="25" align="left" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="15"></td>
+                  </tr>
+                </table>
+                <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
+                <!--right-->
+                <table width="180" class="table-full" align="center" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center">
+                      <table class="table-inner" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td class="btn-link-2" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px;">
+                            <a href="#">kretahub</a>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <a href="#">unsubscribe</a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!--end right-->
+              </td>
+            </tr>
+            <tr>
+              <td height="25"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <a href="https://project-7-9fe4b.firebaseapp.com/#/freightarrived">Next</a>
+        </td>
+      </tr>
+    </table>
+
+    <!-- end footer -->
+    </script>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/mustache.js"></script>
+<script src="js/deliverynotice.js"></script>
+
+</html>

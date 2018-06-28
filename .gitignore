@@ -2,7 +2,6 @@
 
 # dependencies
 /node_modules
-/dist
 
 /src/components
 /src/actions
