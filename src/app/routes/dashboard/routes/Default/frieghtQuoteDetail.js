@@ -491,6 +491,7 @@ class Freightdetail extends React.Component {
                 <div className="col-sm-12">
                   <div className="p-a">
                     <ReactTable
+                      resizable={false}
                       showPagination={false}
                       sortable={false}
                       data={

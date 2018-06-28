@@ -320,6 +320,7 @@ class Row extends React.Component {
       <div className="container-fluid">
         {/* <Button onClick={this.autofillTable1}>Autofill</Button> */}
         <ReactTable
+          resizable={false}
           sortable={false}
           name="table1"
           className="-striped -highlight"
