@@ -160,7 +160,7 @@ class FreightArrived extends React.Component {
               <div className="">
                 <a
                   className="text-success mb-5"
-                  href="https://project-7-9fe4b.firebaseapp.com/Email/ATA%20Notice.html"
+                  href="https://kretahub-im1.firebaseapp.com/Email/ATA%20Notice.html"
                 >
                   Next
                 </a>
