@@ -112,7 +112,7 @@ class Default extends React.Component {
           <div className="col">
             <Button variant="raised">
               <a href=
-              "https://project-7-9fe4b.firebaseapp.com/Email/Pending.html"
+              "https://kretahub-im1.firebaseapp.com/Email/Pending.html"
               >
                 Next
               </a>
