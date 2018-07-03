@@ -81,6 +81,7 @@ class Freightdetail extends React.Component {
       total: 0,
       open: false,
       autoFill: false,
+      arr: [0, 0, 0, 0, 0],
       makeData: [
         {
           field1: "20RF",
@@ -213,7 +214,9 @@ class Freightdetail extends React.Component {
   };
 
   calculateTotal = () => {
-    return `IDR ${(this.state.total + 100000)
+    let total = this.state.arr.reduce((a, b) => a + b);
+    console.log("total", total);
+    return `IDR ${(total + 100000)
       .toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
   };
@@ -237,14 +240,36 @@ class Freightdetail extends React.Component {
           const makeData = [...this.state.makeData];
           // console.log("makeData", makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-          if (makeData[cellInfo.index].field3 <= 20) {
+          if (
+            makeData[cellInfo.index].field3 <= 20 &&
+            makeData[cellInfo.index].field3 % 1 === 0
+          ) {
             let t =
               makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
             let tt = `IDR ${t
               .toString()
               .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
             makeData[cellInfo.index].field5 = tt;
-            this.setState({ makeData, total: t });
+            let total = this.state.total + t;
+
+            var arr = this.state.arr;
+            arr[cellInfo.index] = t;
+
+            this.setState(
+              {
+                makeData,
+                total,
+                arr
+              }
+              // () => {
+              //   console.log("arr", this.state.arr);
+              // }
+            );
+            // console.log(
+            //   t,
+            //   makeData[cellInfo.index].field6,
+            //   makeData[cellInfo.index].field3
+            // );
           } else {
             this.setState({ open: true }, () => {
               // console.log("this.state", this.state);
@@ -257,6 +282,7 @@ class Freightdetail extends React.Component {
       />
     );
   };
+
   renderEditable2 = cellInfo => {
     // console.log("cellInfo", cellInfo.index, cellInfo.column.id);
     return (
@@ -268,14 +294,22 @@ class Freightdetail extends React.Component {
           const makeData = [...this.state.makeData2];
           // console.log("makeData", makeData);
           makeData[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-          if (makeData[cellInfo.index].field3 <= 20) {
+          if (
+            makeData[cellInfo.index].field3 <= 20 &&
+            makeData[cellInfo.index].field3 % 1 === 0
+          ) {
             let t =
               makeData[cellInfo.index].field6 * makeData[cellInfo.index].field3;
             let tt = `IDR ${t
               .toString()
               .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
             makeData[cellInfo.index].field5 = tt;
-            this.setState({ makeData2: makeData, total: t });
+            let total = this.state.total + t;
+            var arr = this.state.arr;
+            arr[cellInfo.index] = t;
+
+            // console.log("t", t);
+            this.setState({ makeData2: makeData, total, arr });
           } else {
             this.setState({ open: true }, () => {
               // console.log("this.state", this.state);
@@ -296,12 +330,15 @@ class Freightdetail extends React.Component {
     this.setState({ radioButton: event.target.value });
   };
   handleAutofill = () => {
-    this.setState({ autoFill: !this.state.autoFill });
+    this.setState({
+      autoFill: !this.state.autoFill,
+      arr: [4400000, 0, 0, 0, 4200000]
+    });
   };
   render() {
     const { anchorEl, menuState, currentDate } = this.state;
     const { classes } = this.props;
-    // console.log(this.state);
+    console.log(this.state);
     return (
       <Paper>
         <div className="container">
@@ -551,10 +588,12 @@ class Freightdetail extends React.Component {
                       <div className="col-6 float-right">
                         <div className="float-right">
                           <h1>
-                            {this.state.autoFill === true &&
-                            this.state.total == 0
-                              ? "IDR 8,700,000"
-                              : this.calculateTotal()}
+                            {// this.state.autoFill === true
+                            //  &&
+                            // this.state.total == 0
+                            //   ? "IDR 8,700,000"
+                            //   :
+                            this.calculateTotal()}
                           </h1>
                         </div>
                       </div>
@@ -596,7 +635,9 @@ class Freightdetail extends React.Component {
             "aria-describedby": "message-id"
           }}
           message={
-            <span id="message-id">Qty cannot exceed capacity of 20.</span>
+            <span id="message-id">
+              Qty cannot exceed capacity of 20 and should be a integer.
+            </span>
           }
           action={[
             <Button
