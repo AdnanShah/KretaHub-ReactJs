@@ -5,7 +5,7 @@
   <a href="https://material-ui.com/" rel="noopener" target="_blank"><img width="200" src="/public/brand.png" alt="Material-UI logo"></a></p>
 </p>
 
-# [React + Material-UI]
+# React + Material-UI + Bootstrap
 
 > ### KretaHub is a shipping web application which controls all the necessary shipping formalities required to ship a product.
 
